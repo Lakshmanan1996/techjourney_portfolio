@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshmanan R - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a74da;
+            --bg-color: #f4f4f4;
+            --text-color: #222;
+            --card-bg: #fff;
+        }
+        [data-theme="dark"] {
+            --bg-color: #1f1f1f;
+            --text-color: #f4f4f4;
+            --card-bg: #2c2c2c;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 { margin: 0; font-size: 2.5em; }
+        nav { margin-top: 15px; }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h2 { color: var(--primary-color); margin-bottom: 20px; text-align: center; }
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .project {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1 1 300px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+        .project a {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: white;
+        }
+        .contact a {
+            display: inline-block;
+            margin: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .theme-toggle {
+            cursor: pointer;
+            padding: 8px 15px;
+            background: white;
+            color: var(--primary-color);
+            border-radius: 5px;
+            border: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        @media(max-width: 768px) {
+            .projects { flex-direction: column; }
+        }
+        form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: auto; }
+        input, textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        button.submit-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px;
+            border: none;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <header>
+        <h1>Lakshmanan R</h1>
+        <p>IMS Engineer | Networking & Cloud Engineer</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light</button>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm Lakshmanan,
+Highly skilled System Engineer with 7+ years of experience managing large-scale infrastructure in both
+on-premises and cloud environments (AWS).
+ Specialized in MECM/SCCM administra􀆟on, Windows Server environments, and DevOps tools including
+Docker, Jenkins, and Git.
+ Proven ability to lead infrastructure op􀆟miza􀆟on projects, automate deployments using PowerShell, and
+maintain high compliance across global IT assets.
+ Holds mul􀆟ple industry cer􀆟fica􀆟ons including CCNA, CCNP, and MCSA.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Portfolio Website</h3>
+                <p>Created a personal portfolio website using HTML, CSS, and JavaScript with responsive design.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project">
+                <h3>Network Monitoring Dashboard</h3>
+                <p>Developed a dashboard for monitoring Datto and VMware systems with alert notifications.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project">
+                <h3>Kaseya Automation Script</h3>
+                <p>Automated routine tasks using Kaseya scripting to improve IT service efficiency.</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <ul>
+            <li>IMS Engineer at Bangalore | Datto Networking & Kaseya VSA (Current)</li>
+            <li>Senior System Engineer</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form id="contactForm" onsubmit="return submitForm()">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+            <button class="submit-btn" type="submit">Send Message</button>
+        </form>
+        <div class="contact">
+            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Lakshmanan R | All rights reserved</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            body.dataset.theme = body.dataset.theme === "light" ? "dark" : "light";
+        }
+
+        function submitForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            if(name && email && message) {
+                alert("Thank you, " + name + "! Your message has been sent.");
+                document.getElementById("contactForm").reset();
+            }
+            return false; // prevent page reload
+        }
+    </script>
+
+</body>
+</html>
