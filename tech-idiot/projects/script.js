@@ -87,7 +87,7 @@ function showProjects(projects) {
         itemSelector: '.grid-item',
         layoutMode: 'fitRows',
         masonry: {
-            columnWidth: 200
+            columnWidth: 2000
         }
     });
 
@@ -134,4 +134,5 @@ document.onkeydown = function (e) {
     if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
         return false;
     }
+
 }
