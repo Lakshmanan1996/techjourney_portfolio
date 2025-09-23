@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="Your Name — Cloud/DevOps & Networking Engineer. Portfolio / Resume.">
+</head>
+<body>
+  <!-- NAV -->
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="brand" href="index.html">Your<span class="accent">Name</span></a>
+      <button id="menuToggle" class="menu-toggle" aria-label="Open navigation">☰</button>
+      <nav id="siteNav" class="nav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero" id="hero">
+      <!-- animated floating shapes layer -->
+      <div class="float-layer" aria-hidden="true">
+        <div class="floating shape s1"></div>
+        <div class="floating shape s2"></div>
+        <div class="floating shape s3"></div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-left" data-tilt>
+          <h1 class="title">Hi, I’m <span class="accent">Your Name</span></h1>
+          <p class="lead">Cloud & DevOps Engineer — Systems, networking, automation. I build resilient infra and clean pipelines.</p>
+          <div class="hero-cta">
+            <a class="btn" href="resume.html">View Resume</a>
+            <a class="btn ghost" href="projects.html">My Projects</a>
+          </div>
+        </div>
+
+        <div class="hero-right" data-tilt>
+          <!-- card with project's preview or profile image -->
+          <div class="profile-card">
+            <img src="images/profile-placeholder.jpg" alt="Your Name" class="profile-img">
+            <div class="profile-info">
+              <h3>Your Name</h3>
+              <p>Cloud • DevOps • Networking</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- subtle parallax background (replace images/bg-hero.jpg) -->
+      <div class="hero-bg" style="background-image:url('images/bg-hero.jpg')" aria-hidden="true"></div>
+    </section>
+
+    <!-- Quick links / highlights -->
+    <section class="highlights container">
+      <div class="card small" data-tilt>
+        <h4>Experience</h4>
+        <p>8+ years in IT, MSPs, Datto, Kaseya, VMware.</p>
+      </div>
+      <div class="card small" data-tilt>
+        <h4>Skills</h4>
+        <p>Linux, Ansible, Terraform, Docker, Networking.</p>
+      </div>
+      <div class="card small" data-tilt>
+        <h4>Contact</h4>
+        <p><a href="contact.html">Reach out →</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Your Name — <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> • <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
