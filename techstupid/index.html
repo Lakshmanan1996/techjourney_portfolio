@@ -1,140 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LAKSHMANAN R — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lakshmanan R Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+    html { scroll-behavior:smooth; }
+    body { background:#0f0f0f; color:#fff; }
+    nav { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.8); display:flex; justify-content:center; z-index:1000; }
+    nav ul { display:flex; list-style:none; }
+    nav ul li { margin:0 15px; }
+    nav ul li a { color:#fff; text-decoration:none; padding:15px 0; display:block; font-weight:600; }
+    nav ul li a:hover { color:#00ffff; }
+    section { min-height:100vh; padding:80px 20px 40px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; position:relative; z-index:1; }
+    h1,h2,h3 { margin-bottom:20px; }
+    .typing-text { color:#00ffff; border-right:2px solid #00ffff; padding-right:5px; }
+    .resume-btn { background:#00ffff; color:#000; padding:10px 20px; border:none; cursor:pointer; border-radius:5px; text-decoration:none; font-weight:600; }
+    .project-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; width:100%; max-width:1000px; margin-top:20px; }
+    .project-card { background:rgba(255,255,255,0.05); padding:20px; border-radius:10px; }
+    input,textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:none; }
+    button { background:#00ffff; color:#000; padding:10px 20px; border:none; cursor:pointer; border-radius:5px; }
+    footer { text-align:center; padding:20px; background:#111; }
+    #particles-js { position:fixed; width:100%; height:100%; top:0; left:0; z-index:0; }
+    .social-links a { color:#00ffff; margin:0 10px; text-decoration:none; font-weight:600; }
+  </style>
 </head>
 <body>
 
-<div id="particles-js" class="particles-wrap"></div>
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
 
-<header class="site-header">
-  <div class="container nav-row">
-    <a class="brand" href="#home">LAKSHMANAN<span class="accent"> R</span></a>
-    <nav class="nav">
-      <ul>
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-<!-- Home Section -->
-<section id="home" class="hero">
-  <div class="container hero-grid">
-    <div class="hero-left">
-      <h1>Hi, I’m <span class="accent">LAKSHMANAN R</span></h1>
-      <p class="lead">Infrastructure Management Engineer — 7+ years experience managing large-scale infrastructure, automation, patching, and networking.</p>
-      <div class="hero-cta">
-        <a class="btn" href="#resume">View Resume</a>
-        <a class="btn ghost" href="#projects">My Projects</a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="profile-card">
-        <img src="images/profile.jpg" alt="LAKSHMANAN R" class="profile-img">
-        <div class="profile-info">
-          <h3>LAKSHMANAN R</h3>
-          <p>Infrastructure Management Engineer</p>
-          <p class="muted">Bangalore, Karnataka, India</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="about-grid container">
-  <div class="about-left">
-    <img src="images/profile.jpg" alt="LAKSHMANAN R" class="about-photo">
-  </div>
-  <div class="about-right">
-    <h2>About Me</h2>
-    <p>Highly skilled System Engineer with 7+ years of experience managing large-scale infrastructure in on-premises and cloud environments. Specialized in MECM/SCCM, Windows Server, and DevOps tools including Docker, Jenkins, Git.</p>
-    <h3>Profile Overview</h3>
-    <ul class="facts">
-      <li>Experienced in Autotask, ServiceNow, Kaseya VSA, Datto RMM.</li>
-      <li>Automation: PowerShell scripts for system checks and deployments.</li>
-      <li>Networking: VLANs, DHCP, DNS, VPN, Cisco routing basics.</li>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-  </div>
-</section>
+  </nav>
 
-<!-- Resume Section -->
-<section id="resume" class="resume-section container">
-  <h2>Work Experience</h2>
-  <div class="timeline">
-    <article class="timeline-item">
-      <time>Jan 2023 — Present</time>
-      <h3>Senior System Engineer — Kaseya Software Pvt. Ltd.</h3>
-      <p>Administering and maintaining Windows and VMware OS environments, alert monitoring, and patch management.</p>
-    </article>
-    <article class="timeline-item">
-      <time>Mar 2021 — Jan 2023</time>
-      <h3>Senior System Engineer — Lam Research</h3>
-      <p>Managed Windows Server and Desktop OS, SCCM/MECM automation, VMware, and backup tools.</p>
-    </article>
-  </div>
-  <h2>Skills</h2>
-  <div class="skills-grid">
-    <div class="skill"><h4>OS</h4><p>Windows, Linux</p></div>
-    <div class="skill"><h4>Scripting</h4><p>PowerShell</p></div>
-    <div class="skill"><h4>Tools</h4><p>MECM/SCCM, Kaseya, Datto RMM</p></div>
-    <div class="skill"><h4>Networking & Cloud</h4><p>CCNA/CCNP basics, AWS, Azure</p></div>
-  </div>
-  <p class="download-resume"><a class="btn" href="resume.pdf" target="_blank">Download PDF</a></p>
-</section>
+  <!-- Home Section -->
+  <section id="home">
+    <h1>Hello, I'm Lakshmanan R</h1>
+    <h2>I'm a <span class="typing-text"></span></h2>
+  </section>
 
-<!-- Projects Section -->
-<section id="projects" class="projects-section container">
-  <h2>Selected Projects</h2>
-  <div class="projects-grid">
-    <div class="project-card">
-      <img src="images/project1.jpg" alt="Project 1">
-      <h3>Automated Patch Pipeline</h3>
-      <p>Automated OS patching using Kaseya, PowerShell, MECM/SCCM.</p>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="profile.jpg" alt="Profile" style="width:150px;border-radius:50%;margin-bottom:20px;">
+    <p>Experienced IT professional with expertise in Datto Networking, Windows, VMware OS management, and cloud solutions. Passionate about building impactful technology solutions.</p>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Datto Networking & IT Support</h3>
+        <p>Worked on Datto Networking devices, monitoring alerts, patching Windows and VMware OS using tools like Autotask, ServiceNow, Kaseya VSA, and Datto RMM.</p>
+        <p><strong>Duration:</strong> Recent years</p>
+      </div>
+      <div class="project-card">
+        <h3>Cloud & Server Management</h3>
+        <p>Managed server deployments, cloud solutions, and virtual environments for business clients, ensuring uptime and security.</p>
+        <p><strong>Duration:</strong> Ongoing</p>
+      </div>
+      <div class="project-card">
+        <h3>IT Project Implementation</h3>
+        <p>Implemented IT projects including networking setups, system monitoring, and workflow automation to improve operational efficiency.</p>
+        <p><strong>Duration:</strong> Recent years</p>
+      </div>
     </div>
-    <div class="project-card">
-      <img src="images/project2.jpg" alt="Project 2">
-      <h3>SCCM / MECM Deployment</h3>
-      <p>Server and OS management with automated deployments.</p>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume">
+    <h2>Resume</h2>
+    <a href="resume.pdf" class="resume-btn" download>Download Resume</a>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Project 1</h3>
+        <p>Project description goes here.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project 2</h3>
+        <p>Project description goes here.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project 3</h3>
+        <p>Project description goes here.</p>
+      </div>
     </div>
-    <div class="project-card">
-      <img src="images/project3.jpg" alt="Project 3">
-      <h3>Network Device Migration</h3>
-      <p>Cisco router & switch migrations, VPN troubleshooting, ACLs/VTP.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="social-links" style="margin-top:20px;">
+      <a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank">LinkedIn</a>
+      <a href="https://twitter.com/YOUR_TWITTER" target="_blank">Twitter</a>
+      <a href="mailto:YOUR_EMAIL@gmail.com">Gmail</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Contact Section -->
-<section id="contact" class="contact-section container">
-  <h2>Contact Me</h2>
-  <p>Email: <a href="mailto:rlakshmana50@gmail.com">rlakshmana50@gmail.com</a> • Phone: +91 9597981490</p>
-  <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-    <label><span>Name</span><input type="text" name="name" required></label>
-    <label><span>Email</span><input type="email" name="_replyto" required></label>
-    <label><span>Message</span><textarea name="message" rows="6" required></textarea></label>
-    <button type="submit" class="btn">Send Message</button>
-  </form>
-</section>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Lakshmanan R. All Rights Reserved.
+    <div class="social-links" style="margin-top:10px;">
+      <a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank">LinkedIn</a>
+      <a href="https://twitter.com/YOUR_TWITTER" target="_blank">Twitter</a>
+      <a href="mailto:YOUR_EMAIL@gmail.com">Gmail</a>
+    </div>
+  </footer>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>© <span id="year"></span> LAKSHMANAN R • <a href="#">GitHub</a> • <a href="#">LinkedIn</a></p>
-  </div>
-</footer>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    // Typing Effect
+    const texts = ["IT Professional", "Datto Networking Expert", "Cloud Enthusiast"];
+    let count = 0, index = 0, currentText = '', letter = '';
+    (function type(){
+      if(count === texts.length) count = 0;
+      currentText = texts[count];
+      letter = currentText.slice(0, ++index);
+      document.querySelector(".typing-text").textContent = letter;
+      if(letter.length === currentText.length){
+        count++; index=0; setTimeout(type,1500);
+      } else setTimeout(type,150);
+    }());
 
-<script src="particles.min.js"></script>
-<script src="main.js"></script>
+    // Particles.js Config
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#00ffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#00ffff", "opacity": 0.4, "width": 1 },
+        "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" }
+        },
+        "modes": {
+          "repulse": { "distance": 100 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
 </body>
 </html>
