@@ -5,32 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lakshmanan R Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
-    html { scroll-behavior:smooth; }
-    body { background:#0f0f0f; color:#fff; }
-    nav { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.8); display:flex; justify-content:center; z-index:1000; }
-    nav ul { display:flex; list-style:none; }
-    nav ul li { margin:0 15px; }
-    nav ul li a { color:#fff; text-decoration:none; padding:15px 0; display:block; font-weight:600; }
-    nav ul li a:hover { color:#00ffff; }
-    section { min-height:100vh; padding:80px 20px 40px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; position:relative; z-index:1; }
-    h1,h2,h3 { margin-bottom:20px; }
-    .typing-text { color:#00ffff; border-right:2px solid #00ffff; padding-right:5px; }
-    .resume-btn { background:#00ffff; color:#000; padding:10px 20px; border:none; cursor:pointer; border-radius:5px; text-decoration:none; font-weight:600; }
-    .project-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; width:100%; max-width:1000px; margin-top:20px; }
-    .project-card { background:rgba(255,255,255,0.05); padding:20px; border-radius:10px; }
-    input,textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:none; }
-    button { background:#00ffff; color:#000; padding:10px 20px; border:none; cursor:pointer; border-radius:5px; }
-    footer { text-align:center; padding:20px; background:#111; }
-    #particles-js { position:fixed; width:100%; height:100%; top:0; left:0; z-index:0; }
-    .social-links a { color:#00ffff; margin:0 10px; text-decoration:none; font-weight:600; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Particles Background -->
-  <div id="particles-js"></div>
+  <!-- Home Section -->
+  <section id="home">
+    <div id="home-particles"></div>
+    <h1>Hello, I'm Lakshmanan R</h1>
+    <h2>I'm a <span class="typing-text"></span></h2>
+  </section>
 
   <!-- Navigation -->
   <nav>
@@ -38,22 +22,17 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#resume">Resume</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Home Section -->
-  <section id="home">
-    <h1>Hello, I'm Lakshmanan R</h1>
-    <h2>I'm a <span class="typing-text"></span></h2>
-  </section>
-
   <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
-    <img src="profile.jpg" alt="Profile" style="width:150px;border-radius:50%;margin-bottom:20px;">
+    <img src="images/profile.jpg" alt="Profile" class="profile-img">
     <p>Experienced IT professional with expertise in Datto Networking, Windows, VMware OS management, and cloud solutions. Passionate about building impactful technology solutions.</p>
   </section>
 
@@ -79,6 +58,25 @@
     </div>
   </section>
 
+  <!-- Education Section -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="images/school.jpg" alt="School" class="project-img">
+        <h3>Your School Name</h3>
+        <p>Completed High School / Secondary Education.</p>
+        <p><strong>Year:</strong> 2012-2014</p>
+      </div>
+      <div class="project-card">
+        <img src="images/college.jpg" alt="College" class="project-img">
+        <h3>Your College Name</h3>
+        <p>Bachelor’s Degree in [Your Field]</p>
+        <p><strong>Year:</strong> 2014-2018</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Resume Section -->
   <section id="resume">
     <h2>Resume</h2>
@@ -90,14 +88,17 @@
     <h2>Projects</h2>
     <div class="project-grid">
       <div class="project-card">
+        <img src="images/project1.jpg" alt="Project 1" class="project-img">
         <h3>Project 1</h3>
         <p>Project description goes here.</p>
       </div>
       <div class="project-card">
+        <img src="images/project2.jpg" alt="Project 2" class="project-img">
         <h3>Project 2</h3>
         <p>Project description goes here.</p>
       </div>
       <div class="project-card">
+        <img src="images/project3.jpg" alt="Project 3" class="project-img">
         <h3>Project 3</h3>
         <p>Project description goes here.</p>
       </div>
@@ -132,45 +133,6 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    // Typing Effect
-    const texts = ["IT Professional", "Datto Networking Expert", "Cloud Enthusiast"];
-    let count = 0, index = 0, currentText = '', letter = '';
-    (function type(){
-      if(count === texts.length) count = 0;
-      currentText = texts[count];
-      letter = currentText.slice(0, ++index);
-      document.querySelector(".typing-text").textContent = letter;
-      if(letter.length === currentText.length){
-        count++; index=0; setTimeout(type,1500);
-      } else setTimeout(type,150);
-    }());
-
-    // Particles.js Config
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-        "color": { "value": "#00ffff" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.5 },
-        "size": { "value": 3, "random": true },
-        "line_linked": { "enable": true, "distance": 150, "color": "#00ffff", "opacity": 0.4, "width": 1 },
-        "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": { "enable": true, "mode": "repulse" },
-          "onclick": { "enable": true, "mode": "push" }
-        },
-        "modes": {
-          "repulse": { "distance": 100 },
-          "push": { "particles_nb": 4 }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
