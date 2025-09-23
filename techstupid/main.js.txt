@@ -1,5 +1,0 @@
-// Particle.js
-particlesJS.load('particles-js','particles.json', function(){ console.log('Particles loaded'); });
-
-// Update copyright year
-document.getElementById('year').textContent = new Date().getFullYear();
