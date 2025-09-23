@@ -29,26 +29,51 @@
   <main>
     <section class="container contact-section">
       <h2>Get in touch</h2>
-      <p class="muted">Email: <a href="mailto:rlakshmana50@gmail.com">rlakshmana50@gmail.com</a> • Phone: +91 9597981490</p>
+      <p class="muted">Email: <a href="mailto:rlakshmana50@gmail.com">rlakshmana50@gmail.com</a> • 
+      Phone: +91 9597981490</p>
 
-      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <label>
-          <span>Name</span>
-          <input type="text" name="name" required>
-        </label>
+      </section>
+<!-- experience section ends -->
 
-        <label>
-          <span>Email</span>
-          <input type="email" name="_replyto" required>
-        </label>
+<!-- contact section starts -->
+<section class="contact" id="contact">
+  
+  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
 
-        <label>
-          <span>Message</span>
-          <textarea name="message" rows="6" required></textarea>
-        </label>
+  <div class="container">
+    <div class="content">
+      <div class="image-box">
+        <img draggable="false" src="./assets/images/contact1.png" alt="">
+      </div>
+    <form id="contact-form">
+      
+      <div class="form-group">
+        <div class="field">
+          <input type="text" name="yourname" id="yourname" placeholder="Name" required>
+          <i class='fas fa-user'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="emailid" placeholder="Email" id="emailid" required>
+          <i class='fas fa-envelope'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="phone" id="phone" placeholder="Phone">
+          <i class='fas fa-phone-alt'></i>
+        </div>
+        <div class="message">
+        <textarea placeholder="Message" name="message" id="message" required></textarea>
+        <i class="fas fa-comment-dots"></i>
+        </div>
+        </div>
+      <div class="button-area">
+        <button type="submit">
+          Submit <i class="fa fa-paper-plane"></i></button>
+      </div>
+    </form>
+  </div>
+  </div>
+</section>
 
-        <button type="submit" class="btn">Send Message</button>
-      </form>
 
       <div class="socials" style="margin-top:18px;">
         <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> • <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
