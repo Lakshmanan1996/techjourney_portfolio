@@ -1,0 +1,44 @@
+// main.js
+document.addEventListener('DOMContentLoaded', function() {
+  // set year on footers
+  const years = document.querySelectorAll('[id^="year"]');
+  years.forEach(el => el.textContent = new Date().getFullYear());
+
+  // mobile nav toggles (works for each page)
+  const toggles = document.querySelectorAll('.menu-toggle');
+  toggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const nav = btn.nextElementSibling;
+      if (nav) nav.classList.toggle('show');
+    });
+  });
+
+  // initialize VanillaTilt for elements with data-tilt
+  if (window.VanillaTilt) {
+    VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
+      max: 12,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.12,
+      scale: 1.02
+    });
+  }
+
+  // subtle mouse parallax for hero background and shapes
+  const hero = document.getElementById('hero');
+  if (hero) {
+    const moveables = hero.querySelectorAll('.hero-bg, .floating');
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      moveables.forEach((el, idx) => {
+        const depth = (idx + 1) * 6;
+        el.style.transform = `translate3d(${ -x * depth }px, ${ -y * depth }px, 0)`;
+      });
+    });
+    hero.addEventListener('mouseleave', () => {
+      moveables.forEach(el => el.style.transform = '');
+    });
+  }
+});

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Your Name</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="brand" href="index.html">Your<span class="accent">Name</span></a>
+      <button id="menuToggle4" class="menu-toggle" aria-label="Open navigation">☰</button>
+      <nav id="siteNav4" class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container projects-section">
+      <h2>Selected Projects</h2>
+      <p class="muted">Hover/tap cards to see tilt + click for details.</p>
+
+      <div class="projects-grid">
+        <!-- Project card 1 -->
+        <a class="project-card" href="#" data-tilt data-tilt-max="12" aria-label="Project 1">
+          <div class="project-image" style="background-image:url('images/project1.jpg')"></div>
+          <div class="project-body">
+            <h3>Automated Patch Pipeline</h3>
+            <p>Automated OS patching across customer fleets using Kaseya & scripts.</p>
+            <span class="tag">Ansible • Shell</span>
+          </div>
+        </a>
+
+        <!-- Project card 2 -->
+        <a class="project-card" href="#" data-tilt data-tilt-max="12" aria-label="Project 2">
+          <div class="project-image" style="background-image:url('images/project2.jpg')"></div>
+          <div class="project-body">
+            <h3>Datto Network Deployment</h3>
+            <p>Design & deploy WiFi & VLAN segmentation in a multi-site environment.</p>
+            <span class="tag">Datto • VLAN</span>
+          </div>
+        </a>
+
+        <!-- add more cards as needed -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year4"></span> Your Name</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

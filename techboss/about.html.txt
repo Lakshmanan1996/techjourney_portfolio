@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Your Name</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="brand" href="index.html">Your<span class="accent">Name</span></a>
+      <button id="menuToggle2" class="menu-toggle" aria-label="Open navigation">☰</button>
+      <nav id="siteNav2" class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container about-grid">
+      <div class="about-left" data-tilt>
+        <img src="images/profile-placeholder.jpg" alt="Your Name" class="about-photo">
+      </div>
+      <div class="about-right">
+        <h2>About Me</h2>
+        <p>I’m a systems & networking engineer focused on automation, monitoring, and scalable infrastructure. I've worked extensively with MSP tooling, Datto Networking, Kaseya VSA, Linux, and virtualization platforms.</p>
+
+        <h3>Education</h3>
+        <p>Bachelor of Engineering — Your University (Year)</p>
+
+        <h3>Quick facts</h3>
+        <ul class="facts">
+          <li>Location: Bangalore / Open to remote</li>
+          <li>Languages: English, Tamil</li>
+          <li>Tools: Ansible, Terraform, Docker, VMware</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year2"></span> Your Name</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
