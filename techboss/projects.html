@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — LAKSHMANAN R</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="particles-js" class="particles-wrap"></div>
+
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="brand" href="index.html">LAKSHMANAN<span class="accent"> R</span></a>
+      <button id="menuToggle4" class="menu-toggle" aria-label="Open navigation">☰</button>
+      <nav id="siteNav4" class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container projects-section">
+      <h2>Selected Projects</h2>
+      <p class="muted">Hover/tap cards to see tilt + click for details.</p>
+
+      <div class="projects-grid">
+        <a class="project-card" href="#" data-tilt>
+          <div class="project-image" style="background-image:url('images/project1.jpg')"></div>
+          <div class="project-body">
+            <h3>Automated Patch Pipeline</h3>
+            <p>Automated OS patching across customer fleets using Kaseya, PowerShell scripts and scheduling via MECM/SCCM.</p>
+            <span class="tag">Kaseya • PowerShell • SCCM</span>
+          </div>
+        </a>
+
+        <a class="project-card" href="#" data-tilt>
+          <div class="project-image" style="background-image:url('images/project2.jpg')"></div>
+          <div class="project-body">
+            <h3>SCCM / MECM Deployment</h3>
+            <p>Server and OS management with SCCM 2012 and MECM, automated application deployments and patch management.</p>
+            <span class="tag">SCCM • MECM • Automation</span>
+          </div>
+        </a>
+
+        <a class="project-card" href="#" data-tilt>
+          <div class="project-image" style="background-image:url('images/project3.jpg')"></div>
+          <div class="project-body">
+            <h3>Network Device Migration</h3>
+            <p>Cisco router & switch migrations, VPN troubleshooting, and implementing access controls (ACLs/VTP).</p>
+            <span class="tag">Cisco • Networking</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year4"></span> LAKSHMANAN R</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
