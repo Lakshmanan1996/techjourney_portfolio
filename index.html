@@ -126,4 +126,501 @@
         .contact-info {
             font-size: 0.9em;
             margin-top: 15px;
-            color: var
+            color: var(--text-color);
+        }
+        .contact-info span {
+            margin-right: 15px;
+            white-space: nowrap; /* Prevent breaking on smaller screens */
+        }
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+        .profile-photo {
+            width: 120px;
+            height: 150px;
+            object-fit: cover;
+            margin-left: 20px;
+            border: 3px solid var(--primary-color);
+            border-radius: 50%; /* Make it round */
+            box-shadow: 0 4px 10px var(--shadow-color);
+            transition: transform 0.3s ease-in-out;
+        }
+        .profile-photo:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+        
+        h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.7em;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            text-align: center;
+            position: relative;
+        }
+        h2::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 5px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-content p {
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 15px;
+        }
+
+        /* --- Work Experience & Education --- */
+        .job-item, .education-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--primary-color);
+            background-color: #fcfcfc;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .job-item:hover, .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+        }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        .job-title {
+            font-weight: 700;
+            color: var(--text-color);
+            font-size: 1.15em;
+        }
+        .company-name {
+            font-style: italic;
+            color: var(--secondary-text-color);
+            font-size: 0.95em;
+            margin-top: 3px;
+        }
+        .dates {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 0.95em;
+            white-space: nowrap;
+        }
+        ul {
+            list-style: disc;
+            padding-left: 25px;
+            margin-top: 10px;
+        }
+        li {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        
+        /* --- Skills Table --- */
+        .skills-table {
+            width: 100%;
+            border-collapse: separate; /* For rounded corners */
+            border-spacing: 0;
+            margin-top: 15px;
+            border-radius: 8px;
+            overflow: hidden; /* Ensures rounded corners are applied */
+        }
+        .skills-table th, .skills-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.98em;
+        }
+        .skills-table th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            width: 25%;
+        }
+        .skills-table tr:nth-child(even) {
+            background-color: var(--highlight-bg); /* Zebra striping */
+        }
+        .skills-table tr:last-child td {
+            border-bottom: none;
+        }
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap; /* Allow skills to wrap */
+        }
+        .skill-item span {
+            display: inline-flex;
+            align-items: center;
+            background-color: #f0f8ff; /* Lightest blue for individual skills */
+            border: 1px solid #cce0f0;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.9em;
+            white-space: nowrap;
+            margin: 3px 0; /* Space between skill tags */
+        }
+        .skill-item span i, .skill-item span img {
+            margin-right: 5px;
+            height: 18px; /* Standardize icon/logo height */
+            width: 18px;
+            object-fit: contain;
+        }
+        
+        /* --- Section Fade-in Animation --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Media Queries --- */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 110px; /* More space for wrapped nav */
+            }
+            .resume-container {
+                padding: 20px;
+                margin: 10px auto;
+            }
+            .navbar-list {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .navbar-list li a {
+                padding: 10px 15px;
+                font-size: 0.85em;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: center;
+            }
+            .header-content {
+                width: 100%;
+            }
+            .name, .role {
+                text-align: center;
+                width: 100%;
+            }
+            .contact-info {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+            .contact-info span, .contact-info p {
+                margin: 0;
+            }
+            .profile-photo {
+                margin: 20px auto 0;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .dates {
+                float: none;
+                margin-top: 5px;
+            }
+            .skills-table th, .skills-table td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+            .skill-item span {
+                padding: 4px 8px;
+                font-size: 0.8em;
+                margin: 2px 0;
+            }
+        }
+        @media (max-width: 480px) {
+            .name {
+                font-size: 2em;
+            }
+            .role {
+                font-size: 1em;
+            }
+            .navbar-list li a {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="ghibli-background"></div>
+    <div class="ghibli-overlay"></div>
+
+    <nav class="navbar-sticky">
+        <ul class="navbar-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education-certs">Education & Certs</a></li>
+            <li><a href="#contact-info">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="resume-container">
+        
+        <section id="home" class="fade-in">
+            <div class="header">
+                <div class="header-content">
+                    <h1 class="name">LAKSHMANAN R</h1>
+                    <p class="role">Infrastructure Management Engineer</p>
+                    <div class="contact-info">
+                        <span><i class="fas fa-phone"></i> +91 9597981490</span>
+                        <span><i class="fas fa-envelope"></i> rlakshmana50@gmail.com</span>
+                        <p><i class="fas fa-map-marker-alt"></i> No:57, Manjunatha Layout, Hosa Road, Electronic city, Bangalore -560100, Karnataka.</p>
+                    </div>
+                </div>
+                <img src="placeholder.jpg" alt="Profile Photo" class="profile-photo">
+            </div>
+        </section>
+
+        <section id="about" class="fade-in">
+            <h2>About Me</h2>
+            <div class="section-content">
+                <p>
+                    Highly skilled System Engineer with **7+ years of experience** managing large-scale infrastructure in both on-premises and **cloud environments (AWS)**. Specialized in **MECM/SCCM administration**, **Windows Server** environments, and **DevOps** tools including **Docker, Jenkins, and Git**. Proven ability to lead infrastructure optimization projects, automate deployments using **PowerShell**, and maintain high compliance across global IT assets. Holds multiple industry certifications including **CCNA, CCNP, and MCSA**.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="fade-in">
+            <h2>Technical Skills</h2>
+            <div class="section-content">
+                <table class="skills-table">
+                    <tr>
+                        <th><i class="fas fa-desktop"></i> Operating System</th>
+                        <td>
+                            <div class="skill-item">
+                                <span><i class="fab fa-windows"></i> Windows</span>
+                                <span><i class="fab fa-linux"></i> Linux</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><i class="fas fa-code"></i> Scripting Language</th>
+                        <td>
+                            <div class="skill-item">
+                                <span><i class="fas fa-file-code"></i> PowerShell</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><i class="fas fa-laptop-code"></i> Programming</th>
+                        <td>
+                            <div class="skill-item">
+                                <span><img src="https://www.vectorlogo.zone/logos/java/java-icon.svg" alt="Java Logo"> Java</span>
+                                <span><img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" alt="Python Logo"> Python</span>
+                                <span><img src="https://www.vectorlogo.zone/logos/cplusplus/cplusplus-icon.svg" alt="C++ Logo"> C++</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><i class="fas fa-database"></i> Database</th>
+                        <td>
+                            <div class="skill-item">
+                                <span><i class="fas fa-database"></i> SQL</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><i class="fas fa-cloud"></i> Cloud & DevOps</th>
+                        <td>
+                            <div class="skill-item">
+                                <span><i class="fab fa-aws"></i> AWS</span>
+                                <span><i class="fab fa-azure"></i> Azure</span>
+                                <span><i class="fas fa-cogs"></i> DevOps</span>
+                                <span><i class="fas fa-shield-alt"></i> DevSecOps</span>
+                                <span><img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" alt="Docker Logo"> Docker</span>
+                                <span><img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="Jenkins Logo"> Jenkins</span>
+                                <span><i class="fab fa-git-alt"></i> Git</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><i class="fas fa-network-wired"></i> Networking</th>
+                        <td>
+                            <div class="skill-item">
+                                <span><i class="fas fa-network-wired"></i> CCNA</span>
+                                <span><i class="fas fa-network-wired"></i> CCNP</span>
+                            </div>
+                        </td>
+                    </tr>
+                     <tr>
+                        <th><i class="fas fa-server"></i> Server Management</th>
+                        <td>
+                            <div class="skill-item">
+                                <span><i class="fas fa-cogs"></i> MECM/SCCM</span>
+                                <span><i class="fab fa-vmware"></i> VMware</span>
+                                <span><i class="fas fa-tools"></i> Kaseya VSA</span>
+                                <span><i class="fas fa-tools"></i> Datto RMM</span>
+                            </div>
+                        </td>
+                    </tr>
+                     <tr>
+                        <th><i class="fas fa-ticket-alt"></i> Ticketing/Monitoring</th>
+                        <td>
+                            <div class="skill-item">
+                                <span><i class="fas fa-headset"></i> Autotask</span>
+                                <span><img src="https://www.vectorlogo.zone/logos/servicenow/servicenow-icon.svg" alt="ServiceNow Logo"> ServiceNow</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        
+        <section id="experience" class="fade-in">
+            <h2>Work Experience</h2>
+            <div class="section-content">
+                
+                <div class="job-item">
+                    <div class="job-header">
+                        <span class="job-title">Senior System Engineer - Kaseya Software Pvt.Ltd., Bangalore.</span>
+                        <span class="dates">Jan 2023-Till now</span>
+                    </div>
+                    <ul>
+                        <li>Administered and maintained **Windows and VMware OS environments**, including system alert monitoring and OS-level patch management.</li>
+                        <li>Proficient in using tools such as **Autotask, ServiceNow, Kaseya VSA, and Datto RMM** to keep systems up to date and secure.</li>
+                        <li>Proactively recognized and addressed issues through alert monitoring and timely patch deployment to improve system stability and security.</li>
+                    </ul>
+                </div>
+                
+                <div class="job-item">
+                    <div class="job-header">
+                        <span class="job-title">Senior System Engineer - Eliga Innovative Services Private Limited (Client: Lam Research Pvt.Ltd.)</span>
+                        <span class="dates">March 2021-Jan 2023</span>
+                    </div>
+                    <ul>
+                        <li>Managed servers using **SCCM 2012** and **MECM** for installation and configuration.</li>
+                        <li>Developed and implemented **PowerShell scripts** for automated system checks, software installations, and updates.</li>
+                        <li>Administered file servers, roaming profiles, terminal servers, HP servers, and **VMware** environments.</li>
+                        <li>Managed **Group Policy settings**, Organizational Unit (OU) structures, and utilized backup tools like Ghost and **NetBackup**.</li>
+                    </ul>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-header">
+                        <span class="job-title">L2 System Engineer - Magna Infotech, Client: WIPRO Coimbatore.</span>
+                        <span class="dates">June 2018-Sep 2020</span>
+                    </div>
+                    <ul>
+                        <li>Set up and troubleshooted issues within **Active Directory**, including password resets, domain joins, and user/group management.</li>
+                        <li>Configured and managed network routes such as Static, **EIGRP, OSPF, and BGP**.</li>
+                        <li>Implemented network security measures including **VPN, Access Control Lists (ACL), and VLAN Trunking Protocol (VTP)**.</li>
+                        <li>Deployed and installed Windows updates using **SCCM** and provided support for client issues via a ticketing system.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education-certs" class="fade-in">
+            <h2>Education & Certifications</h2>
+            <div class="section-content">
+                
+                <div class="education-item">
+                    <p class="job-title">Bachelor of Engineering (Information Technology)</p>
+                    <p class="company-name">Chettinad College of Engineering & Technology - Karur, Tamil Nadu.</p>
+                    <span class="dates">Aug 2014- May 2018</span>
+                </div>
+
+                <div class="education-item">
+                    <p class="job-title">Certification in DevSecOps</p>
+                    <p class="company-name">Greens Technology - Chennai</p>
+                    <span class="dates">April 2024-July 2024</span>
+                </div>
+                <p style="margin-top: 15px; font-weight: bold;">Additional Industry Certifications: CCNA, CCNP, MCSA</p>
+            </div>
+        </section>
+
+        <section id="contact-info" class="fade-in">
+             <h2>Contact Me</h2>
+            <div class="section-content" style="text-align: center;">
+                <p>Feel free to reach out for collaborations or inquiries!</p>
+                <p style="font-size: 1.1em;">
+                    <i class="fas fa-envelope"></i> <a href="mailto:rlakshmana50@gmail.com" style="color: var(--primary-color); text-decoration: none; font-weight: bold;">rlakshmana50@gmail.com</a>
+                </p>
+                <p style="font-size: 1.1em;">
+                    <i class="fas fa-phone-alt"></i> +91 9597981490
+                </p>
+                <p style="font-size: 0.9em; color: var(--secondary-text-color);">
+                    <i class="fas fa-map-marker-alt"></i> No:57, Manjunatha Layout, Hosa Road, Electronic city, Bangalore -560100, Karnataka.
+                </p>
+            </div>
+        </section>
+
+    </div>
+    
+    <script>
+        // --- SMOOTH SCROLLING JAVASCRIPT ---
+        document.querySelectorAll('.navbar-list a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const offset = targetElement.getBoundingClientRect().top + window.scrollY - 60; // Adjust for fixed navbar
+                    window.scrollTo({
+                        top: offset,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // --- ACTIVE NAVIGATION STATE & SECTION FADE-IN JAVASCRIPT ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.navbar-list a');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Update active nav link
+                    navLinks.forEach(a => {
+                        a.classList.remove('active');
+                        if (a.getAttribute('href').includes(entry.target.id)) {
+                            a.classList.add('active');
+                        }
+                    });
+                } else {
+                    entry.target.classList.remove('visible'); // Optional: fade out when not in view
+                }
+            });
+        }, {
+            rootMargin: '-50% 0px -50% 0px' // Trigger when section is roughly in the middle of the viewport
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Initialize active state for the first section (Home) on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.navbar-list a[href="#home"]').classList.add('active');
+            document.querySelector('#home').classList.add('visible'); // Ensure home is visible
+        });
+    </script>
+</body>
+</html>
