@@ -153,31 +153,7 @@
         color: var(--secondary-color);
     }
     
-  /* --- Profile Image (Circular Style) --- */
-.profile-image {
-    /* Must be equal width and height for a perfect circle */
-    width: 450px; 
-    height: 800px; 
-    
-    /* KEY LINE: Makes the square container a circle */
-    border-radius: 20%; 
-    
-    background-color: var(--secondary-color);
-    box-shadow: 0 0 0 10px rgba(255, 64, 129, 0.3);
-    flex-shrink: 0;
-    transition: transform 0.5s;
-    overflow: hidden; 
-}
-
-.profile-image img {
-    width: 100%;
-    height: 100%;
-    /* 'cover' ensures the image fills the circle neatly (cropping edges if necessary) */
-    object-fit: cover;
-    
-    /* Ensures the image itself is also cropped into a circle */
-    border-radius: 50%; 
-    border: 5px solid var(--text-light); /* Adds the white internal border */
+ 
 }    
     /* --- 7. About Section --- */
     #about .about-content {
