@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+:
+head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lakshmanan R | Infrastructure Management Engineer Portfolio</title>
@@ -52,53 +51,29 @@
     z-index: 1; 
 }
     /* ------------------------------------------- */
-    /* --- 4. Navigation Bar (FINAL Optimized) --- */
-    /* ------------------------------------------- */
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 200%;
-        height: 100px;
-        background-color: var(--dark-bg);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        /* Fixed pixel padding for precise control and better fit */
-        padding: 0 25px; 
-    }
-    .logo {
-        color: var(--primary-color);
-        font-size: 1.5em;
-        font-weight: 600;
-        text-decoration: none;
-    }
-    .nav-links {
-        list-style: none;
-        display: flex;
-        margin: 0;
-        padding: 0;
-    }
-    .nav-links a {
-        color: var(--text-light);
-        text-decoration: none;
-        /* Aggressively reduced padding for links to fit */
-        padding: 0 5px; 
-        height: 60px;
-        display: flex;
-        align-items: center;
-        transition: background-color 0.3s, color 0.3s;
-        /* Reduced font size to save maximum horizontal space */
-        font-size: 0.8em; 
-    }
-    .nav-links a:hover,
-    .nav-links a.active {
-        background-color: var(--primary-color);
-        color: var(--text-dark); 
-        border-bottom: 3px solid var(--secondary-color);
-    }
+   /* --- 4. Navigation Bar (FINAL Adjustment) --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--dark-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* KEY CHANGE: Increased horizontal padding to 30px for more buffer space */
+    padding: 0 30px; 
+}
+
+/* Ensure the links themselves remain tight by keeping this code */
+.nav-links a {
+    /* ... other styles ... */
+    padding: 0 5px; /* Minimal internal spacing */
+    font-size: 0.8em; /* Smallest text size */
+}
 
     /* ------------------------------------------- */
     /* --- 5. Section Styling (General) --- */
