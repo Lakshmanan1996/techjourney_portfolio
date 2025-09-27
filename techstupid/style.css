@@ -40,4 +40,34 @@ body, html {
 }
 .hero-content h1 { font-size: 50px; margin: 0; }
 .hero-content p { font-size: 20px; }
-.hero-image
+.hero-image img { width: 250px; border-radius: 10px; }
+
+/* Sections */
+section { padding: 80px 50px; }
+.section-title { font-size: 36px; margin-bottom: 30px; border-bottom: 2px solid #007BFF; display: inline-block; }
+
+/* Skills */
+.skills-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+.skill-item { width: 150px; text-align: center; }
+.skill-logo { width: 50px; height: 50px; margin-bottom: 10px; }
+.skill-bar { width: 100%; height: 8px; background: #333; border-radius: 5px; overflow: hidden; margin-top: 5px; }
+.skill-fill { height: 100%; background: linear-gradient(90deg, #007BFF, #00d4ff); border-radius: 5px; transition: width 1.5s; }
+
+/* Timeline */
+.timeline { display: flex; flex-direction: column; gap: 40px; }
+.timeline-item h3 { margin: 0; }
+.timeline-item ul { margin: 5px 0 0 20px; }
+
+/* Projects */
+.project-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+.project-item { background: #111; padding: 15px; border-radius: 10px; width: 300px; text-align: center; }
+.project-item img { width: 100%; border-radius: 10px; }
+.project-item .btn { display: inline-block; margin-top: 10px; padding: 8px 15px; background: #007BFF; color: #fff; text-decoration: none; border-radius: 5px; }
+
+/* Contact */
+.contact-section form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: auto; }
+.contact-section input, .contact-section textarea { padding: 10px; border-radius: 5px; border: none; }
+.contact-section button { padding: 10px; background: #007BFF; color: #fff; border: none; cursor: pointer; }
+
+/* Footer */
+.footer { text-align: center; padding: 20px; background: #111; }
