@@ -1,0 +1,8 @@
+{
+  "skills": [
+    {"name": "Linux", "logo": "assets/linux.png", "level": 90},
+    {"name": "Windows", "logo": "assets/windows.png", "level": 95},
+    {"name": "Python", "logo": "assets/python.png", "level": 85},
+    {"name": "AWS", "logo": "assets/aws.png", "level": 80}
+  ]
+}
