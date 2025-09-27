@@ -1,0 +1,162 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html {
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    color: #fff;
+    scroll-behavior: smooth;
+    background: #0d0d0d;
+    overflow-x: hidden;
+}
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+.navbar a {
+    color: #fff;
+    margin-left: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.navbar a:hover {
+    color: #00ffff;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0 50px;
+    background: rgba(0,0,0,0.6);
+}
+.hero-content h1 {
+    font-size: 3rem;
+    animation: fadeInDown 1s ease forwards;
+}
+.hero-content p {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    animation: fadeInUp 1s ease forwards;
+}
+.contact-links a {
+    margin-right: 20px;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #fff;
+    padding: 8px 15px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+.contact-links a:hover {
+    background: #00ffff;
+    color: #000;
+}
+.hero-image img {
+    max-width: 300px;
+    border-radius: 50%;
+    border: 4px solid #00ffff;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Skills Section */
+.skills-section {
+    padding: 80px 50px;
+    background: linear-gradient(120deg,#0d0d0d,#111);
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+.skill {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.skill:hover {
+    transform: translateY(-10px);
+}
+.skill img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+.skill h4 {
+    margin-bottom: 10px;
+}
+.skill-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.skill-level {
+    height: 100%;
+    background: #00ffff;
+    width: 0;
+    animation: loadBar 2s forwards;
+}
+
+/* Animations */
+@keyframes float {
+    0%,100% { transform: translateY(0);}
+    50% { transform: translateY(-15px);}
+}
+@keyframes loadBar {
+    to { width: var(--skill-width);}
+}
+@keyframes fadeInDown {
+    from {opacity:0; transform: translateY(-20px);}
+    to {opacity:1; transform: translateY(0);}
+}
+@keyframes fadeInUp {
+    from {opacity:0; transform: translateY(20px);}
+    to {opacity:1; transform: translateY(0);}
+}
+
+/* Footer */
+.footer {
+    padding: 50px;
+    text-align: center;
+    background: #111;
+}
+.footer .social-links a {
+    margin: 0 10px;
+    color: #00ffff;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+.footer .social-links a:hover {
+    color: #fff;
+}
