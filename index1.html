@@ -156,24 +156,29 @@
             font-size: 1.2em;
             color: var(--secondary-color);
         }
-        .profile-image {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background-color: var(--secondary-color);
-            box-shadow: 0 0 0 10px rgba(255, 64, 129, 0.3);
-            flex-shrink: 0;
-            transition: transform 0.5s;
-        }
-        .profile-image:hover {
-            transform: scale(1.05) rotate(3deg);
-        }
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid var(--text-light);
+       .profile-image {
+    width: 350px; /* Extended width */
+    height: 200px; /* Shorter height */
+    border-radius: 10px; /* Slightly rounded corners (optional) */
+    /* REMOVED: border-radius: 50%; */
+    
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 0 10px rgba(255, 64, 129, 0.3);
+    flex-shrink: 0;
+    transition: transform 0.5s;
+    
+    /* NEW: Ensures the image fills the rectangle without stretching/cropping badly */
+    overflow: hidden; 
+}
+
+.profile-image img {
+    /* Ensures the image itself fills the new rectangular space */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the image cover the area without distorting, cropping if needed */
+    border-radius: 10px; /* Matches the container corners */
+    border: none; /* Remove the white border applied for the circular image */
+}
         }
         .btn-primary {
             background-color: var(--secondary-color);
@@ -336,10 +341,9 @@
             <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
                 <div class="home-text">
                     <p class="greeting">Hi There, I'm</p>
-                    <h1 class="name-highlight">LAKSHMANAN R</h1>
+                    <h1 class="name-highlight">LAKSHMANAN</h1>
                     <h2 class="role-title">Infrastructure Management Engineer</h2>
-                    <a href="#about" class="btn-primary">About Me <i class="fas fa-arrow-right"></i></a>
-                </div>
+                    </div>
                 <div class="profile-image">
                     <img src="https://media.licdn.com/dms/image/v2/D5635AQGUsdkFLaoIIQ/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1735225789461?e=1759543200&v=beta&t=9ln6TiV3tJLc9122EynWdbfgbv5SwTiqDxr6YF78nok"> 
                 </div>
