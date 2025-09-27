@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lakshmanan R - Infrastructure Management Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #007acc; 
+            --primary-color: #4a6fa5; /* Softer blue for Ghibli feel */
             --text-color: #333;
-            --secondary-text-color: #666;
+            --secondary-text-color: #555;
             --white: #fff;
-            --border-color: #ddd;
+            --background-overlay: rgba(255, 255, 255, 0.85); /* Semi-transparent white overlay */
+            --border-color: #c9d6de; /* Light grey-blue for borders */
+            --highlight-bg: #e0eaf4; /* Light blue for skill rows */
+            --shadow-color: rgba(0, 0, 0, 0.08);
         }
 
         body {
@@ -23,8 +26,34 @@
             color: var(--text-color);
             line-height: 1.6;
             position: relative;
+            background-color: #e0f2f7; /* Fallback light background */
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
         }
 
+        /* --- Ghibli-themed Background --- */
+        .ghibli-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('YOUR_GHIBLI_BACKGROUND_IMAGE_URL'); /* REPLACE THIS URL */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: 0; /* Behind everything */
+            filter: brightness(0.9) grayscale(0.1); /* Subtle artistic filter */
+        }
+        .ghibli-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--background-overlay); /* Semi-transparent white */
+            z-index: 1; /* Above background, below content */
+        }
+        
         /* --- STICKY NAVIGATION BAR --- */
         .navbar-sticky {
             position: fixed;
@@ -32,7 +61,7 @@
             left: 0;
             width: 100%;
             background-color: var(--primary-color);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 10px var(--shadow-color);
             z-index: 1000;
         }
         .navbar-list {
@@ -49,39 +78,31 @@
             display: block;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.95em;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
         .navbar-list li a:hover,
         .navbar-list li a.active {
-            background-color: #005f9c; /* Darker blue on hover/active */
+            background-color: #385a8f; /* Darker blue on hover/active */
+            transform: translateY(-2px);
         }
 
-        /* --- Particles Container --- */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background-color: var(--white); 
-            z-index: 1;
-        }
-        
-        /* --- Resume Container (Must be above particles) --- */
+        /* --- Resume Container (Must be above overlay) --- */
         .resume-container {
             max-width: 900px;
             margin: 20px auto;
-            background-color: rgba(255, 255, 255, 0.98); 
+            background-color: var(--white); 
             padding: 40px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px var(--shadow-color);
             position: relative; 
             z-index: 10;
+            border-radius: 10px;
         }
 
         /* --- Main Content Styling --- */
         .header {
-            /* ... (Keep existing header styles) ... */
             display: flex;
             align-items: center;
-            border-bottom: 4px solid var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
             padding-bottom: 20px;
             margin-bottom: 30px;
         }
@@ -89,326 +110,20 @@
             flex-grow: 1;
         }
         .name {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Merriweather', serif; /* A more classic, warm font */
             font-size: 2.8em;
             font-weight: 700;
             color: var(--primary-color);
             margin: 0;
+            letter-spacing: 1px;
         }
         .role {
             font-size: 1.3em;
+            font-family: 'Montserrat', sans-serif;
             color: var(--secondary-text-color);
             margin: 5px 0 0 0;
         }
         .contact-info {
             font-size: 0.9em;
             margin-top: 15px;
-            color: var(--text-color);
-        }
-        .contact-info span {
-            margin-right: 15px;
-        }
-        .profile-photo {
-            width: 120px;
-            height: 150px;
-            object-fit: cover;
-            margin-left: 20px;
-            border: 3px solid var(--primary-color);
-            border-radius: 5px;
-        }
-        h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.7em;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 5px;
-            margin-top: 35px;
-            margin-bottom: 15px;
-        }
-        .job-item, .education-item {
-            margin-bottom: 20px;
-            padding: 10px 0;
-            border-left: 3px solid var(--border-color);
-            padding-left: 15px;
-        }
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 5px;
-        }
-        .job-title {
-            font-weight: 700;
-            color: var(--text-color);
-            font-size: 1.1em;
-        }
-        .company-name {
-            font-style: italic;
-            color: var(--secondary-text-color);
-            font-size: 0.95em;
-        }
-        .dates {
-            font-weight: 700;
-            color: var(--primary-color);
-            font-size: 0.95em;
-            white-space: nowrap;
-        }
-        ul {
-            list-style: disc;
-            padding-left: 25px;
-            margin-top: 10px;
-        }
-        li {
-            margin-bottom: 8px;
-            font-size: 0.95em;
-        }
-        .skills-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-        .skills-table th, .skills-table td {
-            padding: 10px;
-            text-align: left;
-            border: 1px solid var(--border-color);
-            font-size: 0.95em;
-        }
-        .skills-table th {
-            background-color: #eaf4ff;
-            font-weight: 700;
-            color: var(--text-color);
-            width: 30%;
-        }
-
-        /* --- Media Queries --- */
-        @media (max-width: 768px) {
-            .resume-container {
-                padding: 20px;
-            }
-            .navbar-list {
-                flex-wrap: wrap;
-                justify-content: space-around;
-            }
-            .navbar-list li a {
-                padding: 10px 15px;
-            }
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .profile-photo {
-                margin: 15px 0 0 0;
-            }
-        }
-    </style>
-</head>
-<body>
-    
-    <nav class="navbar-sticky">
-        <ul class="navbar-list">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div id="particles-js"></div>
-
-    <div class="resume-container">
-        
-        <section id="home">
-            <div class="header">
-                <div class="header-content">
-                    <h1 class="name">LAKSHMANAN R</h1>
-                    <p class="role">Infrastructure Management Engineer</p>
-                    <div class="contact-info" id="contact">
-                        <span><i class="fas fa-phone"></i> +91 9597981490</span>
-                        <span><i class="fas fa-envelope"></i> rlakshmana50@gmail.com</span>
-                        <p><i class="fas fa-map-marker-alt"></i> No:57, Manjunatha Layout, Hosa Road, Electronic city, Bangalore -560100, Karnataka.</p>
-                    </div>
-                </div>
-                <img src="placeholder.jpg" alt="Profile Photo" class="profile-photo">
-            </div>
-        </section>
-
-        <section id="about">
-            <h2>About</h2>
-            <div class="section-content">
-                <p>
-                    Highly skilled System Engineer with **7+ years of experience** managing large-scale infrastructure in both on-premises and **cloud environments (AWS)**. Specialized in **MECM/SCCM administration**, **Windows Server** environments, and **DevOps** tools including **Docker, Jenkins, and Git**. Proven ability to lead infrastructure optimization projects, automate deployments using **PowerShell**, and maintain high compliance across global IT assets. Holds multiple industry certifications including **CCNA, CCNP, and MCSA**.
-                </p>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="section-content">
-                <table class="skills-table">
-                    <tr><th>Operating System</th><td>Linux, Windows</td></tr>
-                    <tr><th>Scripting Language</th><td>Power Shell</td></tr>
-                    <tr><th>Programming Languages</th><td>C++, JAVA, Python</td></tr>
-                    <tr><th>Database</th><td>SQL</td></tr>
-                    <tr><th>Cloud & DevOps</th><td>**AWS, Azure, DevOps, DevSecOps**</td></tr>
-                    <tr><th>Networking</th><td>**CCNA, CCNP**</td></tr>
-                </table>
-            </div>
-        </section>
-        
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="section-content">
-                
-                <div class="job-item">
-                    <div class="job-header">
-                        <span class="job-title">Senior System Engineer - Kaseya Software Pvt.Ltd., Bangalore.</span>
-                        <span class="dates">Jan 2023-Till now</span>
-                    </div>
-                    <ul>
-                        <li>Administered and maintained **Windows and VMware OS environments**.</li>
-                        <li>Proficient in using tools such as **Autotask, ServiceNow, Kaseya VSA, and Datto RMM**.</li>
-                        <li>Addressed issues through proactive alert monitoring and timely patch deployment.</li>
-                    </ul>
-                </div>
-                
-                <div class="job-item">
-                    <div class="job-header">
-                        <span class="job-title">Senior System Engineer - Eliga Innovative Services Private Limited (Client: Lam Research Pvt.Ltd.)</span>
-                        <span class="dates">March 2021-Jan 2023</span>
-                    </div>
-                    <ul>
-                        <li>Managed servers with **SCCM 2012** and **MECM**.</li>
-                        <li>Wrote **PowerShell scripts** for system checks, software installs, and updates.</li>
-                        <li>Managed file servers, roaming profiles, and **VMware**.</li>
-                    </ul>
-                </div>
-
-                <div class="job-item">
-                    <div class="job-header">
-                        <span class="job-title">L2 System Engineer - Magna Infotech, Client: WIPRO Coimbatore.</span>
-                        <span class="dates">June 2018-Sep 2020</span>
-                    </div>
-                    <ul>
-                        <li>Set up and fixed issues in **Active Directory** and managed network routes (**EIGRP, OSPF, BGP**).</li>
-                        <li>Set up security with **VPN, ACL, and VTP**.</li>
-                        <li>Installed Windows updates using **SCCM**.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <h2>Education & Certifications</h2>
-            <div class="section-content">
-                
-                <div class="education-item">
-                    <p class="job-title">Bachelor of Engineering (Information Technology)</p>
-                    <p class="company-name">Chettinad College of Engineering & Technology - Karur, Tamil Nadu.</p>
-                    <span class="dates">Aug 2014- May 2018</span>
-                </div>
-
-                <div class="education-item">
-                    <p class="job-title">Certification in DevSecOps</p>
-                    <p class="company-name">Greens Technology - Chennai</p>
-                    <span class="dates">April 2024-July 2024</span>
-                </div>
-                <p style="margin-top: 15px; font-weight: bold;">Industry Certifications Mentioned: CCNA, CCNP, MCSA</p>
-            </div>
-        </section>
-
-        <section id="contact-link" style="height: 1px; visibility: hidden;"></section>
-
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script>
-        // --- 4.1 PARTICLES.JS CONFIGURATION ---
-        particlesJS('particles-js', {
-            "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#000000" }, /* Black dots */
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5 },
-                "size": { "value": 3, "random": true },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#000000", /* Black lines */
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": { "enable": true, "speed": 3, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": { "enable": true, "mode": "grab" },
-                    "onclick": { "enable": true, "mode": "push" },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
-                    "push": { "particles_nb": 4 }
-                }
-            },
-            "retina_detect": true
-        });
-
-        // --- 4.2 SMOOTH SCROLLING JAVASCRIPT ---
-        document.querySelectorAll('.navbar-list a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                let targetElement;
-
-                // Special handling for the contact link to target the contact info block in the header
-                if (targetId === '#contact') {
-                    targetElement = document.getElementById('contact');
-                } else {
-                    targetElement = document.querySelector(targetId);
-                }
-
-                if (targetElement) {
-                    // Calculate position to account for the fixed navbar height (60px)
-                    const offset = targetElement.getBoundingClientRect().top + window.scrollY - 60; 
-                    window.scrollTo({
-                        top: offset,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // --- 4.3 ACTIVE NAVIGATION STATE JAVASCRIPT ---
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.navbar-list a');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            // Determine the current section in view
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 70; // Offset for the fixed navbar
-                if (scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            // Update active class on navigation links
-            navLinks.forEach(a => {
-                a.classList.remove('active');
-                if (a.getAttribute('href').includes(current) && current !== '') {
-                    a.classList.add('active');
-                }
-            });
-            
-            // Handle the 'Home' link specially if at the very top
-            if (window.scrollY < 100) {
-                navLinks.forEach(a => a.classList.remove('active'));
-                document.querySelector('.navbar-list a[href="#home"]').classList.add('active');
-            }
-        });
-    </script>
-</body>
-</html>
+            color: var
