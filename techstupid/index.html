@@ -4,21 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lakshmanan R - Portfolio</title>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Devicons for tech logos -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-
-  <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-  <!-- Background Particles -->
   <div id="particles-js"></div>
 
   <!-- Header -->
@@ -39,158 +29,79 @@
     <div class="content">
       <h2>Hi There,<br/> I'm Lakshmanan</h2>
       <p>a <span class="typing-text"></span></p>
-    </div>
-    <div class="image">
-      <img src="assets/images/hero.png" alt="Lakshmanan" class="tilt" draggable="false">
+      <div class="image">
+        <img draggable="false" class="tilt" src="./assets/images/hero.png" alt="Lakshmanan">
+      </div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about">
+  <section class="about-section" id="about">
     <h2 class="section-title">About Me</h2>
-    <ul class="about-content">
-      <li>Highly skilled System Engineer with 7+ years of experience managing large-scale infrastructure in both on-premises and cloud environments (AWS).</li>
-      <li>Specialized in MECM/SCCM administration, Windows Server environments, and DevOps tools including Docker, Jenkins, and Git.</li>
-      <li>Proven ability to lead infrastructure optimization projects, automate deployments using PowerShell, and maintain high compliance across global IT assets.</li>
-      <li>Holds multiple industry certifications including CCNA, CCNP, and MCSA.</li>
-    </ul>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience">
-    <h2 class="section-title">Work Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Senior System Engineer - Kaseya Software Pvt. Ltd., Bangalore</h3>
-        <p class="term">Jan 2023 - Present</p>
-        <ul>
-          <li>Administered and maintained Windows and VMware OS environments.</li>
-          <li>Worked with Autotask, ServiceNow, Kaseya VSA, and Datto RMM.</li>
-        </ul>
-      </div>
-      <div class="timeline-item">
-        <h3>Senior System Engineer - Eliga Innovative Services</h3>
-        <p class="term">Mar 2021 - Jan 2023</p>
-        <ul>
-          <li>Worked with SCCM 2012 and MECM for server management.</li>
-          <li>Installed and managed Windows 10, Server 2008/2012/2016.</li>
-          <li>Developed PowerShell scripts for automation.</li>
-        </ul>
-      </div>
-    </div>
+    <p>
+      Highly skilled System Engineer with 7+ years of experience managing infrastructure in both on-premises and cloud environments (AWS). <br>
+      Specialized in MECM/SCCM, Windows Server, and DevOps tools including Docker, Jenkins, and Git. <br>
+      Holds multiple certifications including CCNA, CCNP, and MCSA.
+    </p>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills">
+  <section class="skills-section" id="skills">
     <h2 class="section-title">Skills & Technologies</h2>
     <div class="skills-grid">
-
       <div class="skill-category">
         <h3>Operating Systems</h3>
         <ul>
-          <li><i class="devicon-linux-plain colored"></i> Linux</li>
+          <li><i class="fab fa-linux"></i> Linux</li>
           <li><i class="fa-brands fa-windows"></i> Windows</li>
         </ul>
       </div>
-
-      <div class="skill-category">
-        <h3>Scripting</h3>
-        <ul>
-          <li><i class="fa-solid fa-terminal"></i> PowerShell</li>
-        </ul>
-      </div>
-
-      <div class="skill-category">
-        <h3>Programming</h3>
-        <ul>
-          <li><i class="devicon-cplusplus-plain colored"></i> C++</li>
-          <li><i class="devicon-java-plain colored"></i> Java</li>
-          <li><i class="devicon-python-plain colored"></i> Python</li>
-        </ul>
-      </div>
-
       <div class="skill-category">
         <h3>Cloud & DevOps</h3>
         <ul>
-          <li><i class="devicon-amazonwebservices-plain colored"></i> AWS</li>
-          <li><i class="devicon-azure-plain colored"></i> Azure</li>
-          <li><i class="devicon-docker-plain colored"></i> Docker</li>
-          <li><i class="devicon-jenkins-plain colored"></i> Jenkins</li>
+          <li><i class="fab fa-aws"></i> AWS</li>
+          <li><i class="fab fa-docker"></i> Docker</li>
+          <li><i class="fab fa-git-alt"></i> Git</li>
+          <li><i class="fab fa-jenkins"></i> Jenkins</li>
         </ul>
       </div>
-
       <div class="skill-category">
-        <h3>Networking</h3>
+        <h3>Programming</h3>
         <ul>
-          <li><i class="fa-solid fa-network-wired"></i> CCNA</li>
-          <li><i class="fa-solid fa-diagram-project"></i> CCNP</li>
+          <li><i class="fab fa-python"></i> Python</li>
+          <li><i class="fab fa-java"></i> Java</li>
+          <li><i class="fa-solid fa-code"></i> C++</li>
         </ul>
       </div>
-
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education">
-    <h2 class="section-title">Education & Certifications</h2>
-    <div class="education-item">
-      <h3>Certification in DevSecOps</h3>
-      <p>Greens Technology - Chennai</p>
-      <p class="term">Apr 2024 - Jul 2024</p>
-    </div>
-    <div class="education-item">
-      <h3>B.E. in Information Technology</h3>
-      <p>Chettinad College of Engineering & Technology</p>
-      <p class="term">2014 - 2018</p>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
+  <section id="contact" class="contact-section">
     <h2 class="section-title"><i class="fas fa-headset"></i> Get In Touch</h2>
-    <div class="contact-container">
-      <div class="contact-image">
-        <img src="contact.png" alt="Contact Illustration">
+    <form class="contact-form">
+      <div class="input-box">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="Name" required>
       </div>
-      <form class="contact-form">
-        <div class="input-box"><i class="fas fa-user"></i><input type="text" placeholder="Name" required></div>
-        <div class="input-box"><i class="fas fa-envelope"></i><input type="email" placeholder="Email" required></div>
-        <div class="input-box"><i class="fas fa-phone"></i><input type="tel" placeholder="Phone"></div>
-        <div class="input-box textarea"><i class="fas fa-comment"></i><textarea placeholder="Message" rows="5" required></textarea></div>
-        <button type="submit" class="submit-btn">Submit <i class="fas fa-paper-plane"></i></button>
-      </form>
-    </div>
+      <div class="input-box">
+        <i class="fas fa-envelope"></i>
+        <input type="email" placeholder="Email" required>
+      </div>
+      <div class="input-box textarea">
+        <i class="fas fa-comment"></i>
+        <textarea placeholder="Message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Submit <i class="fas fa-paper-plane"></i></button>
+    </form>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="box-container">
-      <div class="box">
-        <h3>Lakshmanan Portfolio</h3>
-        <p>Thank you for visiting my portfolio website. Connect with me over socials 🚀</p>
-      </div>
-      <div class="box">
-        <h3>Quick Links</h3>
-        <a href="#home"><i class="fas fa-chevron-circle-right"></i> Home</a>
-        <a href="#about"><i class="fas fa-chevron-circle-right"></i> About</a>
-        <a href="#skills"><i class="fas fa-chevron-circle-right"></i> Skills</a>
-        <a href="#education"><i class="fas fa-chevron-circle-right"></i> Education</a>
-        <a href="#experience"><i class="fas fa-chevron-circle-right"></i> Experience</a>
-      </div>
-      <div class="box">
-        <h3>Contact Info</h3>
-        <p><i class="fas fa-phone"></i> +91 9597981490</p>
-        <p><i class="fas fa-envelope"></i> rlakshmana50@gmail.com</p>
-        <p><i class="fas fa-map-marker-alt"></i> Karur, Tamil Nadu, India</p>
-        <div class="share">
-          <a href="https://www.linkedin.com/in/lakshmanan-ragunathan-55671a113/" target="_blank" class="fab fa-linkedin"></a>
-        </div>
-      </div>
-    </div>
-    <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by Lakshmanan</h1>
+    <p>© 2025 Designed by Lakshmanan 🚀</p>
   </footer>
 
-  <!-- Particles Config -->
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
