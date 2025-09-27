@@ -1,74 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lakshmanan Portfolio</title>
-<link rel="stylesheet" href="./assets/css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshmanan R - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
 
-<!-- Hero Section with Cursor Particles -->
-<section class="home" id="home">
-  <div id="particles-js"></div>
-  <div class="content">
-    <h1>Hi, I'm Lakshmanan</h1>
-    <p>a <span class="typed-text"></span></p>
-    <a href="#about" class="btn">About Me</a>
-  </div>
-  <div class="image">
-    <img src="./assets/images/profile2.jpg" alt="Profile" class="tilt">
-  </div>
-</section>
+    <div id="particles-js"></div>
 
-<!-- Skills Section -->
-<section class="skills" id="skills">
-  <h2>Skills</h2>
-  <div class="skill-container">
-    <div class="skill">
-      <img src="./assets/images/skills/windows.png" alt="Windows">
-      <div class="progress">
-        <div class="progress-bar" data-width="95%"></div>
-      </div>
-      <span>Windows Server</span>
-    </div>
-    <div class="skill">
-      <img src="./assets/images/skills/aws.png" alt="AWS">
-      <div class="progress">
-        <div class="progress-bar" data-width="80%"></div>
-      </div>
-      <span>AWS</span>
-    </div>
-    <div class="skill">
-      <img src="./assets/images/skills/docker.png" alt="Docker">
-      <div class="progress">
-        <div class="progress-bar" data-width="85%"></div>
-      </div>
-      <span>Docker</span>
-    </div>
-    <div class="skill">
-      <img src="./assets/images/skills/jenkins.png" alt="Jenkins">
-      <div class="progress">
-        <div class="progress-bar" data-width="85%"></div>
-      </div>
-      <span>Jenkins</span>
-    </div>
-    <div class="skill">
-      <img src="./assets/images/skills/powershell.png" alt="PowerShell">
-      <div class="progress">
-        <div class="progress-bar" data-width="90%"></div>
-      </div>
-      <span>PowerShell</span>
-    </div>
-  </div>
-</section>
+    <header class="header">
+        <a href="#" class="logo">LAKSHMANAN R</a>
+        <nav class="navbar">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="/#contact">Contact</a>
+        </nav>
+    </header>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"></script>
-<script src="./assets/js/particles.min.js"></script>
-<script src="./assets/js/app.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-<script src="./assets/js/script.js"></script>
+    <section class="hero-section" id="hero">
+        <div class="hero-content">
+            <h1>Lakshmanan R</h1>
+            <p>Infrastructure Management Engineer</p>
+            <p class="profile-summary">
+            </p>
+            <div class="contact-links">
+                <a href="mailto:rlakshmana50@gmail.com"><i class="fas fa-envelope"></i> rlakshmana50@gmail.com </a>
+                <a href="tel:+919597981490"><i class="fas fa-phone"></i> +91 9597981490 </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="your_photo.jpg" alt="Lakshmanan R">
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p>
+                <li> Highly skilled System Engineer with 7+ years of experience managing large-scale infrastructure in both on-premises and cloud environments (AWS).</li></br>
+            
+                <li>Specialized in MECM/SCCM administration, Windows Server environments, and DevOps tools including Docker, Jenkins, and Git.</li></br>
+            
+                <li>Proven ability to lead infrastructure op􀆟miza􀆟on projects, automate deployments using PowerShell, and maintain high compliance across global IT assets.</li></br>
+            
+                <li>Holds multiple industry certfications including CCNA, CCNP, and MCSA.</li>
+            </p>
+        </div>
+    </section>
+
+    <section class="experience-section" id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Senior System Engineer - Kaseya Software Pvt.Ltd., Bangalore </h3>
+                <p class="term">Jan 2023 - Till now </p>
+                <ul>
+                    <li>Experienced in administering and maintaining Windows and VMware OS environments, including system alert monitoring and OS-level patch management.</li>
+                   <li>Proficient in using tools such as Autotask, ServiceNow, Kaseya VSA, and Datto RMM to keep systems up to date, secure, and running smoothly .</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+               <h3>Senior System Engineer - Eliga Innovative Services Private Limited  </h3>
+                 <p class="term">March 2021 - Jan 2023  </p>
+                <ul>
+                     <li>Worked with SCCM 2012 and MECM for installing and managing servers .</li>
+                     <li>Installed and managed Windows 10, Server 2008, 2012, and 2016 .</li>
+                     <li>Wrote PowerShell scripts for tasks like system checks, software installs, and updates .</li>
+                     <li>Managed file servers, roaming profiles, terminal servers, HP servers, and VMware .</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h3>L2 System Engineer - Magna Infotech, Client: WIPRO Coimbatore </h3>
+                <p class="term">June 2018 - Sep 2020 </p>
+                <ul>
+                    <li>Good knowledge of networks like workgroups, domains, DNS, and DHCP.</li>
+                    <li>Set up and fixed issues in Active Directory (passwords, domain join, moving users).</li>
+                    <li>Replaced old routers and switches with new Cisco devices.</li>
+                    <li>Fixed VPN problems with Cisco AnyConnect.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h3>L1 System engineer - Cyber Trends, Chennai </h3>
+                <p class="term">May 2017 - May 2018 </p>
+                <ul>
+                   <li>Answered user calls and fixed issues.</li>
+                     <li>Supported Mac, Linux, iOS, Windows, printers, and internet problems.</li>
+                   <li>Installed and fixed computers, software, and devices.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Operating Systems</h3>
+                <ul>
+                    <li>Linux </li>
+                    <li>Windows </li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Scripting</h3>
+                <ul>
+                    <li>Power Shell </li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Programming</h3>
+                <ul>
+                    <li>C++ </li>
+                    <li>JAVA </li>
+                   <li>Python </li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Cloud & DevOps</h3>
+                <ul>
+                   <li>AWS </li>
+                    <li>Azure </li>
+                    <li>DevOps </li>
+                    <li>DevSecOps </li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Network</h3>
+                <ul>
+                  <li>CCNA </li>
+                    <li>CCNP </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="education-section" id="education">
+        <h2 class="section-title">Education & Certifications</h2>
+        <div class="education-item">
+            <h3>Certification in DevSecOps </h3>
+            <p>Greens Technology - Chennai </p>
+            <p class="term">April 2024 - July 2024 </p>
+        </div>
+        <div class="education-item">
+            <h3>Bachelor of Engineering (Information Technology) </h3>
+            <p>Chettinad College of Engineering & Technology - Karur, Tamil Nadu </p>
+          <p class="term">Aug 2014 - May 2018 </p>
+        </div>
+        <div class="education-item">
+            <h3>Higher Secondary Education </h3>
+            <p>Vignesh Sri Renga Matriculation & Higher Secondary School </p>
+           <p>Tiruchirappalli, Tamil Nadu </p>
+           <p class="term">75%</p>
+        </div>
+    </section>
+
+    <!-- footer section starts -->
+<section class="footer">
+
+  <div class="box-container">
+
+      <div class="box">
+          <h3>Lakshmanan Portfolio</h3>
+          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀. Connect with me over live chat!</p>
+      </div>
+
+      <div class="box">
+          <h3>quick links</h3>
+          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+          <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+          <a href="#experience"><i class="fas fa-chevron-circle-right"></i> Certifications</a>
+      </div>
+
+      <div class="box">
+          <h3>contact info</h3>
+          <p> <i class="fas fa-phone"></i>+91 9597981490</p>
+          <p> <i class="fas fa-envelope"></i>rlakshmana50@gmail.com</p>
+          <p> <i class="fas fa-map-marked-alt"></i>Karur-639102,Tamil Nadu, India</p>
+          <div class="share">
+
+              <a href="https://www.linkedin.com/in/lakshmanan-ragunathan-55671a113/" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
+              </div>
+      </div>
+  </div>
+
+  <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/lakshmanan-ragunathan-55671a113/"> Lakshmanan</a></h1>
+
+</section>
+<!-- footer section ends -->
+    </script>
 </body>
 </html>
+
+
