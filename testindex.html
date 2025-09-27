@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshmanan R - Infrastructure Management Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #007acc; /* Blue for highlights */
+            --text-color: #333;
+            --secondary-text-color: #666;
+            --background-color: #f7f7f7;
+            --white: #fff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* --- Particles Container --- */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white); /* White background for particles */
+            z-index: 1; /* Keep it behind the content */
+        }
+        
+        /* --- Resume Container (Must be above particles) --- */
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white to show particles */
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative; /* Crucial: Stack above the particles */
+            z-index: 10;
+        }
+
+        /* --- Header Styling --- */
+        .header {
+            display: flex;
+            align-items: center;
+            border-bottom: 4px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header-content {
+            flex-grow: 1;
+        }
+        .name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        .role {
+            font-size: 1.3em;
+            color: var(--secondary-text-color);
+            margin: 5px 0 0 0;
+        }
+        .contact-info {
+            font-size: 0.9em;
+            margin-top: 15px;
+            color: var(--text-color);
+        }
+        .contact-info span {
+            margin-right: 15px;
+        }
+        .profile-photo {
+            width: 120px;
+            height: 150px;
+            object-fit: cover;
+            margin-left: 20px;
+            border: 3px solid var(--primary-color);
+            border-radius: 5px;
+        }
+
+        /* --- Section Styling --- */
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.7em;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+        
+        /* --- Work Experience & Education --- */
+        .job-item, .education-item {
+            margin-bottom: 20px;
+            padding: 10px 0;
+            border-left: 3px solid var(--border-color);
+            padding-left: 15px;
+        }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 5px;
+        }
+        .job-title {
+            font-weight: 700;
+            color: var(--text-color);
+            font-size: 1.1em;
+        }
+        .company-name {
+            font-style: italic;
+            color: var(--secondary-text-color);
+            font-size: 0.95em;
+        }
+        .dates {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 0.95em;
+            white-space: nowrap;
+        }
+        ul {
+            list-style: disc;
+            padding-left: 25px;
+            margin-top: 10px;
+        }
+        li {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        
+        /* --- Skills Table --- */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .skills-table th, .skills-table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+            font-size: 0.95em;
+        }
+        .skills-table th {
+            background-color: #eaf4ff;
+            font-weight: 700;
+            color: var(--text-color);
+            width: 30%;
+        }
+
+        /* --- Media Queries for Responsiveness --- */
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 20px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .profile-photo {
+                margin: 15px 0 0 0;
+            }
+            .name {
+                font-size: 2em;
+            }
+            .role {
+                font-size: 1.1em;
+            }
+            .job-header {
+                flex-direction: column;
+            }
+            .dates {
+                float: none;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="particles-js"></div>
+
+    <div class="resume-container">
+        
+        <div class="header">
+            <div class="header-content">
+                <h1 class="name">LAKSHMANAN R</h1>
+                <p class="role">Infrastructure Management Engineer</p>
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +91 9597981490</span>
+                    <span><i class="fas fa-envelope"></i> rlakshmana50@gmail.com</span>
+                    <p><i class="fas fa-map-marker-alt"></i> No:57, Manjunatha Layout, Hosa Road, Electronic city, Bangalore -560100, Karnataka.</p>
+                </div>
+            </div>
+            <img src="placeholder.jpg" alt="Profile Photo" class="profile-photo">
+        </div>
+
+        <h2>Profile Overview</h2>
+        <div class="section-content">
+            <p>
+                Highly skilled System Engineer with **7+ years of experience** managing large-scale infrastructure in both on-premises and **cloud environments (AWS)**. Specialized in **MECM/SCCM administration**, **Windows Server** environments, and **DevOps** tools including **Docker, Jenkins, and Git**. Proven ability to lead infrastructure optimization projects, automate deployments using **PowerShell**, and maintain high compliance across global IT assets. Holds multiple industry certifications including **CCNA, CCNP, and MCSA**.
+            </p>
+        </div>
+
+        <h2>Work Experience</h2>
+        <div class="section-content">
+            
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">Senior System Engineer - Kaseya Software Pvt.Ltd., Bangalore.</span>
+                    <span class="dates">Jan 2023-Till now</span>
+                </div>
+                <ul>
+                    <li>Experienced in administering and maintaining **Windows and VMware OS environments**.</li>
+                    <li>Proficient in using tools such as **Autotask, ServiceNow, Kaseya VSA, and Datto RMM** to keep systems up to date and secure.</li>
+                    <li>Proficient in recognizing and addressing issues through proactive alert monitoring and timely patch deployment.</li>
+                </ul>
+            </div>
+            
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">Senior System Engineer - Eliga Innovative Services Private Limited (Client: Lam Research Pvt.Ltd.)</span>
+                    <span class="dates">March 2021-Jan 2023</span>
+                </div>
+                <ul>
+                    <li>Worked with **SCCM 2012** and **MECM** for installing and managing servers.</li>
+                    <li>Wrote **PowerShell scripts** for tasks like system checks, software installs, and updates.</li>
+                    <li>Managed file servers, roaming profiles, terminal servers, HP servers, and **VMware**.</li>
+                    <li>Handled **Group Policy settings**, OU management, and backup tools like Ghost and **NetBackup**.</li>
+                </ul>
+            </div>
+
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">L2 System Engineer - Magna Infotech, Client: WIPRO Coimbatore.</span>
+                    <span class="dates">June 2018-Sep 2020</span>
+                </div>
+                <ul>
+                    <li>Set up and fixed issues in **Active Directory** (passwords, domain join, moving users).</li>
+                    <li>Worked with network routes like Static, **EIGRP, OSPF, and BGP**.</li>
+                    <li>Set up security with **VPN, ACL, and VTP**.</li>
+                    <li>Installed Windows updates using **SCCM**.</li>
+                </ul>
+            </div>
+            
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-title">L1 System engineer - Cyber Trends, Chennai.</span>
+                    <span class="dates">May 2017-May 2018</span>
+                </div>
+                <ul>
+                    <li>Supported **Mac, Linux, iOS, Windows**, printers, and internet problems.</li>
+                    <li>Handled many tasks at once, even urgent ones.</li>
+                    <li>Installed and fixed computers, software, and devices.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Tools and Technology</h2>
+        <div class="section-content">
+            <table class="skills-table">
+                <tr><th>Operating System</th><td>Linux, Windows</td></tr>
+                <tr><th>Scripting Language</th><td>Power Shell</td></tr>
+                <tr><th>Programming Languages</th><td>C++, JAVA, Python</td></tr>
+                <tr><th>Database</th><td>SQL</td></tr>
+                <tr><th>Cloud & DevOps</th><td>**AWS, Azure, DevOps, DevSecOps**</td></tr>
+                <tr><th>Networking</th><td>**CCNA, CCNP**</td></tr>
+            </table>
+        </div>
+
+        <h2>Education and Certifications</h2>
+        <div class="section-content">
+            
+            <div class="education-item">
+                <p class="job-title">Bachelor of Engineering (Information Technology)</p>
+                <p class="company-name">Chettinad College of Engineering & Technology - Karur, Tamil Nadu.</p>
+                <span class="dates">Aug 2014- May 2018</span>
+            </div>
+
+            <div class="education-item">
+                <p class="job-title">Certification in DevSecOps</p>
+                <p class="company-name">Greens Technology - Chennai</p>
+                <span class="dates">April 2024-July 2024</span>
+            </div>
+
+             <div class="education-item">
+                <p class="job-title">Higher Secondary Education (75%)</p>
+                <p class="company-name">Vignesh Sri Renga Matriculation & Higher Secondary School, Tiruchirappalli, Tamil Nadu</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#000000" /* Black dots */
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#000000", /* Black lines */
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 3,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab" /* Grab effect on hover */
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push" /* Push particles on click */
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
