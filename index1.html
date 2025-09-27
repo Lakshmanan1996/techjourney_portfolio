@@ -153,26 +153,32 @@
     }
     
     /* --- Profile Image (Adjusted for Rectangular/Circular) --- */
-    .profile-image {
-        width: 250px; /* Use 250px for circular or adjust for rectangle */
-        height: 250px; /* Use 250px for circular or adjust for rectangle */
-        border-radius: 50%; /* Keep 50% for circle, use 10px for rectangle */
-        background-color: var(--secondary-color);
-        box-shadow: 0 0 0 10px rgba(255, 64, 129, 0.3);
-        flex-shrink: 0;
-        transition: transform 0.5s;
-        overflow: hidden; 
-    }
-    .profile-image:hover {
-        transform: scale(1.05) rotate(3deg);
-    }
-    .profile-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: inherit; /* Inherits 50% for circle or 10px for rectangle */
-        border: 5px solid var(--text-light);
-    }
+   /* --- Restored Profile Image CSS (Circular Style for Natural Image) --- */
+.profile-image {
+    width: 250px;
+    height: 250px;
+    
+    /* RESTORED: Makes it a perfect circle */
+    border-radius: 50%; 
+    
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 0 10px rgba(255, 64, 129, 0.3);
+    flex-shrink: 0;
+    transition: transform 0.5s;
+    overflow: hidden; 
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    /* 'cover' ensures the image fills the circle neatly (cropping edges if necessary) */
+    object-fit: cover;
+    
+    /* RESTORED: Inner white border for a professional look */
+    border-radius: 50%; 
+    border: 5px solid var(--text-light); 
+}
+
     
     .btn-primary {
         background-color: var(--secondary-color);
