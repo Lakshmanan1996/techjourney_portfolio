@@ -156,13 +156,19 @@
             font-size: 1.2em;
             color: var(--secondary-color);
         }
-       .profile-image {
-    width: 350px; /* Extended width */
-    height: 200px; /* Shorter height */
-    border-radius: 10px; /* Slightly rounded corners (optional) */
-    /* REMOVED: border-radius: 50%; */
+       .profile-img
+        { 
+            width:84px; 
+            height:84px; 
+            object-fit:cover; 
+            border-radius:12px; 
+            border: 2px solid rgba(255,255,255,0.06); 
+            background:#0b1320; 
+        }
     
-    background-color: var(--secondary-color);
+           /* REMOVED: border-radius: 50%; */
+    
+    /*background-color: var(--secondary-color);
     box-shadow: 0 0 0 10px rgba(255, 64, 129, 0.3);
     flex-shrink: 0;
     transition: transform 0.5s;
@@ -171,23 +177,10 @@
     overflow: hidden; 
 }
 
-.profile-image img {
-    /* Ensures the image itself fills the new rectangular space */
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* This makes the image cover the area without distorting, cropping if needed */
-    border-radius: 10px; /* Matches the container corners */
-    border: none; /* Remove the white border applied for the circular image */
-}
-        }
-        .btn-primary {
-            background-color: var(--secondary-color);
-            box-shadow: 0 3px 0 #d8346e;
-        }
-        .btn-primary:hover {
-            background-color: #d8346e;
-            box-shadow: 0 2px 0 #b32a58;
-        }
+.profile-info h3{ margin:0; font-size:1.05rem; }
+.profile-info p{ margin:2px 0 0 0; color:var(--muted); font-size:0.95rem; }
+        
+       
         
         /* --- 7. Skills Section (Dark Background) --- */
         #skills {
