@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lakshmanan R - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshmanan R - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-  <div id="particles-js"></div>
 
-  <!-- Header -->
-  <header class="header">
-    <a href="#" class="logo">LAKSHMANAN R</a>
-    <nav class="navbar">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <div id="particles-js"></div>
 
-  <!-- Home Section -->
-  <section class="home" id="home">
-    <div class="content">
-      <h2>Hi There,<br/> I'm Lakshmanan</h2>
-      <p>a <span class="typing-text"></span></p>
-      <div class="image">
-        <img draggable="false" class="tilt" src="./assets/images/hero.png" alt="Lakshmanan">
-      </div>
-    </div>
-  </section>
+    <header class="header">
+        <a href="#" class="logo">LAKSHMANAN R</a>
+        <nav class="navbar">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="/#contact">Contact</a>
+        </nav>
+    </header>
 
-  <!-- About Section -->
-  <section class="about-section" id="about">
-    <h2 class="section-title">About Me</h2>
-    <p>
-      Highly skilled System Engineer with 7+ years of experience managing infrastructure in both on-premises and cloud environments (AWS). <br>
-      Specialized in MECM/SCCM, Windows Server, and DevOps tools including Docker, Jenkins, and Git. <br>
-      Holds multiple certifications including CCNA, CCNP, and MCSA.
-    </p>
-  </section>
-  <!-- Experience Section -->
-   <section class="experience-section" id="experience">
+    <section class="hero-section" id="hero">
+        <div class="hero-content">
+            <h1>Lakshmanan R</h1>
+            <p>Infrastructure Management Engineer</p>
+            <p class="profile-summary">
+            </p>
+            <div class="contact-links">
+                <a href="mailto:rlakshmana50@gmail.com"><i class="fas fa-envelope"></i> rlakshmana50@gmail.com </a>
+                <a href="tel:+919597981490"><i class="fas fa-phone"></i> +91 9597981490 </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="your_photo.jpg" alt="Lakshmanan R">
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p>
+                <li> Highly skilled System Engineer with 7+ years of experience managing large-scale infrastructure in both on-premises and cloud environments (AWS).</li></br>
+            
+                <li>Specialized in MECM/SCCM administration, Windows Server environments, and DevOps tools including Docker, Jenkins, and Git.</li></br>
+            
+                <li>Proven ability to lead infrastructure op􀆟miza􀆟on projects, automate deployments using PowerShell, and maintain high compliance across global IT assets.</li></br>
+            
+                <li>Holds multiple industry certfications including CCNA, CCNP, and MCSA.</li>
+            </p>
+        </div>
+    </section>
+
+    <section class="experience-section" id="experience">
         <h2 class="section-title">Work Experience</h2>
         <div class="timeline">
             <div class="timeline-item">
@@ -88,65 +97,106 @@
         </div>
     </section>
 
+    <section class="skills-section" id="skills">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Operating Systems</h3>
+                <ul>
+                    <li>Linux </li>
+                    <li>Windows </li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Scripting</h3>
+                <ul>
+                    <li>Power Shell </li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Programming</h3>
+                <ul>
+                    <li>C++ </li>
+                    <li>JAVA </li>
+                   <li>Python </li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Cloud & DevOps</h3>
+                <ul>
+                   <li>AWS </li>
+                    <li>Azure </li>
+                    <li>DevOps </li>
+                    <li>DevSecOps </li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Network</h3>
+                <ul>
+                  <li>CCNA </li>
+                    <li>CCNP </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-  <!-- Skills Section -->
-  <section class="skills-section" id="skills">
-    <h2 class="section-title">Skills & Technologies</h2>
-    <div class="skills-grid">
-      <div class="skill-category">
-        <h3>Operating Systems</h3>
-        <ul>
-          <li><i class="fab fa-linux"></i> Linux</li>
-          <li><i class="fa-brands fa-windows"></i> Windows</li>
-        </ul>
-      </div>
-      <div class="skill-category">
-        <h3>Cloud & DevOps</h3>
-        <ul>
-          <li><i class="fab fa-aws"></i> AWS</li>
-          <li><i class="fab fa-docker"></i> Docker</li>
-          <li><i class="fab fa-git-alt"></i> Git</li>
-          <li><i class="fab fa-jenkins"></i> Jenkins</li>
-        </ul>
-      </div>
-      <div class="skill-category">
-        <h3>Programming</h3>
-        <ul>
-          <li><i class="fab fa-python"></i> Python</li>
-          <li><i class="fab fa-java"></i> Java</li>
-          <li><i class="fa-solid fa-code"></i> C++</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    <section class="education-section" id="education">
+        <h2 class="section-title">Education & Certifications</h2>
+        <div class="education-item">
+            <h3>Certification in DevSecOps </h3>
+            <p>Greens Technology - Chennai </p>
+            <p class="term">April 2024 - July 2024 </p>
+        </div>
+        <div class="education-item">
+            <h3>Bachelor of Engineering (Information Technology) </h3>
+            <p>Chettinad College of Engineering & Technology - Karur, Tamil Nadu </p>
+          <p class="term">Aug 2014 - May 2018 </p>
+        </div>
+        <div class="education-item">
+            <h3>Higher Secondary Education </h3>
+            <p>Vignesh Sri Renga Matriculation & Higher Secondary School </p>
+           <p>Tiruchirappalli, Tamil Nadu </p>
+           <p class="term">75%</p>
+        </div>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <h2 class="section-title"><i class="fas fa-headset"></i> Get In Touch</h2>
-    <form class="contact-form">
-      <div class="input-box">
-        <i class="fas fa-user"></i>
-        <input type="text" placeholder="Name" required>
-      </div>
-      <div class="input-box">
-        <i class="fas fa-envelope"></i>
-        <input type="email" placeholder="Email" required>
-      </div>
-      <div class="input-box textarea">
-        <i class="fas fa-comment"></i>
-        <textarea placeholder="Message" rows="5" required></textarea>
-      </div>
-      <button type="submit" class="submit-btn">Submit <i class="fas fa-paper-plane"></i></button>
-    </form>
-  </section>
+    <!-- footer section starts -->
+<section class="footer">
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2025 Designed by Lakshmanan 🚀</p>
-  </footer>
+  <div class="box-container">
 
-  <!-- Scripts -->
-  <script src="script.js"></script>
+      <div class="box">
+          <h3>Lakshmanan Portfolio</h3>
+          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀. Connect with me over live chat!</p>
+      </div>
+
+      <div class="box">
+          <h3>quick links</h3>
+          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+          <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+          <a href="#experience"><i class="fas fa-chevron-circle-right"></i> Certifications</a>
+      </div>
+
+      <div class="box">
+          <h3>contact info</h3>
+          <p> <i class="fas fa-phone"></i>+91 9597981490</p>
+          <p> <i class="fas fa-envelope"></i>rlakshmana50@gmail.com</p>
+          <p> <i class="fas fa-map-marked-alt"></i>Karur-639102,Tamil Nadu, India</p>
+          <div class="share">
+
+              <a href="https://www.linkedin.com/in/lakshmanan-ragunathan-55671a113/" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
+              </div>
+      </div>
+  </div>
+
+  <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/lakshmanan-ragunathan-55671a113/"> Lakshmanan</a></h1>
+
+</section>
+<!-- footer section ends -->
+    </script>
 </body>
 </html>
+
 
