@@ -163,6 +163,14 @@ section {
     margin: 0 auto;
 }
 
+/* Contact Section */
+.contact-section .timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
 .timeline::after {
     content: '';
     position: absolute;
@@ -363,3 +371,4 @@ section {
         grid-template-columns: 1fr;
     }
 }
+
