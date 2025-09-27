@@ -10,19 +10,18 @@
 
     <style>
     /* ------------------------------------------- */
-    /* --- 1. CSS Variables (Vibrant Scheme) --- */
-    /* ------------------------------------------- */
-    :root {
-        --primary-color: #00bcd4; /* Cyan/Light Blue */
-        --secondary-color: #ff4081; /* Pink/Magenta accent */
-        --dark-bg: #1d3557; /* Deep Blue/Navy */
-        --light-bg: #f5f5f5; /* Light grey background */
-        --content-bg: rgba(255, 255, 255, 0.95); /* Semi-transparent white for particles */
-        --text-light: #fff;
-        --text-dark: #333;
-        --font-main: 'Poppins', sans-serif;
-        --shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    }
+   /* --- 1. CSS Variables (Vibrant Scheme) --- */
+:root {
+    --primary-color: #00bcd4; /* Cyan/Light Blue */
+    --secondary-color: #ff4081; /* Pink/Magenta accent */
+    --dark-bg: #ffffff; /* CHANGED to WHITE */
+    --light-bg: #f5f5f5; /* Light grey background */
+    --content-bg: rgba(255, 255, 255, 0.95);
+    --text-light: #333; /* CHANGED to Dark Text so it's visible on white */
+    --text-dark: #333;
+    --font-main: 'Poppins', sans-serif;
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
 
     /* ------------------------------------------- */
     /* --- 2. Base & Typography --- */
@@ -43,17 +42,15 @@
         color: var(--text-dark);
     }
 
-    /* ------------------------------------------- */
-    /* --- 3. Particles Container (Background) --- */
-    /* ------------------------------------------- */
-    #particles-js {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: var(--dark-bg); /* Dark background for the particle field */
-        z-index: 1; /* Below content */
-    }
-    
+   /* --- 3. Particles Container --- */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Update this to a light color, or remove it entirely if you use the body background */
+    background-color: #f5f5f5; /* Light grey */
+    z-index: 1; 
+}
     /* ------------------------------------------- */
     /* --- 4. Navigation Bar (FINAL Optimized) --- */
     /* ------------------------------------------- */
