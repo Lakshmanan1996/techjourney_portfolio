@@ -1,1 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshmanan R | Infrastructure Management Engineer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- 1. CSS Variables (Vibrant Scheme) --- */
+        :root {
+            --primary-color: #00bcd4; /* Cyan/Light Blue */
+            --secondary-color: #ff4081; /* Pink/Magenta accent */
+            --dark-bg: #1d3557; /* Deep Blue/Navy */
+            --light-bg: #f5f5f5; /* Light grey background */
+            --content-bg: rgba(255, 255, 255, 0.95); /* Semi-transparent white for particles */
+            --text-light: #fff;
+            --text-dark: #333;
+            --font-main: 'Poppins', sans-serif;
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- 2. Base & Typography --- */
+        body {
+            font-family: var(--font-main);
+            margin: 0;
+            padding-top: 60px;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* --- 3. Particles Container --- */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--dark-bg); /* Dark background for the particle field */
+            background-image: url('');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+            z-index: 1; /* Below content */
+        }
+        #home {
+            position: relative;
+            background-color: transparent; /* Home background is the particle container */
+            color: var(--text-light);
+            z-index: 2; /* Content above particles */
+        }
+        #home h1, #home h2, #home p {
+            color: var(--text-light);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Shadow for readability */
+        }
+
+        /* --- 4. Navigation Bar --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: var(--dark-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+        }
+        .logo {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0 15px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: var(--primary-color);
+            color: var(--text-dark); /* Contrast color */
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        /* --- 5. Section Styling (General) --- */
+        section {
+            padding: 80px 5%;
+            min-height: auto;
+            position: relative;
+            z-index: 10; /* Ensure all content sections are above particles */
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        .section-title i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* --- 6. Home/About Section Content --- */
+        .home-content, .about-content {
+            background-color: var(--content-bg); /* Use semi-transparent background */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        #about .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .home-text {
+            max-width: 500px;
+            text-align: center;
+            margin-right: 50px;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text box */
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .name-highlight {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin: 10px 0 20px 0;
+        }
+        .role-title {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+        }
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            box-shadow: 0 0 0 10px rgba(255, 64, 129, 0.3);
+            flex-shrink: 0;
+            transition: transform 0.5s;
+        }
+        .profile-image:hover {
+            transform: scale(1.05) rotate(3deg);
+        }
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--text-light);
+        }
+        .btn-primary {
+            background-color: var(--secondary-color);
+            box-shadow: 0 3px 0 #d8346e;
+        }
+        .btn-primary:hover {
+            background-color: #d8346e;
+            box-shadow: 0 2px 0 #b32a58;
+        }
+        
+        /* --- 7. Skills Section (Dark Background) --- */
+        #skills {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+        }
+        #skills .section-title {
+            color: var(--secondary-color);
+        }
+        #skills .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .skill-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s;
+            border-bottom: 4px solid var(--primary-color);
+        }
+        .skill-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            background-color: rgba(255, 255, 255, 0.2);
+            border-bottom-color: var(--secondary-color);
+        }
+        .skill-card img, .skill-card i {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            object-fit: contain;
+            filter: grayscale(0) drop-shadow(0 0 5px var(--primary-color));
+            color: var(--primary-color); /* For font icons */
+            font-size: 3em;
+        }
+        .skill-card h4 {
+            color: var(--text-light);
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* --- 8. Experience & Education (Timeline) --- */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            background-color: var(--primary-color);
+        }
+        .timeline-item::after {
+            background-color: var(--secondary-color);
+            border: 3px solid var(--primary-color);
+        }
+        .timeline-item .content {
+            background-color: var(--content-bg);
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--secondary-color);
+            transition: all 0.3s;
+        }
+        .timeline-item .content:hover {
+             border-left-color: var(--primary-color);
+        }
+        .timeline-date {
+            color: var(--secondary-color);
+        }
+        .timeline-company {
+            color: var(--primary-color);
+        }
+        
+        /* --- 9. Contact Section --- */
+        #contact {
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+        .contact-content {
+            background-color: transparent; /* Remove background here */
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .contact-form, .contact-details {
+            background-color: var(--content-bg);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-color);
+        }
+        .contact-form i, .contact-details i {
+            color: var(--secondary-color);
+        }
+        .submit-btn {
+            background-color: var(--primary-color);
+            box-shadow: 0 3px 0 #0097a7;
+        }
+        .submit-btn:hover {
+            background-color: #0097a7;
+            box-shadow: 0 2px 0 #007c8a;
+        }
+
+        /* --- 10. Footer --- */
+        footer {
+            background-color: var(--dark-bg);
+        }
+        footer h3 {
+            color: var(--secondary-color);
+        }
+        .footer-social a {
+            color: var(--primary-color);
+        }
+        .footer-social a:hover {
+            color: var(--secondary-color);
+        }
+
+
+        /* --- 11. Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .home-text {
+                margin: 0;
+                text-align: center;
+            }
+            #home {
+                flex-direction: column;
+            }
+            .profile-image {
+                margin-top: 30px;
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="particles-js"></div>
+
+    <header class="navbar">
+        <a href="#home" class="logo">Lakshmanan R</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education-certs">Certification</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
+                <div class="home-text">
+                    <p class="greeting">Hi There, I'm</p>
+                    <h1 class="name-highlight">LAKSHMANAN R</h1>
+                    <h2 class="role-title">Infrastructure Management Engineer</h2>
+                    <a href="#about" class="btn-primary">About Me <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="profile-image">
+                    <img src="placeholder.jpg" alt="Lakshmanan R Profile Photo"> 
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title"><i class="fas fa-user-tie"></i> Profile Overview</h2>
+            <div class="about-content">
+                <p>
+                   <li>Highly skilled System Engineer with 7+ years of experience managing large-scale infrastructure in both
+                        on-premises and cloud environments (AWS)</li>
+
+                     <li>Specialized in MECM/SCCM administra􀆟on, Windows Server environments, and DevOps tools including Docker, Jenkins, and Git </li>
+
+                    <li> Proven ability to lead infrastructure op􀆟miza􀆟on projects, automate deployments using PowerShell, and maintain high compliance across global IT assets</li>
+
+                    Holds mul􀆟ple industry cer􀆟fica􀆟ons including CCNA, CCNP, and MCSA.
+                </p>
+                <p>
+                    My professional focus is on proactive alert monitoring, timely patch deployment, managing complex network configurations, and providing robust L2 system support.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> Technical Skills</h2>
+            <div class="skill-grid">
+                
+                <div class="skill-card">
+                    <img src="" alt="MECM/SCCM Logo">
+                    <h4>MECM/SCCM</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-windows"></i>
+                    <h4>Windows & VMware</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-aws" style="color:#FF9900;"></i>
+                    <h4>AWS / Azure</h4>
+                </div>
+                <div class="skill-card">
+                    <img src="https://" alt="PowerShell Logo">
+                    <h4>PowerShell</h4>
+                </div>
+                <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" alt="Docker Logo">
+                    <h4>Docker</h4>
+                </div>
+                 <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="Jenkins Logo">
+                    <h4>Jenkins / Git</h4>
+                </div>
+                 <div class="skill-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h4>CCNA / CCNP</h4>
+                </div>
+                 <div class="skill-card">
+                    <img src="https://www.vectorlogo.zone/logos/servicenow/servicenow-icon.svg" alt="ServiceNow Logo">
+                    <h4>ServiceNow / Autotask</h4>
+                </div>
+                 <div class="skill-card">
+                    <i class="fas fa-users-cog"></i>
+                    <h4>Active Directory & GPO</h4>
+                </div>
+                 <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h4>SQL</h4>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item left">
+                    <div class="content">
+                        <span class="timeline-date">Jan 2023 - Till now</span> 
+                        <h3 class="timeline-role">Senior System Engineer</h3>
+                        [cite_start]<p class="timeline-company">Kaseya Software Pvt.Ltd., Bangalore</p> 
+                        <ul>
+                            <li>Administered and maintained Windows and VMware OS environments, including system alert monitoring and OS-level patch management.</li>
+                            <li>Proficiently used tools such as Autotask, ServiceNow, Kaseya VSA, and Datto RMM to keep systems up to date, secure, and running smoothly.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="content">
+                        <span class="timeline-date">March 2021 - Jan 2023</span> 
+                        <h3 class="timeline-role">Senior System Engineer</h3> 
+                        <p class="timeline-company">Eliga Innovative Services Private Limited (Client: Lam Research)</p> 
+                        <ul>
+                            <li>Worked with **SCCM 2012 and MECM** for installing and managing servers.</li>
+                            <li>Wrote **PowerShell scripts** for system checks, software installs, and updates.</li>
+                           <li>Managed file servers, roaming profiles, terminal servers, HP servers, and **VMware**.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="content">
+                        <span class="timeline-date">June 2018 - Sep 2020</span> 
+                        <h3 class="timeline-role">L2 System Engineer</h3> 
+                        <p class="timeline-company">Magna Infotech, Client: WIPRO Coimbatore</p> 
+                        <ul>
+                           <li>Set up and fixed issues in **Active Directory** (passwords, domain join, moving users).</li>
+                            <li>Worked with network routes like Static, **EIGRP, OSPF, and BGP**.</li>
+                            <li>Set up security with **VPN, ACL, and VTP**.</li>
+                            <li>Installed Windows updates using **SCCM**.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="education-certs">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item left">
+                    <div class="content">
+                        [cite_start]<span class="timeline-date">April 2024 - July 2024</span> [cite: 73]
+                        [cite_start]<h3 class="timeline-role">Certification in DevSecOps</h3> [cite: 71]
+                        [cite_start]<p class="timeline-company">Greens Technology - Chennai</p> [cite: 72]
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="content">
+                        [cite_start]<span class="timeline-date">Aug 2014 - May 2018</span> [cite: 75]
+                        [cite_start]<h3 class="timeline-role">Bachelor of Engineering (Information Technology)</h3> [cite: 74]
+                        <p class="timeline-company">Chettinad College of Engineering & Technology - Karur, Tamil Nadu</p>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align:center; margin-top:30px; font-weight:600;">Holds Industry Certifications: CCNA, CCNP, and MCSA</p>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title"><i class="fas fa-headset"></i> Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3>Send Me a Message</h3>
+                    <form action="YOUR_FORM_SUBMIT_URL" method="POST">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                        
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        
+                        <button type="submit" class="submit-btn">Submit <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+                <div class="contact-details">
+                    <h3>Contact Info</h3>
+                    [cite_start]<p><i class="fas fa-map-marker-alt"></i> No:57, Manjunatha Layout, Hosa Road, Electronic city, Bangalore -560100, Karnataka[cite: 3, 4].</p>
+                    [cite_start]<p><i class="fas fa-phone"></i> +91 9597981490 [cite: 5]</p>
+                    [cite_start]<p><i class="fas fa-envelope"></i> rlakshmana50@gmail.com [cite: 6]</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h3>Lakshmanan R</h3>
+                <p>Infrastructure Management Engineer with 7+ years of experience in Windows, VMware, AWS, and SCCM administration.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-contact">
+                <h3>Connect</h3>
+                <p>rlakshmana50@gmail.com</p>
+                <p>+91 9597981490</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.8em; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 15px;">&copy; 2025 Lakshmanan R. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // --- PARTICLES.JS CONFIGURATION (Vibrant) ---
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 100,
+                    "density": { "enable": true, "value_area": 800 }
+                },
+                "color": {
+                    "value": ["#00bcd4", "#ff4081", "#ffffff"] /* Cyan, Pink, White */
+                },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.6, "random": true },
+                "size": { "value": 4, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00bcd4", /* Cyan lines */
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": { "enable": true, "speed": 3, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "repulse" },
+                    "onclick": { "enable": true, "mode": "push" }
+                },
+            },
+            "retina_detect": true
+        });
+
+
+        // --- SMOOTH SCROLLING & ACTIVE NAV STATE JAVASCRIPT ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const headerHeight = 60; 
+
+        // 1. Smooth scrolling
+        document.querySelectorAll('.navbar a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const offset = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight; 
+                    window.scrollTo({
+                        top: offset,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 2. Update active navigation link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - headerHeight - 1; 
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current) && current !== '') {
+                    a.classList.add('active');
+                }
+            });
+            
+            // Special handling for the 'Home' link at the very top
+            if (window.scrollY < 100) {
+                navLinks.forEach(a => a.classList.remove('active'));
+                document.querySelector('.nav-links a[href="#home"]').classList.add('active');
+            }
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.nav-links a[href="#home"]').classList.add('active');
+        });
+    </script>
+</body>
+</html>
 
