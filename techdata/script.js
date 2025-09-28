@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             },
             "color": {
-                // KEY CHANGE: Particle dot color set to black
-                "value": "#000000" 
+                // KEY CHANGE: Particle dot color set back to white
+                "value": "#ffffff" 
             },
             "shape": {
                 "type": "circle",
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
             },
             "opacity": {
-                "value": 0.6, // Slightly higher opacity for visibility on white
+                "value": 0.5, 
                 "random": false,
                 "anim": {
                     "enable": false,
@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
             "line_linked": {
                 "enable": true,
                 "distance": 150,
-                // KEY CHANGE: Particle line color set to black
-                "color": "#000000", 
+                // Particle line color set to Cyan (for vibrancy on the dark blue)
+                "color": "#00bcd4", 
                 "opacity": 0.4,
                 "width": 1
             },
