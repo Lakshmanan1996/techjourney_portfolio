@@ -211,11 +211,12 @@ header .navbar ul li a.active {
 
 
 /* --- CONTACT SECTION STYLES FIXES --- */
+/* --- CONTACT SECTION STYLES (Final Wide Layout & Image Match) --- */
 #contact {
-    /* Background color from Image 2 (a very light blue/grey) */
-    background: #eef2f6; /* Lighter background for the section */
-    color: #333; /* Darker text for better contrast on light background */
+    /* FIX: Use minimal left/right padding to allow content to spread wide */
     padding: 6rem 4%; 
+    background: #eef2f6; /* Light background color matching the design */
+    color: #333; 
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -223,63 +224,54 @@ header .navbar ul li a.active {
 
 #contact .section-title,
 #contact .subtitle {
-    color: #333; /* Darker text for titles */
+    color: #333; 
     margin-bottom: 2rem;
     text-align: center;
 }
 
-/* Update these lines in your style.css */
 .contact-content-wrapper {
     display: flex;
-    /* KEY CHANGE 1: Pushes children to the far left and right */
+    /* FIX: This forces the image to the far left and the form to the far right */
     justify-content: space-between; 
     align-items: flex-start; 
     
-    /* KEY CHANGE 2: Increase the space between the image and form */
-    gap: 8rem; 
+    gap: 8rem; /* Large minimum gap for separation */
     
-    /* Removed max-width to allow it to stretch across the viewport */
-    max-width: 100%; /* Ensure it fills 100% of the section's width */
+    /* FIX: Must be 100% to fill the wide section */
+    max-width: 100%; 
     width: 100%;
     margin: 3rem auto 0; 
     flex-wrap: wrap; 
     
-    /* Other visual styles should remain the same (white box effect) */
+    /* White card background for the internal content */
     background: var(--white); 
     border-radius: 15px; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
     padding: 3rem; 
 }
 
-/* Ensure the overall section padding is wide enough to see the effect */
-#contact {
-    /* Set padding to a high percentage to push content out from the edges */
-    padding: 6rem 12%; 
-}
-
-/* Flex sizing adjustments to prevent image/form from dominating */
+/* 3. Image Box styling */
 .contact-image-box {
-    /* Allow to shrink, set max width */
-    flex: 0 1 400px;
+    flex: 0 1 400px; /* Constrain image size */
+    text-align: left;
     max-width: 450px; 
-    min-width: 300px;
-    text-align: left; /* Keep image aligned left */
+    min-width: 300px; 
+    padding: 1rem; 
 }
 
 .contact-image-box .contact-illustration {
     max-width: 100%; 
     height: auto; 
     display: block;
-    margin: 0 auto;
+    margin: 0; /* Align left */
     object-fit: contain; 
-    border: none; /* Removed the border from the image */
 }
 
 /* 4. Form Box styling */
 .contact-form-box {
-    flex: 1 1 450px; /* Allows form to take significant space */
-    padding: 0; /* Remove padding here as it's on the wrapper */
-    background: transparent; /* Form box itself is transparent */
+    flex: 1 1 450px; /* Allow form to take significant space */
+    padding: 0; 
+    background: transparent; 
     border-radius: 0;
     box-shadow: none; 
     min-width: 300px; 
@@ -301,19 +293,19 @@ header .navbar ul li a.active {
 .input-box i {
     position: absolute;
     top: 50%;
-    left: 20px; /* Adjusted left position for icons */
+    left: 20px; 
     transform: translateY(-50%);
     font-size: 1.6rem;
-    color: #909090; /* Darker grey for icons */
+    color: #909090; 
 }
 
 #contact-form input,
 #contact-form textarea {
-    padding: 1.2rem 1.5rem; /* Increased padding */
-    padding-left: 55px; /* More space for the icon */
-    border-radius: 10px; /* More rounded corners */
-    border: 1px solid #dcdcdc; /* Light grey border */
-    background: #f8f8f8; /* Very light grey background for inputs */
+    padding: 1.2rem 1.5rem; 
+    padding-left: 55px; /* Space for the icon */
+    border-radius: 10px; 
+    border: 1px solid #dcdcdc; 
+    background: #f8f8f8; /* Light grey background for inputs */
     color: #333; 
     font-size: 1.6rem;
     width: 100%;
@@ -322,13 +314,12 @@ header .navbar ul li a.active {
 
 #contact-form input:focus,
 #contact-form textarea:focus {
-    border-color: var(--main-color); /* Highlight border on focus */
+    border-color: var(--main-color); 
     outline: none;
 }
 
-/* Specific style for textarea if it has an icon */
 .input-box textarea {
-    padding-left: 55px; /* Match input padding for icon */
+    padding-left: 55px; 
     resize: vertical;
 }
 
@@ -337,18 +328,18 @@ header .navbar ul li a.active {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #6a0dad; /* A purplish color from Image 2 */
+    background: #6a0dad; /* Purple color */
     color: var(--white);
     padding: 1.2rem 2.5rem;
     border: none;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 10px; 
     cursor: pointer;
     font-size: 1.7rem;
     font-weight: 600;
     transition: background 0.3s ease, transform 0.2s ease;
-    width: fit-content; /* Adjust width to content */
+    width: fit-content; 
     margin-top: 1rem;
-    box-shadow: 0 5px 15px rgba(106, 13, 173, 0.3); /* Soft shadow */
+    box-shadow: 0 5px 15px rgba(106, 13, 173, 0.3); 
 }
 
 .btn-submit i {
@@ -358,8 +349,34 @@ header .navbar ul li a.active {
 }
 
 .btn-submit:hover {
-    background: #8e2de2; /* Lighter purple on hover */
+    background: #8e2de2; 
     transform: translateY(-2px);
+}
+
+/* --- Responsive Layout (Media Query for Stacking on Mobile) --- */
+@media (max-width: 991px) { 
+    .contact-content-wrapper {
+        flex-direction: column; 
+        gap: 2rem; 
+        max-width: 90%; 
+        padding: 2rem; 
+    }
+
+    .contact-image-box,
+    .contact-form-box {
+        flex: 1 1 100%; 
+        max-width: 100%; 
+        text-align: center; 
+    }
+
+    .contact-image-box .contact-illustration {
+        max-width: 80%; 
+        margin: 0 auto;
+    }
+
+    .btn-submit {
+        width: 100%; /* Full width button on mobile */
+    }
 }
 
 /* --- Responsive Layout (Media Query) --- */
