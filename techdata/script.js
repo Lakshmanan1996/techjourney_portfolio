@@ -3,8 +3,8 @@ const typingTextElement = document.querySelector('.typing-text');
 const textToType = "Cloud Engineer";
 
 // Define Speeds (in milliseconds)
-const TYPING_SPEED = 15;  // Your requested typing speed
-const BACK_SPEED = 05;    // Your requested backspacing speed
+const TYPING_SPEED = 5;  // Your requested typing speed
+const BACK_SPEED = 50;    // Your requested backspacing speed
 const PAUSE_DELAY = 500;  // Pause before backspacing
 
 let charIndex = 0;
