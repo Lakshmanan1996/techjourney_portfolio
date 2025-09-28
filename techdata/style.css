@@ -1,234 +1,28 @@
-:root {
-  --main-color: #00bcd4;
-  --secondary-color: #ff4081;
-  --dark-bg: #1d3557;
-  --white: #fff;
-}
+/* =================================================================== */
+/* 1. HOME SECTION: PARTICLES, DOTTED BG, FLOATING IMAGE */
+/* =================================================================== */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  background: #f5f5f5;
-  line-height: 1.6;
-  color: #333;
-  scroll-behavior: smooth;
-}
-
-/* Navbar */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 5%;
-  background: rgba(29, 53, 87, 0.95);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-}
-
-header .logo {
-  color: var(--main-color);
-  font-weight: 700;
-  font-size: 1.4rem;
-  text-decoration: none;
-}
-
-header .navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-header .navbar ul li a {
-  color: var(--white);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  transition: 0.3s;
-}
-
-header .navbar ul li a:hover,
-header .navbar ul li a.active {
-  background: var(--main-color);
-  color: var(--dark-bg);
-  border-radius: 4px;
-}
-
-/* Sections */
-section {
-  padding: 8rem 8%;
-  position: relative;
-  z-index: 2;
-}
-
-.section-title {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 3rem;
-  color: var(--main-color);
-}
-
-/* Home */
-.home {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
-  min-height: 100vh;
-  padding-top: 7rem;
-}
-
-.home .content {
-  flex: 1 1 45%;
-}
-
-.home .name-highlight {
-  font-size: 2.5rem;
-  color: var(--main-color);
-}
-
-.home .role-title {
-  font-size: 1.2rem;
-  color: var(--secondary-color);
-}
-
-.home .buttons {
-  margin: 1.5rem 0;
-}
-
-.btn-primary {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  background: var(--secondary-color);
-  color: var(--white);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn-primary:hover {
-  background: #d8346e;
-}
-
-.home .socials {
-  display: flex;
-  gap: 1rem;
-}
-
-.home .socials a {
-  font-size: 1.4rem;
-  color: var(--white);
-  background: var(--main-color);
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: 0.3s;
-}
-
-.home .socials a:hover {
-  background: var(--secondary-color);
-}
-
-.home .image img {
-  max-width: 300px;
-  border-radius: 50%;
-  border: 8px solid var(--main-color);
-}
-
-/* Skills */
-.skill-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1.5rem;
-}
-
-.skill-card {
-  background: var(--dark-bg);
-  color: var(--white);
-  padding: 1.5rem;
-  border-radius: 8px;
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.skill-card:hover {
-  transform: translateY(-5px);
-}
-
-.skill-card i {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: var(--main-color);
-}
-
-/* Timeline (Experience & Education) */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.timeline-item {
-  background: var(--white);
-  padding: 1.5rem;
-  border-left: 5px solid var(--secondary-color);
-  border-radius: 5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Contact */
-.contact-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.contact-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-  max-width: 500px;
-}
-
-.contact-container input,
-.contact-container textarea {
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2rem;
-  background: var(--dark-bg);
-  color: var(--white);
-}
-
-/* Existing styles from the uploaded file */
-
-/* ... (Your existing CSS code here) ... */
-
-
-/* ------------------------------------------------------------------ */
-/* HOME SECTION STYLES: PARTICLES, DOTTED BG, FLOATING IMAGE */
-/* ------------------------------------------------------------------ */
-
-/* Use the existing dark background variable from the provided CSS */
 :root {
   --main-color: #00bcd4;
   --secondary-color: #ff4081;
   --dark-bg: #1d3557; 
   --white: #fff;
+}
+
+.section {
+    padding: 6rem 5%; /* Standard section padding */
+    min-height: 100vh;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--dark-bg);
+    margin-bottom: 3rem;
+    padding-top: 5rem;
+}
+.section-title i {
+    color: var(--main-color);
 }
 
 .home {
@@ -257,9 +51,9 @@ footer {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center the image precisely */
+    transform: translate(-50%, -50%); 
     z-index: 2; /* Sits above particles, behind the character */
-    opacity: 0.2; /* Subtle background */
+    opacity: 0.2; 
     max-width: 70%; 
     pointer-events: none;
 }
@@ -271,47 +65,49 @@ footer {
 }
 
 /* 3. Floating Character & Text Content (Foreground) */
-.home .hero-image-content {
+.hero-image-container {
     position: relative; 
-    z-index: 3; /* Highest layer, on top of everything */
-    text-align: center;
-    max-width: 90%;
-    width: 100%;
-    /* Padding for the fixed header */
-    padding-top: 6.5rem; 
-    padding-bottom: 2rem; 
+    z-index: 3; 
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    max-width: 1200px;
+    width: 100%;
+    padding: 6.5rem 5% 2rem; 
 }
 
-.home .hero-image-content .content {
-    margin-bottom: 2rem;
+.hero-image-container .content {
     color: var(--white);
+    max-width: 50%;
+    text-align: left;
 }
 
-.home .hero-image-content .content h1 {
+.hero-image-container .content h1 {
     font-size: 3.5rem;
     color: var(--main-color);
 }
 
-.home .hero-image-content .content h2 {
+.hero-image-container .content h2 {
     font-size: 2.5rem;
     font-weight: 400;
 }
 
-.home .hero-image-content img {
+.hero-image-container .image-box {
+    width: 40%;
+    text-align: center;
+}
+
+.hero-image-container .image-box img {
     max-width: 100%; 
     height: auto; 
-    width: 500px; /* Specific size for the illustration */
+    width: 500px; 
     max-height: 60vh; 
     display: block;
     margin: 0 auto; 
     object-fit: contain;
 }
 
-/* --- FLOATING ANIMATION --- */
+/* FLOATING ANIMATION */
 @keyframes float {
     0% {
         transform: translateY(0px);
@@ -329,42 +125,107 @@ footer {
 }
 
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
-    .home .hero-image-content .content h1 {
-        font-size: 2.5rem;
-    }
-    .home .hero-image-content .content h2 {
-        font-size: 1.8rem;
-    }
-    .home .hero-image-content img {
-        width: 90%;
-        max-height: 50vh;
-    }
+/* =================================================================== */
+/* 2. PROJECTS SECTION: DIAGRAMMATIC REPRESENTATION */
+/* =================================================================== */
 
-  /* --- PROJECT DIAGRAM STYLES --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
 
 .project-card {
-    /* Ensure card content flows nicely, accommodating the image */
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Ensures image doesn't break card boundaries */
-    padding: 0; /* Remove default padding to let the image go edge-to-edge */
-    text-align: left;
+    overflow: hidden; 
+    padding: 0; 
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .project-diagram-img {
-    width: 100%; /* Image takes full width of the card */
-    max-height: 250px; /* Constrain height for uniform look */
-    object-fit: cover; /* Ensures image covers the area without distortion */
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    margin-bottom: 1rem; /* Space below the image */
+    width: 100%; 
+    max-height: 200px; /* Constrain height for uniform look */
+    object-fit: cover; /* Ensures image covers the area */
 }
 
-/* Ensure the text content is still nicely padded */
+/* Style for project text content */
 .project-info {
     padding: 1.5rem;
-    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
+
+.project-info h3 {
+    color: var(--dark-bg);
+    margin-top: 0;
+}
+
+.project-info p {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.project-info .btn-secondary {
+    margin-top: auto;
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--secondary-color);
+    color: var(--white);
+    text-align: center;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.project-info .btn-secondary:hover {
+    background: #e91e63; /* slightly darker secondary color */
+}
+
+/* =================================================================== */
+/* 3. MEDIA QUERIES (Responsiveness) */
+/* =================================================================== */
+
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+    .hero-image-container {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 8rem;
+    }
+    .hero-image-container .content,
+    .hero-image-container .image-box {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+    }
+    .hero-image-container .content {
+        order: 2; /* Move text below image on mobile */
+    }
+    .hero-image-container .image-box {
+        order: 1;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+    .section {
+        padding: 6rem 3%;
+    }
 }
