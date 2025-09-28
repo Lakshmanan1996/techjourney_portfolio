@@ -624,25 +624,45 @@
             <p style="text-align:center; margin-top:30px; font-weight:600;">Holds Industry Certifications: CCNA, CCNP, and MCSA</p>
         </section>
 
-        <section id="contact">
-            <h2 class="section-title"><i class="fas fa-headset"></i> Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <h3>Send Me a Message</h3>
-                    <form action="YOUR_FORM_SUBMIT_URL" method="POST">
+        <section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        
+        <div class="contact-content">
+            <div class="form-card">
+                <h3>Send Me a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
+                    </div>
 
+                    <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" required>
+                    </div>
 
+                    <div class="form-group">
                         <label for="phone">Phone</label>
                         <input type="tel" id="phone" name="phone">
-                        
+                    </div>
+
+                    <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
-                        
-                        <button type="submit" class="submit-btn">Submit <i class="fas fa-paper-plane"></i></button>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            
+            <div class="info-card">
+                <h3>Contact Info</h3>
+                <p>...</p>
+            </div>
+        </div>
+    </div>
+</section>
                     </form>
                 </div>
                 <div class="contact-details">
