@@ -3,10 +3,10 @@
 particlesJS('particles-js', {
     "particles": {
         "number": {
-            "value": 80, // Number of particles
+            "value": 90, // Slightly more particles for density
             "density": {
                 "enable": true,
-                "value_area": 800
+                "value_area": 900
             }
         },
         "color": {
@@ -16,38 +16,30 @@ particlesJS('particles-js', {
             "type": "circle",
             "stroke": {
                 "width": 0,
-                "color": "#ffffff"
             },
         },
         "opacity": {
-            "value": 0.5,
-            "random": false,
-            "anim": {
-                "enable": false,
-            }
+            "value": 0.6,
+            "random": true,
         },
         "size": {
-            "value": 3,
+            "value": 4,
             "random": true,
-            "anim": {
-                "enable": false,
-            }
         },
         "line_linked": {
             "enable": true,
             "distance": 150,
             "color": "#ffffff", // Line color: White
-            "opacity": 0.4,
+            "opacity": 0.5,
             "width": 1
         },
         "move": {
             "enable": true,
-            "speed": 6, // Speed of movement
+            "speed": 3, // Slower, smoother movement
             "direction": "none",
-            "random": false,
+            "random": true,
             "straight": false,
             "out_mode": "out",
-            "bounce": false,
         }
     },
     "interactivity": {
@@ -55,35 +47,28 @@ particlesJS('particles-js', {
         "events": {
             "onhover": {
                 "enable": true,
-                "mode": "grab" // Particles follow mouse on hover
+                "mode": "repulse" // Push particles away on hover
             },
             "onclick": {
                 "enable": true,
-                "mode": "push" // Click to create new particles
+                "mode": "push" 
             },
             "resize": true
         },
-        "modes": {
-            "grab": {
-                "distance": 140,
-                "line_linked": {
-                    "opacity": 1
-                }
-            },
-        }
     },
     "retina_detect": true
 });
 
 
-// --- 2. Animations (Scroll-Reveal Fade-in) ---
+// --- 2. Animations (Scroll-Reveal Fade-in) & Smooth Scrolling ---
 
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.fade-in');
 
+    // **Scroll-Reveal Logic**
     const observerOptions = {
         root: null, // viewport
-        threshold: 0.1, // trigger when 10% of the element is visible
+        threshold: 0.2, // trigger when 20% of the element is visible
         rootMargin: "0px"
     };
 
@@ -103,12 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // --- 3. Smooth Scrolling for Navigation (Fallback/Enhancement) ---
-    // If you use 'scroll-behavior: smooth' in CSS, this is often unnecessary,
-    // but it provides a reliable, cross-browser smooth scroll for anchor links.
+    // **Smooth Scrolling for Anchor Links**
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevent default jump
+            e.preventDefault(); 
 
             const targetId = this.getAttribute('href');
             document.querySelector(targetId).scrollIntoView({
