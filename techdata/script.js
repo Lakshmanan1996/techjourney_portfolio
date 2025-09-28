@@ -1,27 +1,50 @@
 // --- Typing Text Effect ---
 const typingTextElement = document.querySelector('.typing-text');
-const textToType = "Infrastructure Management Engineer";
+const textToType = "Cloud Engineer";
 
-function typeText(element, text) {
-    let index = 0;
-    function typing() {
-        if (index < text.length) {
-            element.textContent += text.charAt(index);
-            index++;
-            setTimeout(typing, 50);// Adjust typing speed here (milliseconds)
-            setbackspeed(typing, 25);
-            setbackDelay(typing, 500);
+// Define Speeds (in milliseconds)
+const TYPING_SPEED = 50;  // Your requested typing speed
+const BACK_SPEED = 25;    // Your requested backspacing speed
+const PAUSE_DELAY = 500;  // Pause before backspacing
+
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+    const currentText = textToType;
+
+    if (!isDeleting) {
+        // === TYPING PHASE ===
+        if (charIndex < currentText.length) {
+            // Add one character
+            typingTextElement.textContent += currentText.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeEffect, TYPING_SPEED);
+        } else {
+            // Typing complete, switch to deleting phase after a pause
+            isDeleting = true;
+            setTimeout(typeEffect, PAUSE_DELAY);
+        }
+    } else {
+        // === DELETING PHASE ===
+        if (charIndex > 0) {
+            // Remove one character
+            typingTextElement.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(typeEffect, BACK_SPEED);
+        } else {
+            // Deleting complete, switch back to typing phase
+            isDeleting = false;
+            // You can add an array here and move to the next phrase if you had one.
+            setTimeout(typeEffect, TYPING_SPEED); 
         }
     }
-    element.textContent = ''; // Clear initial text
-    typing();
 }
 
-// Call the function when the page loads
+// Start the effect when the page loads
 if (typingTextElement) {
-    typeText(typingTextElement, textToType);
+    typeEffect();
 }
-
 
 // ===================================================================
 // DYNAMIC FEATURES: PARTICLES, SCROLL, PROJECT LOADING, SCROLL REVEAL
