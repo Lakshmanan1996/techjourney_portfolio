@@ -1,4 +1,34 @@
-// Function to initialize particles.js for the background
+// ============================================
+// === 1. SCROLL REVEAL ANIMATION (New Code) ===
+// ============================================
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        // If the element is visible in the viewport
+        if (entry.isIntersecting) {
+            // Add the 'show' class to animate it
+            entry.target.classList.add('show');
+        } 
+        // NOTE: We don't remove the 'show' class here, so the animation doesn't repeat 
+        // every time the user scrolls away and back.
+    });
+}, {
+    // Root margin controls when the observer triggers. 
+    // This setting triggers the animation when the element is 50 pixels 
+    // from the bottom of the viewport.
+    rootMargin: '0px 0px -50px 0px' 
+});
+
+// Select all elements that have the 'hidden' class applied in the HTML
+const hiddenElements = document.querySelectorAll('.hidden');
+
+// Attach the observer to each of the selected elements
+hiddenElements.forEach((el) => observer.observe(el));
+
+
+// ============================================
+// === 2. PARTICLES BACKGROUND INITIALIZATION ===
+// ============================================
 document.addEventListener('DOMContentLoaded', function() {
 
     particlesJS('particles-js', {
@@ -11,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             },
             "color": {
-                // KEY CHANGE: Particle dot color set back to white
                 "value": "#ffffff" 
             },
             "shape": {
@@ -47,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
             "line_linked": {
                 "enable": true,
                 "distance": 150,
-                // Particle line color set to Cyan (for vibrancy on the dark blue)
                 "color": "#00bcd4", 
                 "opacity": 0.4,
                 "width": 1
