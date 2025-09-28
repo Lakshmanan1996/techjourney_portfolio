@@ -213,3 +213,132 @@ footer {
   background: var(--dark-bg);
   color: var(--white);
 }
+
+/* Existing styles from the uploaded file */
+
+/* ... (Your existing CSS code here) ... */
+
+
+/* ------------------------------------------------------------------ */
+/* HOME SECTION STYLES: PARTICLES, DOTTED BG, FLOATING IMAGE */
+/* ------------------------------------------------------------------ */
+
+/* Use the existing dark background variable from the provided CSS */
+:root {
+  --main-color: #00bcd4;
+  --secondary-color: #ff4081;
+  --dark-bg: #1d3557; 
+  --white: #fff;
+}
+
+.home {
+    min-height: 100vh;
+    background: var(--dark-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; 
+    position: relative; 
+    overflow: hidden;
+}
+
+/* 1. Particle Canvas */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Lowest layer */
+}
+
+/* 2. Dotted Background Image */
+.dotted-background-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image precisely */
+    z-index: 2; /* Sits above particles, behind the character */
+    opacity: 0.2; /* Subtle background */
+    max-width: 70%; 
+    pointer-events: none;
+}
+
+.dotted-background-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 3. Floating Character & Text Content (Foreground) */
+.home .hero-image-content {
+    position: relative; 
+    z-index: 3; /* Highest layer, on top of everything */
+    text-align: center;
+    max-width: 90%;
+    width: 100%;
+    /* Padding for the fixed header */
+    padding-top: 6.5rem; 
+    padding-bottom: 2rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home .hero-image-content .content {
+    margin-bottom: 2rem;
+    color: var(--white);
+}
+
+.home .hero-image-content .content h1 {
+    font-size: 3.5rem;
+    color: var(--main-color);
+}
+
+.home .hero-image-content .content h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.home .hero-image-content img {
+    max-width: 100%; 
+    height: auto; 
+    width: 500px; /* Specific size for the illustration */
+    max-height: 60vh; 
+    display: block;
+    margin: 0 auto; 
+    object-fit: contain;
+}
+
+/* --- FLOATING ANIMATION --- */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px); 
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.floating-image {
+    animation: float 4s ease-in-out infinite; 
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .home .hero-image-content .content h1 {
+        font-size: 2.5rem;
+    }
+    .home .hero-image-content .content h2 {
+        font-size: 1.8rem;
+    }
+    .home .hero-image-content img {
+        width: 90%;
+        max-height: 50vh;
+    }
+}
