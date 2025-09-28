@@ -430,71 +430,111 @@ header .navbar ul li a.active {
 /* --- CONTACT SECTION STYLES (New additions) --- */
 
 /* Style for the container wrapping the icon and input */
-.input-box {
-    position: relative;
-    width: 50%;
+/* --- CONTACT SECTION STYLES (Two-Column Layout) --- */
+#contact {
+    background: var(--dark-bg); 
+    color: var(--white);
+    padding: 6rem 5%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 
-/* Style for the icon inside the input box */
+#contact .section-title,
+#contact .subtitle {
+    color: var(--white);
+    margin-bottom: 2rem;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Wrapper for the two columns (Image & Form) */
+.contact-content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem; /* Space between image and form */
+    max-width: 1100px; /* Max width of the entire content block */
+    width: 100%;
+    margin-top: 3rem;
+    flex-wrap: wrap; /* Allows stacking on small screens */
+}
+
+/* Contact Image Box (Left) */
+.contact-image-box {
+    flex: 1 1 40%; /* Takes about 40% of the space */
+    text-align: center;
+    min-width: 280px; 
+}
+
+.contact-image-box .contact-illustration {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Contact Form Box (Right) */
+.contact-form-box {
+    flex: 1 1 50%; /* Takes about 50% of the space (the form) */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem; 
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    min-width: 300px; 
+}
+
+/* Form Styles */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Input Box with Icon */
+.input-box {
+    position: relative;
+    width: 100%;
+}
+
 .input-box i {
     position: absolute;
     top: 50%;
     left: 15px;
     transform: translateY(-50%);
     font-size: 1.6rem;
-    color: #555; /* A standard dark color for the icon */
-    margin-right: 0; /* Override any previous margin */
+    color: #999;
 }
 
-/* Adjust the input field padding to make space for the icon */
 #contact-form input,
 #contact-form textarea {
     padding: 1.2rem;
-    padding-left: 45px; /* Added padding to push text past the icon */
+    padding-left: 45px; /* Space for the icon */
     border-radius: 5px;
     border: none;
     background: var(--white);
+    color: #333; 
     font-size: 1.6rem;
-    width: 100%; /* Ensure inputs take full width of their wrapper */
-}
-
-/* Special adjustment for the textarea since it doesn't have an icon */
-#contact-form textarea {
-    padding-left: 1.2rem; /* Revert padding for textarea */
-}
-
-/* --- (Rest of your existing CONTACT SECTION STYLES go here) --- */
-
-/* Ensure the form still looks good in the container */
-#contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    margin-top: 3rem;
-}
-
-/* ... rest of your CSS ... */
-
-@media (max-width: 900px) {
-  .contact {
-    min-height: 70vh;
-  }
-  .contact .container {
-    margin: 3rem 0 2rem 0;
-  }
-  .contact .container .content {
-    padding: 18px 12px;
-  }
-  .contact .content .image-box {
-    display: none;
-  }
-  .contact .content form {
     width: 100%;
-    margin-right: 2rem;
-  }
+}
+
+#contact-form textarea {
+    padding-left: 1.2rem; /* Revert padding for textarea as it has no icon */
+    resize: vertical;
+}
+
+/* --- Media Queries for responsiveness --- */
+@media (max-width: 768px) {
+    .contact-content-wrapper {
+        flex-direction: column; /* Stacks vertically on smaller screens */
+        gap: 2rem;
+    }
+    .contact-image-box,
+    .contact-form-box {
+        flex: 1 1 100%; /* Both take full width when stacked */
+        max-width: 500px; /* Optional: limit width even when full width */
+    }
 }
 /* contact section media queries ends */
 /* contact section ends */
