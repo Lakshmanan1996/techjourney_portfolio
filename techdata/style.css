@@ -227,8 +227,8 @@ header .navbar ul li a.active {
     order: 1; /* always left */
     flex: 0 1 400px;
     text-align: Left;
-    max-width: 500px;
-    min-width: 500px;
+    max-width: 600px;
+    min-width: 600px;
 }
 
 .contact-illustration {
