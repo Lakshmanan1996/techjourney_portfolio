@@ -1,20 +1,20 @@
 // ===================================================================
-// DYNAMIC FEATURES: PARTICLES, SCROLL, PROJECT LOADING
+// DYNAMIC FEATURES: PARTICLES, SCROLL, PROJECT LOADING, SCROLL REVEAL
 // ===================================================================
 
 // 1. Load Particles.js background
-// Assumes you have a particles.json or app.js config
-particlesJS.load("particles-js", "assets/js/app.js", () => {
+// **CRITICAL PATH FIX:** Use the path relative to the website's root for GitHub Pages
+particlesJS.load("particles-js", "./assets/js/app.js", () => {
   console.log("particles.js config loaded");
 });
 
-// 2. Smooth scroll + active link highlight
+// 2. Smooth scroll + active link highlight + scroll-top button
 const sections = document.querySelectorAll(".section");
 const navLinks = document.querySelectorAll(".navbar ul li a");
 
 window.addEventListener("scroll", () => {
   let current = "";
-  // Check scroll position to determine which section is "active"
+  // Determine which section is "active"
   sections.forEach((section) => {
     const sectionTop = section.offsetTop - 150; 
     if (scrollY >= sectionTop) {
@@ -76,16 +76,16 @@ const srtop = ScrollReveal({
     origin: 'top',
     distance: '80px',
     duration: 1000,
-    reset: false // Set to false so animations don't repeat on scroll
+    reset: false 
 });
 
 /* SCROLL HOME CONTENT */
-// Animate the text and the floating image
 srtop.reveal('.home .content', { delay: 200 });
 srtop.reveal('.home .image-box', { delay: 400, origin: 'right' });
 
 /* SCROLL SECTIONS */
 srtop.reveal('.section-title', { delay: 200 });
+srtop.reveal('.subtitle', { delay: 200 });
 
 /* SCROLL ABOUT */
 srtop.reveal('#about .about-container p', { interval: 200 });
@@ -103,7 +103,7 @@ srtop.reveal('.project-grid .project-card', { interval: 150 });
 srtop.reveal('.contact-container > div', { interval: 100 });
 srtop.reveal('#contact-form', { delay: 300 });
 
-// 5. Smooth scrolling for hash links (using jQuery CDN)
+// 5. Smooth scrolling for hash links (using jQuery CDN from index.html)
 $('a[href*="#"]').on('click', function (e) {
     e.preventDefault();
     $('html, body').animate({
