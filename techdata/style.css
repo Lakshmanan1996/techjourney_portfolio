@@ -226,9 +226,9 @@ header .navbar ul li a.active {
 .contact-image-box {
     order: 1; /* always left */
     flex: 0 1 400px;
-    text-align: center;
-    max-width: 400px;
-    min-width: 300px;
+    text-align: Left;
+    max-width: 500px;
+    min-width: 500px;
 }
 
 .contact-illustration {
