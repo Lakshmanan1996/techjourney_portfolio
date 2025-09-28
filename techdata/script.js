@@ -1,9 +1,10 @@
 // --- 1. Moving Particles (particles.js configuration) ---
+// This initializes the moving particles on the element with id="particles-js"
 
 particlesJS('particles-js', {
     "particles": {
         "number": {
-            "value": 90, // Slightly more particles for density
+            "value": 90, // Number of particles
             "density": {
                 "enable": true,
                 "value_area": 900
@@ -14,9 +15,6 @@ particlesJS('particles-js', {
         },
         "shape": {
             "type": "circle",
-            "stroke": {
-                "width": 0,
-            },
         },
         "opacity": {
             "value": 0.6,
@@ -35,7 +33,7 @@ particlesJS('particles-js', {
         },
         "move": {
             "enable": true,
-            "speed": 3, // Slower, smoother movement
+            "speed": 3, // Smooth, slow movement
             "direction": "none",
             "random": true,
             "straight": false,
@@ -47,7 +45,7 @@ particlesJS('particles-js', {
         "events": {
             "onhover": {
                 "enable": true,
-                "mode": "repulse" // Push particles away on hover
+                "mode": "repulse" // Particles push away from the mouse
             },
             "onclick": {
                 "enable": true,
@@ -63,13 +61,14 @@ particlesJS('particles-js', {
 // --- 2. Animations (Scroll-Reveal Fade-in) & Smooth Scrolling ---
 
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // Select all sections that need the fade-in effect
     const sections = document.querySelectorAll('.fade-in');
 
-    // **Scroll-Reveal Logic**
+    // **Scroll-Reveal Logic using Intersection Observer**
     const observerOptions = {
-        root: null, // viewport
-        threshold: 0.2, // trigger when 20% of the element is visible
-        rootMargin: "0px"
+        root: null, // viewport is the root
+        threshold: 0.2, // Trigger when 20% of the element is visible
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -77,13 +76,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 // Add the 'visible' class to trigger the CSS transition
                 entry.target.classList.add('visible');
-                // Stop observing once it's visible
+                // Stop observing once the animation has been triggered
                 observer.unobserve(entry.target); 
             }
         });
     }, observerOptions);
 
-    // Apply the observer to all fade-in sections
+    // Attach the observer to all fade-in sections
     sections.forEach(section => {
         observer.observe(section);
     });
