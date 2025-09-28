@@ -3,53 +3,191 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lakshmanan R</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Lakshmanan R | Infrastructure Management Engineer Portfolio</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- Particle background container -->
+  <!-- Background Particles -->
   <div id="particles-js"></div>
-  <div id="particles-js"></div>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script src="js/script.js"></script>
-  <div class="mobile-toggle">☰</div>
-
-
 
   <!-- Navbar -->
-  <header class="navbar">
-    <a href="#home" class="logo">Lakshmanan R</a>
+  <nav class="navbar">
+    <a href="#home" class="logo">LAKSHMANAN R</a>
     <ul class="nav-links">
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
+      <li><a href="#education-certs">Education & Certs</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-  </header>
+  </nav>
 
   <!-- Home Section -->
   <section id="home">
     <div class="home-main-content">
       <div class="home-text">
-        <h1>Hi There, I'm <span class="name-highlight">Lakshmanan R</span></h1>
-        <h2 class="role-title">Infrastructure Management Engineer</h2>
+        <p class="role-title">Hi There, I'm</p>
+        <h1 class="name-highlight">LAKSHMANAN R</h1>
+        <h2>Infrastructure Management Engineer</h2>
         <p>7+ years of experience managing large-scale infrastructure and cloud environments (AWS), specializing in DevOps tools and MECM/SCCM administration.</p>
-        <div class="home-buttons">
-          <a href="resume.pdf" class="btn-primary">Download Resume</a>
-          <a href="#contact" class="btn-secondary">Get In Touch</a>
+        <a href="#contact" class="btn-primary">Get In Touch</a>
+
+        <div class="social-links">
+          <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/yourprofile" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="mailto:rlakshmana50@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
+
       <div class="profile-image">
-        <img src="images/profile.jpg" alt="Lakshmanan R" />
+        <img src="profile_photo.jpg" alt="Lakshmanan R Profile Photo">
       </div>
     </div>
   </section>
 
-  <!-- Other sections (About, Skills etc) ... -->
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title"><i class="fas fa-user-circle"></i> About Me</h2>
+    <div class="about-content">
+      <h3>Profile Overview</h3>
+      <p>Highly skilled System Engineer with 7+ years of experience managing large-scale infrastructure in both on-premises and cloud environments (AWS).</p>
+      <p>Specialized in <strong>MECM/SCCM administration</strong>, Windows Server environments, and <strong>DevOps</strong> tools including Docker, Jenkins, and Git.</p>
+      <p>Proven ability to lead infrastructure optimization projects, automate deployments using <strong>PowerShell</strong>, and maintain high compliance across global IT assets.</p>
+      <p>Holds multiple industry certifications including <strong>CCNA, CCNP, and MCSA</strong>.</p>
 
+      <h3>Contact Details</h3>
+      <p><strong>Mobile:</strong> +91 9597981490</p>
+      <p><strong>Email:</strong> rlakshmana50@gmail.com</p>
+      <p><strong>Address:</strong> Bangalore - 560100, Karnataka</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2 class="section-title"><i class="fas fa-tools"></i> Skills & Technology</h2>
+    <div class="skill-grid">
+      <div class="skill-card"><i class="fab fa-aws"></i><h4>AWS & Cloud</h4></div>
+      <div class="skill-card"><i class="fab fa-dev"></i><h4>DevOps/DevSecOps</h4></div>
+      <div class="skill-card"><i class="fab fa-docker"></i><h4>Docker</h4></div>
+      <div class="skill-card"><i class="fab fa-git-alt"></i><h4>Git/Jenkins</h4></div>
+      <div class="skill-card"><i class="fab fa-windows"></i><h4>Windows/MECM</h4></div>
+      <div class="skill-card"><i class="fab fa-linux"></i><h4>Linux</h4></div>
+      <div class="skill-card"><i class="fas fa-terminal"></i><h4>PowerShell</h4></div>
+      <div class="skill-card"><i class="fas fa-database"></i><h4>SQL</h4></div>
+      <div class="skill-card"><i class="fas fa-network-wired"></i><h4>CCNA/CCNP</h4></div>
+      <div class="skill-card"><i class="fab fa-java"></i><h4>Java/Python/C++</h4></div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
+    <div class="timeline">
+      <!-- Item 1 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Senior System Engineer</h3>
+          <h4>Kaseya Software Pvt.Ltd. | Jan 2023 - Present</h4>
+          <p>Bangalore</p>
+          <ul>
+            <li>Administering Windows and VMware OS environments.</li>
+            <li>OS patch management with tools like Autotask, ServiceNow, Kaseya VSA, Datto RMM.</li>
+            <li>Proactively addressed infrastructure issues.</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Item 2 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Senior System Engineer</h3>
+          <h4>Eliga Innovative Services Pvt.Ltd. (Client: Lam Research Pvt.Ltd.) | Mar 2021 - Jan 2023</h4>
+          <p>Bangalore</p>
+          <ul>
+            <li>Worked with SCCM 2012 and MECM for servers.</li>
+            <li>Windows Server installations & patching.</li>
+            <li>PowerShell scripting for automation.</li>
+            <li>VMware & HP server management.</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Item 3 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>L2 System Engineer</h3>
+          <h4>Magna Infotech (Client: WIPRO) | Jun 2018 - Sep 2020</h4>
+          <p>Coimbatore</p>
+          <ul>
+            <li>Active Directory, DNS, DHCP administration.</li>
+            <li>Worked with routing protocols (EIGRP, OSPF, BGP).</li>
+            <li>Resolved VPN issues (Cisco AnyConnect).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education-certs">
+    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Certification in DevSecOps</h3>
+          <h4>Greens Technology - Chennai</h4>
+          <p>April 2024 - July 2024</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>B.E (Information Technology)</h3>
+          <h4>Chettinad College of Engineering & Technology</h4>
+          <p>2014 - 2018 | CGPA: 8.0</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Higher Secondary Education</h3>
+          <h4>Vignesh Sri Renga Matric & Hr. Sec. School</h4>
+          <p>75%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title"><i class="fas fa-envelope-open-text"></i> Get In Touch</h2>
+    <div class="contact-container">
+      <div class="contact-detail"><i class="fas fa-map-marker-alt"></i> Bangalore - 560100, Karnataka</div>
+      <div class="contact-detail"><i class="fas fa-phone-alt"></i> +91 9597981490</div>
+      <div class="contact-detail"><i class="fas fa-envelope"></i> rlakshmana50@gmail.com</div>
+
+      <form action="#" method="POST">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Lakshmanan R. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--secondary-color);"></i></p>
+  </footer>
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script src="js/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
