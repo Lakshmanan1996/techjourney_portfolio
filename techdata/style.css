@@ -426,6 +426,58 @@ header .navbar ul li a.active {
 
 /* --- 8. CONTACT SECTION --- */
 /* contact section media queries starts */
+
+/* --- CONTACT SECTION STYLES (New additions) --- */
+
+/* Style for the container wrapping the icon and input */
+.input-box {
+    position: relative;
+    width: 100%;
+}
+
+/* Style for the icon inside the input box */
+.input-box i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+    color: #555; /* A standard dark color for the icon */
+    margin-right: 0; /* Override any previous margin */
+}
+
+/* Adjust the input field padding to make space for the icon */
+#contact-form input,
+#contact-form textarea {
+    padding: 1.2rem;
+    padding-left: 45px; /* Added padding to push text past the icon */
+    border-radius: 5px;
+    border: none;
+    background: var(--white);
+    font-size: 1.6rem;
+    width: 100%; /* Ensure inputs take full width of their wrapper */
+}
+
+/* Special adjustment for the textarea since it doesn't have an icon */
+#contact-form textarea {
+    padding-left: 1.2rem; /* Revert padding for textarea */
+}
+
+/* --- (Rest of your existing CONTACT SECTION STYLES go here) --- */
+
+/* Ensure the form still looks good in the container */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-top: 3rem;
+}
+
+/* ... rest of your CSS ... */
+
 @media (max-width: 900px) {
   .contact {
     min-height: 70vh;
