@@ -31,25 +31,25 @@ body {
 }
 
 .section {
-    padding: 6rem 5%; 
-    min-height: 100vh;
+  padding: 6rem 5%;
+  min-height: 100vh;
 }
 
 .section-title {
-    text-align: center;
-    font-size: 3rem;
-    color: var(--dark-bg);
-    margin-bottom: 3rem;
-    padding-top: 5rem;
+  text-align: center;
+  font-size: 3rem;
+  color: var(--dark-bg);
+  margin-bottom: 3rem;
+  padding-top: 5rem;
 }
 .section-title i {
-    color: var(--main-color);
+  color: var(--main-color);
 }
 .subtitle {
-    text-align: center;
-    font-size: 1.6rem;
-    color: #666;
-    margin-bottom: 3rem;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #666;
+  margin-bottom: 3rem;
 }
 
 
@@ -99,307 +99,154 @@ header .navbar ul li a.active {
 /* --- 3. HOME SECTION --- */
 /* --- HOME SECTION STYLES --- */
 .home {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 5%;
-    background: var(--dark-bg); /* Use your background color variable */
-    color: var(--white);
-    position: relative;
-    z-index: 1; /* Ensure content is above particles */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5%;
+  background: var(--dark-bg); /* Use your background color variable */
+  color: var(--white);
+  position: relative;
+  z-index: 1; /* Ensure content is above particles */
 }
 
 /* Wrapper for the two columns (Text & Image) */
 .home .content-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1100px;
-    padding-top: 8rem; /* Space below fixed header */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1100px;
+  padding-top: 8rem; /* Space below fixed header */
 }
 
 /* Text Content (Left Side - Default Flex Order 1) */
 .home .content {
-    flex: 1 1 50%;
-    text-align: left;
+  flex: 1 1 50%;
+  text-align: left;
 }
 
 .home .content h1 {
-    font-size: 4rem;
-    margin: 0.5rem 0;
-    color: var(--main-color);
+  font-size: 4rem;
+  margin: 0.5rem 0;
+  color: var(--main-color);
 }
 
 .home .content .role-title {
-    font-size: 2rem;
-    font-weight: 300;
+  font-size: 2rem;
+  font-weight: 300;
 }
 
 .home .content .role-subtitle {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--secondary-color);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--secondary-color);
 }
 
 /* Image Box (Right Side - Default Flex Order 2) */
 .home .image-box {
-    flex: 1 1 40%;
-    text-align: center;
+  flex: 1 1 40%;
+  text-align: center;
 }
 
 /* Round Image Styling */
 .home .image-box .profile-image {
-    width: 550px; /* Fixed width */
-    height: 550px; /* Fixed height for a perfect circle */
-    object-fit: cover; /* Ensures image covers the area */
-    border-radius: 50%; /* Makes it perfectly round */
-    /*border: 8px solid var(--main-color); /* Border color */
-    /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);*/
-    transition: transform 0.3s;
+  width: 550px; /* Fixed width */
+  height: 550px; /* Fixed height for a perfect circle */
+  object-fit: cover; /* Ensures image covers the area */
+  border-radius: 50%; /* Makes it perfectly round */
+  /*border: 8px solid var(--main-color); /* Border color */
+  /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);*/
+  transition: transform 0.3s;
 }
 
 .home .image-box .profile-image:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 /* Socials Styles */
 .home .socials {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .home .socials a {
-    height: 40px;
-    width: 40px;
-    line-height: 40px;
-    font-size: 1.8rem;
-    color: var(--white);
-    background: var(--main-color);
-    border-radius: 50%;
-    margin-right: 1rem;
-    text-align: center;
-    display: inline-block;
-    transition: background 0.3s;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  font-size: 1.8rem;
+  color: var(--white);
+  background: var(--main-color);
+  border-radius: 50%;
+  margin-right: 1rem;
+  text-align: center;
+  display: inline-block;
+  transition: background 0.3s;
 }
 
 .home .socials a:hover {
-    background: var(--secondary-color);
+  background: var(--secondary-color);
 }
 
 /* --- Responsive Layout Breakpoint --- */
 @media (max-width: 768px) {
-    .home .content-wrapper {
-        flex-direction: column; /* Stacks image and text vertically */
-        text-align: center;
-        padding-top: 10rem;
-    }
+  .home .content-wrapper {
+    flex-direction: column; /* Stacks image and text vertically */
+    text-align: center;
+    padding-top: 10rem;
+  }
 
-    .home .image-box {
-        order: -1; /* Puts the image *above* the text on mobile */
-        margin-bottom: 3rem;
-    }
-    
-    .home .content {
-        text-align: center;
-    }
+  .home .image-box {
+    order: -1; /* Puts the image *above* the text on mobile */
+    margin-bottom: 3rem;
+  }
+  
+  .home .content {
+    text-align: center;
+  }
 }
 
-
-/* Floating Character & Text Content (Foreground) */
-
-
-/* --- CONTACT SECTION STYLES FIXES --- */
-/* --- CONTACT SECTION STYLES (Final Wide Layout & Image Match) --- */
-#contact {
-    /* FIX: Use minimal left/right padding to allow content to spread wide */
-    /* ======================================================= */
-/* === CORE FLEXBOX CSS TO ALIGN IMAGE AND FORM SIDE-BY-SIDE === */
-/* ======================================================= */
-
-/* 1. Target the main wrapper of the two columns */
-.contact-content-wrapper {
-    /* Key property: enables row layout for its children */
-    display: flex; 
-    
-    /* Optional: Adds space between the image and the form */
-    gap: 40px; 
-    
-    /* Optional: Vertically aligns items to the top (or use 'center') */
-    align-items: flex-start;
-    
-    /* Optional: Max width to keep the content contained and centered */
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px; 
-}
-
-/* 2. Control the width of the individual columns using flex-basis */
-.contact-image-box {
-    /* Image column takes 40% of the space */
-    flex-basis: 40%; 
-}
-
-.contact-form-box {
-    /* Form column takes 60% of the space */
-    flex-basis: 60%; 
-}
-
-/* 3. Ensure the image is responsive within its container */
-.contact-illustration {
-    max-width: 100%;
-    height: auto; /* Maintains the image's aspect ratio */
-    display: block; /* Helps eliminate any unwanted space below the image */
-}
-
-/* ======================================================= */
-/* === MOBILE RESPONSIVENESS (Media Query) === */
-/* ======================================================= */
-
-/* For screens 768px wide and smaller (e.g., tablets and phones) */
-@media (max-width: 768px) {
-    .contact-content-wrapper {
-        /* Change the layout from row back to column to stack items */
-        flex-direction: column; 
-        gap: 20px;
-    }
-    
-    .contact-image-box,
-    .contact-form-box {
-        /* Force both items to take the full width */
-        flex-basis: 100%; 
-    }
-    
-    /* Center the image when it's stacked on mobile */
-    .contact-image-box {
-        text-align: center; 
-    }
-}
-
-/* ======================================================= */
-/* === BASIC FORM STYLING (To make the inputs look nice) === */
-/* ======================================================= */
-
-.input-box {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
-.input-box i {
-    margin-right: 10px;
-    color: #555;
-}
-
-.input-box input,
-.contact-form-box textarea {
-    border: none;
-    width: 100%;
-    padding: 5px 0;
-    outline: none;
-    font-size: 1em;
-}
-
-.contact-form-box textarea {
-    resize: vertical;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-/* --- Responsive Layout (Media Query for Stacking on Mobile) --- */
-@media (max-width: 991px) { 
-    .contact-content-wrapper {
-        flex-direction: column; 
-        gap: 2rem; 
-        max-width: 90%; 
-        padding: 2rem; 
-    }
-
-    .contact-image-box,
-    .contact-form-box {
-        flex: 1 1 100%; 
-        max-width: 100%; 
-        text-align: center; 
-    }
-
-    .contact-image-box .contact-illustration {
-        max-width: 80%; 
-        margin: 0 auto;
-    }
-
-    .btn-submit {
-        width: 100%; /* Full width button on mobile */
-    }
-}
-
-/* --- Responsive Layout (Media Query) --- */
-@media (max-width: 991px) { 
-    .contact-content-wrapper {
-        flex-direction: column; 
-        gap: 2rem; /* Adjusted gap for mobile */
-        max-width: 90%; /* Allow it to fill more screen on mobile */
-        padding: 2rem; /* Reduced padding on mobile */
-    }
-
-    .contact-image-box,
-    .contact-form-box {
-        flex: 1 1 100%; 
-        max-width: 100%; 
-    }
-
-    .contact-image-box .contact-illustration {
-        max-width: 80%; /* Limit image size on mobile */
-    }
-
-    .btn-submit {
-        width: 100%; /* Full width button on mobile */
-    }
-}
 
 /* Floating Animation */
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); } 
-    100% { transform: translateY(0px); }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
 }
 
 .floating-image {
-    animation: float 4s ease-in-out infinite; 
+  animation: float 4s ease-in-out infinite;
 }
 
 /* Primary Button Style */
 .btn-primary {
-    display: inline-block;
-    padding: 1rem 3rem;
-    background: var(--main-color);
-    color: var(--dark-bg);
-    border-radius: 5px;
-    font-size: 1.8rem;
-    font-weight: 600;
-    transition: all 0.3s;
-    margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: var(--main-color);
+  color: var(--dark-bg);
+  border-radius: 5px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin-top: 1rem;
+  border: none; /* Added for contact form button clarity */
+  cursor: pointer;
 }
 .btn-primary:hover {
-    background: var(--secondary-color);
-    color: var(--white);
+  background: var(--secondary-color);
+  color: var(--white);
 }
 
 /* --- 4. ABOUT SECTION --- */
 .about-container {
-    max-width: 900px;
-    margin: 0 auto;
-    font-size: 1.8rem;
-    text-align: center;
-    padding: 2rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 2rem 0;
 }
 .about-container p {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 /* --- 5. SKILLS SECTION --- */
@@ -435,17 +282,17 @@ header .navbar ul li a.active {
 }
 
 .skill-card:hover i {
-    color: var(--white);
+  color: var(--white);
 }
 
 .skill-card h3 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .skill-card p {
-    font-size: 1.4rem;
-    opacity: 0.8;
+  font-size: 1.4rem;
+  opacity: 0.8;
 }
 
 /* --- 6. EXPERIENCE & EDUCATION (Timeline) --- */
@@ -456,14 +303,14 @@ header .navbar ul li a.active {
   position: relative;
 }
 .timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background: var(--main-color);
-    transform: translateX(-50%);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: var(--main-color);
+  transform: translateX(-50%);
 }
 
 .timeline-item {
@@ -478,408 +325,399 @@ header .navbar ul li a.active {
 
 /* Align items left and right */
 .timeline-item:nth-child(odd) {
-    left: 0;
-    transform: translateX(-5%);
+  left: 0;
+  transform: translateX(-5%);
 }
 
 .timeline-item:nth-child(even) {
-    left: 55%;
-    transform: translateX(5%);
+  left: 55%;
+  transform: translateX(5%);
 }
 
 .timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: var(--secondary-color);
-    border: 3px solid var(--white);
-    border-radius: 50%;
-    top: 2.5rem;
-    z-index: 10;
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--secondary-color);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  top: 2.5rem;
+  z-index: 10;
 }
 
 .timeline-item:nth-child(odd)::after {
-    right: -25px;
-    transform: translateX(50%);
+  right: -25px;
+  transform: translateX(50%);
 }
 
 .timeline-item:nth-child(even)::after {
-    left: -25px;
-    transform: translateX(-50%);
+  left: -25px;
+  transform: translateX(-50%);
 }
 
 
 .timeline-item h3 {
-    font-size: 2rem;
-    color: var(--dark-bg);
+  font-size: 2rem;
+  color: var(--dark-bg);
 }
 
 .timeline-item h4 {
-    font-size: 1.6rem;
-    color: var(--main-color);
-    margin-bottom: 1rem;
-    font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+  font-weight: 400;
 }
 .timeline-item ul {
-    padding-left: 2rem;
+  padding-left: 2rem;
 }
 .timeline-item li {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 
 /* --- 7. PROJECTS SECTION (Diagrams) --- */
 .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
 }
 
 .project-card {
-    background: var(--white);
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; 
-    padding: 0; 
-    transition: transform 0.3s;
+  background: var(--white);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  transition: transform 0.3s;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .project-diagram-img {
-    width: 100%; 
-    max-height: 220px; /* Constrain height for uniform look */
-    object-fit: cover; /* Ensures image covers the area */
+  width: 100%;
+  max-height: 220px; /* Constrain height for uniform look */
+  object-fit: cover; /* Ensures image covers the area */
 }
 
 /* Style for project text content */
 .project-info {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .project-info h3 {
-    color: var(--dark-bg);
-    margin-top: 0;
-    font-size: 2.2rem;
+  color: var(--dark-bg);
+  margin-top: 0;
+  font-size: 2.2rem;
 }
 
 .project-info p {
-    margin: 1rem 0;
-    font-size: 1.5rem;
+  margin: 1rem 0;
+  font-size: 1.5rem;
 }
 .project-info strong {
-    color: var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 .project-info .btn-secondary {
-    margin-top: auto;
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: var(--secondary-color);
-    color: var(--white);
-    text-align: center;
-    border-radius: 5px;
-    font-size: 1.6rem;
-    font-weight: 500;
-    transition: background 0.3s;
+  margin-top: auto;
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--secondary-color);
+  color: var(--white);
+  text-align: center;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  transition: background 0.3s;
 }
 
 .project-info .btn-secondary:hover {
-    background: var(--dark-bg);
+  background: var(--dark-bg);
 }
 
 
 /* --- 8. CONTACT SECTION --- */
-/* contact section media queries starts */
-
-/* --- CONTACT SECTION STYLES (New additions) --- */
-
-/* Style for the container wrapping the icon and input */
-/* --- CONTACT SECTION STYLES (Two-Column Layout) --- */
 #contact {
-    background: var(--dark-bg); 
-    color: var(--white);
-    padding: 6rem 5%; 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
+  background: var(--dark-bg);
+  color: var(--white);
+  padding: 6rem 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #contact .section-title,
 #contact .subtitle {
-    color: var(--white);
-    margin-bottom: 2rem;
-    max-width: 800px;
-    text-align: center;
+  color: var(--white);
+  margin-bottom: 2rem;
+  max-width: 800px;
+  text-align: center;
 }
 
-/* Wrapper for the two columns (Image & Form) */
+/* === CORE FLEXBOX FOR SIDE-BY-SIDE LAYOUT === */
 .contact-content-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem; /* Space between image and form */
-    max-width: 1100px; /* Max width of the entire content block */
-    width: 100%;
-    margin-top: 3rem;
-    flex-wrap: wrap; /* Allows stacking on small screens */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Aligns content to the top */
+  gap: 4rem; /* Space between image and form */
+  max-width: 1100px;
+  width: 100%;
+  margin-top: 3rem;
 }
 
-/* Contact Image Box (Left) */
 .contact-image-box {
-    flex: 1 1 40%; /* Takes about 40% of the space */
-    text-align: center;
-    min-width: 500px; 
+  flex: 1 1 40%; /* Image column takes 40% */
+  text-align: center;
 }
 
 .contact-image-box .contact-illustration {
-    max-width: 750%;
-    height: auto;
-    max-height: 750px;
-    display: block;
-    margin: 0 auto;
+  max-width: 100%; /* Ensure it scales within its container */
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
-/* Contact Form Box (Right) */
 .contact-form-box {
-    flex: 1 1 50%; /* Takes about 50% of the space (the form) */
-    background: rgba(255, 255, 255, 0.1);
-    padding: 3rem; 
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    min-width: 300px; 
+  flex: 1 1 60%; /* Form column takes 60% */
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Form Styles */
+/* Form Structure & Input Styling */
 #contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-/* Input Box with Icon */
 .input-box {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .input-box i {
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    font-size: 1.6rem;
-    color: #999;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  color: #999;
 }
 
 #contact-form input,
 #contact-form textarea {
-    padding: 1.2rem;
-    padding-left: 45px; /* Space for the icon */
-    border-radius: 5px;
-    border: none;
-    background: var(--white);
-    color: #333; 
-    font-size: 1.6rem;
-    width: 100%;
+  padding: 1.2rem;
+  padding-left: 45px; /* Space for the icon in inputs */
+  border-radius: 5px;
+  border: none;
+  background: var(--white);
+  color: #333;
+  font-size: 1.6rem;
+  width: 100%;
 }
 
 #contact-form textarea {
-    padding-left: 1.2rem; /* Revert padding for textarea as it has no icon */
-    resize: vertical;
+  padding-left: 1.2rem; /* Revert padding for textarea */
+  resize: vertical;
 }
 
-/* --- Media Queries for responsiveness --- */
-@media (max-width: 768px) {
-    .contact-content-wrapper {
-        flex-direction: column; /* Stacks vertically on smaller screens */
-        gap: 2rem;
-    }
-    .contact-image-box,
-    .contact-form-box {
-        flex: 1 1 100%; /* Both take full width when stacked */
-        max-width: 500px; /* Optional: limit width even when full width */
-    }
+/* === MOBILE RESPONSIVENESS (Consolidated for 991px and 768px breakpoints) === */
+@media (max-width: 991px) {
+  /* General responsive adjustments */
+  html {
+    font-size: 55%;
+  }
+  header {
+    padding: 1rem 3%;
+  }
+
+  /* Contact Section Stacking */
+  .contact-content-wrapper {
+    flex-direction: column; /* Stack vertically */
+    align-items: center;
+    gap: 3rem;
+    padding: 0 3%;
+  }
+
+  .contact-image-box,
+  .contact-form-box {
+    flex-basis: 100%; /* Take full width */
+    max-width: 500px; /* Optional: limit overall stacked width */
+  }
+
+  .contact-image-box .contact-illustration {
+    max-width: 80%; /* Limit image size on mobile */
+  }
+  
+  /* Timeline adjustments for mobile */
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    transform: none !important;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+  }
+  .timeline::before {
+    left: 20px;
+  }
+  .timeline-item::after {
+    left: 20px !important;
+    transform: translateX(-50%) !important;
+  }
 }
-/* contact section media queries ends */
-/* contact section ends */
+
+@media (max-width: 768px) {
+  /* Home section specific mobile changes */
+  .home .content-wrapper {
+    flex-direction: column; 
+    text-align: center;
+    padding-top: 10rem;
+  }
+
+  .home .image-box {
+    order: -1; 
+    margin-bottom: 3rem;
+  }
+  
+  .home .content {
+    text-align: center;
+  }
+
+  /* Header navigation toggle */
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--dark-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
+    transition: clip-path 0.3s ease;
+  }
+  header .navbar.nav-toggle {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  header .navbar ul {
+    flex-direction: column;
+    padding: 1rem 2rem;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+  .section {
+    padding: 6rem 3%;
+  }
+}
+
 
 /* --- 9. FOOTER STYLES (New detailed structure) --- */
 .footer {
-    background: #102C57; /* Dark Blue background */
-    padding: 3rem 5%;
-    color: var(--white);
+  background: #102C57; /* Dark Blue background */
+  padding: 3rem 5%;
+  color: var(--white);
 }
 
 .footer .box-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 2rem;
 }
 
 .footer .box-container .box h3 {
-    font-size: 2.2rem;
-    color: var(--main-color);
-    margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  color: var(--main-color);
+  margin-bottom: 1.5rem;
 }
 
 .footer .box-container .box p {
-    font-size: 1.5rem;
-    color: var(--white);
-    margin: 1rem 0;
+  font-size: 1.5rem;
+  color: var(--white);
+  margin: 1rem 0;
 }
 
 .footer .box-container .box p i {
-    color: var(--secondary-color);
-    margin-right: 1rem;
+  color: var(--secondary-color);
+  margin-right: 1rem;
 }
 
 .footer .box-container .box .share {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .footer .box-container .box .share a {
-    height: 4rem;
-    width: 4rem;
-    line-height: 4rem;
-    font-size: 1.8rem;
-    color: var(--white);
-    background: var(--main-color);
-    border-radius: 50%;
-    margin-right: 0.5rem;
-    text-align: center;
-    transition: background 0.3s;
+  height: 4rem;
+  width: 4rem;
+  line-height: 4rem;
+  font-size: 1.8rem;
+  color: var(--white);
+  background: var(--main-color);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  text-align: center;
+  transition: background 0.3s;
 }
 
 .footer .box-container .box .share a:hover {
-    background: var(--secondary-color);
+  background: var(--secondary-color);
 }
 
 .footer .credit {
-    text-align: center;
-    font-size: 1.6rem;
-    font-weight: 400;
-    padding-top: 2rem;
-    margin-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer .credit i {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    margin: 0 0.5rem;
+  /* This border-top rule seems misplaced here, removed from the final code for tidiness if it was an error */
+  margin: 0 0.5rem;
 }
 
 
 /* Scroll Top Button - Ensure this is still present */
 #scroll-top {
-    position: fixed;
-    bottom: 3rem;
-    right: 3rem;
-    height: 4.5rem;
-    width: 4.5rem;
-    background: var(--main-color);
-    color: var(--white);
-    border-radius: 50%;
-    line-height: 4.5rem;
-    text-align: center;
-    font-size: 2rem;
-    z-index: 1000;
-    opacity: 0;
-    transition: 0.2s;
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  height: 4.5rem;
+  width: 4.5rem;
+  background: var(--main-color);
+  color: var(--white);
+  border-radius: 50%;
+  line-height: 4.5rem;
+  text-align: center;
+  font-size: 2rem;
+  z-index: 1000;
+  opacity: 0;
+  transition: 0.2s;
 }
 
 #scroll-top.active {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* --- Media Query for Footer --- */
 @media (max-width: 991px) {
-    .footer .box-container {
-        grid-template-columns: 1fr; /* Stack boxes vertically on smaller screens */
-    }
-}
-
-/* --- 10. MEDIA QUERIES --- */
-@media (max-width: 991px) {
-    html {
-        font-size: 55%;
-    }
-    header {
-        padding: 1rem 3%;
-    }
-    .hero-image-container {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 8rem;
-    }
-    .hero-image-container .content,
-    .hero-image-container .image-box {
-        max-width: 100%;
-        width: 100%;
-        text-align: center;
-    }
-    .hero-image-container .content {
-        order: 2;
-    }
-    .hero-image-container .image-box {
-        order: 1;
-        margin-bottom: 2rem;
-    }
-
-    .timeline-item {
-        width: 100%;
-        left: 0 !important;
-        transform: none !important;
-        margin-bottom: 2rem;
-        padding: 1.5rem;
-    }
-    .timeline::before {
-        left: 20px;
-    }
-    .timeline-item::after {
-        left: 20px !important;
-        transform: translateX(-50%) !important;
-    }
-}
-
-@media (max-width: 768px) {
-    header .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--dark-bg);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        /* Simple toggle for mobile nav visibility */
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
-        transition: clip-path 0.3s ease;
-    }
-    header .navbar.nav-toggle {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-    header .navbar ul {
-        flex-direction: column;
-        padding: 1rem 2rem;
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 450px) {
-    html {
-        font-size: 50%;
-    }
-    .section {
-        padding: 6rem 3%;
-    }
+  .footer .box-container {
+    grid-template-columns: 1fr; /* Stack boxes vertically on smaller screens */
+  }
 }
