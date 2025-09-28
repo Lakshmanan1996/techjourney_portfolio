@@ -211,95 +211,167 @@ header .navbar ul li a.active {
 
 
 /* --- CONTACT SECTION STYLES FIXES --- */
-/* Wrapper: Flex layout */
+#contact {
+    /* Background color from Image 2 (a very light blue/grey) */
+    background: #eef2f6; /* Lighter background for the section */
+    color: #333; /* Darker text for better contrast on light background */
+    padding: 6rem 10%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+#contact .section-title,
+#contact .subtitle {
+    color: #333; /* Darker text for titles */
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
 .contact-content-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 5rem;
+    justify-content: center; /* Center the wrapper content */
+    align-items: flex-start; 
+    gap: 4rem; /* Reduced gap to bring image and form closer if needed */
+    max-width: 1200px; /* Constrain overall width for a cleaner look like Image 2 */
     width: 100%;
-    margin: 3rem auto 0;
-    flex-wrap: wrap; /* stack when small */
+    margin: 3rem auto 0; 
+    flex-wrap: wrap; 
+    
+    /* Added overall container styling for the white box effect */
+    background: var(--white); /* White background for the entire content wrapper */
+    border-radius: 15px; /* Slightly rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 3rem; /* Padding inside the white box */
 }
 
-/* Image Box - LEFT */
+/* 3. Image Box styling */
 .contact-image-box {
-    order: 1; /* always left */
-    flex: 0 1 400px;
-    text-align: Left;
-    max-width: 800px;
-    min-width: 800px;
+    flex: 1 1 450px; /* Allows flexibility, with a basis */
+    text-align: center;
+    max-width: 500px; /* Limit image size */
+    min-width: 300px; 
+    padding: 1rem; /* Added slight padding around the image */
 }
 
-.contact-illustration {
-    width: 100%;
-    max-width: 350px;
+.contact-image-box .contact-illustration {
+    max-width: 100%; 
+    height: auto; 
+    display: block;
+    margin: 0 auto;
+    object-fit: contain; 
+    border: none; /* Removed the border from the image */
 }
 
-/* Form Box - RIGHT */
+/* 4. Form Box styling */
 .contact-form-box {
-    order: 2; /* always right */
-    flex: 1 1 500px;
-    max-width: 600px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 3rem;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    min-width: 350px;
+    flex: 1 1 450px; /* Allows form to take significant space */
+    padding: 0; /* Remove padding here as it's on the wrapper */
+    background: transparent; /* Form box itself is transparent */
+    border-radius: 0;
+    box-shadow: none; 
+    min-width: 300px; 
 }
 
-.contact-form-box h2 {
-    margin-bottom: 1.5rem;
+/* Form Styles */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-/* Form inputs */
-.contact-form-box input,
-.contact-form-box textarea {
+/* Input Box with Icon */
+.input-box {
+    position: relative;
     width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
 }
 
-/* Button */
-.contact-form-box button {
-    background: #0077ff;
-    color: #fff;
-    padding: 0.8rem 1.5rem;
+.input-box i {
+    position: absolute;
+    top: 50%;
+    left: 20px; /* Adjusted left position for icons */
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+    color: #909090; /* Darker grey for icons */
+}
+
+#contact-form input,
+#contact-form textarea {
+    padding: 1.2rem 1.5rem; /* Increased padding */
+    padding-left: 55px; /* More space for the icon */
+    border-radius: 10px; /* More rounded corners */
+    border: 1px solid #dcdcdc; /* Light grey border */
+    background: #f8f8f8; /* Very light grey background for inputs */
+    color: #333; 
+    font-size: 1.6rem;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: var(--main-color); /* Highlight border on focus */
+    outline: none;
+}
+
+/* Specific style for textarea if it has an icon */
+.input-box textarea {
+    padding-left: 55px; /* Match input padding for icon */
+    resize: vertical;
+}
+
+/* Button style */
+.btn-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #6a0dad; /* A purplish color from Image 2 */
+    color: var(--white);
+    padding: 1.2rem 2.5rem;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px; /* Rounded corners */
     cursor: pointer;
-    transition: 0.3s ease;
-}
-.contact-form-box button:hover {
-    background: #005fcc;
+    font-size: 1.7rem;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: fit-content; /* Adjust width to content */
+    margin-top: 1rem;
+    box-shadow: 0 5px 15px rgba(106, 13, 173, 0.3); /* Soft shadow */
 }
 
-/* Responsive: Stack vertically */
-@media (max-width: 991px) {
+.btn-submit i {
+    margin-left: 1rem;
+    font-size: 1.6rem;
+    color: var(--white);
+}
+
+.btn-submit:hover {
+    background: #8e2de2; /* Lighter purple on hover */
+    transform: translateY(-2px);
+}
+
+/* --- Responsive Layout (Media Query) --- */
+@media (max-width: 991px) { 
     .contact-content-wrapper {
-        flex-direction: column;
-        gap: 3rem;
-        max-width: 600px;
+        flex-direction: column; 
+        gap: 2rem; /* Adjusted gap for mobile */
+        max-width: 90%; /* Allow it to fill more screen on mobile */
+        padding: 2rem; /* Reduced padding on mobile */
     }
 
     .contact-image-box,
     .contact-form-box {
-        flex: 1 1 100%;
-        max-width: 100%;
+        flex: 1 1 100%; 
+        max-width: 100%; 
     }
 
-    .contact-illustration {
-        max-width: 300px;
-        margin: 0 auto;
+    .contact-image-box .contact-illustration {
+        max-width: 80%; /* Limit image size on mobile */
     }
-}
 
-}
-
-/* Keep other contact styles (form inputs, icons) as they are */
-
+    .btn-submit {
+        width: 100%; /* Full width button on mobile */
+    }
 }
 
 /* Floating Animation */
