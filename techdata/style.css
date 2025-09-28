@@ -94,43 +94,30 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 5%;
-  background: rgba(0, 45, 89, 0.95); 
+  background: rgba(0, 45, 89, 0.95);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
-}
-
-header .logo {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--main-color);
-  text-decoration: none;
-}
-
-header .logo i {
-  padding: 0 0.5rem;
-  color: var(--main-color);
 }
 
 header .navbar ul {
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 0;
+  gap: 2rem; /* Equal spacing between items */
 }
 
 header .navbar ul li a {
-  font-size: 1.7rem;
-  margin-left: 1.5rem;
+  font-size: 1.6rem;
   color: var(--white);
-  text-decoration: none;
-  transition: color 0.3s;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
 header .navbar ul li a:hover,
 header .navbar ul li a.active {
-  color: var(--main-color);
+  background: var(--main-color);
+  color: var(--dark-bg);
 }
-
 #menu {
   font-size: 3rem;
   color: var(--main-color);
@@ -143,27 +130,29 @@ header .navbar ul li a.active {
 .home {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 4rem;
   flex-wrap: wrap;
-  padding: 10rem 5%;
-  min-height: 80vh;
-  position: relative;
-  z-index: 10;
+  padding: 12rem 8% 8rem;
+  min-height: 100vh;
+  text-align: left;
+}
+
+.home .content {
+  flex: 1 1 45%;
 }
 
 .home .image {
-  flex: 1 1 40rem;
-  padding-top: 5rem;
-  text-align: center;
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
 }
 
 .home .image img {
-  height: 80vh;
-  object-fit: cover;
+  max-width: 350px;
+  height: auto;
   border-radius: 50%;
-  border: 1.2rem solid var(--main-color);
-  box-shadow: 0 0 1rem rgba(0, 180, 216, 0.5);
-  transition: 0.5s;
+  border: 8px solid var(--main-color);
 }
 
 .home .image img:hover {
@@ -238,11 +227,10 @@ header .navbar ul li a.active {
 
 .home .socials {
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 50%;
-  left: 3rem;
-  transform: translateY(-50%);
+  gap: 1rem;
+  margin-top: 2rem;
+  position: static; /* remove absolute positioning */
+  transform: none;
 }
 
 .home .socials .social-icons {
@@ -275,7 +263,7 @@ header .navbar ul li a.active {
 
 /* about section starts */
 .about {
-  padding: 10rem 5%;
+  padding: 8rem 8%;
   text-align: center;
   background: var(--light-bg);
 }
@@ -392,7 +380,7 @@ header .navbar ul li a.active {
 /* skills section starts */
 .skills {
   min-height: 100vh;
-  padding: 10rem 5%;
+  padding: 8rem 8%;
 }
 
 .skills .container {
@@ -591,7 +579,7 @@ header .navbar ul li a.active {
 /* education section starts */
 .education {
   min-height: 100vh;
-  padding: 10rem 5%;
+  padding: 8rem 8%;
   background: var(--light-bg);
 }
 
@@ -650,7 +638,7 @@ header .navbar ul li a.active {
 
 /* work section starts */
 .work {
-  padding: 10rem 5%;
+  padding: 8rem 8%;
   min-height: 100vh;
 }
 
@@ -865,7 +853,7 @@ header .navbar ul li a.active {
 
 /* contact section starts */
 .contact {
-  padding: 10rem 5%;
+  padding: 8rem 8%;
   min-height: 100vh;
 }
 
@@ -952,7 +940,7 @@ header .navbar ul li a.active {
 /* footer section starts */
 .footer {
   min-height: auto;
-  padding: 3rem 5%;
+  padding: 8rem 8%;
   background: #002244; 
 }
 
@@ -1080,7 +1068,7 @@ header .navbar ul li a.active {
     padding: 1rem 3rem;
   }
   section {
-    padding: 5rem 3rem;
+    padding: 8rem 8rem;
   }
   .home .socials {
     display: none;
