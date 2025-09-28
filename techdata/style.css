@@ -214,13 +214,22 @@ header .navbar ul li a.active {
 
 /* --- CONTACT SECTION STYLES (Adjustments for Wider Layout) --- */
 
+/* --- CONTACT SECTION STYLES --- */
+#contact {
+    /* ... existing styles ... */
+    padding: 6rem 8%; /* INCREASED PADDING: Change 5% to 8% or more */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
 /* 1. Increase the overall max-width of the wrapper */
 .contact-content-wrapper {
     display: flex;
-    justify-content: space-between; /* Changed to space-between to push to edges */
+    justify-content: space-between; 
     align-items: center;
-    gap: 4rem; 
-    max-width: 1300px; /* INCREASE THIS VALUE for a wider span */
+    gap: 6rem; /* INCREASED GAP for more space between image and form */
+    max-width: 1400px; /* INCREASED MAX-WIDTH again for a wider span */
     width: 100%;
     margin: 3rem auto 0; 
     flex-wrap: wrap; 
@@ -228,9 +237,11 @@ header .navbar ul li a.active {
 
 /* 2. Adjust Image Box sizing */
 .contact-image-box {
-    flex: 0 0 450px; /* Fixed width for the image container, doesn't grow or shrink much */
+    /* Flex-grow 1 allows it to take its share of the wide space */
+    flex: 1 1 350px; /* Let it grow and set a comfortable basis */
     text-align: center;
-    min-width: 300px; /* Ensure it can shrink on very small screens */
+    max-width: 450px; /* NEW: Limit its maximum width so the form gets enough space */
+    min-width: 300px; 
 }
 
 /* 3. Ensure the Image within the box is responsive */
@@ -241,17 +252,17 @@ header .navbar ul li a.active {
     display: block;
     margin: 0 auto;
     object-fit: contain; 
-    border: 5px solid var(--main-color); 
+    /*border: 5px solid var(--main-color); 
 }
 
 /* 4. Adjust Form Box sizing */
 .contact-form-box {
-    flex: 1 1 450px; /* Allows form to take remaining space, with a basis */
+    flex: 1 1 500px; /* Give the form a larger starting basis */
     background: rgba(255, 255, 255, 0.1);
     padding: 3rem; 
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    min-width: 300px; 
+    min-width: 350px; /* Ensure a minimum usable width */
 }
 
 
