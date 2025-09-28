@@ -95,6 +95,7 @@ header .navbar ul li a.active {
   border-bottom: 2px solid var(--main-color);
 }
 
+
 /* --- 3. HOME SECTION --- */
 .home {
     min-height: 100vh;
@@ -554,7 +555,8 @@ footer {
         right: 0;
         background: var(--dark-bg);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        /* Simple toggle for mobile nav visibility */
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
         transition: clip-path 0.3s ease;
     }
     header .navbar.nav-toggle {
