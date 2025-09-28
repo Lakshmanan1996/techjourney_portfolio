@@ -25,24 +25,39 @@ window.addEventListener("scroll", () => {
 });
 
 // Load projects.json dynamically
+// Load projects.json dynamically
 fetch("projects.json")
   .then((res) => res.json())
   .then((projects) => {
     const projectSection = document.querySelector("#projects .project-grid");
-    projects.forEach((proj) => {
-      const card = document.createElement("div");
-      card.classList.add("project-card");
+    if (projectSection) {
+        projects.forEach((proj) => {
+          const card = document.createElement("div");
+          card.classList.add("project-card");
 
-      card.innerHTML = `
-        <h3>${proj.title}</h3>
-        <p>${proj.description}</p>
-        <p><strong>Tech:</strong> ${proj.tech.join(", ")}</p>
-        <a href="${proj.link}" target="_blank">View Project</a>
-      `;
+          // Conditionally create the image HTML if image_path is present
+          const imageHTML = proj.image_path 
+            ? `<img src="${proj.image_path}" alt="Diagram for ${proj.title}" class="project-diagram-img">` 
+            : ''; // If no path, show nothing
 
-      projectSection.appendChild(card);
-    });
-  });
+          // Display the data, including the diagram image
+          card.innerHTML = `
+            ${imageHTML}
+            <div class="project-info">
+              <h3>${proj.title}</h3>
+              <p>${proj.description}</p>
+              <p><strong>Tech:</strong> ${proj.tech.join(", ")}</p>
+              <a href="${proj.link}" target="_blank" class="btn-secondary">View Repository <i class="fas fa-external-link-alt"></i></a>
+            </div>
+          `;
+
+          projectSection.appendChild(card);
+        });
+    }
+  })
+  .catch(error => console.error('Error loading projects:', error));
+
+// ... (rest of the script.js code remains the same)
 
 // Particles.js background configuration. Assumes you have a particles.json or app.js config.
 // Since you uploaded app.js and particles.min.js, this call will run the background dots.
@@ -73,6 +88,7 @@ window.addEventListener("scroll", () => {
 });
 
 // Load projects.json dynamically (modified to match your index.html structure)
+// Load projects.json dynamically
 fetch("projects.json")
   .then((res) => res.json())
   .then((projects) => {
@@ -82,12 +98,20 @@ fetch("projects.json")
           const card = document.createElement("div");
           card.classList.add("project-card");
 
-          // Display the data from projects.json
+          // Conditionally create the image HTML if image_path is present
+          const imageHTML = proj.image_path 
+            ? `<img src="${proj.image_path}" alt="Diagram for ${proj.title}" class="project-diagram-img">` 
+            : ''; // If no path, show nothing
+
+          // Display the data, including the diagram image
           card.innerHTML = `
-            <h3>${proj.title}</h3>
-            <p>${proj.description}</p>
-            <p><strong>Tech:</strong> ${proj.tech.join(", ")}</p>
-            <a href="${proj.link}" target="_blank" class="btn-secondary">View Repository <i class="fas fa-external-link-alt"></i></a>
+            ${imageHTML}
+            <div class="project-info">
+              <h3>${proj.title}</h3>
+              <p>${proj.description}</p>
+              <p><strong>Tech:</strong> ${proj.tech.join(", ")}</p>
+              <a href="${proj.link}" target="_blank" class="btn-secondary">View Repository <i class="fas fa-external-link-alt"></i></a>
+            </div>
           `;
 
           projectSection.appendChild(card);
@@ -95,6 +119,8 @@ fetch("projects.json")
     }
   })
   .catch(error => console.error('Error loading projects:', error));
+
+// ... (rest of the script.js code remains the same)
 
 // Smooth scrolling for hash links
 $('a[href*="#"]').on('click', function (e) {
