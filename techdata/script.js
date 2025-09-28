@@ -30,9 +30,9 @@ $(document).ready(function () {
 
     // --- Home Section Typing Effect ---
     var typed = new Typed('.typing-text', {
-        strings: ["Infrastructure Management Engineer", "SCCM & Cloud Specialist", "Automation Enthusiast"],
+        strings: ["Infrastructure Management Engineer", "Cloud Specialist",],
         loop: true,
-        typeSpeed: 50,
+        typeSpeed: 30,
         backSpeed: 25,
         backDelay: 500,
     });
