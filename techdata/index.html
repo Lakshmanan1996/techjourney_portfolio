@@ -155,28 +155,44 @@
     </div>
   </section>
 
-  <section id="contact" class="section">
-    <h2 class="section-title"><i class="fas fa-headset"> Get in <span>Touch</span></h2>
-    <div class="contact-container">
+  <section class="contact" id="contact">
+  
+  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
+
+  <div class="container">
+    <div class="content">
       <div class="image-box">
         <img draggable="false" src="./assets/images/contact1.png" alt="">
       </div>
+    
+<form id="contact-form">
       
-      
-      <form id="contact-form">
-        <div class="form-group">
-          <div class="field">
-        <input type="text" placeholder="Your Name" required /> <i class='fas fa-user'></i></div>
-           <div class="field">
-        <input type="email" placeholder="Your Email" required /><i class='fas fa-envelope'></i></div>
-          
-          <div class="message">
-        <textarea placeholder="Your Message" name ="message" id="message" required></textarea><i class="fas fa-comment-dots"></i></div></div>
-          <div class="button-area">
-        <button type="submit" class="btn-primary">Send Message<i class="fa fa-paper-plane"></i></button></div>
-      </form></div>
-    </div>
-  </section>
+      <div class="form-group">
+        <div class="field">
+          <input type="text" name="yourname" id="yourname" placeholder="Name" required>
+          <i class='fas fa-user'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="emailid" placeholder="Email" id="emailid" required>
+          <i class='fas fa-envelope'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="phone" id="phone" placeholder="Phone">
+          <i class='fas fa-phone-alt'></i>
+        </div>
+        <div class="message">
+        <textarea placeholder="Message" name="message" id="message" required></textarea>
+        <i class="fas fa-comment-dots"></i>
+        </div>
+        </div>
+      <div class="button-area">
+        <button type="submit">
+          Submit <i class="fa fa-paper-plane"></i></button>
+      </div>
+    </form>
+  </div>
+  </div>
+</section>
 
   <section class="footer">
     <div class="box-container">
