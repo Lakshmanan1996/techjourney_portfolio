@@ -1,27 +1,33 @@
 [
+ 
   {
     "title": "AWS Infrastructure Automation",
     "description": "Automated AWS EC2 provisioning, IAM role management, and S3 lifecycle policies using CloudFormation and Terraform.",
     "tech": ["AWS", "Terraform", "CloudFormation"],
-    "link": "https://github.com/yourprofile/aws-automation"
+    "link": "https://github.com/yourprofile/aws-automation",
+    "image_path": "./assets/images/projects/aws_diagram.png"  
   },
   {
     "title": "DevOps Pipeline with Jenkins",
     "description": "Built a CI/CD pipeline for Java applications with Jenkins, Docker, and Kubernetes, enabling automated testing and deployments.",
     "tech": ["Jenkins", "Docker", "Kubernetes"],
-    "link": "https://github.com/yourprofile/devops-pipeline"
+    "link": "https://github.com/yourprofile/devops-pipeline",
+    "image_path": "./assets/images/projects/jenkins_pipeline.png"
   },
   {
     "title": "MECM/SCCM Patch Compliance Dashboard",
     "description": "Developed a PowerShell-based dashboard to monitor and report patch compliance across 5000+ global assets.",
     "tech": ["PowerShell", "MECM", "SCCM"],
-    "link": "https://github.com/yourprofile/sccm-dashboard"
+    "link": "https://github.com/yourprofile/sccm-dashboard",
+    "image_path": "./assets/images/projects/sccm_dashboard.png"
   },
   {
     "title": "VMware Environment Optimization",
     "description": "Performed VM lifecycle automation, optimized ESXi cluster workloads, and integrated monitoring with Datto RMM.",
     "tech": ["VMware", "Datto RMM", "PowerCLI"],
-    "link": "https://github.com/yourprofile/vmware-optimization"
+    "link": "https://github.com/yourprofile/vmware-optimization",
+    "image_path": "./assets/images/projects/vmware_optimize.png"
   }
+
 ]
 
