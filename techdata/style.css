@@ -425,53 +425,27 @@ header .navbar ul li a.active {
 
 
 /* --- 8. CONTACT SECTION --- */
-#contact {
-    background: var(--dark-bg);
-    color: var(--white);
+/* contact section media queries starts */
+@media (max-width: 900px) {
+  .contact {
+    min-height: 70vh;
+  }
+  .contact .container {
+    margin: 3rem 0 2rem 0;
+  }
+  .contact .container .content {
+    padding: 18px 12px;
+  }
+  .contact .content .image-box {
+    display: none;
+  }
+  .contact .content form {
+    width: 100%;
+    margin-right: 2rem;
+  }
 }
-
-#contact .section-title {
-    color: var(--white);
-}
-
-.contact-container {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.7rem;
-}
-
-.contact-container > div {
-    margin-bottom: 2rem;
-}
-
-.contact-container i {
-    color: var(--main-color);
-    margin-right: 1rem;
-}
-
-#contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    margin-top: 3rem;
-}
-
-#contact-form input,
-#contact-form textarea {
-    padding: 1.2rem;
-    border-radius: 5px;
-    border: none;
-    background: var(--white);
-    font-size: 1.6rem;
-}
-
-#contact-form button {
-    cursor: pointer;
-}
+/* contact section media queries ends */
+/* contact section ends */
 
 /* --- 9. FOOTER STYLES (New detailed structure) --- */
 .footer {
