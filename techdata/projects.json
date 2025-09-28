@@ -1,11 +1,10 @@
 [
- 
   {
     "title": "AWS Infrastructure Automation",
     "description": "Automated AWS EC2 provisioning, IAM role management, and S3 lifecycle policies using CloudFormation and Terraform.",
     "tech": ["AWS", "Terraform", "CloudFormation"],
     "link": "https://github.com/yourprofile/aws-automation",
-    "image_path": "./assets/images/projects/aws_diagram.png"  
+    "image_path": "./assets/images/projects/aws_diagram.png"
   },
   {
     "title": "DevOps Pipeline with Jenkins",
@@ -28,6 +27,4 @@
     "link": "https://github.com/yourprofile/vmware-optimization",
     "image_path": "./assets/images/projects/vmware_optimize.png"
   }
-
 ]
-
