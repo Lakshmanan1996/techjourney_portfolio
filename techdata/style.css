@@ -1,16 +1,37 @@
-/* =================================================================== */
-/* 1. HOME SECTION: PARTICLES, DOTTED BG, FLOATING IMAGE */
-/* =================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
+/* --- 1. GLOBAL RESET & VARIABLES --- */
 :root {
-  --main-color: #00bcd4;
-  --secondary-color: #ff4081;
-  --dark-bg: #1d3557; 
+  --main-color: #00bcd4; /* Cyan/Teal */
+  --secondary-color: #ff4081; /* Pink/Red */
+  --dark-bg: #1d3557; /* Dark Blue */
   --white: #fff;
+  --light-gray: #f5f5f5;
+  --text-dark: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--light-gray);
+  line-height: 1.6;
+  color: var(--text-dark);
 }
 
 .section {
-    padding: 6rem 5%; /* Standard section padding */
+    padding: 6rem 5%; 
     min-height: 100vh;
 }
 
@@ -24,7 +45,57 @@
 .section-title i {
     color: var(--main-color);
 }
+.subtitle {
+    text-align: center;
+    font-size: 1.6rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
 
+
+/* --- 2. HEADER/NAVBAR --- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 5%;
+  background: rgba(29, 53, 87, 0.95);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+header .logo {
+  color: var(--main-color);
+  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+header .navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+header .navbar ul li a {
+  color: var(--white);
+  font-size: 1.7rem;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.3s;
+}
+
+header .navbar ul li a:hover,
+header .navbar ul li a.active {
+  color: var(--main-color);
+  border-bottom: 2px solid var(--main-color);
+}
+
+/* --- 3. HOME SECTION --- */
 .home {
     min-height: 100vh;
     background: var(--dark-bg);
@@ -36,23 +107,23 @@
     overflow: hidden;
 }
 
-/* 1. Particle Canvas */
+/* Particle Canvas */
 #particles-js {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 1; /* Lowest layer */
+    z-index: 1;
 }
 
-/* 2. Dotted Background Image */
+/* Dotted Background Image */
 .dotted-background-image {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); 
-    z-index: 2; /* Sits above particles, behind the character */
+    z-index: 2; 
     opacity: 0.2; 
     max-width: 70%; 
     pointer-events: none;
@@ -61,10 +132,9 @@
 .dotted-background-image img {
     width: 100%;
     height: auto;
-    display: block;
 }
 
-/* 3. Floating Character & Text Content (Foreground) */
+/* Floating Character & Text Content (Foreground) */
 .hero-image-container {
     position: relative; 
     z-index: 3; 
@@ -80,16 +150,25 @@
     color: var(--white);
     max-width: 50%;
     text-align: left;
+    font-size: 1.6rem;
+}
+
+.hero-image-container .content .role-title {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
 }
 
 .hero-image-container .content h1 {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     color: var(--main-color);
+    line-height: 1;
 }
 
 .hero-image-container .content h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 400;
+    margin-bottom: 1.5rem;
 }
 
 .hero-image-container .image-box {
@@ -107,39 +186,185 @@
     object-fit: contain;
 }
 
-/* FLOATING ANIMATION */
+/* Floating Animation */
 @keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px); 
-    }
-    100% {
-        transform: translateY(0px);
-    }
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); } 
+    100% { transform: translateY(0px); }
 }
 
 .floating-image {
     animation: float 4s ease-in-out infinite; 
 }
 
+/* Primary Button Style */
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: var(--main-color);
+    color: var(--dark-bg);
+    border-radius: 5px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    margin-top: 1rem;
+}
+.btn-primary:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+}
 
-/* =================================================================== */
-/* 2. PROJECTS SECTION: DIAGRAMMATIC REPRESENTATION */
-/* =================================================================== */
+/* --- 4. ABOUT SECTION --- */
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 2rem 0;
+}
+.about-container p {
+    margin-bottom: 2rem;
+}
 
+/* --- 5. SKILLS SECTION --- */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  background: var(--dark-bg);
+  color: var(--white);
+  padding: 2.5rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  background: var(--secondary-color);
+}
+
+.skill-card i {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: var(--main-color);
+  transition: color 0.3s;
+}
+
+.skill-card:hover i {
+    color: var(--white);
+}
+
+.skill-card h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-card p {
+    font-size: 1.4rem;
+    opacity: 0.8;
+}
+
+/* --- 6. EXPERIENCE & EDUCATION (Timeline) --- */
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  position: relative;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: var(--main-color);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+  position: relative;
+  width: 45%;
+}
+
+/* Align items left and right */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    transform: translateX(-5%);
+}
+
+.timeline-item:nth-child(even) {
+    left: 55%;
+    transform: translateX(5%);
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--secondary-color);
+    border: 3px solid var(--white);
+    border-radius: 50%;
+    top: 2.5rem;
+    z-index: 10;
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -25px;
+    transform: translateX(50%);
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -25px;
+    transform: translateX(-50%);
+}
+
+
+.timeline-item h3 {
+    font-size: 2rem;
+    color: var(--dark-bg);
+}
+
+.timeline-item h4 {
+    font-size: 1.6rem;
+    color: var(--main-color);
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+.timeline-item ul {
+    padding-left: 2rem;
+}
+.timeline-item li {
+    font-size: 1.5rem;
+}
+
+
+/* --- 7. PROJECTS SECTION (Diagrams) --- */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .project-card {
     background: var(--white);
     border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     overflow: hidden; 
@@ -149,18 +374,18 @@
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .project-diagram-img {
     width: 100%; 
-    max-height: 200px; /* Constrain height for uniform look */
+    max-height: 220px; /* Constrain height for uniform look */
     object-fit: cover; /* Ensures image covers the area */
 }
 
 /* Style for project text content */
 .project-info {
-    padding: 1.5rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -169,11 +394,15 @@
 .project-info h3 {
     color: var(--dark-bg);
     margin-top: 0;
+    font-size: 2.2rem;
 }
 
 .project-info p {
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     font-size: 1.5rem;
+}
+.project-info strong {
+    color: var(--secondary-color);
 }
 
 .project-info .btn-secondary {
@@ -183,23 +412,104 @@
     background: var(--secondary-color);
     color: var(--white);
     text-align: center;
-    border-radius: 4px;
-    font-size: 1.5rem;
-    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    font-weight: 500;
     transition: background 0.3s;
 }
 
 .project-info .btn-secondary:hover {
-    background: #e91e63; /* slightly darker secondary color */
+    background: var(--dark-bg);
 }
 
-/* =================================================================== */
-/* 3. MEDIA QUERIES (Responsiveness) */
-/* =================================================================== */
 
+/* --- 8. CONTACT SECTION --- */
+#contact {
+    background: var(--dark-bg);
+    color: var(--white);
+}
+
+#contact .section-title {
+    color: var(--white);
+}
+
+.contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+.contact-container > div {
+    margin-bottom: 2rem;
+}
+
+.contact-container i {
+    color: var(--main-color);
+    margin-right: 1rem;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-top: 3rem;
+}
+
+#contact-form input,
+#contact-form textarea {
+    padding: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    background: var(--white);
+    font-size: 1.6rem;
+}
+
+#contact-form button {
+    cursor: pointer;
+}
+
+/* --- 9. FOOTER & SCROLL-TOP --- */
+footer {
+    text-align: center;
+    padding: 2rem 5%;
+    background: var(--dark-bg);
+    color: var(--white);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.4rem;
+}
+
+#scroll-top {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    height: 4.5rem;
+    width: 4.5rem;
+    background: var(--main-color);
+    color: var(--white);
+    border-radius: 50%;
+    line-height: 4.5rem;
+    text-align: center;
+    font-size: 2rem;
+    z-index: 1000;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+#scroll-top.active {
+    opacity: 1;
+}
+
+/* --- 10. MEDIA QUERIES --- */
 @media (max-width: 991px) {
     html {
         font-size: 55%;
+    }
+    header {
+        padding: 1rem 3%;
     }
     .hero-image-container {
         flex-direction: column;
@@ -213,11 +523,47 @@
         text-align: center;
     }
     .hero-image-container .content {
-        order: 2; /* Move text below image on mobile */
+        order: 2;
     }
     .hero-image-container .image-box {
         order: 1;
         margin-bottom: 2rem;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        transform: none !important;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+    }
+    .timeline::before {
+        left: 20px;
+    }
+    .timeline-item::after {
+        left: 20px !important;
+        transform: translateX(-50%) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--dark-bg);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: clip-path 0.3s ease;
+    }
+    header .navbar.nav-toggle {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    header .navbar ul {
+        flex-direction: column;
+        padding: 1rem 2rem;
+        gap: 1.5rem;
     }
 }
 
