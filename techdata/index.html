@@ -23,7 +23,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education & Certs</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -36,32 +36,37 @@
         <img src="./assets/images/image_752190.png" alt="Dotted background pattern">
     </div>
     
-    <div class="hero-image-content">
+    <div class="hero-image-container">
         <div class="content">
             <p class="role-title">Hi There, I'm</p>
             <h1>Lakshmanan R</h1>
             <h2>Infrastructure Management Engineer</h2>
-            <p class="summary-line">Highly skilled System Engineer with 7+ years of experience managing large-scale infrastructure in both on-premises and cloud environments (AWS).</p>
+            <p class="summary-line">Highly skilled System Engineer with 7+ years of experience managing large-scale infrastructure in on-premises and cloud environments (AWS).</p>
+            <div class="contact-buttons">
+                <a href="#contact" class="btn-primary">Get In Touch</a>
+            </div>
         </div>
         
-        <img 
-            src="./assets/images/image_733dc7.jpg" 
-            alt="Floating boy character using his laptop"
-            class="floating-image" 
-        >
+        <div class="image-box">
+             <img 
+                src="./assets/images/image_733dc7.jpg" 
+                alt="Floating boy character using his laptop"
+                class="floating-image" 
+            >
+        </div>
     </div>
   </section>
 
-  <section id="about">
+  <section id="about" class="section">
     <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
     <div class="about-container">
-        <p>Highly skilled System Engineer with 7+ years of experience managing large-scale infrastructure in both on-premises and cloud environments (AWS).</p>
-        <p>Specialized in MECM/SCCM administration, Windows Server environments, and DevOps tools including Docker, Jenkins, and Git.</p>
-        <p>Proven ability to lead infrastructure optimization projects, automate deployments using PowerShell, and maintain high compliance across global IT assets. Holds multiple industry certifications including CCNA, CCNP, and MCSA.</p>
+        <p>Highly skilled System Engineer with **7+ years of experience** managing large-scale infrastructure in both on-premises and cloud environments (AWS).</p>
+        <p>Specialized in **MECM/SCCM administration**, Windows Server environments, and **DevOps** tools including Docker, Jenkins, and Git.</p>
+        <p>Proven ability to lead infrastructure optimization projects, automate deployments using **PowerShell**, and maintain high compliance across global IT assets. Holds multiple industry certifications including CCNA, CCNP, and MCSA.</p>
     </div>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="section">
     <h2 class="section-title"><i class="fas fa-tools"></i> Skills & Technology</h2>
     <div class="skill-grid">
         <div class="skill-card">
@@ -97,14 +102,14 @@
     </div>
   </section>
 
-  <section id="experience">
+  <section id="experience" class="section">
     <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
     <div class="timeline">
         <div class="timeline-item">
             <h3>Senior System Engineer</h3>
             <h4>Kaseya Software Pvt.Ltd., Bangalore | Jan 2023 – Present</h4>
             <ul>
-                <li>Administering and maintaining Windows and VMware OS environments, including system alert monitoring and OS-level patch management.</li>
+                <li>Administered and maintained Windows and VMware OS environments.</li>
                 <li>Proficient in using tools such as Autotask, ServiceNow, Kaseya VSA, and Datto RMM.</li>
             </ul>
         </div>
@@ -113,7 +118,6 @@
             <h4>NTT Data | Feb 2020 – Jan 2023</h4>
             <ul>
                 <li>Managed 3000+ client assets and administered Microsoft technologies (Office 365, SCCM, Intune, Azure AD).</li>
-                <li>Managed Linux and Windows patching, and was proficient with network routes like Static, EIGRP, OSPF, and BGP.</li>
                 <li>Fixed VPN problems with Cisco AnyConnect and installed Windows updates using SCCM.</li>
             </ul>
         </div>
@@ -128,14 +132,14 @@
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="section">
     <h2 class="section-title"><i class="fas fa-code"></i> Infrastructure Projects</h2>
-    <p class="subtitle">Projects are dynamically loaded from `projects.json`</p>
+    <p class="subtitle">Visualizing infrastructure architecture and automation projects.</p>
     <div class="project-grid">
       </div>
   </section>
   
-  <section id="education">
+  <section id="education" class="section">
     <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
     <div class="timeline">
       <div class="timeline-item">
@@ -147,13 +151,13 @@
         <h4>Chettinad College of Engineering & Technology - Karur | Aug 2014 – May 2018</h4>
       </div>
       <div class="timeline-item">
-        <h3>CCNA, CCNP, MCSA</h3>
-        <h4>Industry Certifications</h4>
+        <h3>Industry Certifications</h3>
+        <h4>CCNA, CCNP, MCSA</h4>
       </div>
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="section">
     <h2 class="section-title"><i class="fas fa-envelope"></i> Contact</h2>
     <div class="contact-container">
       <div><i class="fas fa-map-marker-alt"></i> Bangalore - 560100, Karnataka</div>
@@ -170,7 +174,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2024 Lakshmanan R. All rights reserved. | <a href="#">Designed to be Dynamic</a></p>
+    <p>&copy; 2024 Lakshmanan R. All rights reserved.</p>
   </footer>
 
   <a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
