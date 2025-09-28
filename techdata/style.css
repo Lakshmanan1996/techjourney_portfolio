@@ -118,74 +118,36 @@ header .navbar ul li a.active {
     z-index: 1;
 }
 
-/* Dotted Background Image */
-.dotted-background-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    z-index: 2; 
-    opacity: 0.2; 
-    max-width: 70%; 
-    pointer-events: none;
-}
-
-.dotted-background-image img {
-    width: 100%;
-    height: auto;
-}
 
 /* Floating Character & Text Content (Foreground) */
-.hero-image-container {
-    position: relative; 
-    z-index: 3; 
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    max-width: 1200px;
-    width: 100%;
-    padding: 6.5rem 5% 2rem; 
-}
+/* --- CONTACT SECTION STYLES (Focus on the image) --- */
 
-.hero-image-container .content {
-    color: var(--white);
-    max-width: 50%;
-    text-align: left;
-    font-size: 1.6rem;
-}
-
-.hero-image-container .content .role-title {
-    font-size: 2rem;
-    color: var(--secondary-color);
-    margin-bottom: 0.5rem;
-}
-
-.hero-image-container .content h1 {
-    font-size: 4.5rem;
-    color: var(--main-color);
-    line-height: 1;
-}
-
-.hero-image-container .content h2 {
-    font-size: 3rem;
-    font-weight: 400;
-    margin-bottom: 1.5rem;
-}
-
-.hero-image-container .image-box {
-    width: 40%;
-    text-align: center;
-}
-
-.hero-image-container .image-box img {
-    max-width: 100%; 
-    height: auto; 
-    width: 500px; 
-    max-height: 60vh; 
+.contact-image-box .contact-illustration {
+    max-width: 200%;
+    height: auto;
+    max-height: 400px;
     display: block;
-    margin: 0 auto; 
-    object-fit: contain;
+    margin: 0 auto;
+    
+    /* ADDED STYLES FOR ROUND IMAGE */
+    width: 450px;  /* Set a fixed size for a perfect circle */
+    height: 450px; /* Set a fixed size for a perfect circle */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    /*border-radius: 50%; /* Makes the image perfectly round */
+    border: 5px solid var(--main-color); /* Optional: Adds a border for emphasis */
 }
+
+/* Ensure the wrapper respects the new size if needed */
+.contact-image-box {
+    /* ... existing styles ... */
+    text-align: center;
+    /* Remove min-width if it conflicts with the fixed size above, or adjust it */
+}
+
+/* * IMPORTANT: You may need to adjust the width and height 
+* (e.g., 280px or 300px) based on your original image's aspect ratio
+* to ensure it's a perfect circle.
+*/
 
 /* Floating Animation */
 @keyframes float {
