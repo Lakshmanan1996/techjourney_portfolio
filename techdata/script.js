@@ -1,5 +1,6 @@
 // ===================================================================
 // DYNAMIC FEATURES: PARTICLES, SCROLL, PROJECT LOADING, SCROLL REVEAL
+// Requires jQuery, particles.js, and scrollreveal.js CDNs in index.html
 // ===================================================================
 
 // 1. Load Particles.js background
@@ -14,8 +15,9 @@ const navLinks = document.querySelectorAll(".navbar ul li a");
 
 window.addEventListener("scroll", () => {
   let current = "";
-  // Determine which section is "active"
+  // Determine which section is "active" based on scroll position
   sections.forEach((section) => {
+    // Offset by 150px to account for the fixed header height
     const sectionTop = section.offsetTop - 150; 
     if (scrollY >= sectionTop) {
       current = section.getAttribute("id");
@@ -49,7 +51,7 @@ fetch("projects.json")
           const card = document.createElement("div");
           card.classList.add("project-card");
 
-          // Conditionally create the image HTML for diagrammatic representation
+          // Assumes 'image_path' field is present in projects.json
           const imageHTML = proj.image_path 
             ? `<img src="${proj.image_path}" alt="Diagram for ${proj.title}" class="project-diagram-img">` 
             : ''; 
@@ -71,12 +73,12 @@ fetch("projects.json")
   .catch(error => console.error('Error loading projects:', error));
 
 
-// 4. Scroll Reveal Animation Setup (The requested effects)
+// 4. Scroll Reveal Animation Setup
 const srtop = ScrollReveal({
     origin: 'top',
     distance: '80px',
     duration: 1000,
-    reset: false 
+    reset: false // Set to true if you want the animations to repeat on scroll up/down
 });
 
 /* SCROLL HOME CONTENT */
@@ -107,6 +109,7 @@ srtop.reveal('#contact-form', { delay: 300 });
 $('a[href*="#"]').on('click', function (e) {
     e.preventDefault();
     $('html, body').animate({
-        scrollTop: $($(this).attr('href')).offset().top - 70, // -70 for fixed header offset
+        // Scroll to target offset, adjusted for the fixed header
+        scrollTop: $($(this).attr('href')).offset().top - 70, 
     }, 500, 'linear')
 });
