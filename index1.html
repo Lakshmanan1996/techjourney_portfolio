@@ -9,21 +9,21 @@
 
     <style>
         /* ------------------------------------------- */
-        /* --- 1. CSS Variables (Vibrant Scheme - RESTORED DARK) --- */
+        /* --- 1. CSS Variables (DARK THEME - Matching Target Portfolio) --- */
         :root {
-            --primary-color: #00bcd4; /* Cyan/Light Blue */
-            --secondary-color: #ff4081; /* Pink/Magenta accent */
-            --dark-bg: #1d3557; /* Deep Blue/Navy */
-            --light-bg: #f5f5f5; /* Light grey background */
-            --content-bg: rgba(255, 255, 255, 0.95);
-            --text-light: #fff; /* White text for dark backgrounds */
-            --text-dark: #333;
+            --primary-color: #ffab00; /* Vibrant Accent (Orange/Yellow) */
+            --secondary-color: #00bcd4; /* Cyan/Light Blue Secondary Accent */
+            --dark-bg: #1e1e1e; /* Deep Charcoal/Black Background */
+            --content-bg: #292929; /* Slightly Lighter Card/Content Background */
+            --text-light: #ffffff; /* White Text */
+            --text-dark: #f0f0f0; /* Light Grey Text for General Content */
             --font-main: 'Poppins', sans-serif;
-            --shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            /* New Contact Colors */
-            --form-bg: #ffffff; /* White card background */
-            --input-bg: #f0f4f8; /* Light blue/grey input background */
-            --button-color: #4a00e0; /* Deep blue/purple for the new button style */
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+
+            /* Contact Specific Colors (adapted for dark theme) */
+            --form-bg: var(--content-bg);
+            --input-bg: #333333;
+            --button-color: var(--primary-color); /* Use primary accent for button */
         }
 
         /* ------------------------------------------- */
@@ -34,13 +34,16 @@
             margin: 0;
             padding-top: 80px;
             color: var(--text-dark);
-            background-color: var(--light-bg);
-            line-height: 1.6;
+            background-color: var(--dark-bg);
+            line-height: 1.7;
             scroll-behavior: smooth;
         }
 
         h1, h2, h3 {
             font-weight: 700;
+            color: var(--text-light);
+        }
+        p {
             color: var(--text-dark);
         }
 
@@ -64,20 +67,21 @@
             left: 0;
             width: 100%;
             height: 80px;
-            background-color: var(--dark-bg);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            background-color: rgba(30, 30, 30, 0.95); /* Semi-transparent dark background */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 25px;
+            padding: 0 5%;
+            transition: background-color 0.3s;
         }
 
         /* Logo */
         .logo {
             color: var(--primary-color);
-            font-size: 1.5em;
-            font-weight: 600;
+            font-size: 1.8em;
+            font-weight: 700;
             text-decoration: none;
         }
 
@@ -85,192 +89,300 @@
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 25px;
             margin: 0;
             padding: 0;
         }
 
         /* Individual Nav Links */
         .nav-links a {
-            color: var(--text-light);
+            color: var(--text-dark);
             text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            transition: background-color 0.3s, color 0.3s;
+            padding: 5px 0;
+            font-size: 0.95em;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
         }
 
-        /* Hover & Active States */
+        /* Hover & Active States (Underline animation) */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease-in-out;
+        }
+
         .nav-links a:hover,
         .nav-links a.active {
-            background-color: var(--primary-color);
-            color: var(--text-dark);
-            border-bottom: 3px solid var(--secondary-color);
+            color: var(--primary-color);
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         /* ------------------------------------------- */
         /* --- 5. Section Styling (General) --- */
         /* ------------------------------------------- */
         section {
-            padding: 80px 5%;
+            padding: 100px 5%;
             min-height: auto;
             position: relative;
             z-index: 10;
         }
         .section-title {
             text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: var(--primary-color);
+            font-size: 3em;
+            margin-bottom: 70px;
+            color: var(--text-light);
+            text-transform: uppercase;
         }
         .section-title i {
-            margin-right: 10px;
-            color: var(--secondary-color);
+            margin-right: 15px;
+            color: var(--primary-color);
         }
 
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            text-transform: uppercase;
+        }
+        .btn-primary:hover {
+            background-color: #ffc44d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 171, 0, 0.3);
+        }
+
+
         /* ------------------------------------------- */
-        /* --- 6. Home Section (Layout & Image) --- */
+        /* --- 6. Home Section (Hero) --- */
         /* ------------------------------------------- */
         #home {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            min-height: calc(100vh - 80px);
-            color: var(--text-light);
-            z-index: 2;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
         }
         .home-main-content {
             display: flex;
             align-items: center;
-            width: 80%;
+            justify-content: space-around;
             max-width: 1200px;
-            margin-left: 5%;
-            z-index: 10;
+            width: 100%;
+            padding-top: 50px;
         }
 
         .home-text {
-            max-width: 500px;
+            max-width: 550px;
             text-align: left;
-            margin-right: 50px;
-            background-color: rgba(0, 0, 0, 0.4);
-            padding: 30px;
-            border-radius: 10px;
-            flex-shrink: 0;
         }
-        #home h1, #home h2, #home p {
-            color: var(--text-light);
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+        .home-text p {
+            font-size: 1.1em;
+        }
+        .greeting {
+             color: var(--primary-color);
+             font-size: 1.2em;
+             font-weight: 600;
+             margin-bottom: 5px;
         }
         .name-highlight {
-            font-size: 3em;
-            color: var(--primary-color);
-            margin: 10px 0 20px 0;
+            font-size: 4em;
+            color: var(--text-light);
+            margin: 0 0 10px 0;
+            text-shadow: 0 0 10px rgba(255, 171, 0, 0.2);
         }
         .role-title {
-            font-size: 1.2em;
+            font-size: 1.5em;
             color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 25px;
         }
 
-        /* --- Profile Image (Circular Style Restored) --- */
+        /* --- Profile Image (Adjusted for dark theme) --- */
         .profile-image {
-            width: 350px;
-            height: 350px;
+            width: 380px;
+            height: 380px;
             border-radius: 50%;
-            background-color: var(--secondary-color);
-            box-shadow: 0 0 0 10px rgba(255, 64, 129, 0.3);
+            background-color: var(--primary-color);
+            box-shadow: 0 0 0 10px rgba(255, 171, 0, 0.2);
             flex-shrink: 0;
             transition: transform 0.5s;
             overflow: hidden;
         }
         .profile-image:hover {
-            transform: scale(1.05) rotate(3deg);
+            transform: scale(1.03) rotate(-3deg);
         }
         .profile-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            border: 5px solid var(--text-light);
-        }
-
-        .btn-primary {
-            background-color: var(--secondary-color);
-            box-shadow: 0 3px 0 #d8346e;
-            padding: 10px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            color: var(--text-light);
-            font-weight: 600;
-            display: inline-block;
-            transition: background-color 0.3s;
-        }
-        .btn-primary:hover {
-            background-color: #d8346e;
-            box-shadow: 0 2px 0 #b32a58;
+            border: 5px solid var(--content-bg);
         }
 
         /* ------------------------------------------- */
         /* --- 7. About Section --- */
         /* ------------------------------------------- */
-        #about .about-content {
+        #about .about-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
             background-color: var(--content-bg);
             padding: 40px;
             border-radius: 10px;
             box-shadow: var(--shadow);
-            max-width: 900px;
-            margin: 0 auto;
         }
-        #about .about-content li {
-            margin-bottom: 10px;
+        #about .about-content {
+            flex: 2;
+        }
+        #about .about-details {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            border-left: 3px solid var(--primary-color);
+        }
+        #about .about-details h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        #about .about-details p {
+            margin: 10px 0;
+            font-size: 0.95em;
+            color: var(--text-dark);
+        }
+        #about .about-details i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        #about .about-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        #about .about-content li i {
+            color: var(--primary-color);
+            margin-right: 10px;
         }
 
+
         /* ------------------------------------------- */
-        /* --- 8. Skills Section (Dark Background) --- */
+        /* --- 8. Skills Section --- */
         /* ------------------------------------------- */
-        #skills {
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-        }
-        #skills .section-title {
-            color: var(--secondary-color);
-        }
         #skills .skill-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
+            gap: 25px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         .skill-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
+            background-color: var(--content-bg);
+            padding: 30px 20px;
             border-radius: 10px;
             text-align: center;
-            transition: transform 0.3s, background-color 0.3s;
-            border-bottom: 4px solid var(--primary-color);
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            border-bottom: 5px solid var(--secondary-color);
         }
         .skill-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            background-color: rgba(255, 255, 255, 0.2);
-            border-bottom-color: var(--secondary-color);
+            transform: translateY(-10px) scale(1.05);
+            background-color: #333;
+            box-shadow: var(--shadow);
+            border-bottom-color: var(--primary-color);
         }
         .skill-card img, .skill-card i {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
             object-fit: contain;
-            filter: drop-shadow(0 0 5px var(--primary-color));
             color: var(--primary-color);
-            font-size: 3em;
+            font-size: 3.5em;
+            filter: drop-shadow(0 0 5px rgba(255, 171, 0, 0.4));
         }
         .skill-card h4 {
             color: var(--text-light);
             margin: 0;
-            font-weight: 400;
+            font-weight: 500;
         }
 
         /* ------------------------------------------- */
-        /* --- 9. Experience & Education (Timeline) --- */
+        /* --- 9. Projects Section (NEW) --- */
+        /* ------------------------------------------- */
+        #projects {
+            background-color: var(--content-bg); /* Use content color for slight variation */
+        }
+        #projects .section-title {
+            color: var(--primary-color);
+        }
+        #projects .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .project-card {
+            background-color: var(--dark-bg);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--secondary-color);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-top-color: var(--primary-color);
+        }
+        .project-image {
+            height: 200px;
+            width: 100%;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .project-info {
+            padding: 20px;
+            text-align: left;
+        }
+        .project-info h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .project-links a {
+            color: var(--secondary-color);
+            margin-right: 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        .project-links a:hover {
+            color: var(--primary-color);
+        }
+
+
+        /* ------------------------------------------- */
+        /* --- 10. Experience & Education (Timeline) --- */
         /* ------------------------------------------- */
         .timeline {
             max-width: 900px;
@@ -286,7 +398,7 @@
             left: 15px;
             height: 100%;
             width: 2px;
-            background-color: var(--primary-color);
+            background-color: var(--content-bg);
         }
 
         .timeline-item {
@@ -303,8 +415,8 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background-color: var(--secondary-color);
-            border: 3px solid var(--text-light);
+            background-color: var(--primary-color);
+            border: 3px solid var(--dark-bg);
             z-index: 2;
         }
 
@@ -312,7 +424,7 @@
             background-color: var(--content-bg);
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
             border-left: 5px solid var(--secondary-color);
         }
 
@@ -321,32 +433,27 @@
             color: var(--primary-color);
         }
 
-        .timeline-content p, .timeline-content ul {
+        .timeline-content p, .timeline-content ul, .timeline-date {
+            color: var(--text-dark);
             margin: 5px 0 0 0;
-            font-size: 0.9em;
+            font-size: 0.95em;
+        }
+        .timeline-date {
+            color: var(--secondary-color);
+            font-weight: 600;
         }
 
         /* ------------------------------------------- */
-        /* --- 10. Contact Section (New Style) --- */
+        /* --- 11. Contact Section (Dark Theme Dynamic Style) --- */
         /* ------------------------------------------- */
         #contact {
-            background-color: var(--light-bg);
+            background-color: var(--dark-bg);
             text-align: center;
-        }
-
-        .contact-content {
-            display: flex;
-            justify-content: center;
-            align-items: stretch; /* Stretch items to match height */
-            gap: 40px;
-            max-width: 1100px;
-            margin: 0 auto;
-            flex-wrap: wrap;
         }
 
         .contact-card-container {
             display: flex;
-            background-color: var(--form-bg);
+            background-color: var(--content-bg);
             border-radius: 15px;
             box-shadow: var(--shadow);
             max-width: 900px;
@@ -355,12 +462,24 @@
             overflow: hidden;
             flex-grow: 1;
         }
+        
+        /* Keyframes for the entrance animation */
+        @keyframes slideUpFadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .contact-card-container {
+            opacity: 0; 
+            animation: slideUpFadeIn 1s ease-out forwards; 
+            animation-delay: 0.2s;
+        }
 
         .contact-illustration {
             flex: 1;
             min-width: 250px;
             max-width: 350px;
-            background-color: #e0e7f7; /* Light background for the illustration side */
+            background-color: #383838; /* Darker background for illustration */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -371,6 +490,7 @@
             max-width: 100%;
             height: auto;
             display: block;
+            filter: grayscale(20%) brightness(1.2); /* Adjust illustration for dark theme */
         }
 
         .contact-form-side {
@@ -381,32 +501,33 @@
         }
 
         .contact-form-side h3 {
-            color: var(--dark-bg);
+            color: var(--primary-color);
             margin-top: 0;
             margin-bottom: 30px;
         }
         
         /* Input Styling */
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
 
         .contact-form-side input, .contact-form-side textarea {
             width: 100%;
-            padding: 12px 15px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
+            padding: 14px 15px;
+            border: 2px solid #444; /* Dark border */
             border-radius: 8px;
             box-sizing: border-box;
             background-color: var(--input-bg);
+            color: var(--text-light);
             font-family: var(--font-main);
-            transition: border-color 0.3s, box-shadow 0.3s;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.3s;
         }
 
         .contact-form-side input:focus, .contact-form-side textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2);
+            box-shadow: 0 0 10px rgba(255, 171, 0, 0.4);
+            background-color: #444;
         }
 
         .contact-form-side textarea {
@@ -416,50 +537,64 @@
         /* Submit Button */
         .submit-btn {
             background-color: var(--button-color);
-            color: var(--text-light);
+            color: var(--dark-bg);
             border: none;
             padding: 12px 30px;
-            border-radius: 8px;
+            border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
             font-size: 1em;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: background-color 0.3s, transform 0.1s;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
         }
         .submit-btn i {
             margin-left: 8px;
+             transition: transform 0.3s ease;
         }
         .submit-btn:hover {
-            background-color: #3b00b3;
-            transform: translateY(-2px);
+            background-color: #ffc44d;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 171, 0, 0.4);
+        }
+         .submit-btn:hover i {
+            transform: translateX(5px);
+        }
+        .submit-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(255, 171, 0, 0.4);
         }
 
-        /* Contact Details below the card (kept separate for clarity) */
+
+        /* Contact Details below the card */
         .contact-details-bar {
-            margin-top: 40px;
+            margin: 50px auto 0 auto;
             max-width: 900px;
-            margin: 40px auto 0 auto;
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             padding: 20px;
             background-color: var(--content-bg);
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
         .contact-details-bar p {
             display: flex;
             align-items: center;
             margin: 10px 15px;
-            color: var(--text-dark);
             font-weight: 500;
+            color: var(--text-dark);
         }
         .contact-details-bar i {
-            color: var(--secondary-color);
+            color: var(--primary-color);
             margin-right: 10px;
             font-size: 1.2em;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .contact-details-bar p:hover i {
+            color: var(--secondary-color);
+            transform: scale(1.1);
         }
         .contact-details-bar a {
             color: var(--text-dark);
@@ -467,17 +602,17 @@
         }
 
         /* ------------------------------------------- */
-        /* --- 11. Footer --- */
+        /* --- 12. Footer --- */
         /* ------------------------------------------- */
         footer {
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            padding: 40px 5%;
+            background-color: #111;
+            color: var(--text-dark);
+            padding: 50px 5%;
             text-align: center;
         }
         footer h3 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
         }
         footer .footer-grid {
             display: flex;
@@ -490,98 +625,74 @@
         }
         .footer-about, .footer-links, .footer-contact {
             min-width: 200px;
-            margin: 15px;
+            margin: 20px 15px;
         }
-        footer a {
-            color: var(--primary-color);
+        .footer-links a {
+            color: var(--text-dark);
             text-decoration: none;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+            border-left: 3px solid transparent;
+            padding-left: 10px;
         }
-        footer a:hover {
-            text-decoration: underline;
+        .footer-links a:hover {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
         }
         .footer-social a {
             display: inline-block;
             margin-right: 15px;
-            font-size: 1.5em;
-            color: var(--primary-color);
+            font-size: 1.8em;
+            color: var(--secondary-color);
             transition: color 0.3s;
         }
         .footer-social a:hover {
-            color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        .copyright {
+            margin-top: 40px;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
         }
 
+
         /* ------------------------------------------- */
-        /* --- 12. Responsive Adjustments --- */
+        /* --- 13. Responsive Adjustments --- */
         /* ------------------------------------------- */
         @media (max-width: 992px) {
             /* Navbar adjustments */
-            .navbar {
-                height: auto;
-                flex-direction: column;
-                padding: 15px 10px;
-            }
-            body {
-                padding-top: 130px;
-            }
-            .nav-links {
-                margin-top: 10px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+            .navbar { height: auto; flex-direction: column; padding: 15px 10px; }
+            body { padding-top: 130px; }
+            .nav-links { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
+            .section-title { font-size: 2.2em; margin-bottom: 50px;}
 
             /* Home Section changes */
-            .home-main-content {
-                width: 90%;
-                margin: 0 auto;
-                flex-direction: column;
-                text-align: center;
-            }
-            .home-text {
-                margin: 0 0 30px 0;
-                text-align: center;
-            }
-            .profile-image {
-                order: -1;
-                margin-bottom: 30px;
-                width: 250px;
-                height: 250px;
-            }
+            .home-main-content { flex-direction: column-reverse; text-align: center; }
+            .home-text { max-width: 100%; text-align: center; margin-top: 30px; }
+            .name-highlight { font-size: 3em; }
+            .profile-image { margin-bottom: 30px; width: 250px; height: 250px; }
+            .home-text .btn-primary { margin-top: 20px; }
 
-            /* Contact Section changes (Split into stacked sections) */
-            .contact-card-container {
-                flex-direction: column;
-            }
-            .contact-illustration {
-                order: -1;
-                max-width: 100%;
-                height: 200px; /* Constrain illustration height on small screens */
-            }
-            .contact-form-side {
-                padding: 30px 20px;
-            }
-            .contact-details-bar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .contact-details-bar p {
-                margin: 5px 0;
-            }
+            /* About Section changes */
+            #about .about-container { flex-direction: column; }
+            #about .about-details { border-left: none; border-top: 3px solid var(--primary-color); padding-top: 20px; margin-top: 20px; }
+
+            /* Contact Section changes */
+            .contact-card-container { flex-direction: column; }
+            .contact-illustration { order: -1; max-width: 100%; height: 200px; }
+            .contact-form-side { padding: 30px 20px; }
+            .contact-details-bar { flex-direction: column; align-items: flex-start; }
+            .contact-details-bar p { margin: 5px 0; }
+
+            /* Projects Grid */
+            #projects .project-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 
             /* Footer changes */
-            footer .footer-grid {
-                flex-direction: column;
-                text-align: center;
-            }
-            .footer-links a {
-                display: inline-block;
-                margin: 5px 10px;
-            }
+            footer .footer-grid { flex-direction: column; text-align: center; }
         }
     </style>
-
-
 </head>
 <body>
 
@@ -593,8 +704,9 @@
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#experience">Experience</a></li>
-            <li><a href="#education-certs">Certification</a></li>
+            <li><a href="#education-certs">Education/Certs</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -604,31 +716,40 @@
             <div class="home-main-content">
                 <div class="home-text">
                     <p class="greeting">Hi There, I'm</p>
-                    <h1 class="name-highlight">LAKSHMANAN</h1>
+                    <h1 class="name-highlight">LAKSHMANAN R</h1>
                     <h2 class="role-title">Infrastructure Management Engineer</h2>
                     <p>7+ years of expertise in Windows, VMware, Cloud (AWS), and SCCM Administration, focusing on automation and high system compliance.</p>
-                    <a href="#contact" class="btn-primary" style="margin-top: 15px;">Get In Touch</a>
+                    <a href="#about" class="btn-primary" style="margin-top: 15px;">Learn More</a>
                 </div>
                 <div class="profile-image">
-                    <img src="https://via.placeholder.com/350" alt="Lakshmanan R Profile Image">
+                    <img src="https://via.placeholder.com/380/ffab00/1e1e1e?text=Your+Photo" alt="Lakshmanan R Profile Image">
                 </div>
             </div>
         </section>
 
         <section id="about">
-            <h2 class="section-title"><i class="fas fa-user-tie"></i> Profile Overview</h2>
-            <div class="about-content">
-                <p>
-                    I am a highly skilled System Engineer with **7+ years of experience** managing large-scale infrastructure in both **on-premises and cloud environments (AWS)**.
-                </p>
-                <ul>
-                    <li>Specialized in **MECM/SCCM administration**, Windows Server environments, and DevOps tools including **Docker, Jenkins, and Git**.</li>
-                    <li>Proven ability to lead infrastructure optimization projects, automate deployments using **PowerShell**, and maintain high compliance across global IT assets.</li>
-                    <li>Holds multiple industry certifications including **CCNA, CCNP, and MCSA**.</li>
-                </ul>
-                <p>
-                    My professional focus is on proactive alert monitoring, timely patch deployment, managing complex network configurations, and providing robust **L2 system support** to ensure maximum system stability and efficiency.
-                </p>
+            <h2 class="section-title"><i class="fas fa-user-tie"></i> About Me</h2>
+            <div class="about-container">
+                <div class="about-content">
+                    <h3>I'm Lakshmanan R</h3>
+                    <p>
+                        I am a highly skilled System Engineer with **7+ years of experience** managing large-scale infrastructure in both **on-premises and cloud environments (AWS)**.
+                    </p>
+                    <p>My professional focus is on proactive alert monitoring, timely patch deployment, managing complex network configurations, and providing robust L2 system support to ensure maximum system stability and efficiency.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Specialized in **MECM/SCCM administration** and Windows Server environments.</li>
+                        <li><i class="fas fa-check-circle"></i> Proven ability to automate deployments using **PowerShell**.</li>
+                        <li><i class="fas fa-check-circle"></i> Proficient with **Docker, Jenkins, and Git** for continuous integration.</li>
+                    </ul>
+                    <a href="#" class="btn-primary" style="margin-top: 20px;">Download CV</a>
+                </div>
+                <div class="about-details">
+                    <h3>Details</h3>
+                    <p><i class="fas fa-calendar-alt"></i> **Age**: 30</p>
+                    <p><i class="fas fa-phone"></i> **Phone**: +91 9597981490</p>
+                    <p><i class="fas fa-envelope"></i> **Email**: rlakshmana50@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> **Location**: Bangalore, India</p>
+                </div>
             </div>
         </section>
 
@@ -641,16 +762,24 @@
                     <h4>MECM/SCCM</h4>
                 </div>
                 <div class="skill-card">
-                    <i class="fab fa-windows"></i>
-                    <h4>Windows & VMware</h4>
+                    <i class="fab fa-aws"></i>
+                    <h4>AWS / Cloud</h4>
                 </div>
                 <div class="skill-card">
-                    <i class="fab fa-aws" style="color:#FF9900;"></i>
-                    <h4>AWS / Azure</h4>
+                    <i class="fab fa-windows"></i>
+                    <h4>Windows Server</h4>
                 </div>
                 <div class="skill-card">
                     <img src="https://cdn.worldvectorlogo.com/logos/powershell.svg" alt="powershell Logo" style="filter: drop-shadow(0 0 5px var(--primary-color));">
                     <h4>PowerShell</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-server"></i>
+                    <h4>VMware / Virtualization</h4>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-users-cog"></i>
+                    <h4>Active Directory</h4>
                 </div>
                 <div class="skill-card">
                     <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" alt="Docker Logo">
@@ -658,27 +787,59 @@
                 </div>
                 <div class="skill-card">
                     <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="Jenkins Logo">
-                    <h4>Jenkins / Git</h4>
+                    <h4>Jenkins / CI/CD</h4>
                 </div>
-                <div class="skill-card">
-                    <i class="fas fa-network-wired"></i>
-                    <h4>CCNA / CCNP</h4>
-                </div>
-                <div class="skill-card">
-                    <img src="https://www.vectorlogo.zone/logos/servicenow/servicenow-icon.svg" alt="ServiceNow Logo">
-                    <h4>ServiceNow / Autotask</h4>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-users-cog"></i>
-                    <h4>Active Directory & GPO</h4>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h4>SQL</h4>
-                </div>
-
             </div>
         </section>
+
+        <section id="projects">
+            <h2 class="section-title"><i class="fas fa-code"></i> Projects</h2>
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x200/555/eee?text=SCCM+Automation" alt="SCCM Automation Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>Automated Patch Management</h3>
+                        <p>Developed PowerShell scripts to streamline monthly patch deployment via SCCM, achieving 99% compliance across 500+ endpoints.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> Source</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x200/555/eee?text=AWS+Monitoring" alt="AWS Monitoring Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>AWS CloudWatch Configuration</h3>
+                        <p>Set up comprehensive monitoring and alerting for EC2 instances and RDS databases using AWS CloudWatch and SNS notifications.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> Source</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x200/555/eee?text=VMware+Scripting" alt="VMware Scripting Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>VMware Daily Health Check Script</h3>
+                        <p>Created a PowerCLI script to generate daily reports on vCenter status, host resource utilization, and snapshot size management.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> Source</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <section id="experience">
             <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
@@ -690,8 +851,8 @@
                         <h3 class="timeline-role">Senior System Engineer</h3>
                         <p class="timeline-company">Kaseya Software Pvt.Ltd., Bangalore</p>
                         <ul>
-                            <li>Administered and maintained **Windows and VMware OS environments**, including system alert monitoring and OS-level patch management.</li>
-                            <li>Proficiently used tools such as **Autotask, ServiceNow, Kaseya VSA, and Datto RMM** to keep systems up to date, secure, and running smoothly.</li>
+                            <li>Administered and maintained **Windows and VMware OS environments**.</li>
+                            <li>Proficiently used **Autotask, ServiceNow, and Datto RMM** for system management.</li>
                         </ul>
                     </div>
                 </div>
@@ -703,22 +864,7 @@
                         <p class="timeline-company">Eliga Innovative Services Private Limited (Client: Lam Research)</p>
                         <ul>
                             <li>Expertly used **SCCM 2012 and MECM** for installing, managing, and patching servers globally.</li>
-                            <li>Developed **PowerShell scripts** for system health checks, automated software installation, and complex configuration updates, reducing manual effort by **30%**.</li>
-                           <li>Managed file servers, roaming profiles, terminal servers, HP servers, and **VMware** virtual environments.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">June 2018 - Sep 2020</span>
-                        <h3 class="timeline-role">L2 System Engineer</h3>
-                        <p class="timeline-company">Magna Infotech, Client: WIPRO Coimbatore</p>
-                        <ul>
-                           <li>Managed and resolved issues within **Active Directory** (passwords, domain join, user/group management).</li>
-                            <li>Configured and troubleshot network routes including Static, **EIGRP, OSPF, and BGP**.</li>
-                            <li>Implemented network security solutions using **VPN, ACL, and VTP** on Cisco devices.</li>
-                            <li>Coordinated and deployed Windows updates and application rollouts using **SCCM**.</li>
+                            <li>Developed **PowerShell scripts** for automated tasks, reducing manual effort by **30%**.</li>
                         </ul>
                     </div>
                 </div>
@@ -745,8 +891,8 @@
                     </div>
                 </div>
             </div>
-            <p style="text-align:center; margin-top:30px; font-weight:600; color: var(--text-dark);">
-                Holds Industry Certifications: **CCNA, CCNP, and MCSA**
+            <p style="text-align:center; margin-top:30px; font-weight:600; color: var(--primary-color);">
+                Industry Certifications: CCNA, CCNP, and MCSA
             </p>
         </section>
 
@@ -785,7 +931,7 @@
             </div>
 
             <div class="contact-details-bar">
-                <p><i class="fas fa-map-marker-alt"></i> No:57, Manjunatha Layout, Hosa Road, Electronic city, Bangalore -560100, Karnataka.</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka, India.</p>
                 <p><i class="fas fa-phone"></i> +91 9597981490</p>
                 <p><i class="fas fa-envelope"></i> <a href="mailto:rlakshmana50@gmail.com">rlakshmana50@gmail.com</a></p>
             </div>
@@ -797,14 +943,13 @@
         <div class="footer-grid">
             <div class="footer-about">
                 <h3>Lakshmanan R</h3>
-                <p>Infrastructure Management Engineer with 7+ years of experience in Windows, VMware, AWS, and SCCM administration, driving operational excellence.</p>
+                <p>Infrastructure Management Engineer specializing in automation and cloud solutions.</p>
             </div>
             <div class="footer-links">
                 <h3>Quick Links</h3>
                 <a href="#home">Home</a>
-                <a href="#about">About</a>
                 <a href="#skills">Skills</a>
-                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </div>
             <div class="footer-contact">
@@ -818,79 +963,60 @@
                 </div>
             </div>
         </div>
-        <p style="margin-top: 20px; font-size: 0.8em; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 15px;">&copy; 2025 Lakshmanan R. All rights reserved.</p>
+        <p class="copyright">&copy; 2025 Lakshmanan R. Designed to inspire.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-        // --- PARTICLES.JS CONFIGURATION (Vibrant) ---
+        // --- PARTICLES.JS CONFIGURATION (Adapted for Dark Theme) ---
         particlesJS("particles-js", {
             "particles": {
                 "number": {
-                    "value": 80,
+                    "value": 100,
                     "density": {
                         "enable": true,
                         "value_area": 800
                     }
                 },
                 "color": {
-                    "value": "#ebdada"
+                    "value": "#ffab00" /* Primary Accent Color */
                 },
                 "shape": {
                     "type": "circle",
                     "stroke": {
                         "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    },
-                    "image": {
-                        "src": "img/github.svg",
-                        "width": 100,
-                        "height": 100
+                        "color": "#1e1e1e"
                     }
                 },
                 "opacity": {
-                    "value": 0.40246529723245905,
+                    "value": 0.5,
                     "random": false,
                     "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
+                        "enable": false
                     }
                 },
                 "size": {
-                    "value": 3.945738208161363,
+                    "value": 3,
                     "random": true,
                     "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
+                        "enable": false
                     }
                 },
                 "line_linked": {
                     "enable": true,
                     "distance": 150,
-                    "color": "#ede1e1",
+                    "color": "#444444", /* Darker line color for subtle effect */
                     "opacity": 0.4,
                     "width": 1
                 },
                 "move": {
                     "enable": true,
-                    "speed": 6,
+                    "speed": 3,
                     "direction": "none",
                     "random": false,
                     "straight": false,
                     "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
+                    "bounce": false
                 }
             },
             "interactivity": {
@@ -898,7 +1024,7 @@
                 "events": {
                     "onhover": {
                         "enable": true,
-                        "mode": "repulse"
+                        "mode": "grab" /* Grab instead of repulse for a cleaner feel */
                     },
                     "onclick": {
                         "enable": true,
@@ -908,32 +1034,17 @@
                 },
                 "modes": {
                     "grab": {
-                        "distance": 400,
+                        "distance": 180,
                         "line_linked": {
                             "opacity": 1
                         }
                     },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
                     "push": {
                         "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
                     }
                 }
             },
             "retina_detect": true
-
         });
 
 
@@ -950,6 +1061,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
              document.body.style.paddingTop = headerHeight + 'px';
+             document.querySelector('.nav-links a[href="#home"]').classList.add('active');
         });
 
         // 1. Smooth scrolling
@@ -961,6 +1073,7 @@
                     const targetElement = document.querySelector(targetId);
 
                     if (targetElement) {
+                        // Calculate offset accounting for sticky header
                         const offset = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
                         window.scrollTo({
                             top: offset,
@@ -976,8 +1089,9 @@
             let current = '';
 
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - headerHeight - 1;
-                if (window.scrollY >= sectionTop && window.scrollY < (sectionTop + section.offsetHeight)) {
+                // Determine the scroll position relative to the section start, using a buffer
+                const sectionTop = section.offsetTop - headerHeight - 50; 
+                if (window.scrollY >= sectionTop) {
                     current = section.getAttribute('id');
                 }
             });
@@ -988,16 +1102,8 @@
                     a.classList.add('active');
                 }
             });
-
-            if (window.scrollY < 100) {
-                navLinks.forEach(a => a.classList.remove('active'));
-                document.querySelector('.nav-links a[href="#home"]').classList.add('active');
-            }
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('.nav-links a[href="#home"]').classList.add('active');
-        });
     </script>
 </body>
 </html>
