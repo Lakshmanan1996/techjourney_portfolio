@@ -432,7 +432,7 @@ header .navbar ul li a.active {
 /* Style for the container wrapping the icon and input */
 .input-box {
     position: relative;
-    width: 100%;
+    width: 50%;
 }
 
 /* Style for the icon inside the input box */
