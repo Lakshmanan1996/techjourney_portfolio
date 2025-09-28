@@ -212,62 +212,65 @@ header .navbar ul li a.active {
 
 /* --- CONTACT SECTION STYLES FIXES --- */
 
-/* 1. Adjust the Main Wrapper */
+/* --- CONTACT SECTION STYLES (Adjustments for Wider Layout) --- */
+
+/* 1. Increase the overall max-width of the wrapper */
 .contact-content-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Changed to space-between to push to edges */
     align-items: center;
     gap: 4rem; 
-    max-width: 1200px; /* Increased max-width to give more space */
+    max-width: 1300px; /* INCREASE THIS VALUE for a wider span */
     width: 100%;
-    margin: 3rem auto 0; /* Center the wrapper and add top margin */
+    margin: 3rem auto 0; 
     flex-wrap: wrap; 
 }
 
-/* 2. Fix the Image Box Flex Property */
+/* 2. Adjust Image Box sizing */
 .contact-image-box {
-    /* Changed flex-basis to 35% to be safer, and added flex-shrink */
-    flex: 0 1 350px; /* NEW: flex-grow: 0 (don't grow), flex-shrink: 1 (can shrink) and basis of image size */
+    flex: 0 0 450px; /* Fixed width for the image container, doesn't grow or shrink much */
     text-align: center;
-    min-width: 350px; /* Keep this to ensure the large image doesn't get too small initially */
+    min-width: 300px; /* Ensure it can shrink on very small screens */
 }
 
-/* 3. Keep the Image Sizing */
+/* 3. Ensure the Image within the box is responsive */
 .contact-image-box .contact-illustration {
-    /* Keep your desired large size */
-    width: 600px;  
-    height: 600px; 
-    object-fit: cover; 
-    /*border-radius: 50%; 
-    border: 5px solid var(--main-color); */ 
+    max-width: 100%; 
+    height: auto; 
+    max-height: 400px; 
+    display: block;
+    margin: 0 auto;
+    object-fit: contain; 
+    border: 5px solid var(--main-color); 
 }
 
-/* 4. Ensure the Form Box can use the remaining space */
+/* 4. Adjust Form Box sizing */
 .contact-form-box {
-    flex: 1 1 70%; /* Allows form to take up the rest of the space */
+    flex: 1 1 450px; /* Allows form to take remaining space, with a basis */
     background: rgba(255, 255, 255, 0.1);
     padding: 3rem; 
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    min-width: 300px; /* Ensures the form is still usable */
+    min-width: 300px; 
 }
 
 
-/* --- Responsive Layout Fix (Stacking on smaller screens) --- */
-@media (max-width: 850px) { /* Moved the breakpoint up slightly for safety */
+/* --- Responsive Layout (Media Query) --- */
+@media (max-width: 991px) { /* Adjust breakpoint if needed */
     .contact-content-wrapper {
-        flex-direction: column; /* Stacks vertically */
+        flex-direction: column; 
         gap: 3rem;
+        max-width: 600px; /* Constrain overall width when stacked */
     }
     .contact-image-box,
     .contact-form-box {
-        /* Allow both elements to take full width when stacked */
         flex: 1 1 100%; 
-        max-width: 400px; /* Constrain the elements in the center on smaller screens */
+        max-width: 100%; /* Take full width of the wrapper when stacked */
     }
-    .contact-form-box {
-        margin-top: 1rem;
-    }
+}
+
+/* Keep other contact styles (form inputs, icons) as they are */
+
 }
 
 /* Floating Animation */
