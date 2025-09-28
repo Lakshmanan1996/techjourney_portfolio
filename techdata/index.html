@@ -155,32 +155,42 @@
     </div>
   </section>
 
-  <section id="contact" class="section">
-    <h2 class="section-title"><i class="fas fa-headset"></i> Get In Touch</h2>
+ <section id="contact" class="section">
+    <h2 class="section-title"><i class="fas fa-headset"></i> Get In <Span>Touch</Span></h2>
     <p class="subtitle">Have a project or opportunity? Let's connect! Send me a message directly.</p>
 
-    <div class="contact-container form-only">
-        <form id="contact-form">
-            
-            <div class="input-box">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Your Name" required />
-            </div>
+    <div class="contact-content-wrapper">
+        <div class="contact-image-box">
+            <img 
+                src="./assets/images/contact_illustration.svg" 
+                alt="Contact illustration" 
+                class="contact-illustration"
+            >
+        </div>
 
-            <div class="input-box">
-                <i class="fas fa-envelope"></i>
-                <input type="email" placeholder="Your Email" required />
-            </div>
+        <div class="contact-form-box">
+            <form id="contact-form">
+                
+                <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Your Name" required />
+                </div>
 
-            <div class="input-box">
-                <i class="fas fa-headset"></i>
-                <input type="text" placeholder="Your Phone Number" /> 
-            </div>
+                <div class="input-box">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Your Email" required />
+                </div>
 
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            
-            <button type="submit" class="btn-primary">Send Message</button>
-        </form>
+                <div class="input-box">
+                    <i class="fas fa-phone"></i>
+                    <input type="text" placeholder="Your Phone Number" /> 
+                </div>
+
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </div>
     </div>
 </section>
 
