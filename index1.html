@@ -13,13 +13,17 @@
         :root {
             --primary-color: #00bcd4; /* Cyan/Light Blue */
             --secondary-color: #ff4081; /* Pink/Magenta accent */
-            --dark-bg: #1d3557; /* RESTORED: Deep Blue/Navy */
+            --dark-bg: #1d3557; /* Deep Blue/Navy */
             --light-bg: #f5f5f5; /* Light grey background */
             --content-bg: rgba(255, 255, 255, 0.95);
-            --text-light: #fff; /* RESTORED: White text for dark backgrounds */
+            --text-light: #fff; /* White text for dark backgrounds */
             --text-dark: #333;
             --font-main: 'Poppins', sans-serif;
             --shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            /* New Contact Colors */
+            --form-bg: #ffffff; /* White card background */
+            --input-bg: #f0f4f8; /* Light blue/grey input background */
+            --button-color: #4a00e0; /* Deep blue/purple for the new button style */
         }
 
         /* ------------------------------------------- */
@@ -28,7 +32,6 @@
         body {
             font-family: var(--font-main);
             margin: 0;
-            /* Adds space at the top to clear the fixed navigation bar */
             padding-top: 80px;
             color: var(--text-dark);
             background-color: var(--light-bg);
@@ -48,7 +51,6 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            /* Ensure this uses the dark background color */
             background-color: var(--dark-bg);
             z-index: 1;
         }
@@ -66,9 +68,9 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             z-index: 1000;
             display: flex;
-            justify-content: space-between; /* logo left, links right */
+            justify-content: space-between;
             align-items: center;
-            padding: 0 25px; /* balanced left & right padding */
+            padding: 0 25px;
         }
 
         /* Logo */
@@ -83,7 +85,7 @@
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 20px;  /* adds spacing between links */
+            gap: 20px;
             margin: 0;
             padding: 0;
         }
@@ -92,7 +94,7 @@
         .nav-links a {
             color: var(--text-light);
             text-decoration: none;
-            padding: 8px 12px; /* more clickable area */
+            padding: 8px 12px;
             border-radius: 4px;
             font-size: 0.9em;
             transition: background-color 0.3s, color 0.3s;
@@ -132,8 +134,8 @@
         #home {
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* ALIGN TO THE LEFT */
-            min-height: calc(100vh - 80px); /* Adjust height for navbar */
+            justify-content: flex-start;
+            min-height: calc(100vh - 80px);
             color: var(--text-light);
             z-index: 2;
         }
@@ -148,7 +150,7 @@
 
         .home-text {
             max-width: 500px;
-            text-align: left; /* Align text left */
+            text-align: left;
             margin-right: 50px;
             background-color: rgba(0, 0, 0, 0.4);
             padding: 30px;
@@ -172,8 +174,8 @@
         /* --- Profile Image (Circular Style Restored) --- */
         .profile-image {
             width: 350px;
-            height: 350px; /* Corrected to match width for a circle */
-            border-radius: 50%; /* Makes it a perfect circle */
+            height: 350px;
+            border-radius: 50%;
             background-color: var(--secondary-color);
             box-shadow: 0 0 0 10px rgba(255, 64, 129, 0.3);
             flex-shrink: 0;
@@ -186,7 +188,7 @@
         .profile-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the image fills the circle neatly */
+            object-fit: cover;
             border-radius: 50%;
             border: 5px solid var(--text-light);
         }
@@ -257,7 +259,6 @@
             height: 50px;
             margin-bottom: 10px;
             object-fit: contain;
-            /* Ensures the icons/images are visible on dark background */
             filter: drop-shadow(0 0 5px var(--primary-color));
             color: var(--primary-color);
             font-size: 3em;
@@ -298,7 +299,7 @@
             content: '';
             position: absolute;
             top: 5px;
-            left: 12px; /* Adjusted to sit on the line */
+            left: 12px;
             width: 10px;
             height: 10px;
             border-radius: 50%;
@@ -324,73 +325,145 @@
             margin: 5px 0 0 0;
             font-size: 0.9em;
         }
-        .timeline-content ul {
-            padding-left: 20px;
-        }
-        .timeline-date {
-            display: block;
-            font-weight: 600;
-            color: var(--secondary-color);
-            margin-bottom: 5px;
-        }
 
         /* ------------------------------------------- */
-        /* --- 10. Contact Section --- */
+        /* --- 10. Contact Section (New Style) --- */
         /* ------------------------------------------- */
         #contact {
             background-color: var(--light-bg);
             text-align: center;
         }
-        .contact-container {
+
+        .contact-content {
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Align to the top */
-            gap: 50px;
-            max-width: 900px;
+            align-items: stretch; /* Stretch items to match height */
+            gap: 40px;
+            max-width: 1100px;
             margin: 0 auto;
             flex-wrap: wrap;
         }
-        .form-card, .info-card {
-            padding: 30px;
-            border-radius: 10px;
+
+        .contact-card-container {
+            display: flex;
+            background-color: var(--form-bg);
+            border-radius: 15px;
             box-shadow: var(--shadow);
-            background-color: var(--content-bg);
-            text-align: left;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0;
+            overflow: hidden;
+            flex-grow: 1;
         }
-        .form-card {
+
+        .contact-illustration {
             flex: 1;
-            min-width: 300px;
+            min-width: 250px;
+            max-width: 350px;
+            background-color: #e0e7f7; /* Light background for the illustration side */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
-        .info-card {
-            flex-basis: 300px;
+
+        .contact-illustration img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .contact-form-side {
+            flex: 2;
+            min-width: 300px;
+            padding: 40px;
             text-align: left;
         }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
+
+        .contact-form-side h3 {
+            color: var(--dark-bg);
+            margin-top: 0;
+            margin-bottom: 30px;
         }
-        .contact-form button {
-            background-color: var(--secondary-color);
+        
+        /* Input Styling */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .contact-form-side input, .contact-form-side textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            background-color: var(--input-bg);
+            font-family: var(--font-main);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-form-side input:focus, .contact-form-side textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2);
+        }
+
+        .contact-form-side textarea {
+            min-height: 120px;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background-color: var(--button-color);
             color: var(--text-light);
             border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
+            padding: 12px 30px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            font-weight: 600;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, transform 0.1s;
         }
-        .contact-form button:hover {
-            background-color: #d8346e;
+        .submit-btn i {
+            margin-left: 8px;
         }
-        .info-card i {
-            color: var(--primary-color);
+        .submit-btn:hover {
+            background-color: #3b00b3;
+            transform: translateY(-2px);
+        }
+
+        /* Contact Details below the card (kept separate for clarity) */
+        .contact-details-bar {
+            margin-top: 40px;
+            max-width: 900px;
+            margin: 40px auto 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+            background-color: var(--content-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .contact-details-bar p {
+            display: flex;
+            align-items: center;
+            margin: 10px 15px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        .contact-details-bar i {
+            color: var(--secondary-color);
             margin-right: 10px;
+            font-size: 1.2em;
         }
-        .contact-details p {
-            margin-bottom: 10px;
+        .contact-details-bar a {
+            color: var(--text-dark);
+            text-decoration: none;
         }
 
         /* ------------------------------------------- */
@@ -415,11 +488,6 @@
             margin: 0 auto;
             text-align: left;
         }
-        footer .footer-section {
-            flex: 1;
-            min-width: 200px;
-            margin: 15px;
-        }
         .footer-about, .footer-links, .footer-contact {
             min-width: 200px;
             margin: 15px;
@@ -443,21 +511,26 @@
         .footer-social a:hover {
             color: var(--secondary-color);
         }
-        /* Fix for contact section overlap issue from original code */
-        #contact .contact-content {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 50px;
-            max-width: 900px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-        }
 
         /* ------------------------------------------- */
         /* --- 12. Responsive Adjustments --- */
         /* ------------------------------------------- */
         @media (max-width: 992px) {
+            /* Navbar adjustments */
+            .navbar {
+                height: auto;
+                flex-direction: column;
+                padding: 15px 10px;
+            }
+            body {
+                padding-top: 130px;
+            }
+            .nav-links {
+                margin-top: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
             /* Home Section changes */
             .home-main-content {
                 width: 90%;
@@ -470,43 +543,30 @@
                 text-align: center;
             }
             .profile-image {
-                order: -1; /* Move image above text on mobile */
+                order: -1;
                 margin-bottom: 30px;
-                width: 250px; /* Smaller image on mobile */
+                width: 250px;
                 height: 250px;
             }
 
-            /* Navigation changes for smaller screens */
-            .navbar {
-                height: auto;
+            /* Contact Section changes (Split into stacked sections) */
+            .contact-card-container {
                 flex-direction: column;
-                padding: 15px 10px;
             }
-            body {
-                padding-top: 130px; /* More padding for taller navbar */
-            }
-            .nav-links {
-                margin-top: 10px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .nav-links a {
-                padding: 5px 8px;
-                font-size: 0.8em;
-            }
-
-            /* Contact Section changes */
-            .contact-container {
-                flex-direction: column;
-                gap: 30px;
-            }
-            .form-card, .info-card {
-                width: 100%;
-                min-width: unset;
-                box-sizing: border-box;
-            }
-            .info-card {
+            .contact-illustration {
                 order: -1;
+                max-width: 100%;
+                height: 200px; /* Constrain illustration height on small screens */
+            }
+            .contact-form-side {
+                padding: 30px 20px;
+            }
+            .contact-details-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .contact-details-bar p {
+                margin: 5px 0;
             }
 
             /* Footer changes */
@@ -514,21 +574,9 @@
                 flex-direction: column;
                 text-align: center;
             }
-            footer .footer-about, footer .footer-links, footer .footer-contact {
-                width: 100%;
-                margin: 10px 0;
-            }
-            footer a {
-                display: inline-block;
-                margin: 5px 10px;
-            }
             .footer-links a {
                 display: inline-block;
                 margin: 5px 10px;
-            }
-            .footer-contact p {
-                display: block;
-                margin-bottom: 5px;
             }
         }
     </style>
@@ -562,11 +610,10 @@
                     <a href="#contact" class="btn-primary" style="margin-top: 15px;">Get In Touch</a>
                 </div>
                 <div class="profile-image">
-                    <img src="uploaded:image_66f726.png-124f5293-b3eb-4c19-9c52-2f9075aa42e6" alt="Lakshmanan R Profile Image">
+                    <img src="https://via.placeholder.com/350" alt="Lakshmanan R Profile Image">
                 </div>
             </div>
         </section>
-        <hr>
 
         <section id="about">
             <h2 class="section-title"><i class="fas fa-user-tie"></i> Profile Overview</h2>
@@ -584,7 +631,6 @@
                 </p>
             </div>
         </section>
-        <hr>
 
         <section id="skills">
             <h2 class="section-title"><i class="fas fa-cogs"></i> Technical Skills</h2>
@@ -633,7 +679,6 @@
 
             </div>
         </section>
-        <hr>
 
         <section id="experience">
             <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
@@ -679,7 +724,6 @@
                 </div>
             </div>
         </section>
-        <hr>
 
         <section id="education-certs">
             <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
@@ -705,57 +749,49 @@
                 Holds Industry Certifications: **CCNA, CCNP, and MCSA**
             </p>
         </section>
-        <hr>
 
         <section id="contact" class="contact-section">
             <h2 class="section-title"><i class="fas fa-envelope-open-text"></i> Get In Touch</h2>
 
-            <div class="contact-content">
-                <div class="form-card">
-                    <h3>Send Me a Message</h3>
+            <div class="contact-card-container">
+                <div class="contact-illustration">
+                    <img src="https://i.imgur.com/uT7xS7h.png" alt="Illustration of person at desk">
+                </div>
+
+                <div class="contact-form-side">
+                    <h3>Let's Collaborate</h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" placeholder="👤 Name" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" placeholder="📧 Email" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone">
+                            <input type="tel" id="phone" name="phone" placeholder="📞 Phone (Optional)">
                         </div>
 
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder="💬 Message" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn-primary">Send Message</button>
+                        <button type="submit" class="submit-btn">
+                            Submit <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
                 </div>
+            </div>
 
-                <div class="info-card contact-details">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> No:57, Manjunatha Layout, Hosa Road, Electronic city, Bangalore -560100, Karnataka.</p>
-                    <p><i class="fas fa-phone"></i> +91 9597981490</p>
-                    <p><i class="fas fa-envelope"></i> rlakshmana50@gmail.com</p>
-                    <br>
-                    <h3>Find Me Online</h3>
-                    <div class="footer-social">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-                    </div>
-                </div>
+            <div class="contact-details-bar">
+                <p><i class="fas fa-map-marker-alt"></i> No:57, Manjunatha Layout, Hosa Road, Electronic city, Bangalore -560100, Karnataka.</p>
+                <p><i class="fas fa-phone"></i> +91 9597981490</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:rlakshmana50@gmail.com">rlakshmana50@gmail.com</a></p>
             </div>
         </section>
 
     </main>
-    <hr>
 
     <footer>
         <div class="footer-grid">
@@ -905,31 +941,26 @@
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-links a');
         const navbar = document.querySelector('.navbar');
-        let headerHeight = navbar.offsetHeight; // Get the actual height of the fixed navbar
+        let headerHeight = navbar.offsetHeight;
 
-        // Update header height on resize or on DOMContentLoaded if the height might change
         window.addEventListener('resize', () => {
             headerHeight = navbar.offsetHeight;
             document.body.style.paddingTop = headerHeight + 'px';
         });
 
-        // Set initial padding
         document.addEventListener('DOMContentLoaded', () => {
              document.body.style.paddingTop = headerHeight + 'px';
         });
 
-
         // 1. Smooth scrolling
         document.querySelectorAll('.navbar a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                // Only prevent default for internal section links
                 if(this.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
 
                     if (targetElement) {
-                        // Subtract the dynamic navbar height
                         const offset = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
                         window.scrollTo({
                             top: offset,
@@ -945,9 +976,7 @@
             let current = '';
 
             sections.forEach(section => {
-                // Adjust for the fixed header height
                 const sectionTop = section.offsetTop - headerHeight - 1;
-                // Use a tighter check for when a section is active
                 if (window.scrollY >= sectionTop && window.scrollY < (sectionTop + section.offsetHeight)) {
                     current = section.getAttribute('id');
                 }
@@ -960,14 +989,12 @@
                 }
             });
 
-            // Special handling for the 'Home' link at the very top
             if (window.scrollY < 100) {
                 navLinks.forEach(a => a.classList.remove('active'));
                 document.querySelector('.nav-links a[href="#home"]').classList.add('active');
             }
         });
 
-        // Set initial active state on load
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.nav-links a[href="#home"]').classList.add('active');
         });
