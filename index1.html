@@ -1,517 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lakshmanan R | Infrastructure Management Engineer Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-
     <style>
-    /* ------------------------------------------- */
-/* --- 1. CSS Variables (Vibrant Scheme - RESTORED DARK) --- */
-:root {
-    --primary-color: #00bcd4; /* Cyan/Light Blue */
-    --secondary-color: #ff4081; /* Pink/Magenta accent */
-    --dark-bg: #1d3557; /* RESTORED: Deep Blue/Navy */
-    --light-bg: #f5f5f5; /* Light grey background */
-    --content-bg: rgba(255, 255, 255, 0.95);
-    --text-light: #fff; /* RESTORED: White text for dark backgrounds */
-    --text-dark: #333;
-    --font-main: 'Poppins', sans-serif;
-    --shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-    /* ------------------------------------------- */
-    /* --- 2. Base & Typography --- */
-    /* ------------------------------------------- */
-    body {
-        font-family: var(--font-main);
-        margin: 0;
-        /* Adds space at the top to clear the fixed navigation bar */
-        padding-top: 60px; 
-        color: var(--text-dark);
-        background-color: var(--light-bg);
-        line-height: 1.6;
-        scroll-behavior: smooth;
-    }
-
-    h1, h2, h3 {
-        font-weight: 700;
-        color: var(--text-dark);
-    }
-
-/* --- 3. Particles Container --- */
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    /* Ensure this uses the dark background color */
-    background-color: var(--dark-bg); 
-    z-index: 1; 
-}
-    /* ------------------------------------------- */
-  /* ------------------------------------------- */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background-color: var(--dark-bg);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between; /* logo left, links right */
-    align-items: center;
-    padding: 0 25px; /* balanced left & right padding */
-}
-
-/* Logo */
-.logo {
-    color: var(--primary-color);
-    font-size: 1.5em;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-/* Nav Links Container */
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;  /* adds spacing between links */
-    margin: 0;
-    padding: 0;
-}
-
-/* Individual Nav Links */
-.nav-links a {
-    color: var(--text-light);
-    text-decoration: none;
-    padding: 8px 12px; /* more clickable area */
-    border-radius: 4px;
-    font-size: 0.9em; 
-    transition: background-color 0.3s, color 0.3s;
-}
-
-/* Hover & Active States */
-.nav-links a:hover,
-.nav-links a.active {
-    background-color: var(--primary-color);
-    color: var(--text-dark); 
-    border-bottom: 3px solid var(--secondary-color);
-}
-
-    /* ------------------------------------------- */
-    /* --- 5. Section Styling (General) --- */
-    /* ------------------------------------------- */
-    section {
-        padding: 80px 5%;
-        min-height: auto;
-        position: relative;
-        z-index: 10;
-    }
-    .section-title {
-        text-align: center;
-        font-size: 2.5em;
-        margin-bottom: 50px;
-        color: var(--primary-color);
-    }
-    .section-title i {
-        margin-right: 10px;
-        color: var(--secondary-color);
-    }
-
-    /* ------------------------------------------- */
-    /* --- 6. Home Section (Layout & Image) --- */
-    /* ------------------------------------------- */
-    #home {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start; /* ALIGN TO THE LEFT */
-        min-height: 100vh;
-        color: var(--text-light);
-        z-index: 2; 
-    }
-    .home-main-content {
-        display: flex;
-        align-items: center;
-        width: 80%; 
-        max-width: 1200px;
-        margin-left: 5%; 
-        z-index: 10;
-    }
-
-    .home-text {
-        max-width: 500px;
-        text-align: left; /* Align text left */
-        margin-right: 50px;
-        background-color: rgba(0, 0, 0, 0.4); 
-        padding: 30px;
-        border-radius: 10px;
-        flex-shrink: 0;
-    }
-    #home h1, #home h2, #home p {
-        color: var(--text-light);
-        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-    }
-    .name-highlight {
-        font-size: 3em;
-        color: var(--primary-color);
-        margin: 10px 0 20px 0;
-    }
-    .role-title {
-        font-size: 1.2em;
-        color: var(--secondary-color);
-    }
-    
-    /* --- Profile Image (Circular Style Restored) --- */
-    .profile-image {
-        width: 350px; 
-        height: 650px; 
-        border-radius: 100%; /* Makes it a perfect circle */
-        background-color: var(--secondary-color);
-        box-shadow: 0 0 0 10px rgba(255, 64, 129, 0.3);
-        flex-shrink: 0;
-        transition: transform 0.5s;
-        overflow: hidden; 
-    }
-    .profile-image:hover {
-        transform: scale(1.05) rotate(3deg);
-    }
-    .profile-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensures the image fills the circle neatly */
-        border-radius: 50%; 
-        border: 5px solid var(--text-light);
-    }
-    
-    .btn-primary {
-        background-color: var(--secondary-color);
-        box-shadow: 0 3px 0 #d8346e;
-        padding: 10px 25px;
-        border-radius: 50px;
-        text-decoration: none;
-        color: var(--text-light);
-        font-weight: 600;
-        display: inline-block;
-        transition: background-color 0.3s;
-    }
-    .btn-primary:hover {
-        background-color: #d8346e;
-        box-shadow: 0 2px 0 #b32a58;
-    }
-    
-    /* ------------------------------------------- */
-    /* --- 7. About Section --- */
-    /* ------------------------------------------- */
-    #about .about-content {
-        background-color: var(--content-bg); 
-        padding: 40px;
-        border-radius: 10px;
-        box-shadow: var(--shadow);
-        max-width: 900px;
-        margin: 0 auto;
-    }
-
-    /* ------------------------------------------- */
-    /* --- 8. Skills Section (Dark Background) --- */
-    /* ------------------------------------------- */
-    #skills {
-        background-color: var(--dark-bg);
-        color: var(--text-light);
-    }
-    #skills .section-title {
-        color: var(--secondary-color);
-    }
-    #skills .skill-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 20px;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-    .skill-card {
-        background-color: rgba(255, 255, 255, 0.1);
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        transition: transform 0.3s, background-color 0.3s;
-        border-bottom: 4px solid var(--primary-color);
-    }
-    .skill-card:hover {
-        transform: translateY(-8px) scale(1.03);
-        background-color: rgba(255, 255, 255, 0.2);
-        border-bottom-color: var(--secondary-color);
-    }
-    .skill-card img, .skill-card i {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 10px;
-        object-fit: contain;
-        /* Ensures the icons/images are visible on dark background */
-        filter: drop-shadow(0 0 5px var(--primary-color));
-        color: var(--primary-color);
-        font-size: 3em;
-    }
-    .skill-card h4 {
-        color: var(--text-light);
-        margin: 0;
-        font-weight: 400;
-    }
-
-    /* ------------------------------------------- */
-    /* --- 9. Experience & Education (Timeline) --- */
-    /* ------------------------------------------- */
-    .timeline {
-        max-width: 900px;
-        margin: 0 auto;
-        position: relative;
-        padding-left: 30px;
-    }
-
-    .timeline::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 15px;
-        height: 100%;
-        width: 2px;
-        background-color: var(--primary-color);
-    }
-
-    .timeline-item {
-        margin-bottom: 40px;
-        position: relative;
-        padding-left: 30px;
-    }
-
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        top: 5px;
-        left: 15px;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: var(--secondary-color);
-        border: 3px solid var(--text-light);
-        z-index: 2;
-    }
-
-    .timeline-content {
-        background-color: var(--content-bg);
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        border-left: 5px solid var(--secondary-color);
-    }
-
-    .timeline-content h3 {
-        margin-top: 0;
-        color: var(--primary-color);
-    }
-
-    .timeline-content p {
-        margin: 5px 0 0 0;
-        font-size: 0.9em;
-    }
-
-
-    /* ------------------------------------------- */
-    /* --- 10. Contact Section --- */
-    /* ------------------------------------------- */
-    #contact {
-        background-color: var(--light-bg);
-        text-align: center;
-    }
-    .contact-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 50px;
-        max-width: 900px;
-        margin: 0 auto;
-        flex-wrap: wrap;
-    }
-    .contact-form {
-        flex: 1;
-        min-width: 300px;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: var(--shadow);
-        background-color: var(--content-bg);
-    }
-    .contact-form input, .contact-form textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-    }
-    .contact-form button {
-        background-color: var(--secondary-color);
-        color: var(--text-light);
-        border: none;
-        padding: 12px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    .contact-form button:hover {
-        background-color: #d8346e;
-    }
-    .contact-illustration {
-        max-width: 300px;
-    }
-
-    /* ------------------------------------------- */
-    /* --- 11. Footer --- */
-    /* ------------------------------------------- */
-    footer {
-        background-color: var(--dark-bg);
-        color: var(--text-light);
-        padding: 40px 5%;
-        text-align: center;
-    }
-    footer h3 {
-        color: var(--secondary-color);
-        margin-bottom: 15px;
-    }
-    footer .footer-content {
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        margin: 0 auto;
-        text-align: left;
-    }
-    footer .footer-section {
-        flex: 1;
-        min-width: 200px;
-        margin: 15px;
-    }
-    footer a {
-        color: var(--primary-color);
-        text-decoration: none;
-        display: block;
-        margin-bottom: 5px;
-    }
-    footer a:hover {
-        text-decoration: underline;
-    }
-    
-    /* ------------------------------------------- */
-    /* --- 12. Responsive Adjustments --- */
-    /* ------------------------------------------- */
-    @media (max-width: 992px) {
-         /* Home Section changes */
-         .home-main-content {
-            width: 90%;
-            margin: 0 auto;
-            flex-direction: column;
-            text-align: center;
+        /* ------------------------------------------- */
+        /* --- 1. CSS Variables (Vibrant Scheme - RESTORED DARK) --- */
+        :root {
+            --primary-color: #00bcd4; /* Cyan/Light Blue */
+            --secondary-color: #ff4081; /* Pink/Magenta accent */
+            --dark-bg: #1d3557; /* RESTORED: Deep Blue/Navy */
+            --light-bg: #f5f5f5; /* Light grey background */
+            --content-bg: rgba(255, 255, 255, 0.95);
+            --text-light: #fff; /* RESTORED: White text for dark backgrounds */
+            --text-dark: #333;
+            --font-main: 'Poppins', sans-serif;
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
-        .home-text {
-            margin: 0 0 30px 0;
-            text-align: center;
+
+        /* ------------------------------------------- */
+        /* --- 2. Base & Typography --- */
+        /* ------------------------------------------- */
+        body {
+            font-family: var(--font-main);
+            margin: 0;
+            /* Adds space at the top to clear the fixed navigation bar */
+            padding-top: 80px;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+            scroll-behavior: smooth;
         }
-        .profile-image {
-            order: -1; /* Move image above text on mobile */
+
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--text-dark);
         }
-        
-        /* Navigation changes for smaller screens */
+
+        /* ------------------------------------------- */
+        /* --- 3. Particles Container --- */
+        /* ------------------------------------------- */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* Ensure this uses the dark background color */
+            background-color: var(--dark-bg);
+            z-index: 1;
+        }
+
+        /* ------------------------------------------- */
+        /* --- 4. Navigation Bar --- */
+        /* ------------------------------------------- */
         .navbar {
-            padding: 0 10px; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color: var(--dark-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between; /* logo left, links right */
+            align-items: center;
+            padding: 0 25px; /* balanced left & right padding */
         }
+
+        /* Logo */
+        .logo {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Nav Links Container */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;  /* adds spacing between links */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Individual Nav Links */
         .nav-links a {
-            padding: 0 3px; 
-            font-size: 0.8em;
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 8px 12px; /* more clickable area */
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Contact Section changes */
-        .contact-container {
-            flex-direction: column;
-        }
-        .contact-illustration {
-            order: -1;
-            margin-bottom: 30px;
+        /* Hover & Active States */
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: var(--primary-color);
+            color: var(--text-dark);
+            border-bottom: 3px solid var(--secondary-color);
         }
 
-        /* Footer changes */
-        footer .footer-content {
-            flex-direction: column;
+        /* ------------------------------------------- */
+        /* --- 5. Section Styling (General) --- */
+        /* ------------------------------------------- */
+        section {
+            padding: 80px 5%;
+            min-height: auto;
+            position: relative;
+            z-index: 10;
+        }
+        .section-title {
             text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+        .section-title i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* ------------------------------------------- */
+        /* --- 6. Home Section (Layout & Image) --- */
+        /* ------------------------------------------- */
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* ALIGN TO THE LEFT */
+            min-height: calc(100vh - 80px); /* Adjust height for navbar */
+            color: var(--text-light);
+            z-index: 2;
+        }
+        .home-main-content {
+            display: flex;
+            align-items: center;
+            width: 80%;
+            max-width: 1200px;
+            margin-left: 5%;
+            z-index: 10;
+        }
+
+        .home-text {
+            max-width: 500px;
+            text-align: left; /* Align text left */
+            margin-right: 50px;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        #home h1, #home h2, #home p {
+            color: var(--text-light);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+        }
+        .name-highlight {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin: 10px 0 20px 0;
+        }
+        .role-title {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+        }
+
+        /* --- Profile Image (Circular Style Restored) --- */
+        .profile-image {
+            width: 350px;
+            height: 350px; /* Corrected to match width for a circle */
+            border-radius: 50%; /* Makes it a perfect circle */
+            background-color: var(--secondary-color);
+            box-shadow: 0 0 0 10px rgba(255, 64, 129, 0.3);
+            flex-shrink: 0;
+            transition: transform 0.5s;
+            overflow: hidden;
+        }
+        .profile-image:hover {
+            transform: scale(1.05) rotate(3deg);
+        }
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image fills the circle neatly */
+            border-radius: 50%;
+            border: 5px solid var(--text-light);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            box-shadow: 0 3px 0 #d8346e;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #d8346e;
+            box-shadow: 0 2px 0 #b32a58;
+        }
+
+        /* ------------------------------------------- */
+        /* --- 7. About Section --- */
+        /* ------------------------------------------- */
+        #about .about-content {
+            background-color: var(--content-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        #about .about-content li {
+            margin-bottom: 10px;
+        }
+
+        /* ------------------------------------------- */
+        /* --- 8. Skills Section (Dark Background) --- */
+        /* ------------------------------------------- */
+        #skills {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+        }
+        #skills .section-title {
+            color: var(--secondary-color);
+        }
+        #skills .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .skill-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s;
+            border-bottom: 4px solid var(--primary-color);
+        }
+        .skill-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            background-color: rgba(255, 255, 255, 0.2);
+            border-bottom-color: var(--secondary-color);
+        }
+        .skill-card img, .skill-card i {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            object-fit: contain;
+            /* Ensures the icons/images are visible on dark background */
+            filter: drop-shadow(0 0 5px var(--primary-color));
+            color: var(--primary-color);
+            font-size: 3em;
+        }
+        .skill-card h4 {
+            color: var(--text-light);
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* ------------------------------------------- */
+        /* --- 9. Experience & Education (Timeline) --- */
+        /* ------------------------------------------- */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 15px;
+            height: 100%;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 12px; /* Adjusted to sit on the line */
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            border: 3px solid var(--text-light);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background-color: var(--content-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .timeline-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .timeline-content p, .timeline-content ul {
+            margin: 5px 0 0 0;
+            font-size: 0.9em;
+        }
+        .timeline-content ul {
+            padding-left: 20px;
+        }
+        .timeline-date {
+            display: block;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        /* ------------------------------------------- */
+        /* --- 10. Contact Section --- */
+        /* ------------------------------------------- */
+        #contact {
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to the top */
+            gap: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        .form-card, .info-card {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            background-color: var(--content-bg);
+            text-align: left;
+        }
+        .form-card {
+            flex: 1;
+            min-width: 300px;
+        }
+        .info-card {
+            flex-basis: 300px;
+            text-align: left;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .contact-form button {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #d8346e;
+        }
+        .info-card i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        .contact-details p {
+            margin-bottom: 10px;
+        }
+
+        /* ------------------------------------------- */
+        /* --- 11. Footer --- */
+        /* ------------------------------------------- */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 40px 5%;
+            text-align: center;
+        }
+        footer h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        footer .footer-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
         }
         footer .footer-section {
-            width: 100%;
-            margin: 10px 0;
+            flex: 1;
+            min-width: 200px;
+            margin: 15px;
+        }
+        .footer-about, .footer-links, .footer-contact {
+            min-width: 200px;
+            margin: 15px;
         }
         footer a {
-            display: inline-block;
-            margin: 5px 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
         }
-    }
-</style>
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .footer-social a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 1.5em;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+        .footer-social a:hover {
+            color: var(--secondary-color);
+        }
+        /* Fix for contact section overlap issue from original code */
+        #contact .contact-content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
 
-   
+        /* ------------------------------------------- */
+        /* --- 12. Responsive Adjustments --- */
+        /* ------------------------------------------- */
+        @media (max-width: 992px) {
+            /* Home Section changes */
+            .home-main-content {
+                width: 90%;
+                margin: 0 auto;
+                flex-direction: column;
+                text-align: center;
+            }
+            .home-text {
+                margin: 0 0 30px 0;
+                text-align: center;
+            }
+            .profile-image {
+                order: -1; /* Move image above text on mobile */
+                margin-bottom: 30px;
+                width: 250px; /* Smaller image on mobile */
+                height: 250px;
+            }
+
+            /* Navigation changes for smaller screens */
+            .navbar {
+                height: auto;
+                flex-direction: column;
+                padding: 15px 10px;
+            }
+            body {
+                padding-top: 130px; /* More padding for taller navbar */
+            }
+            .nav-links {
+                margin-top: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-links a {
+                padding: 5px 8px;
+                font-size: 0.8em;
+            }
+
+            /* Contact Section changes */
+            .contact-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .form-card, .info-card {
+                width: 100%;
+                min-width: unset;
+                box-sizing: border-box;
+            }
+            .info-card {
+                order: -1;
+            }
+
+            /* Footer changes */
+            footer .footer-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+            footer .footer-about, footer .footer-links, footer .footer-contact {
+                width: 100%;
+                margin: 10px 0;
+            }
+            footer a {
+                display: inline-block;
+                margin: 5px 10px;
+            }
+            .footer-links a {
+                display: inline-block;
+                margin: 5px 10px;
+            }
+            .footer-contact p {
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+
+
 </head>
 <body>
-    
+
     <div id="particles-js"></div>
 
-   <nav class="navbar">
-    <a href="#home" class="logo">Lakshmanan R</a> 
-    <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education-certs">Certification</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
-    </header>
+    <nav class="navbar">
+        <a href="#home" class="logo">Lakshmanan R</a>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education-certs">Certification</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <main>
         <section id="home">
-            <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
+            <div class="home-main-content">
                 <div class="home-text">
                     <p class="greeting">Hi There, I'm</p>
                     <h1 class="name-highlight">LAKSHMANAN</h1>
                     <h2 class="role-title">Infrastructure Management Engineer</h2>
-                    </div>
+                    <p>7+ years of expertise in Windows, VMware, Cloud (AWS), and SCCM Administration, focusing on automation and high system compliance.</p>
+                    <a href="#contact" class="btn-primary" style="margin-top: 15px;">Get In Touch</a>
+                </div>
                 <div class="profile-image">
-                    <img src="bitmoji_profile.png">
-                        </div>
+                    <img src="uploaded:image_66f726.png-124f5293-b3eb-4c19-9c52-2f9075aa42e6" alt="Lakshmanan R Profile Image">
+                </div>
             </div>
         </section>
+        <hr>
 
         <section id="about">
             <h2 class="section-title"><i class="fas fa-user-tie"></i> Profile Overview</h2>
             <div class="about-content">
                 <p>
-                   <li>Highly skilled System Engineer with 7+ years of experience managing large-scale infrastructure in both
-                        on-premises and cloud environments (AWS)</li>
-
-                     <li>Specialized in MECM/SCCM administra􀆟on, Windows Server environments, and DevOps tools including Docker, Jenkins, and Git </li>
-
-                    <li> Proven ability to lead infrastructure op􀆟miza􀆟on projects, automate deployments using PowerShell, and maintain high compliance across global IT assets</li>
-
-                    Holds mul􀆟ple industry cer􀆟fica􀆟ons including CCNA, CCNP, and MCSA.
+                    I am a highly skilled System Engineer with **7+ years of experience** managing large-scale infrastructure in both **on-premises and cloud environments (AWS)**.
                 </p>
+                <ul>
+                    <li>Specialized in **MECM/SCCM administration**, Windows Server environments, and DevOps tools including **Docker, Jenkins, and Git**.</li>
+                    <li>Proven ability to lead infrastructure optimization projects, automate deployments using **PowerShell**, and maintain high compliance across global IT assets.</li>
+                    <li>Holds multiple industry certifications including **CCNA, CCNP, and MCSA**.</li>
+                </ul>
                 <p>
-                    My professional focus is on proactive alert monitoring, timely patch deployment, managing complex network configurations, and providing robust L2 system support.
+                    My professional focus is on proactive alert monitoring, timely patch deployment, managing complex network configurations, and providing robust **L2 system support** to ensure maximum system stability and efficiency.
                 </p>
             </div>
         </section>
+        <hr>
 
         <section id="skills">
             <h2 class="section-title"><i class="fas fa-cogs"></i> Technical Skills</h2>
             <div class="skill-grid">
-                
+
                 <div class="skill-card">
                     <img src="https://www.silviodibenedetto.com/wp-content/uploads/2021/03/hero_mecm.jpg" alt="SCCM Logo">
                     <h4>MECM/SCCM</h4>
@@ -525,162 +603,165 @@
                     <h4>AWS / Azure</h4>
                 </div>
                 <div class="skill-card">
-                    <img src="https://cdn.worldvectorlogo.com/logos/powershell.svg//" alt="powershell Logo">
+                    <img src="https://cdn.worldvectorlogo.com/logos/powershell.svg" alt="powershell Logo" style="filter: drop-shadow(0 0 5px var(--primary-color));">
                     <h4>PowerShell</h4>
                 </div>
                 <div class="skill-card">
                     <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" alt="Docker Logo">
                     <h4>Docker</h4>
                 </div>
-                 <div class="skill-card">
+                <div class="skill-card">
                     <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="Jenkins Logo">
                     <h4>Jenkins / Git</h4>
                 </div>
-                 <div class="skill-card">
+                <div class="skill-card">
                     <i class="fas fa-network-wired"></i>
                     <h4>CCNA / CCNP</h4>
                 </div>
-                 <div class="skill-card">
+                <div class="skill-card">
                     <img src="https://www.vectorlogo.zone/logos/servicenow/servicenow-icon.svg" alt="ServiceNow Logo">
                     <h4>ServiceNow / Autotask</h4>
                 </div>
-                 <div class="skill-card">
+                <div class="skill-card">
                     <i class="fas fa-users-cog"></i>
                     <h4>Active Directory & GPO</h4>
                 </div>
-                 <div class="skill-card">
+                <div class="skill-card">
                     <i class="fas fa-database"></i>
                     <h4>SQL</h4>
                 </div>
 
             </div>
         </section>
+        <hr>
 
         <section id="experience">
             <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
             <div class="timeline">
-                
-                <div class="timeline-item left">
-                    <div class="content">
-                        <span class="timeline-date">Jan 2023 - Till now</span> 
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jan 2023 - Present</span>
                         <h3 class="timeline-role">Senior System Engineer</h3>
-                        [cite_start]<p class="timeline-company">Kaseya Software Pvt.Ltd., Bangalore</p> 
+                        <p class="timeline-company">Kaseya Software Pvt.Ltd., Bangalore</p>
                         <ul>
-                            <li>Administered and maintained Windows and VMware OS environments, including system alert monitoring and OS-level patch management.</li>
-                            <li>Proficiently used tools such as Autotask, ServiceNow, Kaseya VSA, and Datto RMM to keep systems up to date, secure, and running smoothly.</li>
+                            <li>Administered and maintained **Windows and VMware OS environments**, including system alert monitoring and OS-level patch management.</li>
+                            <li>Proficiently used tools such as **Autotask, ServiceNow, Kaseya VSA, and Datto RMM** to keep systems up to date, secure, and running smoothly.</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="timeline-item right">
-                    <div class="content">
-                        <span class="timeline-date">March 2021 - Jan 2023</span> 
-                        <h3 class="timeline-role">Senior System Engineer</h3> 
-                        <p class="timeline-company">Eliga Innovative Services Private Limited (Client: Lam Research)</p> 
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">March 2021 - Jan 2023</span>
+                        <h3 class="timeline-role">Senior System Engineer</h3>
+                        <p class="timeline-company">Eliga Innovative Services Private Limited (Client: Lam Research)</p>
                         <ul>
-                            <li>Worked with **SCCM 2012 and MECM** for installing and managing servers.</li>
-                            <li>Wrote **PowerShell scripts** for system checks, software installs, and updates.</li>
-                           <li>Managed file servers, roaming profiles, terminal servers, HP servers, and **VMware**.</li>
+                            <li>Expertly used **SCCM 2012 and MECM** for installing, managing, and patching servers globally.</li>
+                            <li>Developed **PowerShell scripts** for system health checks, automated software installation, and complex configuration updates, reducing manual effort by **30%**.</li>
+                           <li>Managed file servers, roaming profiles, terminal servers, HP servers, and **VMware** virtual environments.</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="timeline-item left">
-                    <div class="content">
-                        <span class="timeline-date">June 2018 - Sep 2020</span> 
-                        <h3 class="timeline-role">L2 System Engineer</h3> 
-                        <p class="timeline-company">Magna Infotech, Client: WIPRO Coimbatore</p> 
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">June 2018 - Sep 2020</span>
+                        <h3 class="timeline-role">L2 System Engineer</h3>
+                        <p class="timeline-company">Magna Infotech, Client: WIPRO Coimbatore</p>
                         <ul>
-                           <li>Set up and fixed issues in **Active Directory** (passwords, domain join, moving users).</li>
-                            <li>Worked with network routes like Static, **EIGRP, OSPF, and BGP**.</li>
-                            <li>Set up security with **VPN, ACL, and VTP**.</li>
-                            <li>Installed Windows updates using **SCCM**.</li>
+                           <li>Managed and resolved issues within **Active Directory** (passwords, domain join, user/group management).</li>
+                            <li>Configured and troubleshot network routes including Static, **EIGRP, OSPF, and BGP**.</li>
+                            <li>Implemented network security solutions using **VPN, ACL, and VTP** on Cisco devices.</li>
+                            <li>Coordinated and deployed Windows updates and application rollouts using **SCCM**.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
-        
+        <hr>
+
         <section id="education-certs">
             <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
             <div class="timeline">
-                
-                <div class="timeline-item left">
-                    <div class="content">
-                        [cite_start]<span class="timeline-date">April 2024 - July 2024</span> [cite: 73]
-                        [cite_start]<h3 class="timeline-role">Certification in DevSecOps</h3> [cite: 71]
-                        [cite_start]<p class="timeline-company">Greens Technology - Chennai</p> [cite: 72]
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">April 2024 - July 2024</span>
+                        <h3 class="timeline-role">Certification in DevSecOps</h3>
+                        <p class="timeline-company">Greens Technology - Chennai</p>
                     </div>
                 </div>
 
-                <div class="timeline-item right">
-                    <div class="content">
-                        [cite_start]<span class="timeline-date">Aug 2014 - May 2018</span> [cite: 75]
-                        [cite_start]<h3 class="timeline-role">Bachelor of Engineering (Information Technology)</h3> [cite: 74]
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Aug 2014 - May 2018</span>
+                        <h3 class="timeline-role">Bachelor of Engineering (Information Technology)</h3>
                         <p class="timeline-company">Chettinad College of Engineering & Technology - Karur, Tamil Nadu</p>
                     </div>
                 </div>
             </div>
-            <p style="text-align:center; margin-top:30px; font-weight:600;">Holds Industry Certifications: CCNA, CCNP, and MCSA</p>
+            <p style="text-align:center; margin-top:30px; font-weight:600; color: var(--text-dark);">
+                Holds Industry Certifications: **CCNA, CCNP, and MCSA**
+            </p>
         </section>
+        <hr>
 
         <section id="contact" class="contact-section">
-    <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        
-        <div class="contact-content">
-            <div class="form-card">
-                <h3>Send Me a Message</h3>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
+            <h2 class="section-title"><i class="fas fa-envelope-open-text"></i> Get In Touch</h2>
 
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+            <div class="contact-content">
+                <div class="form-card">
+                    <h3>Send Me a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-            
-            <div class="info-card">
-                <h3>Contact Info</h3>
-                <p>...</p>
-            </div>
-        </div>
-    </div>
-</section>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Send Message</button>
                     </form>
                 </div>
-                <div class="contact-details">
+
+                <div class="info-card contact-details">
                     <h3>Contact Info</h3>
-                    [cite_start]<p><i class="fas fa-map-marker-alt"></i> No:57, Manjunatha Layout, Hosa Road, Electronic city, Bangalore -560100, Karnataka[cite: 3, 4].</p>
-                    [cite_start]<p><i class="fas fa-phone"></i> +91 9597981490 [cite: 5]</p>
-                    [cite_start]<p><i class="fas fa-envelope"></i> rlakshmana50@gmail.com [cite: 6]</p>
+                    <p><i class="fas fa-map-marker-alt"></i> No:57, Manjunatha Layout, Hosa Road, Electronic city, Bangalore -560100, Karnataka.</p>
+                    <p><i class="fas fa-phone"></i> +91 9597981490</p>
+                    <p><i class="fas fa-envelope"></i> rlakshmana50@gmail.com</p>
+                    <br>
+                    <h3>Find Me Online</h3>
+                    <div class="footer-social">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                    </div>
                 </div>
             </div>
         </section>
 
     </main>
+    <hr>
 
     <footer>
         <div class="footer-grid">
             <div class="footer-about">
                 <h3>Lakshmanan R</h3>
-                <p>Infrastructure Management Engineer with 7+ years of experience in Windows, VMware, AWS, and SCCM administration.</p>
+                <p>Infrastructure Management Engineer with 7+ years of experience in Windows, VMware, AWS, and SCCM administration, driving operational excellence.</p>
             </div>
             <div class="footer-links">
                 <h3>Quick Links</h3>
@@ -692,8 +773,8 @@
             </div>
             <div class="footer-contact">
                 <h3>Connect</h3>
-                <p>rlakshmana50@gmail.com</p>
-                <p>+91 9597981490</p>
+                <p><i class="fas fa-envelope"></i> rlakshmana50@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +91 9597981490</p>
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-linkedin"></i></a>
                     <a href="#"><i class="fab fa-github"></i></a>
@@ -708,136 +789,153 @@
     <script>
         // --- PARTICLES.JS CONFIGURATION (Vibrant) ---
         particlesJS("particles-js", {
- "particles": {
-    "number": {
-      "value": 80,
-      "density": {
-        "enable": true,
-        "value_area": 800
-      }
-    },
-    "color": {
-      "value": "#ebdada"
-    },
-    "shape": {
-      "type": "circle",
-      "stroke": {
-        "width": 0,
-        "color": "#000000"
-      },
-      "polygon": {
-        "nb_sides": 5
-      },
-      "image": {
-        "src": "img/github.svg",
-        "width": 100,
-        "height": 100
-      }
-    },
-    "opacity": {
-      "value": 0.40246529723245905,
-      "random": false,
-      "anim": {
-        "enable": false,
-        "speed": 1,
-        "opacity_min": 0.1,
-        "sync": false
-      }
-    },
-    "size": {
-      "value": 3.945738208161363,
-      "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 40,
-        "size_min": 0.1,
-        "sync": false
-      }
-    },
-    "line_linked": {
-      "enable": true,
-      "distance": 150,
-      "color": "#ede1e1",
-      "opacity": 0.4,
-      "width": 1
-    },
-    "move": {
-      "enable": true,
-      "speed": 6,
-      "direction": "none",
-      "random": false,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 1200
-      }
-    }
-  },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "repulse"
-      },
-      "onclick": {
-        "enable": true,
-        "mode": "push"
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 400,
-        "line_linked": {
-          "opacity": 1
-        }
-      },
-      "bubble": {
-        "distance": 400,
-        "size": 40,
-        "duration": 2,
-        "opacity": 8,
-        "speed": 3
-      },
-      "repulse": {
-        "distance": 200,
-        "duration": 0.4
-      },
-      "push": {
-        "particles_nb": 4
-      },
-      "remove": {
-        "particles_nb": 2
-      }
-    }
-  },
-  "retina_detect": true
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ebdada"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.40246529723245905,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3.945738208161363,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ede1e1",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
 
-});
+        });
 
 
         // --- SMOOTH SCROLLING & ACTIVE NAV STATE JAVASCRIPT ---
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-links a');
-        const headerHeight = 60; 
+        const navbar = document.querySelector('.navbar');
+        let headerHeight = navbar.offsetHeight; // Get the actual height of the fixed navbar
+
+        // Update header height on resize or on DOMContentLoaded if the height might change
+        window.addEventListener('resize', () => {
+            headerHeight = navbar.offsetHeight;
+            document.body.style.paddingTop = headerHeight + 'px';
+        });
+
+        // Set initial padding
+        document.addEventListener('DOMContentLoaded', () => {
+             document.body.style.paddingTop = headerHeight + 'px';
+        });
+
 
         // 1. Smooth scrolling
         document.querySelectorAll('.navbar a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                // Only prevent default for internal section links
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
 
-                if (targetElement) {
-                    const offset = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight; 
-                    window.scrollTo({
-                        top: offset,
-                        behavior: 'smooth'
-                    });
+                    if (targetElement) {
+                        // Subtract the dynamic navbar height
+                        const offset = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+                        window.scrollTo({
+                            top: offset,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
@@ -845,10 +943,12 @@
         // 2. Update active navigation link on scroll
         window.addEventListener('scroll', () => {
             let current = '';
-            
+
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - headerHeight - 1; 
-                if (scrollY >= sectionTop) {
+                // Adjust for the fixed header height
+                const sectionTop = section.offsetTop - headerHeight - 1;
+                // Use a tighter check for when a section is active
+                if (window.scrollY >= sectionTop && window.scrollY < (sectionTop + section.offsetHeight)) {
                     current = section.getAttribute('id');
                 }
             });
@@ -859,14 +959,15 @@
                     a.classList.add('active');
                 }
             });
-            
+
             // Special handling for the 'Home' link at the very top
             if (window.scrollY < 100) {
                 navLinks.forEach(a => a.classList.remove('active'));
                 document.querySelector('.nav-links a[href="#home"]').classList.add('active');
             }
         });
-        
+
+        // Set initial active state on load
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.nav-links a[href="#home"]').classList.add('active');
         });
