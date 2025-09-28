@@ -1,9 +1,10 @@
 /* --- Global Styles and Reset --- */
 :root {
-    --primary-blue: #007BFF; /* A vibrant blue */
-    --secondary-blue: #0056b3;
+    --primary-blue: #0077CC; /* A professional, vibrant blue */
+    --secondary-blue: #005699;
     --background-white: #FFFFFF;
     --text-dark: #333333;
+    --light-gray: #f9f9f9;
 }
 
 * {
@@ -28,9 +29,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Keeps particles contained */
+    overflow: hidden; 
     text-align: center;
-    background-color: var(--primary-blue); /* Fallback/Header Background */
+    background-color: var(--primary-blue);
 }
 
 #particles-js {
@@ -39,99 +40,157 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 1; /* Below the content */
+    z-index: 1; 
 }
 
 .hero-content {
     position: relative;
-    z-index: 2; /* Above the particles */
+    z-index: 2; 
     color: var(--background-white);
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.2); /* Slightly transparent overlay for readability */
-    border-radius: 10px;
 }
 
 /* Home Image Styling */
 .profile-image {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid var(--background-white);
-    margin-bottom: 20px;
+    border: 6px solid rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+    transition: transform 0.5s; /* Image animation */
+}
+
+.profile-image:hover {
+    transform: scale(1.05) rotate(2deg);
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 3.5em;
     margin-bottom: 5px;
+}
+
+.title-text {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-bottom: 25px;
 }
 
 .cta-button {
     display: inline-block;
-    padding: 10px 25px;
-    margin-top: 20px;
+    padding: 12px 30px;
     background-color: var(--background-white);
     color: var(--primary-blue);
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 50px;
     font-weight: 700;
+    text-transform: uppercase;
     transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button:hover {
-    background-color: #e0e0e0;
-    transform: scale(1.05); /* Simple hover animation */
+    background-color: var(--light-gray);
+    transform: translateY(-2px); /* Lift animation */
 }
 
 
 /* --- Main Content Sections --- */
 .content-section {
     padding: 80px 5%;
-    min-height: 50vh;
+    min-height: 40vh;
     border-bottom: 1px solid #eeeeee;
+}
+
+#experience {
+    background-color: var(--light-gray);
 }
 
 .content-section h2 {
     color: var(--primary-blue);
     font-size: 2.5em;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-align: center;
 }
 
-.content-box, .project-grid {
+.content-box, .job-list, .skills-grid {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
 }
 
-/* Project Grid Styling */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-.project-card {
-    background-color: #f4f4f4;
+/* Job/Experience Styling */
+.job-card {
+    background-color: var(--background-white);
     padding: 30px;
+    margin-bottom: 25px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--primary-blue);
     transition: box-shadow 0.3s, transform 0.3s;
 }
 
-.project-card:hover {
-    transform: translateY(-5px); /* Lift-up animation on hover */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    border: 2px solid var(--primary-blue);
+.job-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* --- Animation Setup (Fade-in) --- */
+.job-card h3 {
+    color: var(--secondary-blue);
+    margin-bottom: 5px;
+}
+
+.job-duration {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.job-card ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.job-card ul li {
+    padding-left: 1.5em;
+    text-indent: -1.5em;
+    margin-bottom: 8px;
+}
+
+.job-card ul li:before {
+    content: "•"; /* Custom bullet point */
+    color: var(--primary-blue);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1.5em;
+}
+
+/* Skills Grid Styling */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.skill-item {
+    background-color: var(--primary-blue);
+    color: var(--background-white);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 400;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.skill-item:hover {
+    background-color: var(--secondary-blue);
+}
+
+/* --- Animation Setup (Scroll-Reveal Fade-in) --- */
 .fade-in {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    /* This class will be added/removed by JavaScript */
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
 .fade-in.visible {
