@@ -1,6 +1,6 @@
 /* --- Global Styles and Reset --- */
 :root {
-    --primary-blue: #0077CC; /* A professional, vibrant blue */
+    --primary-blue: #0077CC; /* Professional Blue */
     --secondary-blue: #005699;
     --background-white: #FFFFFF;
     --text-dark: #333333;
@@ -17,8 +17,8 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--background-white);
     color: var(--text-dark);
-    /* **Important for smooth scrolling** */
-    scroll-behavior: smooth;
+    /* **Smooth Scrolling Enabled Here** */
+    scroll-behavior: smooth; 
     line-height: 1.6;
 }
 
@@ -48,9 +48,10 @@ body {
     z-index: 2; 
     color: var(--background-white);
     padding: 20px;
+    /* Optional: A subtle glow/shadow on text for contrast */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Home Image Styling */
 .profile-image {
     width: 160px;
     height: 160px;
@@ -58,11 +59,11 @@ body {
     object-fit: cover;
     border: 6px solid rgba(255, 255, 255, 0.8);
     margin-bottom: 15px;
-    transition: transform 0.5s; /* Image animation */
+    transition: transform 0.5s; 
 }
 
 .profile-image:hover {
-    transform: scale(1.05) rotate(2deg);
+    transform: scale(1.05); /* Simple zoom animation */
 }
 
 h1 {
@@ -73,12 +74,26 @@ h1 {
 .title-text {
     font-size: 1.2em;
     font-weight: 300;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+}
+
+/* Navigation Links */
+.main-nav a {
+    color: var(--background-white);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #e0e0e0;
 }
 
 .cta-button {
     display: inline-block;
     padding: 12px 30px;
+    margin-top: 30px;
     background-color: var(--background-white);
     color: var(--primary-blue);
     text-decoration: none;
@@ -86,12 +101,12 @@ h1 {
     font-weight: 700;
     text-transform: uppercase;
     transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button:hover {
     background-color: var(--light-gray);
-    transform: translateY(-2px); /* Lift animation */
+    transform: translateY(-2px); 
 }
 
 
@@ -131,13 +146,8 @@ h1 {
 }
 
 .job-card:hover {
-    transform: translateY(-5px); 
+    transform: translateY(-5px); /* Lift animation on hover */
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.job-card h3 {
-    color: var(--secondary-blue);
-    margin-bottom: 5px;
 }
 
 .job-duration {
@@ -149,20 +159,6 @@ h1 {
 .job-card ul {
     list-style-type: none;
     padding-left: 0;
-}
-
-.job-card ul li {
-    padding-left: 1.5em;
-    text-indent: -1.5em;
-    margin-bottom: 8px;
-}
-
-.job-card ul li:before {
-    content: "•"; /* Custom bullet point */
-    color: var(--primary-blue);
-    font-weight: bold;
-    display: inline-block; 
-    width: 1.5em;
 }
 
 /* Skills Grid Styling */
@@ -179,7 +175,7 @@ h1 {
     padding: 10px 20px;
     border-radius: 20px;
     font-weight: 400;
-    transition: opacity 0.3s, background-color 0.3s;
+    transition: background-color 0.3s;
 }
 
 .skill-item:hover {
@@ -190,7 +186,8 @@ h1 {
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    /* Transition for the animation */
+    transition: opacity 0.7s cubic-bezier(0.19, 1, 0.22, 1), transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .fade-in.visible {
