@@ -235,11 +235,11 @@ header .navbar ul li a.active {
 /* 3. Keep the Image Sizing */
 .contact-image-box .contact-illustration {
     /* Keep your desired large size */
-    width: 350px;  
-    height: 350px; 
+    width: 500px;  
+    height: 500px; 
     object-fit: cover; 
-    border-radius: 50%; 
-    border: 5px solid var(--main-color); 
+    /*border-radius: 50%; 
+    border: 5px solid var(--main-color); */ 
 }
 
 /* 4. Ensure the Form Box can use the remaining space */
