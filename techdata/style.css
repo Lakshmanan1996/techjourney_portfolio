@@ -146,7 +146,7 @@ header .navbar ul li a.active {
   justify-content: center;
   flex-wrap: wrap;
   padding: 10rem 5%;
-  min-height: 100vh;
+  min-height: 80vh;
   position: relative;
   z-index: 10;
 }
