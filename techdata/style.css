@@ -341,4 +341,30 @@ footer {
         width: 90%;
         max-height: 50vh;
     }
+
+  /* --- PROJECT DIAGRAM STYLES --- */
+
+.project-card {
+    /* Ensure card content flows nicely, accommodating the image */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ensures image doesn't break card boundaries */
+    padding: 0; /* Remove default padding to let the image go edge-to-edge */
+    text-align: left;
+}
+
+.project-diagram-img {
+    width: 100%; /* Image takes full width of the card */
+    max-height: 250px; /* Constrain height for uniform look */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-bottom: 1rem; /* Space below the image */
+}
+
+/* Ensure the text content is still nicely padded */
+.project-info {
+    padding: 1.5rem;
+    padding-top: 0;
+}
 }
