@@ -213,19 +213,26 @@ header .navbar ul li a.active {
 .contact-image-box .contact-illustration {
     max-width: 100%;
     height: auto;
-    max-height: 200px;
+    max-height: 400px; 
     display: block;
     margin: 0 auto;
     
-    /* ADDED STYLES FOR ROUND IMAGE */
-    width: 200px;  /* Set a fixed size for a perfect circle */
-    height: 200px; /* Set a fixed size for a perfect circle */
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-    /*border-radius: 50%; /* Makes the image perfectly round */
-    border: 5px solid var(--main-color); /* Optional: Adds a border for emphasis */
+    /* UPDATED STYLES FOR LARGER ROUND IMAGE */
+    width: 700px;  /* INCREASED SIZE: Set a larger fixed width */
+    height: 700px; /* INCREASED SIZE: Set the same height for a perfect circle */
+    object-fit: cover; 
+    /*border-radius: 50%; */
+    /*border: 5px solid var(--main-color); /* Optional: Adds a border for emphasis */
 }
 
-/* Ensure the wrapper respects the new size if needed */
+/* You might need to adjust the max-width of the wrapper if 350px is too big */
+/*
+@media (min-width: 769px) {
+    .contact-content-wrapper {
+        max-width: 1200px;  // Example: Increase wrapper size to accommodate the larger image
+    }
+}
+*/
 .contact-image-box {
     /* ... existing styles ... */
     text-align: center;
