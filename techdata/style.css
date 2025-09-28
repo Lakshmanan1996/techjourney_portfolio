@@ -123,15 +123,15 @@ header .navbar ul li a.active {
 /* --- CONTACT SECTION STYLES (Focus on the image) --- */
 
 .contact-image-box .contact-illustration {
-    max-width: 200%;
+    max-width: 100%;
     height: auto;
-    max-height: 400px;
+    max-height: 200px;
     display: block;
     margin: 0 auto;
     
     /* ADDED STYLES FOR ROUND IMAGE */
-    width: 450px;  /* Set a fixed size for a perfect circle */
-    height: 450px; /* Set a fixed size for a perfect circle */
+    width: 200px;  /* Set a fixed size for a perfect circle */
+    height: 200px; /* Set a fixed size for a perfect circle */
     object-fit: cover; /* Ensures the image covers the area without distortion */
     /*border-radius: 50%; /* Makes the image perfectly round */
     border: 5px solid var(--main-color); /* Optional: Adds a border for emphasis */
