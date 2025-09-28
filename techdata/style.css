@@ -152,8 +152,8 @@ header .navbar ul li a.active {
 
 /* Round Image Styling */
 .home .image-box .profile-image {
-    width: 750px; /* Fixed width */
-    height: 750px; /* Fixed height for a perfect circle */
+    width: 550px; /* Fixed width */
+    height: 550px; /* Fixed height for a perfect circle */
     object-fit: cover; /* Ensures image covers the area */
     border-radius: 50%; /* Makes it perfectly round */
     /*border: 8px solid var(--main-color); /* Border color */
@@ -514,7 +514,7 @@ header .navbar ul li a.active {
 .contact-image-box {
     flex: 1 1 40%; /* Takes about 40% of the space */
     text-align: center;
-    min-width: 280px; 
+    min-width: 500px; 
 }
 
 .contact-image-box .contact-illustration {
