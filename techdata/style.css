@@ -457,4 +457,23 @@ footer a:hover {
     .timeline {
         padding-left: 15px;
     }
+    /* ------------------------------------------- */
+/* --- 13. Scroll Reveal Effect (New Code) --- */
+/* ------------------------------------------- */
+
+/* Initial state: Hidden, pushed down, and transparent */
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    /* Slide up effect: starts 50px below its final position */
+    transform: translateY(50px); 
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, filter 0.8s ease-out;
+}
+
+/* Final state: Visible and in place */
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
 }
