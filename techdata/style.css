@@ -215,22 +215,26 @@ header .navbar ul li a.active {
 /* --- CONTACT SECTION STYLES (Adjustments for Wider Layout) --- */
 
 /* --- CONTACT SECTION STYLES --- */
+/* --- CONTACT SECTION STYLES --- */
 #contact {
     /* ... existing styles ... */
-    padding: 6rem 8%; /* INCREASED PADDING: Change 5% to 8% or more */
+    /* Use a high percentage to push content out */
+    padding: 6rem 10%; /* Increased padding significantly */
     display: flex;
     flex-direction: column;
     align-items: center; 
 }
 
-/* 1. Increase the overall max-width of the wrapper */
+/* --- CONTACT SECTION STYLES (Adjustments for Wider Layout) --- */
+
 .contact-content-wrapper {
     display: flex;
+    /* Pushes content to the edges of the container */
     justify-content: space-between; 
-    align-items: center;
-    gap: 6rem; /* INCREASED GAP for more space between image and form */
-    max-width: 1400px; /* INCREASED MAX-WIDTH again for a wider span */
-    width: 100%;
+    align-items: flex-start; /* Aligns items to the top (more common for forms) */
+    gap: 8rem; /* INCREASED GAP for maximum space in the center */
+    /* REMOVED: max-width: 1400px; */ 
+    width: 100%; /* Now takes 100% of the section width */
     margin: 3rem auto 0; 
     flex-wrap: wrap; 
 }
@@ -244,39 +248,49 @@ header .navbar ul li a.active {
     min-width: 300px; 
 }
 
-/* 3. Ensure the Image within the box is responsive */
-.contact-image-box .contact-illustration {
-    max-width: 100%; 
-    height: auto; 
-    max-height: 400px; 
-    display: block;
-    margin: 0 auto;
-    object-fit: contain; 
-    /*border: 5px solid var(--main-color); 
+/* 3. Adjust Image Box sizing */
+.contact-image-box {
+    /* Set a fixed flex-basis, but allow it to shrink if needed */
+    flex: 0 1 400px; 
+    text-align: center;
+    max-width: 400px; /* NEW: Constrain the image container size */
+    min-width: 300px; 
 }
 
 /* 4. Adjust Form Box sizing */
 .contact-form-box {
-    flex: 1 1 500px; /* Give the form a larger starting basis */
+    /* Allow it to grow, set a large basis, and constrain its max width */
+    flex: 1 1 500px; 
+    max-width: 600px; /* NEW: Constrain the form container size */
     background: rgba(255, 255, 255, 0.1);
     padding: 3rem; 
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    min-width: 350px; /* Ensure a minimum usable width */
+    min-width: 350px; 
 }
 
-
 /* --- Responsive Layout (Media Query) --- */
-@media (max-width: 991px) { /* Adjust breakpoint if needed */
+@media (max-width: 991px) {
+    /* Target the main flex container and change direction to vertical stacking */
     .contact-content-wrapper {
         flex-direction: column; 
         gap: 3rem;
-        max-width: 600px; /* Constrain overall width when stacked */
+        /* Constrain the overall width to center the content nicely when stacked */
+        max-width: 600px; 
     }
+
+    /* Target the image and form boxes to ensure they take the full available width */
     .contact-image-box,
     .contact-form-box {
+        /* Allow them to take full width and remove max-width constraints */
         flex: 1 1 100%; 
-        max-width: 100%; /* Take full width of the wrapper when stacked */
+        max-width: 100%; 
+    }
+
+    /* Ensure the actual image doesn't stretch too wide */
+    .contact-image-box .contact-illustration {
+        max-width: 350px; /* Limits the image size in the center of the mobile view */
+        margin: 0 auto;
     }
 }
 
