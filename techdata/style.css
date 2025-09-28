@@ -1,6 +1,6 @@
 /* --- 1. CSS Variables (Blue/White Scheme) --- */
 :root {
-    --primary-color: #00bcd4; /* Cyan/Light Blue */
+    --primary-color: #ffffff; /*  Blue */
     --secondary-color: #ff4081; /* Pink/Magenta accent */
     --dark-bg: #1d3557; /* Deep Blue/Navy Base */
     --light-bg: #f5f5f5; /* Light grey background */
