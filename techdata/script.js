@@ -67,4 +67,48 @@ if (mobileToggle) {
   mobileToggle.addEventListener("click", () => {
     document.querySelector(".nav-links").classList.toggle("open");
   });
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("section-visible");
+          observer.unobserve(entry.target); // animate once
+        }
+      });
+    },
+    { threshold: 0.2 } // section is 20% visible
+  );
+
+  sections.forEach(section => {
+    section.classList.add("section-hidden"); // start hidden
+    observer.observe(section);
+  });
+});
+
+  // Navbar highlight on scroll
+window.addEventListener("scroll", () => {
+  let current = "";
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+});
+
+
 }
