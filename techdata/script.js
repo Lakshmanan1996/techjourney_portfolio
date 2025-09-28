@@ -8,7 +8,9 @@ function typeText(element, text) {
         if (index < text.length) {
             element.textContent += text.charAt(index);
             index++;
-            setTimeout(typing, 100); // Adjust typing speed here (milliseconds)
+            setTimeout(typing, 50);// Adjust typing speed here (milliseconds)
+            setbackspeed(typing, 25);
+            setbackDelay(typing, 500);
         }
     }
     element.textContent = ''; // Clear initial text
