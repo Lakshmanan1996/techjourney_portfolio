@@ -1,0 +1,42 @@
+[
+    {
+        "name": "SCCM Automated Patching and Deployment",
+        "desc": "Led the end-to-end management of server patching using **SCCM 2012/MECM** across global assets. Automated routine tasks, including system checks and software installs, using **PowerShell scripts**.",
+        "image": "project_sccm",
+        "category": "automation admin",
+        "links": {
+            "code": "#",
+            "live": "#"
+        }
+    },
+    {
+        "name": "Proactive System Monitoring and Reporting",
+        "desc": "Implemented proactive alert monitoring and timely patch deployment workflows using enterprise tools like **Autotask, ServiceNow, Kaseya VSA, and Datto RMM** to maintain high system stability and security.",
+        "image": "project_monitoring",
+        "category": "admin",
+        "links": {
+            "code": "#",
+            "live": "#"
+        }
+    },
+    {
+        "name": "Core Network Infrastructure Overhaul",
+        "desc": "As L2 System Engineer, handled the replacement of old routers and switches with new **Cisco** devices. Configured advanced network routes (**EIGRP, OSPF, BGP**) and set up security features like **VPN, ACL, and VTP**.",
+        "image": "project_network",
+        "category": "network",
+        "links": {
+            "code": "#",
+            "live": "#"
+        }
+    },
+    {
+        "name": "Cloud and DevOps Readiness (AWS/Azure)",
+        "desc": "Acquired expertise and certification in **DevSecOps** and proficiencies in **AWS/Azure**, Docker, Jenkins, and Git. Focused on designing continuous integration and deployment pipelines for infrastructure-as-code practices.",
+        "image": "project_cloud",
+        "category": "cloud automation",
+        "links": {
+            "code": "#",
+            "live": "#"
+        }
+    }
+]
