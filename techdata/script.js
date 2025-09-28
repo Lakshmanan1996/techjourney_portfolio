@@ -1,3 +1,26 @@
+// --- Typing Text Effect ---
+const typingTextElement = document.querySelector('.typing-text');
+const textToType = "Infrastructure Management Engineer";
+
+function typeText(element, text) {
+    let index = 0;
+    function typing() {
+        if (index < text.length) {
+            element.textContent += text.charAt(index);
+            index++;
+            setTimeout(typing, 100); // Adjust typing speed here (milliseconds)
+        }
+    }
+    element.textContent = ''; // Clear initial text
+    typing();
+}
+
+// Call the function when the page loads
+if (typingTextElement) {
+    typeText(typingTextElement, textToType);
+}
+
+
 // ===================================================================
 // DYNAMIC FEATURES: PARTICLES, SCROLL, PROJECT LOADING, SCROLL REVEAL
 // Requires jQuery, particles.js, and scrollreveal.js CDNs in index.html
