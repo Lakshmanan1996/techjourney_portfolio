@@ -1,10 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
 /* === SCROLLING EFFECT (AOS) SETUP === */
-/* Ensure the elements start hidden before AOS takes over */
 [data-aos] {
     opacity: 0;
-    /* Important flag ensures AOS transition overrides any conflicting default transitions */
     transition-property: opacity, transform !important;
 }
 
@@ -13,7 +11,7 @@
     --main-color: #00bcd4; /* Cyan/Teal (Primary Accent) */
     --secondary-color: #ff4081; /* Pink/Red (Secondary Accent/Hover) */
     --dark-bg: #1d3557; /* Dark Blue (Header/Home/General Dark Background) */
-    --custom-dark-blue: #192D57; /* The specific background color for Experience */
+    --custom-dark-blue: #192D57; /* Specific dark blue for Experience */
     --white: #fff;
     --light-gray: #f5f5f5;
     --text-dark: #333;
@@ -48,7 +46,7 @@ body {
     text-align: center;
     font-size: 3rem;
     color: var(--dark-bg);
-    margin-bottom: 1rem; /* Reduced margin for subtitle space */
+    margin-bottom: 1rem;
     padding-top: 5rem;
 }
 .section-title i {
@@ -103,6 +101,7 @@ header .navbar ul li a.active {
     color: var(--main-color);
     border-bottom: 2px solid var(--main-color);
 }
+
 /* Mobile menu icon style */
 #menu-btn {
     color: var(--white);
@@ -283,9 +282,7 @@ header .navbar ul li a.active {
 
 /* --- 6. EXPERIENCE & EDUCATION (Timeline) --- */
 
-/* ------------------------------------------------
-    6.1. WORK EXPERIENCE SECTION (DARK BLUE BACKGROUND)
------------------------------------------------- */
+/* 6.1. WORK EXPERIENCE SECTION (DARK BLUE BACKGROUND) */
 .section.experience {
     background-color: var(--custom-dark-blue);
     color: var(--white) !important;
@@ -295,13 +292,8 @@ header .navbar ul li a.active {
     color: var(--main-color) !important;
     padding-top: 0;
 }
-.section.experience .subtitle {
-    color: rgba(255, 255, 255, 0.7) !important;
-}
 
-/* ------------------------------------------------
-    6.2. EDUCATION SECTION (LIGHT GRAY BACKGROUND)
------------------------------------------------- */
+/* 6.2. EDUCATION SECTION (LIGHT GRAY BACKGROUND) */
 .section#education {
     background-color: var(--light-gray);
     color: var(--text-dark) !important;
@@ -310,9 +302,6 @@ header .navbar ul li a.active {
 .section#education .section-title {
     color: var(--dark-bg) !important;
     padding-top: 0;
-}
-.section#education .subtitle {
-    color: #666 !important;
 }
 
 /* General Timeline Styles */
@@ -343,7 +332,6 @@ header .navbar ul li a.active {
     width: 45%;
 }
 
-/* Critical Fix: Ensure text inside all white boxes is dark/readable */
 .timeline .timeline-item h3,
 .timeline .timeline-item h4,
 .timeline .timeline-item li,
@@ -368,25 +356,9 @@ header .navbar ul li a.active {
     font-weight: 400;
 }
 
-
 /* Timeline Dot (Item Indicator) Styles */
-
-/* Dot for Experience (Matches Dark Blue Section Background) */
-.section.experience .timeline-item::after {
-    border: 3px solid var(--custom-dark-blue);
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: var(--secondary-color);
-    border-radius: 50%;
-    top: 2.5rem;
-    z-index: 10;
-}
-
-/* Dot for Education (Matches Light Gray Section Background) */
+.section.experience .timeline-item::after,
 .section#education .timeline-item::after {
-    border: 3px solid var(--light-gray);
     content: '';
     position: absolute;
     width: 12px;
@@ -397,6 +369,13 @@ header .navbar ul li a.active {
     z-index: 10;
 }
 
+.section.experience .timeline-item::after {
+    border: 3px solid var(--custom-dark-blue); /* Matches experience background */
+}
+
+.section#education .timeline-item::after {
+    border: 3px solid var(--light-gray); /* Matches education background */
+}
 
 /* Dot positioning */
 .timeline-item:nth-child(odd) {
@@ -446,7 +425,6 @@ header .navbar ul li a.active {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Header and Icon */
 .project-header {
     display: flex;
     align-items: center;
@@ -473,7 +451,6 @@ header .navbar ul li a.active {
     flex-grow: 1;
 }
 
-/* Technology Tags */
 .tech-stack {
     margin-bottom: 2rem;
 }
@@ -489,7 +466,6 @@ header .navbar ul li a.active {
     font-weight: 500;
 }
 
-/* The 'View Repository' Button Style */
 .view-repo-btn {
     display: inline-flex;
     align-items: center;
@@ -517,8 +493,8 @@ header .navbar ul li a.active {
     color: var(--white);
 }
 
-/* --- 8. CONTACT SECTION ALIGNMENT & DESIGN --- */
-#contact {
+/* --- 8. CONTACT SECTION ALIGNMENT & DESIGN (CRITICAL) --- */
+.section.contact {
     background: var(--dark-bg);
     color: var(--white);
     padding: 6rem 5%;
@@ -527,97 +503,82 @@ header .navbar ul li a.active {
     align-items: center;
 }
 
-#contact .section-title,
-#contact .subtitle {
+.section.contact .section-title,
+.section.contact .subtitle {
     color: var(--white);
-    margin-bottom: 2rem;
     max-width: 800px;
     text-align: center;
 }
 
-/* ✅ KEY ALIGNMENT CONTAINER FOR IMAGE AND FORM */
-#contact {
-  background: var(--dark-bg);
-  color: var(--white);
-  padding: 6rem 5%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#contact .section-title,
-#contact .subtitle {
-  color: var(--white);
-  margin-bottom: 2rem;
-  max-width: 800px;
-  text-align: center;
-}
-
+/* ✅ KEY ALIGNMENT CONTAINER */
 .contact-content-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 4rem;
-  max-width: 1100px;
-  width: 100%;
-  margin-top: 3rem;
-}
-
-.contact-image-box {
-  flex: 1 1 40%;
-  text-align: center;
-}
-
-.contact-image-box .contact-illustration {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+    display: flex; /* Makes image and form side-by-side */
+    justify-content: space-between;
+    align-items: flex-start; 
+    gap: 4rem; 
+    max-width: 1100px;
+    width: 100%;
+    margin-top: 3rem;
 }
 
 .contact-form-box {
-  flex: 1 1 60%;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 3rem;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    flex: 1 1 55%; /* Form takes slightly more space */
+    max-width: 600px;
 }
 
-#contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.contact-image-box {
+    flex: 1 1 45%; /* Image box takes slightly less space */
+    max-width: 450px;
+    text-align: center;
+    padding-top: 2rem; 
 }
 
-.input-box {
-  position: relative;
-  width: 100%;
+.contact-image-box .contact-illustration {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    animation: float 4s ease-in-out infinite; 
 }
 
-.input-box i {
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  transform: translateY(-50%);
-  font-size: 1.6rem;
-  color: #999;
+/* Form Styles */
+.contact-form-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-#contact-form input,
-#contact-form textarea {
-  padding: 1.2rem;
-  padding-left: 45px;
-  border-radius: 5px;
-  border: none;
-  background: var(--white);
-  color: #333;
-  font-size: 1.6rem;
-  width: 100%;
+.contact-form-box .inputBox input,
+.contact-form-box .inputBox textarea {
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--white);
+    font-size: 1.6rem;
+    border-radius: 5px;
+    transition: border-color 0.3s;
 }
 
-#contact-form textarea {
-  padding-left: 1.2rem;
-  resize: vertical;
+.contact-form-box .inputBox textarea {
+    resize: vertical;
+    min-height: 120px; 
+}
+
+.contact-info {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.contact-info p {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--light-gray);
+}
+.contact-info p i {
+    color: var(--main-color);
+    margin-right: 1rem;
 }
 
 /* --- 9. FOOTER STYLES & SCROLL TOP --- */
@@ -651,10 +612,6 @@ header .navbar ul li a.active {
     margin-right: 1rem;
 }
 
-.footer .box-container .box .share {
-    margin-top: 1.5rem;
-}
-
 .footer .box-container .box .share a {
     height: 4rem;
     width: 4rem;
@@ -683,6 +640,7 @@ header .navbar ul li a.active {
 
 .footer .credit i {
     margin: 0 0.5rem;
+    color: var(--secondary-color);
 }
 
 /* Scroll Top Button */
@@ -745,31 +703,6 @@ header .navbar ul li a.active {
     .timeline-item:nth-child(even)::after {
         left: 20px !important;
         transform: translateX(-50%) !important;
-    }
-
-    /* Show mobile menu icon */
-    #menu-btn {
-        display: inline-block;
-    }
-    /* Hide desktop navbar by default */
-    header .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--dark-bg);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        transition: clip-path 0.3s ease;
-    }
-    /* JavaScript will add this class to show the menu */
-    header .navbar.nav-toggle {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-    header .navbar ul {
-        flex-direction: column;
-        padding: 1rem 2rem;
-        gap: 1.5rem;
     }
 }
 
