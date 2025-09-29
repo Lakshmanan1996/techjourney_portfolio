@@ -5,6 +5,7 @@
   --main-color: #00bcd4; /* Cyan/Teal */
   --secondary-color: #ff4081; /* Pink/Red */
   --dark-bg: #1d3557; /* Dark Blue */
+  --custom-dark-blue: #192D57; /* ⬅️ NEW: The specific background color you requested */
   --white: #fff;
   --light-gray: #f5f5f5;
   --text-dark: #333;
@@ -97,7 +98,6 @@ header .navbar ul li a.active {
 
 
 /* --- 3. HOME SECTION --- */
-/* --- HOME SECTION STYLES --- */
 .home {
   min-height: 100vh;
   display: flex;
@@ -105,23 +105,21 @@ header .navbar ul li a.active {
   justify-content: center;
   align-items: center;
   padding: 0 5%;
-  background: var(--dark-bg); /* Use your background color variable */
+  background: var(--dark-bg);
   color: var(--white);
   position: relative;
-  z-index: 1; /* Ensure content is above particles */
+  z-index: 1;
 }
 
-/* Wrapper for the two columns (Text & Image) */
 .home .content-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   max-width: 1100px;
-  padding-top: 8rem; /* Space below fixed header */
+  padding-top: 8rem;
 }
 
-/* Text Content (Left Side - Default Flex Order 1) */
 .home .content {
   flex: 1 1 50%;
   text-align: left;
@@ -144,20 +142,16 @@ header .navbar ul li a.active {
   color: var(--secondary-color);
 }
 
-/* Image Box (Right Side - Default Flex Order 2) */
 .home .image-box {
   flex: 1 1 40%;
   text-align: center;
 }
 
-/* Round Image Styling */
 .home .image-box .profile-image {
-  width: 550px; /* Fixed width */
-  height: 550px; /* Fixed height for a perfect circle */
-  object-fit: cover; /* Ensures image covers the area */
-  border-radius: 50%; /* Makes it perfectly round */
-  /*border: 8px solid var(--main-color); /* Border color */
-  /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);*/
+  width: 550px;
+  height: 550px;
+  object-fit: cover;
+  border-radius: 50%;
   transition: transform 0.3s;
 }
 
@@ -165,7 +159,6 @@ header .navbar ul li a.active {
   transform: scale(1.05);
 }
 
-/* Socials Styles */
 .home .socials {
   margin-top: 2rem;
 }
@@ -188,26 +181,6 @@ header .navbar ul li a.active {
   background: var(--secondary-color);
 }
 
-/* --- Responsive Layout Breakpoint --- */
-@media (max-width: 768px) {
-  .home .content-wrapper {
-    flex-direction: column; /* Stacks image and text vertically */
-    text-align: center;
-    padding-top: 10rem;
-  }
-
-  .home .image-box {
-    order: -1; /* Puts the image *above* the text on mobile */
-    margin-bottom: 3rem;
-  }
-  
-  .home .content {
-    text-align: center;
-  }
-}
-
-
-/* Floating Animation */
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
@@ -218,7 +191,6 @@ header .navbar ul li a.active {
   animation: float 4s ease-in-out infinite;
 }
 
-/* Primary Button Style */
 .btn-primary {
   display: inline-block;
   padding: 1rem 3rem;
@@ -229,7 +201,7 @@ header .navbar ul li a.active {
   font-weight: 600;
   transition: all 0.3s;
   margin-top: 1rem;
-  border: none; /* Added for contact form button clarity */
+  border: none;
   cursor: pointer;
 }
 .btn-primary:hover {
@@ -298,62 +270,43 @@ header .navbar ul li a.active {
 /* --- 6. EXPERIENCE & EDUCATION (Timeline) --- */
 
 /* ------------------------------------------------
-  1. Default Body Styles (Normal background)
-------------------------------------------------
-*/
-body {
-    /* Sets the default background to white (or whatever your main background color is) */
-    background-color: #ffffff; 
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #333; /* Dark text for the default background */
-}
-
-/* ------------------------------------------------
-  2. Work Experience Section Styles (Dark Blue Background)
-------------------------------------------------
-*/
-.work-experience-section {
-    /* The dark blue background color from your image */
-    background-color: #0000FF; 
+   ✅ CORRECTED: Work Experience Section Styles (Dark Blue Background)
+   This selector targets the section with BOTH classes to override the default.
+------------------------------------------------ */
+.section.experience {
+    /* The specific dark blue color from your image */
+    background-color: var(--custom-dark-blue); 
     
-    /* OPTIONAL: Use a subtle gradient for a richer look, similar to the image */
-    /* background: linear-gradient(135deg, #192D57 0%, #101F41 100%); */
+    /* OPTIONAL: Use the subtle gradient for a richer look */
+    /* background: linear-gradient(135deg, var(--custom-dark-blue) 0%, #101F41 100%); */
     
-    /* Adds some vertical space above and below the section */
-    padding: 60px 0; 
+    /* Sets all default text inside the section to white */
+    color: var(--white) !important;
+    
+    /* Adjust padding if needed, but the .section class already provides 6rem top/bottom */
 }
 
-/* This targets all text INSIDE the dark section and makes it light */
-.work-experience-section * {
-    color: #ffffff; 
+/* Ensures all nested text elements turn white */
+.section.experience * {
+    color: var(--white) !important; 
 }
 
-/* Override for specific elements inside the dark section */
-.section-title {
-    /* Use a contrasting color (like the teal icon in your image) for the title */
-    color: #4FB0AE; 
-    text-align: center;
-    padding-bottom: 40px;
+/* Re-style the section title for this dark background */
+.section.experience .section-title {
+    color: var(--main-color) !important; 
+    padding-top: 0; /* Remove extra padding since .section already has it */
+}
+.section.experience .subtitle {
+    color: rgba(255, 255, 255, 0.7) !important; 
 }
 
-/* To center the content and prevent it from stretching across the full screen */
+
+/* Styling for the timeline container and individual items */
 .work-experience-content {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 20px; /* Add horizontal padding for smaller screens */
+    padding: 0 5%;
 }
-
-/* ------------------------------------------------
-  3. Example Content Styles 
-------------------------------------------------
-*/
-header, footer {
-    padding: 20px;
-    text-align: center;
-}
-
-
 
 .timeline {
   max-width: 800px;
@@ -373,6 +326,7 @@ header, footer {
 }
 
 .timeline-item {
+  /* Keep the timeline boxes themselves white so they stand out on the dark background */
   background: var(--white);
   padding: 2rem;
   border-radius: 8px;
@@ -380,7 +334,36 @@ header, footer {
   margin-bottom: 3rem;
   position: relative;
   width: 45%;
+  /* Revert text color back to dark for readability on the white box */
+  color: var(--text-dark) !important; 
 }
+
+/* Revert text color back to dark for readability on the white box */
+.timeline-item * {
+    color: var(--text-dark) !important; 
+}
+
+/* Override the specific elements inside the timeline box */
+.timeline-item h3 {
+  font-size: 2rem;
+  color: var(--dark-bg) !important; 
+}
+
+.timeline-item h4 {
+  font-size: 1.6rem;
+  color: var(--main-color) !important; /* Company Name color */
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+.timeline-item li {
+  font-size: 1.5rem;
+}
+
+/* Timeline Dot Fix: Ensure the dot border matches the dark background */
+.timeline-item::after {
+  border: 3px solid var(--custom-dark-blue); /* The border color */
+}
+
 
 /* Align items left and right */
 .timeline-item:nth-child(odd) {
@@ -393,18 +376,6 @@ header, footer {
   transform: translateX(5%);
 }
 
-.timeline-item::after {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background: var(--secondary-color);
-  border: 3px solid var(--white);
-  border-radius: 50%;
-  top: 2.5rem;
-  z-index: 10;
-}
-
 .timeline-item:nth-child(odd)::after {
   right: -25px;
   transform: translateX(50%);
@@ -413,25 +384,6 @@ header, footer {
 .timeline-item:nth-child(even)::after {
   left: -25px;
   transform: translateX(-50%);
-}
-
-
-.timeline-item h3 {
-  font-size: 2rem;
-  color: var(--dark-bg);
-}
-
-.timeline-item h4 {
-  font-size: 1.6rem;
-  color: var(--main-color);
-  margin-bottom: 1rem;
-  font-weight: 400;
-}
-.timeline-item ul {
-  padding-left: 2rem;
-}
-.timeline-item li {
-  font-size: 1.5rem;
 }
 
 
@@ -461,11 +413,10 @@ header, footer {
 
 .project-diagram-img {
   width: 100%;
-  max-height: 220px; /* Constrain height for uniform look */
-  object-fit: cover; /* Ensures image covers the area */
+  max-height: 220px;
+  object-fit: cover;
 }
 
-/* Style for project text content */
 .project-info {
   padding: 2rem;
   display: flex;
@@ -523,38 +474,36 @@ header, footer {
   text-align: center;
 }
 
-/* === CORE FLEXBOX FOR SIDE-BY-SIDE LAYOUT === */
 .contact-content-wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Aligns content to the top */
-  gap: 4rem; /* Space between image and form */
+  align-items: flex-start;
+  gap: 4rem;
   max-width: 1100px;
   width: 100%;
   margin-top: 3rem;
 }
 
 .contact-image-box {
-  flex: 1 1 40%; /* Image column takes 40% */
+  flex: 1 1 40%;
   text-align: center;
 }
 
 .contact-image-box .contact-illustration {
-  max-width: 100%; /* Ensure it scales within its container */
+  max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
 .contact-form-box {
-  flex: 1 1 60%; /* Form column takes 60% */
+  flex: 1 1 60%;
   background: rgba(255, 255, 255, 0.1);
   padding: 3rem;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Form Structure & Input Styling */
 #contact-form {
   display: flex;
   flex-direction: column;
@@ -578,7 +527,7 @@ header, footer {
 #contact-form input,
 #contact-form textarea {
   padding: 1.2rem;
-  padding-left: 45px; /* Space for the icon in inputs */
+  padding-left: 45px;
   border-radius: 5px;
   border: none;
   background: var(--white);
@@ -588,13 +537,12 @@ header, footer {
 }
 
 #contact-form textarea {
-  padding-left: 1.2rem; /* Revert padding for textarea */
+  padding-left: 1.2rem;
   resize: vertical;
 }
 
 /* === MOBILE RESPONSIVENESS (Consolidated for 991px and 768px breakpoints) === */
 @media (max-width: 991px) {
-  /* General responsive adjustments */
   html {
     font-size: 55%;
   }
@@ -602,9 +550,8 @@ header, footer {
     padding: 1rem 3%;
   }
 
-  /* Contact Section Stacking */
   .contact-content-wrapper {
-    flex-direction: column; /* Stack vertically */
+    flex-direction: column;
     align-items: center;
     gap: 3rem;
     padding: 0 3%;
@@ -612,12 +559,12 @@ header, footer {
 
   .contact-image-box,
   .contact-form-box {
-    flex-basis: 100%; /* Take full width */
-    max-width: 500px; /* Optional: limit overall stacked width */
+    flex-basis: 100%;
+    max-width: 500px;
   }
 
   .contact-image-box .contact-illustration {
-    max-width: 80%; /* Limit image size on mobile */
+    max-width: 80%;
   }
   
   /* Timeline adjustments for mobile */
@@ -631,22 +578,22 @@ header, footer {
   .timeline::before {
     left: 20px;
   }
-  .timeline-item::after {
+  .timeline-item:nth-child(odd)::after,
+  .timeline-item:nth-child(even)::after {
     left: 20px !important;
     transform: translateX(-50%) !important;
   }
 }
 
 @media (max-width: 768px) {
-  /* Home section specific mobile changes */
   .home .content-wrapper {
-    flex-direction: column; 
+    flex-direction: column;
     text-align: center;
     padding-top: 10rem;
   }
 
   .home .image-box {
-    order: -1; 
+    order: -1;
     margin-bottom: 3rem;
   }
   
@@ -662,7 +609,7 @@ header, footer {
     right: 0;
     background: var(--dark-bg);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     transition: clip-path 0.3s ease;
   }
   header .navbar.nav-toggle {
@@ -685,9 +632,9 @@ header, footer {
 }
 
 
-/* --- 9. FOOTER STYLES (New detailed structure) --- */
+/* --- 9. FOOTER STYLES --- */
 .footer {
-  background: #102C57; /* Dark Blue background */
+  background: #102C57;
   padding: 3rem 5%;
   color: var(--white);
 }
@@ -747,12 +694,10 @@ header, footer {
 }
 
 .footer .credit i {
-  /* This border-top rule seems misplaced here, removed from the final code for tidiness if it was an error */
   margin: 0 0.5rem;
 }
 
-
-/* Scroll Top Button - Ensure this is still present */
+/* Scroll Top Button */
 #scroll-top {
   position: fixed;
   bottom: 3rem;
@@ -772,11 +717,4 @@ header, footer {
 
 #scroll-top.active {
   opacity: 1;
-}
-
-/* --- Media Query for Footer --- */
-@media (max-width: 991px) {
-  .footer .box-container {
-    grid-template-columns: 1fr; /* Stack boxes vertically on smaller screens */
-  }
 }
