@@ -325,6 +325,9 @@ header .navbar ul li a.active {
   transform: translateX(-50%);
 }
 
+/* Styling for the timeline container and individual items */
+/* ... (Keep the existing rules for .work-experience-content, .timeline, etc.) ... */
+
 .timeline-item {
   /* Keep the timeline boxes themselves white so they stand out on the dark background */
   background: var(--white);
@@ -334,27 +337,33 @@ header .navbar ul li a.active {
   margin-bottom: 3rem;
   position: relative;
   width: 45%;
-  /* Revert text color back to dark for readability on the white box */
+  /* This line is KEY: Set the base color of the item to dark text */
   color: var(--text-dark) !important; 
 }
 
-/* Revert text color back to dark for readability on the white box */
-.timeline-item * {
+/* ⬅️ THIS BLOCK IS CRITICAL: Ensures ALL text inside the white box is dark 
+   It overrides the general .section.experience * { color: white !important; } rule
+*/
+.timeline-item *,
+.timeline-item h3,
+.timeline-item h4,
+.timeline-item li {
     color: var(--text-dark) !important; 
 }
 
-/* Override the specific elements inside the timeline box */
+/* Override the specific elements inside the timeline box to use accent colors */
 .timeline-item h3 {
   font-size: 2rem;
-  color: var(--dark-bg) !important; 
+  color: var(--dark-bg) !important; /* Dark blue title */
 }
 
 .timeline-item h4 {
   font-size: 1.6rem;
-  color: var(--main-color) !important; /* Company Name color */
+  color: var(--main-color) !important; /* Company Name color (Teal) */
   margin-bottom: 1rem;
   font-weight: 400;
 }
+/* ... (Keep the rest of the timeline styles as they were) ... */
 .timeline-item li {
   font-size: 1.5rem;
 }
