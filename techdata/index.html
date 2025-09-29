@@ -146,12 +146,67 @@
     </div>
  </section>
 
-  <section id="projects" class="section">
-    <h2 class="section-title"><i class="fas fa-code"></i> Infrastructure Projects</h2>
-    <p class="subtitle">Visualizing infrastructure architecture and automation projects.</p>
-    <div class="project-grid">
-      </div>
-  </section>
+ <section id="infrastructure-projects" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-4 fw-bold">
+                <i class="bi bi-code-slash"></i> Infrastructure Projects
+            </h2>
+            <p class="lead text-muted">Visualizing infrastructure architecture and automation projects.</p>
+        </div>
+        
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="project-grid">
+            <div class="col">
+                <div class="card h-100 project-card shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-diagram-3-fill fs-4 me-2"></i>
+                            <h5 class="card-title mb-0 fw-bold">Automated AWS Server Patching Pipeline (DevOps)</h5>
+                        </div>
+                        <p class="card-text text-muted">Developed a fully automated, agentless patching solution for EC2 Instances (SSM & Lambda) achieving a 99.8% compliance rate.</p>
+                        
+                        <div class="tech-stack mb-3">
+                            <span class="fw-bold me-1">Tech:</span> 
+                            <span class="badge text-bg-secondary">AWS EC2</span>
+                            <span class="badge text-bg-secondary">AWS SSM</span>
+                            <span class="badge text-bg-secondary">IAM</span>
+                            <span class="badge text-bg-secondary">Shell Scripting</span>
+                            <span class="badge text-bg-secondary">CloudWatch</span>
+                        </div>
+                        
+                        <a href="#" target="_blank" class="btn btn-primary view-repo-btn">
+                            View Repository <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="card h-100 project-card shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-lock-fill fs-4 me-2"></i>
+                            <h5 class="card-title mb-0 fw-bold">Secure Cloud VPC Setup</h5>
+                        </div>
+                        <p class="card-text text-muted">Fully automated, ephemeral setup using HashiCorp Vault with VPN access for secure development environments.</p>
+                        
+                        <div class="tech-stack mb-3">
+                            <span class="fw-bold me-1">Tech:</span> 
+                            <span class="badge text-bg-secondary">AWS VPC</span>
+                            <span class="badge text-bg-secondary">Security Groups</span>
+                            <span class="badge text-bg-secondary">IAM</span>
+                        </div>
+                        
+                        <a href="#" target="_blank" class="btn btn-primary view-repo-btn">
+                            View Repository <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+    </div>
+</section>
   
   <section id="education" class="section">
     <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
