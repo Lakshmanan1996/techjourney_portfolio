@@ -249,5 +249,33 @@
   <script src="./assets/js/app.js"></script> 
   <script src="script.js"></script>
 
+  <script>
+      // --- SCROLL REVEAL ANIMATION SETUP ---
+
+      ScrollReveal({
+          distance: '30px', 
+          duration: 1000,
+          easing: 'cubic-bezier(0.5, 0, 0, 1)',
+          reset: false
+      });
+
+      // HOME SECTION (Slide In)
+      ScrollReveal().reveal('.home .content', { origin: 'left', delay: 200, interval: 50 });
+      ScrollReveal().reveal('.home .image-box', { origin: 'right', delay: 200, interval: 50 });
+
+      // TIMELINE SECTIONS (Slide from alternate sides)
+      ScrollReveal().reveal('.timeline-item:nth-child(odd)', { origin: 'left', delay: 100, interval: 100 });
+      ScrollReveal().reveal('.timeline-item:nth-child(even)', { origin: 'right', delay: 100, interval: 100 });
+
+      // SKILLS SECTION (Zoom/Scale effect)
+      ScrollReveal().reveal('.skill-card', { scale: 0.8, opacity: 0, delay: 100, interval: 100 });
+
+      // GENERAL SECTIONS (About, Titles, Projects)
+      ScrollReveal().reveal('.section-title, .subtitle, .about-container, .project-card, .contact-content-wrapper', { origin: 'top', delay: 100 });
+  
+      // --- Scroll-to-Top Button Toggle (Moved to script.js in previous step) ---
+      // We will rely on the code in script.js for this now.
+  </script>
+
 </body>
 </html>
