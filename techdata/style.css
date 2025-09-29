@@ -49,7 +49,7 @@ body {
     font-size: 3rem;
     color: var(--dark-bg);
     margin-bottom: 1rem; /* Reduced margin for subtitle space */
-    padding-top: 5rem; 
+    padding-top: 5rem;
 }
 .section-title i {
     color: var(--main-color);
@@ -287,7 +287,6 @@ header .navbar ul li a.active {
     6.1. WORK EXPERIENCE SECTION (DARK BLUE BACKGROUND)
 ------------------------------------------------ */
 .section.experience {
-    /* The specific dark blue color */
     background-color: var(--custom-dark-blue);
     color: var(--white) !important;
 }
@@ -359,12 +358,12 @@ header .navbar ul li a.active {
 
 .timeline .timeline-item h3 {
     font-size: 2rem;
-    color: var(--dark-bg) !important; 
+    color: var(--dark-bg) !important;
 }
 
 .timeline .timeline-item h4 {
     font-size: 1.6rem;
-    color: var(--main-color) !important; 
+    color: var(--main-color) !important;
     margin-bottom: 1rem;
     font-weight: 400;
 }
@@ -387,7 +386,7 @@ header .navbar ul li a.active {
 
 /* Dot for Education (Matches Light Gray Section Background) */
 .section#education .timeline-item::after {
-    border: 3px solid var(--light-gray); 
+    border: 3px solid var(--light-gray);
     content: '';
     position: absolute;
     width: 12px;
@@ -435,7 +434,7 @@ header .navbar ul li a.active {
     background: var(--white);
     border: 1px solid #e9e9e9;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
@@ -443,8 +442,8 @@ header .navbar ul li a.active {
 }
 
 .project-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Header and Icon */
@@ -456,7 +455,7 @@ header .navbar ul li a.active {
 
 .project-header i {
     font-size: 2.5rem;
-    color: var(--secondary-color); 
+    color: var(--secondary-color);
     margin-right: 1rem;
 }
 
@@ -471,7 +470,7 @@ header .navbar ul li a.active {
     font-size: 1.4rem;
     color: #555;
     margin-bottom: 1.5rem;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 /* Technology Tags */
@@ -492,11 +491,11 @@ header .navbar ul li a.active {
 
 /* The 'View Repository' Button Style */
 .view-repo-btn {
-    display: inline-flex; 
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 1rem 2rem;
-    background-color: var(--secondary-color); 
+    background-color: var(--secondary-color);
     color: var(--white);
     border: none;
     border-radius: 8px;
@@ -504,18 +503,18 @@ header .navbar ul li a.active {
     font-weight: 600;
     transition: background-color 0.3s;
     text-align: center;
-    width: 100%; 
-    margin-top: auto; 
+    width: 100%;
+    margin-top: auto;
 }
 
 .view-repo-btn:hover {
-    background-color: #e6004c; /* Slightly darker on hover */
+    background-color: #e6004c;
 }
 
 .view-repo-btn i {
     margin-left: 0.8rem;
     font-size: 1.8rem;
-    color: var(--white); 
+    color: var(--white);
 }
 
 /* --- 8. CONTACT SECTION ALIGNMENT & DESIGN --- */
@@ -536,34 +535,34 @@ header .navbar ul li a.active {
     text-align: center;
 }
 
-/* ✅ KEY ALIGNMENT CONTAINER */
+/* ✅ KEY ALIGNMENT CONTAINER FOR IMAGE AND FORM */
 .contact-content-wrapper {
-    display: flex; /* Enables side-by-side alignment */
+    display: flex; /* This makes children (image-box, form-box) sit side-by-side */
     justify-content: center;
-    align-items: flex-start;
-    gap: 4rem;
-    max-width: 1100px;
+    align-items: flex-start; /* Aligns items to the top (important for different heights) */
+    gap: 4rem; /* Space between the image and the form */
+    max-width: 1100px; /* Max width of the content area */
     width: 100%;
     margin-top: 3rem;
 }
 
 .contact-image-box {
-    flex: 1 1 40%; /* Image takes 40% of the space */
+    flex: 1 1 40%; /* Image box takes 40% width */
     text-align: center;
+    padding-top: 2rem; /* Adjust padding to vertically align with the form's start */
 }
 
 .contact-image-box .contact-illustration {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto;
-    /* Optional: Small floating effect for the image */
-    animation: float 4s ease-in-out infinite; 
+    margin: 0 auto; /* Center the image if it's smaller than its container */
+    animation: float 4s ease-in-out infinite; /* Optional floating animation */
 }
 
 .contact-form-box {
-    flex: 1 1 60%; /* Form takes 60% of the space */
-    background: rgba(255, 255, 255, 0.1);
+    flex: 1 1 60%; /* Form takes 60% width */
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
     padding: 3rem;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -592,7 +591,7 @@ header .navbar ul li a.active {
 #contact-form input,
 #contact-form textarea {
     padding: 1.2rem;
-    padding-left: 45px;
+    padding-left: 45px; /* Space for the icon */
     border-radius: 5px;
     border: none;
     background: var(--white);
@@ -602,8 +601,9 @@ header .navbar ul li a.active {
 }
 
 #contact-form textarea {
-    padding-left: 1.2rem;
+    padding-left: 1.2rem; /* No icon for textarea, so less left padding */
     resize: vertical;
+    min-height: 120px; /* Ensure adequate height */
 }
 
 /* --- 9. FOOTER STYLES & SCROLL TOP --- */
@@ -704,16 +704,16 @@ header .navbar ul li a.active {
 
     /* Contact Alignment for Mobile: Stacks the image and form vertically */
     .contact-content-wrapper {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Stack vertically on smaller screens */
+        align-items: center; /* Center items horizontally */
         gap: 3rem;
         padding: 0 3%;
     }
 
     .contact-image-box,
     .contact-form-box {
-        flex-basis: 100%;
-        max-width: 500px;
+        flex-basis: 100%; /* Take full width */
+        max-width: 500px; /* Max width to prevent stretching too wide */
     }
 
     /* Timeline adjustments for mobile */
@@ -745,11 +745,11 @@ header .navbar ul li a.active {
         right: 0;
         background: var(--dark-bg);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
         transition: clip-path 0.3s ease;
     }
-    /* JavaScript will add this class */
-    header .navbar.nav-toggle { 
+    /* JavaScript will add this class to show the menu */
+    header .navbar.nav-toggle {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
     header .navbar ul {
@@ -770,7 +770,7 @@ header .navbar ul li a.active {
         order: -1;
         margin-bottom: 3rem;
     }
-    
+
     .home .image-box .profile-image {
         width: 300px;
         height: 300px;
