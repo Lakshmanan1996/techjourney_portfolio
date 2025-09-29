@@ -21,7 +21,7 @@
 <body oncontextmenu="return false">
 
     <header>
-        <a href="#home" class="logo"><i class="fab fa-wolf-pack-battalion" color:yellow></i>LAKSHMANAN</a>
+        <a href="#home" class="logo"><i class="fab fa-wolf-pack-battalion"></i>LAKSHMANAN </a>
         <nav class="navbar">
             <ul>
                 <li><a href="#home" class="active">Home</a></li>
@@ -62,7 +62,7 @@
     </section>
 
     <section id="about" class="section" data-aos="fade-up">
-        <h2 class="section-title"><i class="fas fa-user"></i> About <span>Me</span></h2>
+        <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
         <div class="about-container">
             <p>Highly skilled System Engineer with **7+ years of experience** managing large-scale infrastructure in both on-premises and cloud environments (AWS).</p>
             <p>Specialized in **MECM/SCCM administration**, Windows Server environments, and **DevOps** tools including Docker, Jenkins, and Git.</p>
@@ -72,7 +72,7 @@
     </section>
 
     <section id="skills" class="section" data-aos="fade-up">
-        <h2 class="section-title"><i class="fas fa-tools"></i> Skills & <span>Technology</span></h2>
+        <h2 class="section-title"><i class="fas fa-tools"></i> Skills & Technology</h2>
         <div class="skill-grid" data-aos="fade-up" data-aos-delay="100">
             <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
                 <i class="fas fa-server"></i>
@@ -108,7 +108,7 @@
     </section>
 
     <section class="section experience" id="experience" data-aos="fade-up">
-        <h2 class="section-title"><i class="fas fa-briefcase"></i> Work <Span>Experience</Span></h2>
+        <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
         <div class="timeline" data-aos="fade-up" data-aos-delay="100">
             <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
                 <h3>Senior System Engineer</h3>
@@ -146,74 +146,11 @@
     </section>
 
     <section class="section" id="projects" data-aos="fade-up">
-        <h2 class="section-title"><i class="fas fa-server"></i> Infrastructure <Span>Projects</Span>/h2>
+        <h2 class="section-title"><i class="fas fa-server"></i> Infrastructure Projects</h2>
         <p class="subtitle">Visualizing infrastructure architecture and automation projects.</p>
         
-        <div class="project-grid">
-
-            <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="project-header">
-                    <i class="fas fa-cubes"></i>
-                    <h3>Automated AWS Server Patching Pipeline (DevOps)</h3>
-                </div>
-                <p>Developed a fully automated, agentless patching solution for EC2 Instances (SSM & Lambda) achieving a 99.8% compliance rate.</p>
-                <div class="tech-stack">
-                    <span>AWS EC2</span>
-                    <span>AWS SSM</span>
-                    <span>IAM</span>
-                    <span>Shell Scripting</span>
-                    <span>CloudWatch</span>
-                </div>
-                <a href="#" class="view-repo-btn" target="_blank">View Repository <i class="fab fa-github"></i></a>
+        <div id="project-list" class="project-grid">
             </div>
-            
-            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="project-header">
-                    <i class="fas fa-lock"></i>
-                    <h3>Secure Cloud VPC Setup</h3>
-                </div>
-                <p>Fully automated, ephemeral setup using HashiCorp Vault with VPN access for secure development environments.</p>
-                <div class="tech-stack">
-                    <span>AWS VPC</span>
-                    <span>Security Groups</span>
-                    <span>IAM</span>
-                </div>
-                <a href="#" class="view-repo-btn" target="_blank">View Repository <i class="fab fa-github"></i></a>
-            </div>
-
-            <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
-                <div class="project-header">
-                    <i class="fas fa-gears"></i>
-                    <h3>Infra Patching</h3>
-                </div>
-                <p>Automated Patching and deployment window in maintenance window</p>
-                <div class="tech-stack">
-                    <span>VSA</span>
-                    <span>VSAX</span>
-                    <span>Datto RMM</span>
-                    <span>Service now</span>
-                    <span>Autotask</span>
-                </div>
-                <a href="#" class="view-repo-btn" target="_blank">View Repository <i class="fab fa-github"></i></a>
-            </div>
-
-            <div class="project-card" data-aos="zoom-in" data-aos-delay="400">
-                <div class="project-header">
-                    <i class="fas fa-network-wired"></i>
-                    <h3>Datto Networking</h3>
-                </div>
-                <p>Created a new setup for MSP network related device and provide a route map</p>
-                <div class="tech-stack">
-                    <span>Datto DNA</span>
-                    <span>Datto D200</span>
-                    <span>Datto Switches</span>
-                    <span>Datto Access points</span>
-                    <span>Datto PDU</span>
-                </div>
-                <a href="#" class="view-repo-btn" target="_blank">View Repository <i class="fab fa-github"></i></a>
-            </div>
-            
-        </div>
     </section>
     
     <section id="education" class="section" data-aos="fade-up">
@@ -308,21 +245,83 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script src="./assets/js/app.js"></script> 
-    <script src="script.js"></script> <script>
-        AOS.init({
-            delay: 200,      // General delay for all animations
-            duration: 800,   // How long the animation lasts
-            once: true,      // Animation happens only once when scrolling down
-            mirror: false,
-        });
-        
-        // Simple logic for scroll-top button visibility (move to script.js if needed)
-        $(window).on('scroll', function() {
-            if ($(window).scrollTop() > 50) {
-                $('#scroll-top').addClass('active');
-            } else {
-                $('#scroll-top').removeClass('active');
+    <script>
+        // --- 1. PROJECT DATA (JSON) ---
+        const projectsData = [
+            {
+                "title": "Automated AWS Server Patching Pipeline (DevOps)",
+                "description": "Developed a fully automated, agentless patching solution for EC2 instances using AWS Systems Manager (SSM) Patch Manager and Lambda functions, resulting in a 70% reduction in manual patch deployment time and achieving a 99.5% patch compliance rate.",
+                "tech": ["AWS EC2", "AWS SSM", "AWS Lambda", "IAM", "Shell Scripting", "CloudWatch"],
+                "link": "https://github.com/Lakshmanan1996/aws-patch-automation-repo",
+                "image_path": "./assets/images/project_aws_patch_diagram.png"
+            },
+            {
+                "title": "MECM/SCCM Task Sequence Migration and Optimization",
+                "description": "Led the migration of Windows 10/11 operating system deployment (OSD) task sequences to a modern, unified environment. Optimized boot image size and reduced deployment failures by 25% through meticulous driver package management and PowerShell pre-flight checks.",
+                "tech": ["MECM (SCCM)", "PowerShell", "Windows OSD", "Driver Management", "SQL (SCCM DB)"],
+                "link": "https://github.com/Lakshmanan1996/sccm-ts-scripts",
+                "image_path": "./assets/images/project_sccm_ts.png"
+            },
+            {
+                "title": "Infrastructure as Code (IaC) for Staging Environment",
+                "description": "Created repeatable, scalable infrastructure for a staging environment on AWS using Terraform. Deployed a VPC, public/private subnets, Security Groups, and two auto-scaling EC2 instances, ensuring consistency across development life cycles.",
+                "tech": ["Terraform", "AWS VPC", "AWS EC2", "Auto Scaling", "GitHub Actions", "Security Groups"],
+                "link": "https://github.com/Lakshmanan1996/terraform-aws-staging",
+                "image_path": "./assets/images/project_terraform_aws.png"
+            },
+            {
+                "title": "Containerized Application Deployment with Docker and Jenkins",
+                "description": "Implemented a CI/CD pipeline in Jenkins to build, test, and deploy a simple web application into Docker containers. Configured webhooks for automatic build triggering on code commit, reducing deployment latency to under 5 minutes.",
+                "tech": ["Docker", "Jenkins", "Git", "DevOps", "Linux", "CI/CD"],
+                "link": "https://github.com/Lakshmanan1996/jenkins-docker-cicd",
+                "image_path": "./assets/images/project_jenkins_docker.png"
             }
+        ];
+
+        // --- 2. JAVASCRIPT RENDERING LOGIC ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectList = document.getElementById('project-list');
+            if (projectList) {
+                projectsData.forEach((project, index) => {
+                    // Create Tech Stack Spans
+                    const techSpans = project.tech.map(t => `<span>${t}</span>`).join('');
+                    
+                    // Construct the full HTML for one card
+                    const cardHTML = `
+                        <div class="project-card" data-aos="zoom-in" data-aos-delay="${100 + (index * 100)}">
+                            <div class="project-header">
+                                <i class="fas fa-cubes"></i>
+                                <h3>${project.title}</h3>
+                            </div>
+                            <p>${project.description}</p>
+                            <div class="tech-stack">
+                                ${techSpans}
+                            </div>
+                            <a href="${project.link}" class="view-repo-btn" target="_blank">View Repository <i class="fab fa-github"></i></a>
+                        </div>
+                    `;
+                    
+                    projectList.insertAdjacentHTML('beforeend', cardHTML);
+                });
+            }
+
+
+            // --- 3. AOS INITIALIZATION AND SCROLL LOGIC ---
+            AOS.init({
+                delay: 200,      // General delay for all animations
+                duration: 800,   // How long the animation lasts
+                once: true,      // Animation happens only once when scrolling down
+                mirror: false,
+            });
+            
+            // Simple logic for scroll-top button visibility
+            $(window).on('scroll', function() {
+                if ($(window).scrollTop() > 50) {
+                    $('#scroll-top').addClass('active');
+                } else {
+                    $('#scroll-top').removeClass('active');
+                }
+            });
         });
     </script>
 </body>
