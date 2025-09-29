@@ -5,7 +5,7 @@
   --main-color: #00bcd4; /* Cyan/Teal */
   --secondary-color: #ff4081; /* Pink/Red */
   --dark-bg: #1d3557; /* Dark Blue */
-  --custom-dark-blue: #192D57; /* The specific background color you requested */
+  --custom-dark-blue: #192D57; /* The specific background color you requested for the Experience section */
   --white: #fff;
   --light-gray: #f5f5f5;
   --text-dark: #333;
@@ -269,17 +269,17 @@ header .navbar ul li a.active {
 /* --- 6. EXPERIENCE & EDUCATION (Timeline) --- */
 
 /* ------------------------------------------------
-   ✅ CORRECTED: Work Experience Section Styles (Dark Blue Background)
+   ✅ 1. WORK EXPERIENCE SECTION (DARK BLUE BACKGROUND)
 ------------------------------------------------ */
 .section.experience {
     /* The specific dark blue color from your image */
     background-color: var(--custom-dark-blue); 
     
-    /* Sets all default text inside the section to white */
+    /* Sets all default text *directly* inside the section to white */
     color: var(--white) !important;
 }
 
-/* Ensures all nested text elements turn white (for items NOT in the timeline box) */
+/* Ensures all nested text elements outside the timeline box are white */
 .section.experience * {
     color: var(--white) !important; 
 }
@@ -295,12 +295,6 @@ header .navbar ul li a.active {
 
 
 /* Styling for the timeline container and individual items */
-.work-experience-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 5%;
-}
-
 .timeline {
   max-width: 800px;
   margin: 0 auto;
@@ -328,29 +322,29 @@ header .navbar ul li a.active {
   position: relative;
   width: 45%;
   /* Set the base color of the item to dark text */
-  color: var(--text-dark) !important; 
+  color: var(--text-dark); /* Less aggressive on this parent */
 }
 
-/* ➡️ FIX APPLIED HERE: Ensures ALL text inside the white box is dark 
-   It overrides the general .section.experience * { color: white !important; } rule
-*/
-.timeline-item *,
+/* 🚀 FINAL FIX: TARGETING ALL TEXT ELEMENTS INSIDE THE WHITE BOX */
 .timeline-item h3,
 .timeline-item h4,
-.timeline-item li {
+.timeline-item li,
+.timeline-item ul,
+.timeline-item p,
+.timeline-item a {
+    /* Use !important here to override the aggressive section.experience * rule */
     color: var(--text-dark) !important; 
 }
 
-
-/* Override the specific elements inside the timeline box to use accent colors */
+/* Revert colors for specific elements inside the white box */
 .timeline-item h3 {
   font-size: 2rem;
-  color: var(--dark-bg) !important; /* Dark blue title */
+  color: var(--dark-bg) !important; /* Job title (Dark Blue) */
 }
 
 .timeline-item h4 {
   font-size: 1.6rem;
-  color: var(--main-color) !important; /* Company Name color (Teal) */
+  color: var(--main-color) !important; /* Company/Date (Teal) */
   margin-bottom: 1rem;
   font-weight: 400;
 }
