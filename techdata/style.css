@@ -5,7 +5,7 @@
   --main-color: #00bcd4; /* Cyan/Teal */
   --secondary-color: #ff4081; /* Pink/Red */
   --dark-bg: #1d3557; /* Dark Blue */
-  --custom-dark-blue: #192D57; /* ⬅️ NEW: The specific background color you requested */
+  --custom-dark-blue: #192D57; /* The specific background color you requested */
   --white: #fff;
   --light-gray: #f5f5f5;
   --text-dark: #333;
@@ -235,7 +235,6 @@ header .navbar ul li a.active {
   color: var(--white);
   padding: 2.5rem;
   border-radius: 10px;
-  text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, background 0.3s;
   cursor: pointer;
@@ -271,22 +270,16 @@ header .navbar ul li a.active {
 
 /* ------------------------------------------------
    ✅ CORRECTED: Work Experience Section Styles (Dark Blue Background)
-   This selector targets the section with BOTH classes to override the default.
 ------------------------------------------------ */
 .section.experience {
     /* The specific dark blue color from your image */
     background-color: var(--custom-dark-blue); 
     
-    /* OPTIONAL: Use the subtle gradient for a richer look */
-    /* background: linear-gradient(135deg, var(--custom-dark-blue) 0%, #101F41 100%); */
-    
     /* Sets all default text inside the section to white */
     color: var(--white) !important;
-    
-    /* Adjust padding if needed, but the .section class already provides 6rem top/bottom */
 }
 
-/* Ensures all nested text elements turn white */
+/* Ensures all nested text elements turn white (for items NOT in the timeline box) */
 .section.experience * {
     color: var(--white) !important; 
 }
@@ -294,7 +287,7 @@ header .navbar ul li a.active {
 /* Re-style the section title for this dark background */
 .section.experience .section-title {
     color: var(--main-color) !important; 
-    padding-top: 0; /* Remove extra padding since .section already has it */
+    padding-top: 0;
 }
 .section.experience .subtitle {
     color: rgba(255, 255, 255, 0.7) !important; 
@@ -325,9 +318,6 @@ header .navbar ul li a.active {
   transform: translateX(-50%);
 }
 
-/* Styling for the timeline container and individual items */
-/* ... (Keep the existing rules for .work-experience-content, .timeline, etc.) ... */
-
 .timeline-item {
   /* Keep the timeline boxes themselves white so they stand out on the dark background */
   background: var(--white);
@@ -337,11 +327,11 @@ header .navbar ul li a.active {
   margin-bottom: 3rem;
   position: relative;
   width: 45%;
-  /* This line is KEY: Set the base color of the item to dark text */
+  /* Set the base color of the item to dark text */
   color: var(--text-dark) !important; 
 }
 
-/* ⬅️ THIS BLOCK IS CRITICAL: Ensures ALL text inside the white box is dark 
+/* ➡️ FIX APPLIED HERE: Ensures ALL text inside the white box is dark 
    It overrides the general .section.experience * { color: white !important; } rule
 */
 .timeline-item *,
@@ -350,6 +340,7 @@ header .navbar ul li a.active {
 .timeline-item li {
     color: var(--text-dark) !important; 
 }
+
 
 /* Override the specific elements inside the timeline box to use accent colors */
 .timeline-item h3 {
@@ -363,14 +354,19 @@ header .navbar ul li a.active {
   margin-bottom: 1rem;
   font-weight: 400;
 }
-/* ... (Keep the rest of the timeline styles as they were) ... */
-.timeline-item li {
-  font-size: 1.5rem;
-}
+
 
 /* Timeline Dot Fix: Ensure the dot border matches the dark background */
 .timeline-item::after {
   border: 3px solid var(--custom-dark-blue); /* The border color */
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--secondary-color);
+  border-radius: 50%;
+  top: 2.5rem;
+  z-index: 10;
 }
 
 
