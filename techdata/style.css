@@ -269,27 +269,32 @@ header .navbar ul li a.active {
 /* --- 6. EXPERIENCE & EDUCATION (Timeline) --- */
 
 /* ------------------------------------------------
-   ✅ 1. WORK EXPERIENCE SECTION (DARK BLUE BACKGROUND)
+   ✅ 1. WORK EXPERIENCE & EDUCATION SECTION (DARK BLUE BACKGROUND)
 ------------------------------------------------ */
-.section.experience {
-    /* The specific dark blue color from your image */
+/* Target the experience class AND the education ID */
+.section.experience,
+.section#education {
+    /* Apply dark blue background to both Experience and Education sections */
     background-color: var(--custom-dark-blue); 
     
     /* Sets all default text *directly* inside the section to white */
     color: var(--white) !important;
 }
 
-/* Ensures all nested text elements outside the timeline box are white */
-.section.experience * {
+/* Ensures ALL nested text elements outside the timeline box are white */
+.section.experience *,
+.section#education * {
     color: var(--white) !important; 
 }
 
 /* Re-style the section title for this dark background */
-.section.experience .section-title {
+.section.experience .section-title,
+.section#education .section-title {
     color: var(--main-color) !important; 
     padding-top: 0;
 }
-.section.experience .subtitle {
+.section.experience .subtitle,
+.section#education .subtitle {
     color: rgba(255, 255, 255, 0.7) !important; 
 }
 
@@ -321,28 +326,32 @@ header .navbar ul li a.active {
   margin-bottom: 3rem;
   position: relative;
   width: 45%;
-  /* Set the base color of the item to dark text */
-  color: var(--text-dark); /* Less aggressive on this parent */
 }
 
-/* 🚀 FINAL FIX: TARGETING ALL TEXT ELEMENTS INSIDE THE WHITE BOX */
-.timeline-item h3,
-.timeline-item h4,
-.timeline-item li,
-.timeline-item ul,
-.timeline-item p,
-.timeline-item a {
-    /* Use !important here to override the aggressive section.experience * rule */
+/* 🚀 FINAL, SUPER SPECIFIC FIX: TARGETING ALL TEXT ELEMENTS INSIDE THE WHITE BOX */
+/* By using both the .timeline and .timeline-item class we beat the general * selector */
+.timeline .timeline-item h3,
+.timeline .timeline-item h4,
+.timeline .timeline-item li,
+.timeline .timeline-item p {
+    /* Force to black/dark gray */
     color: var(--text-dark) !important; 
+    font-size: 1.6rem; 
+}
+
+/* Ensure the UL container itself is not inheriting white and hiding the bullets */
+.timeline .timeline-item ul {
+    color: var(--text-dark) !important; 
+    padding-left: 2rem; 
 }
 
 /* Revert colors for specific elements inside the white box */
-.timeline-item h3 {
+.timeline .timeline-item h3 {
   font-size: 2rem;
   color: var(--dark-bg) !important; /* Job title (Dark Blue) */
 }
 
-.timeline-item h4 {
+.timeline .timeline-item h4 {
   font-size: 1.6rem;
   color: var(--main-color) !important; /* Company/Date (Teal) */
   margin-bottom: 1rem;
