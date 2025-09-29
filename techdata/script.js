@@ -93,7 +93,7 @@ fetch("projects.json")
 
                 projectSection.appendChild(card);
                 
-                // *** IMPORTANT: You might need to add ScrollReveal here if projects are loaded asynchronously ***
+                // *** ScrollReveal call for dynamically loaded element ***
                 ScrollReveal().reveal(card, { origin: 'top', delay: 150 });
             });
         }
@@ -116,7 +116,6 @@ ScrollReveal().reveal('.home .content', { origin: 'left', delay: 200, interval: 
 ScrollReveal().reveal('.home .image-box', { origin: 'right', delay: 200, interval: 50 });
 
 // b. TIMELINE SECTIONS (Slide from alternate sides)
-// These targets must exist in the HTML on page load
 ScrollReveal().reveal('.timeline-item:nth-child(odd)', { origin: 'left', delay: 100, interval: 100 });
 ScrollReveal().reveal('.timeline-item:nth-child(even)', { origin: 'right', delay: 100, interval: 100 });
 
@@ -126,8 +125,6 @@ ScrollReveal().reveal('.skill-card', { scale: 0.8, opacity: 0, delay: 100, inter
 // d. GENERAL SECTIONS (About, Titles, Contact)
 ScrollReveal().reveal('.section-title, .subtitle, .about-container, .contact-content-wrapper', { origin: 'top', delay: 100 });
 
-// Note on Projects: Projects are dynamically loaded, so the animation for '.project-card' 
-// is now inside the fetch block (see block #3) or should be called again after loading.
 
 // --- 5. jQuery Ready Function for Click Handlers ---
 $(document).ready(function() {
