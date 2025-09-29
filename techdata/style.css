@@ -269,35 +269,54 @@ header .navbar ul li a.active {
 /* --- 6. EXPERIENCE & EDUCATION (Timeline) --- */
 
 /* ------------------------------------------------
-   ✅ 1. WORK EXPERIENCE & EDUCATION SECTION (DARK BLUE BACKGROUND)
+   ✅ 1. WORK EXPERIENCE SECTION (DARK BLUE BACKGROUND)
 ------------------------------------------------ */
-/* Target the experience class AND the education ID */
-.section.experience,
-.section#education {
-    /* Apply dark blue background to both Experience and Education sections */
+.section.experience {
+    /* The specific dark blue color */
     background-color: var(--custom-dark-blue); 
-    
     /* Sets all default text *directly* inside the section to white */
     color: var(--white) !important;
 }
 
-/* Ensures ALL nested text elements outside the timeline box are white */
-.section.experience *,
-.section#education * {
+/* Ensures all nested text elements inside the dark Experience section are white, 
+   *EXCEPT* for the timeline boxes themselves. */
+.section.experience * {
     color: var(--white) !important; 
 }
 
-/* Re-style the section title for this dark background */
-.section.experience .section-title,
-.section#education .section-title {
+/* Re-style the section title for the dark background */
+.section.experience .section-title {
     color: var(--main-color) !important; 
     padding-top: 0;
 }
-.section.experience .subtitle,
-.section#education .subtitle {
+.section.experience .subtitle {
     color: rgba(255, 255, 255, 0.7) !important; 
 }
 
+/* ------------------------------------------------
+   ✅ 2. EDUCATION SECTION (LIGHT GRAY BACKGROUND)
+------------------------------------------------ */
+.section#education {
+    /* Set background to light gray */
+    background-color: var(--light-gray); 
+    /* Set default text inside the section to dark */
+    color: var(--text-dark) !important; 
+}
+
+/* Ensures nested text elements inside the light Education section are dark */
+.section#education * {
+    /* We still need to override the global color in case it was set to white */
+    color: var(--text-dark) !important; 
+}
+
+/* Re-style the section title for the light background */
+.section#education .section-title {
+    color: var(--dark-bg) !important; 
+    padding-top: 0;
+}
+.section#education .subtitle {
+    color: #666 !important; 
+}
 
 /* Styling for the timeline container and individual items */
 .timeline {
@@ -318,7 +337,7 @@ header .navbar ul li a.active {
 }
 
 .timeline-item {
-  /* Keep the timeline boxes themselves white so they stand out on the dark background */
+  /* Keep the timeline boxes themselves white so they stand out */
   background: var(--white);
   padding: 2rem;
   border-radius: 8px;
@@ -328,13 +347,14 @@ header .navbar ul li a.active {
   width: 45%;
 }
 
-/* 🚀 FINAL, SUPER SPECIFIC FIX: TARGETING ALL TEXT ELEMENTS INSIDE THE WHITE BOX */
-/* By using both the .timeline and .timeline-item class we beat the general * selector */
+/* 🚀 FINAL, SUPER SPECIFIC FIX FOR TEXT INSIDE ALL WHITE BOXES */
+/* Target all white boxes (in both dark and light sections) and ensure their nested text is dark. */
 .timeline .timeline-item h3,
 .timeline .timeline-item h4,
 .timeline .timeline-item li,
-.timeline .timeline-item p {
-    /* Force to black/dark gray */
+.timeline .timeline-item p,
+.timeline .timeline-item a {
+    /* Force to black/dark gray for readability inside the white box */
     color: var(--text-dark) !important; 
     font-size: 1.6rem; 
 }
@@ -348,20 +368,35 @@ header .navbar ul li a.active {
 /* Revert colors for specific elements inside the white box */
 .timeline .timeline-item h3 {
   font-size: 2rem;
-  color: var(--dark-bg) !important; /* Job title (Dark Blue) */
+  color: var(--dark-bg) !important; /* Job title/Degree (Dark Blue) */
 }
 
 .timeline .timeline-item h4 {
   font-size: 1.6rem;
-  color: var(--main-color) !important; /* Company/Date (Teal) */
+  color: var(--main-color) !important; /* Company/Institute/Date (Teal) */
   margin-bottom: 1rem;
   font-weight: 400;
 }
 
 
-/* Timeline Dot Fix: Ensure the dot border matches the dark background */
-.timeline-item::after {
-  border: 3px solid var(--custom-dark-blue); /* The border color */
+/* Timeline Dot Fix: Ensure the dot border matches the background color of its section */
+
+/* For Experience (Dark Blue Section) */
+.section.experience .timeline-item::after {
+  border: 3px solid var(--custom-dark-blue); 
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--secondary-color);
+  border-radius: 50%;
+  top: 2.5rem;
+  z-index: 10;
+}
+
+/* For Education (Light Gray Section) */
+.section#education .timeline-item::after {
+  border: 3px solid var(--light-gray); /* Border color matches the new background */
   content: '';
   position: absolute;
   width: 12px;
