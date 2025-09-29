@@ -407,6 +407,8 @@ header .navbar ul li a.active {
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
+/* 👇 ADD THIS LINE TO CENTER THE LAST PROJECT CARD 👇 */
+     justify-content: center; 
 }
 
 .project-card {
