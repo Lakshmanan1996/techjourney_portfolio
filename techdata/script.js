@@ -161,3 +161,73 @@ $('a[href*="#"]').on('click', function (e) {
         scrollTop: $($(this).attr('href')).offset().top - 70, 
     }, 500, 'linear')
 });
+
+// --- SCROLL ANIMATION INITIALIZATION (ScrollReveal.js) ---
+
+// Initialize ScrollReveal
+ScrollReveal({
+    // Global animation settings
+    distance: '30px', // The distance the element moves from
+    duration: 1000,   // Animation speed in milliseconds
+    easing: 'cubic-bezier(0.5, 0, 0, 1)', // Smoothness
+    reset: false      // Keep false so animations only happen once
+});
+
+// 1. HOME SECTION (Image and Content)
+// Floating/Slight Fade-in for the content
+ScrollReveal().reveal('.home .content', { 
+    origin: 'left',
+    delay: 200,
+    interval: 50 
+});
+// Floating/Slight Fade-in for the profile image
+ScrollReveal().reveal('.home .image-box', { 
+    origin: 'right',
+    delay: 200,
+    interval: 50 
+});
+
+
+// 2. TIMELINE SECTIONS (Experience and Education)
+// Animate the timeline items from alternate sides
+ScrollReveal().reveal('.timeline-item:nth-child(odd)', { 
+    origin: 'left', // Odd items come from the left
+    delay: 100,
+    interval: 100 
+});
+ScrollReveal().reveal('.timeline-item:nth-child(even)', { 
+    origin: 'right', // Even items come from the right
+    delay: 100,
+    interval: 100 
+});
+
+// 3. SKILLS SECTION (Zoom/Scale effect)
+ScrollReveal().reveal('.skill-card', {
+    scale: 0.8, // Start slightly smaller (Zoom In effect)
+    opacity: 0,
+    delay: 100,
+    interval: 100 // Stagger the animation across the grid
+});
+
+// 4. GENERAL SECTIONS (About, Titles, Projects)
+// Simple fade-up for general text and titles
+ScrollReveal().reveal('.section-title, .subtitle, .about-container, .project-card, .contact-content-wrapper', {
+    origin: 'top',
+    delay: 100
+});
+
+// 5. Scroll-to-Top Button Toggle
+$(document).ready(function() {
+    $(window).on('scroll', function() {
+        if ($(window).scrollTop() > 100) {
+            $('#scroll-top').addClass('active');
+        } else {
+            $('#scroll-top').removeClass('active');
+        }
+    });
+
+    $('#scroll-top').on('click', function() {
+        $('html, body').animate({ scrollTop: 0 }, 800);
+        return false;
+    });
+});
