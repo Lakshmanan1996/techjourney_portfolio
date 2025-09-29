@@ -297,6 +297,64 @@ header .navbar ul li a.active {
 
 /* --- 6. EXPERIENCE & EDUCATION (Timeline) --- */
 
+/* ------------------------------------------------
+  1. Default Body Styles (Normal background)
+------------------------------------------------
+*/
+body {
+    /* Sets the default background to white (or whatever your main background color is) */
+    background-color: #ffffff; 
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333; /* Dark text for the default background */
+}
+
+/* ------------------------------------------------
+  2. Work Experience Section Styles (Dark Blue Background)
+------------------------------------------------
+*/
+.work-experience-section {
+    /* The dark blue background color from your image */
+    background-color: #0000FF; 
+    
+    /* OPTIONAL: Use a subtle gradient for a richer look, similar to the image */
+    /* background: linear-gradient(135deg, #192D57 0%, #101F41 100%); */
+    
+    /* Adds some vertical space above and below the section */
+    padding: 60px 0; 
+}
+
+/* This targets all text INSIDE the dark section and makes it light */
+.work-experience-section * {
+    color: #ffffff; 
+}
+
+/* Override for specific elements inside the dark section */
+.section-title {
+    /* Use a contrasting color (like the teal icon in your image) for the title */
+    color: #4FB0AE; 
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+/* To center the content and prevent it from stretching across the full screen */
+.work-experience-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px; /* Add horizontal padding for smaller screens */
+}
+
+/* ------------------------------------------------
+  3. Example Content Styles 
+------------------------------------------------
+*/
+header, footer {
+    padding: 20px;
+    text-align: center;
+}
+
+
+
 .timeline {
   max-width: 800px;
   margin: 0 auto;
