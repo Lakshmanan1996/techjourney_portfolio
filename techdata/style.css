@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
+/* Ensure the elements start hidden before AOS takes over */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform !important;
+}
+
 /* --- 1. GLOBAL RESET & VARIABLES --- */
 :root {
     --main-color: #00bcd4; /* Cyan/Teal */
