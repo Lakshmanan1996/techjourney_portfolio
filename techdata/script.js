@@ -1,11 +1,15 @@
-// --- Typing Text Effect ---
+// ===================================================================
+// DYNAMIC FEATURES: TYPING, PARTICLES, SCROLL, PROJECT LOADING, SCROLL REVEAL
+// ===================================================================
+
+// --- 0. Typing Text Effect ---
 const typingTextElement = document.querySelector('.typing-text');
 const textToType = "Cloud Engineer";
 
 // Define Speeds (in milliseconds)
-const TYPING_SPEED = 5;  // Your requested typing speed
-const BACK_SPEED = 50;    // Your requested backspacing speed
-const PAUSE_DELAY = 500;  // Pause before backspacing
+const TYPING_SPEED = 5;
+const BACK_SPEED = 50;
+const PAUSE_DELAY = 500;
 
 let charIndex = 0;
 let isDeleting = false;
@@ -16,27 +20,22 @@ function typeEffect() {
     if (!isDeleting) {
         // === TYPING PHASE ===
         if (charIndex < currentText.length) {
-            // Add one character
             typingTextElement.textContent += currentText.charAt(charIndex);
             charIndex++;
             setTimeout(typeEffect, TYPING_SPEED);
         } else {
-            // Typing complete, switch to deleting phase after a pause
             isDeleting = true;
             setTimeout(typeEffect, PAUSE_DELAY);
         }
     } else {
         // === DELETING PHASE ===
         if (charIndex > 0) {
-            // Remove one character
             typingTextElement.textContent = currentText.substring(0, charIndex - 1);
             charIndex--;
             setTimeout(typeEffect, BACK_SPEED);
         } else {
-            // Deleting complete, switch back to typing phase
             isDeleting = false;
-            // You can add an array here and move to the next phrase if you had one.
-            setTimeout(typeEffect, TYPING_SPEED); 
+            setTimeout(typeEffect, TYPING_SPEED);
         }
     }
 }
@@ -46,125 +45,82 @@ if (typingTextElement) {
     typeEffect();
 }
 
-// ===================================================================
-// DYNAMIC FEATURES: PARTICLES, SCROLL, PROJECT LOADING, SCROLL REVEAL
-// Requires jQuery, particles.js, and scrollreveal.js CDNs in index.html
-// ===================================================================
 
-// 1. Load Particles.js background
+// --- 1. Load Particles.js background ---
 // **CRITICAL PATH FIX:** Use the path relative to the website's root for GitHub Pages
 particlesJS.load("particles-js", "./assets/js/app.js", () => {
-  console.log("particles.js config loaded");
+    console.log("particles.js config loaded");
 });
 
-// 2. Smooth scroll + active link highlight + scroll-top button
+
+// --- 2. Smooth scroll + active link highlight + scroll-top button (Combined with jQuery) ---
 const sections = document.querySelectorAll(".section");
 const navLinks = document.querySelectorAll(".navbar ul li a");
 
 window.addEventListener("scroll", () => {
-  let current = "";
-  // Determine which section is "active" based on scroll position
-  sections.forEach((section) => {
-    // Offset by 150px to account for the fixed header height
-    const sectionTop = section.offsetTop - 150; 
-    if (scrollY >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-  });
+    let current = "";
+    // Determine which section is "active" based on scroll position
+    sections.forEach((section) => {
+        // Offset by 150px to account for the fixed header height
+        const sectionTop = section.offsetTop - 150; 
+        if (scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+    });
 
-  navLinks.forEach((link) => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
-
-  // Scroll Top Button visibility
-  const scrollTopBtn = document.getElementById('scroll-top');
-  if (window.scrollY > 300) {
-      scrollTopBtn.classList.add('active');
-  } else {
-      scrollTopBtn.classList.remove('active');
-  }
+    navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+    });
+    
+    // Smooth scrolling for hash links (using jQuery CDN from index.html)
+    $('a[href*="#"]').on('click', function (e) {
+        e.preventDefault();
+        $('html, body').animate({
+            // Scroll to target offset, adjusted for the fixed header
+            scrollTop: $($(this).attr('href')).offset().top - 70, 
+        }, 500, 'linear')
+    });
 });
 
 
-// 3. Load projects.json dynamically (INCLUDING DIAGRAMS)
+// --- 3. Load projects.json dynamically (INCLUDING DIAGRAMS) ---
 fetch("projects.json")
-  .then((res) => res.json())
-  .then((projects) => {
-    const projectSection = document.querySelector("#projects .project-grid");
-    if (projectSection) {
-        projects.forEach((proj) => {
-          const card = document.createElement("div");
-          card.classList.add("project-card");
+    .then((res) => res.json())
+    .then((projects) => {
+        const projectSection = document.querySelector("#projects .project-grid");
+        if (projectSection) {
+            projects.forEach((proj) => {
+                const card = document.createElement("div");
+                card.classList.add("project-card");
 
-          // Assumes 'image_path' field is present in projects.json
-          const imageHTML = proj.image_path 
-            ? `<img src="${proj.image_path}" alt="Diagram for ${proj.title}" class="project-diagram-img">` 
-            : ''; 
+                // Assumes 'image_path' field is present in projects.json
+                const imageHTML = proj.image_path 
+                    ? `<img src="${proj.image_path}" alt="Diagram for ${proj.title}" class="project-diagram-img">` 
+                    : ''; 
 
-          card.innerHTML = `
-            ${imageHTML}
-            <div class="project-info">
-              <h3>${proj.title}</h3>
-              <p>${proj.description}</p>
-              <p><strong>Tech:</strong> ${proj.tech.join(", ")}</p>
-              <a href="${proj.link}" target="_blank" class="btn-secondary">View Repository <i class="fas fa-external-link-alt"></i></a>
-            </div>
-          `;
+                card.innerHTML = `
+                    ${imageHTML}
+                    <div class="project-info">
+                        <h3>${proj.title}</h3>
+                        <p>${proj.description}</p>
+                        <p><strong>Tech:</strong> ${proj.tech.join(", ")}</p>
+                        <a href="${proj.link}" target="_blank" class="btn-secondary">View Repository <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                `;
 
-          projectSection.appendChild(card);
-        });
-    }
-  })
-  .catch(error => console.error('Error loading projects:', error));
+                projectSection.appendChild(card);
+            });
+        }
+    })
+    .catch(error => console.error('Error loading projects:', error));
 
 
-// 4. Scroll Reveal Animation Setup
-const srtop = ScrollReveal({
-    origin: 'top',
-    distance: '80px',
-    duration: 1000,
-    reset: false // Set to true if you want the animations to repeat on scroll up/down
-});
+// --- 4. SCROLL REVEAL ANIMATION SETUP (The preferred setup) ---
 
-/* SCROLL HOME CONTENT */
-srtop.reveal('.home .content', { delay: 200 });
-srtop.reveal('.home .image-box', { delay: 400, origin: 'right' });
-
-/* SCROLL SECTIONS */
-srtop.reveal('.section-title', { delay: 200 });
-srtop.reveal('.subtitle', { delay: 200 });
-
-/* SCROLL ABOUT */
-srtop.reveal('#about .about-container p', { interval: 200 });
-
-/* SCROLL SKILLS */
-srtop.reveal('.skill-grid .skill-card', { interval: 100 }); 
-
-/* SCROLL EXPERIENCE & EDUCATION */
-srtop.reveal('.timeline-item', { interval: 200 }); 
-
-/* SCROLL PROJECTS */
-srtop.reveal('.project-grid .project-card', { interval: 150 }); 
-
-/* SCROLL CONTACT */
-srtop.reveal('.contact-container > div', { interval: 100 });
-srtop.reveal('#contact-form', { delay: 300 });
-
-// 5. Smooth scrolling for hash links (using jQuery CDN from index.html)
-$('a[href*="#"]').on('click', function (e) {
-    e.preventDefault();
-    $('html, body').animate({
-        // Scroll to target offset, adjusted for the fixed header
-        scrollTop: $($(this).attr('href')).offset().top - 70, 
-    }, 500, 'linear')
-});
-
-// --- SCROLL ANIMATION INITIALIZATION (ScrollReveal.js) ---
-
-// Initialize ScrollReveal
+// Initialize ScrollReveal with global settings
 ScrollReveal({
     // Global animation settings
     distance: '30px', // The distance the element moves from
@@ -173,14 +129,12 @@ ScrollReveal({
     reset: false      // Keep false so animations only happen once
 });
 
-// 1. HOME SECTION (Image and Content)
-// Floating/Slight Fade-in for the content
+// a. HOME SECTION (Slide In)
 ScrollReveal().reveal('.home .content', { 
     origin: 'left',
     delay: 200,
     interval: 50 
 });
-// Floating/Slight Fade-in for the profile image
 ScrollReveal().reveal('.home .image-box', { 
     origin: 'right',
     delay: 200,
@@ -188,8 +142,7 @@ ScrollReveal().reveal('.home .image-box', {
 });
 
 
-// 2. TIMELINE SECTIONS (Experience and Education)
-// Animate the timeline items from alternate sides
+// b. TIMELINE SECTIONS (Slide from alternate sides)
 ScrollReveal().reveal('.timeline-item:nth-child(odd)', { 
     origin: 'left', // Odd items come from the left
     delay: 100,
@@ -201,7 +154,7 @@ ScrollReveal().reveal('.timeline-item:nth-child(even)', {
     interval: 100 
 });
 
-// 3. SKILLS SECTION (Zoom/Scale effect)
+// c. SKILLS SECTION (Zoom/Scale effect)
 ScrollReveal().reveal('.skill-card', {
     scale: 0.8, // Start slightly smaller (Zoom In effect)
     opacity: 0,
@@ -209,16 +162,18 @@ ScrollReveal().reveal('.skill-card', {
     interval: 100 // Stagger the animation across the grid
 });
 
-// 4. GENERAL SECTIONS (About, Titles, Projects)
-// Simple fade-up for general text and titles
+// d. GENERAL SECTIONS (About, Titles, Projects)
+// Simple fade-up for general text and titles/containers
 ScrollReveal().reveal('.section-title, .subtitle, .about-container, .project-card, .contact-content-wrapper', {
     origin: 'top',
     delay: 100
 });
 
-// 5. Scroll-to-Top Button Toggle
+
+// --- 5. Scroll-to-Top Button Toggle (Integrated from jQuery) ---
 $(document).ready(function() {
     $(window).on('scroll', function() {
+        // Toggle visibility of scroll-to-top button
         if ($(window).scrollTop() > 100) {
             $('#scroll-top').addClass('active');
         } else {
@@ -226,6 +181,7 @@ $(document).ready(function() {
         }
     });
 
+    // Smooth scroll to top when button is clicked
     $('#scroll-top').on('click', function() {
         $('html, body').animate({ scrollTop: 0 }, 800);
         return false;
