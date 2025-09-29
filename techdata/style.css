@@ -10,9 +10,9 @@
 
 /* --- 1. GLOBAL RESET & VARIABLES --- */
 :root {
-    --main-color: #00bcd4; /* Cyan/Teal */
-    --secondary-color: #ff4081; /* Pink/Red */
-    --dark-bg: #1d3557; /* Dark Blue */
+    --main-color: #00bcd4; /* Cyan/Teal (Primary Accent) */
+    --secondary-color: #ff4081; /* Pink/Red (Secondary Accent/Hover) */
+    --dark-bg: #1d3557; /* Dark Blue (Header/Home/General Dark Background) */
     --custom-dark-blue: #192D57; /* The specific background color for Experience */
     --white: #fff;
     --light-gray: #f5f5f5;
@@ -48,8 +48,8 @@ body {
     text-align: center;
     font-size: 3rem;
     color: var(--dark-bg);
-    margin-bottom: 3rem;
-    padding-top: 5rem; /* Space from top edge when scrolling */
+    margin-bottom: 1rem; /* Reduced margin for subtitle space */
+    padding-top: 5rem; 
 }
 .section-title i {
     color: var(--main-color);
@@ -102,6 +102,13 @@ header .navbar ul li a:hover,
 header .navbar ul li a.active {
     color: var(--main-color);
     border-bottom: 2px solid var(--main-color);
+}
+/* Mobile menu icon style */
+#menu-btn {
+    color: var(--white);
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: none; /* Hidden on large screens */
 }
 
 
@@ -277,52 +284,39 @@ header .navbar ul li a.active {
 /* --- 6. EXPERIENCE & EDUCATION (Timeline) --- */
 
 /* ------------------------------------------------
-    ✅ 1. WORK EXPERIENCE SECTION (DARK BLUE BACKGROUND)
+    6.1. WORK EXPERIENCE SECTION (DARK BLUE BACKGROUND)
 ------------------------------------------------ */
 .section.experience {
     /* The specific dark blue color */
     background-color: var(--custom-dark-blue);
-    /* Sets all default text *directly* inside the section to white */
     color: var(--white) !important;
 }
 
-/* Re-style the section title for the dark background */
 .section.experience .section-title {
     color: var(--main-color) !important;
     padding-top: 0;
-}
-/* Re-style the section title icon for the dark background */
-.section.experience .section-title i {
-    color: var(--main-color) !important;
 }
 .section.experience .subtitle {
     color: rgba(255, 255, 255, 0.7) !important;
 }
 
 /* ------------------------------------------------
-    ✅ 2. EDUCATION SECTION (LIGHT GRAY BACKGROUND)
+    6.2. EDUCATION SECTION (LIGHT GRAY BACKGROUND)
 ------------------------------------------------ */
 .section#education {
-    /* Set background to light gray */
     background-color: var(--light-gray);
-    /* Set default text inside the section to dark */
     color: var(--text-dark) !important;
 }
 
-/* Re-style the section title for the light background */
 .section#education .section-title {
     color: var(--dark-bg) !important;
     padding-top: 0;
-}
-/* Re-style the section title icon for the light background */
-.section#education .section-title i {
-    color: var(--main-color) !important;
 }
 .section#education .subtitle {
     color: #666 !important;
 }
 
-/* Styling for the timeline container and individual items */
+/* General Timeline Styles */
 .timeline {
     max-width: 800px;
     margin: 0 auto;
@@ -341,7 +335,6 @@ header .navbar ul li a.active {
 }
 
 .timeline-item {
-    /* Keep the timeline boxes themselves white so they stand out */
     background: var(--white);
     padding: 2rem;
     border-radius: 8px;
@@ -351,38 +344,35 @@ header .navbar ul li a.active {
     width: 45%;
 }
 
-/* 🚀 FIX: Ensure text inside all white boxes is dark/readable */
+/* Critical Fix: Ensure text inside all white boxes is dark/readable */
 .timeline .timeline-item h3,
 .timeline .timeline-item h4,
 .timeline .timeline-item li,
 .timeline .timeline-item p {
-    /* Force to dark for readability inside the white box */
     color: var(--text-dark) !important;
     font-size: 1.6rem;
 }
 
-/* Ensure the UL container itself is not inheriting white and hiding the bullets */
 .timeline .timeline-item ul {
     padding-left: 2rem;
 }
 
-/* Revert colors for specific elements inside the white box */
 .timeline .timeline-item h3 {
     font-size: 2rem;
-    color: var(--dark-bg) !important; /* Job title/Degree (Dark Blue) */
+    color: var(--dark-bg) !important; 
 }
 
 .timeline .timeline-item h4 {
     font-size: 1.6rem;
-    color: var(--main-color) !important; /* Company/Institute/Date (Teal) */
+    color: var(--main-color) !important; 
     margin-bottom: 1rem;
     font-weight: 400;
 }
 
 
-/* Timeline Dot Fix: Ensure the dot border matches the background color of its section */
+/* Timeline Dot (Item Indicator) Styles */
 
-/* For Experience (Dark Blue Section) */
+/* Dot for Experience (Matches Dark Blue Section Background) */
 .section.experience .timeline-item::after {
     border: 3px solid var(--custom-dark-blue);
     content: '';
@@ -395,9 +385,9 @@ header .navbar ul li a.active {
     z-index: 10;
 }
 
-/* For Education (Light Gray Section) */
+/* Dot for Education (Matches Light Gray Section Background) */
 .section#education .timeline-item::after {
-    border: 3px solid var(--light-gray); /* Border color matches the new background */
+    border: 3px solid var(--light-gray); 
     content: '';
     position: absolute;
     width: 12px;
@@ -409,7 +399,7 @@ header .navbar ul li a.active {
 }
 
 
-/* Align items left and right */
+/* Dot positioning */
 .timeline-item:nth-child(odd) {
     left: 0;
     transform: translateX(-5%);
@@ -435,7 +425,6 @@ header .navbar ul li a.active {
 
 .project-grid {
     display: grid;
-    /* Adjusted grid-template-columns for a tighter 3-column layout on large screens */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3rem;
     max-width: 1200px;
@@ -444,10 +433,9 @@ header .navbar ul li a.active {
 
 .project-card {
     background: var(--white);
-    /* Border is much lighter than before */
-    border: 1px solid #e9e9e9; 
+    border: 1px solid #e9e9e9;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Lighter shadow */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); 
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
@@ -455,8 +443,8 @@ header .navbar ul li a.active {
 }
 
 .project-card:hover {
-    transform: translateY(-5px); /* Lift the card on hover */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
 }
 
 /* Header and Icon */
@@ -468,7 +456,7 @@ header .navbar ul li a.active {
 
 .project-header i {
     font-size: 2.5rem;
-    color: var(--secondary-color); /* Pink/Red Icon */
+    color: var(--secondary-color); 
     margin-right: 1rem;
 }
 
@@ -483,7 +471,7 @@ header .navbar ul li a.active {
     font-size: 1.4rem;
     color: #555;
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Allows description to take up available space */
+    flex-grow: 1; 
 }
 
 /* Technology Tags */
@@ -504,11 +492,11 @@ header .navbar ul li a.active {
 
 /* The 'View Repository' Button Style */
 .view-repo-btn {
-    display: inline-flex; /* Use flex for icon alignment */
+    display: inline-flex; 
     align-items: center;
     justify-content: center;
     padding: 1rem 2rem;
-    background-color: var(--secondary-color); /* Bright Pink/Red */
+    background-color: var(--secondary-color); 
     color: var(--white);
     border: none;
     border-radius: 8px;
@@ -516,10 +504,8 @@ header .navbar ul li a.active {
     font-weight: 600;
     transition: background-color 0.3s;
     text-align: center;
-    width: 100%; /* Full width button */
-    
-    /* Ensure the button is at the very bottom */
-    margin-top: auto; 
+    width: 100%; 
+    margin-top: auto; 
 }
 
 .view-repo-btn:hover {
@@ -529,10 +515,10 @@ header .navbar ul li a.active {
 .view-repo-btn i {
     margin-left: 0.8rem;
     font-size: 1.8rem;
-    color: var(--white); /* Ensure icon inside button is white */
+    color: var(--white); 
 }
 
-/* --- 8. CONTACT SECTION --- */
+/* --- 8. CONTACT SECTION ALIGNMENT & DESIGN --- */
 #contact {
     background: var(--dark-bg);
     color: var(--white);
@@ -550,8 +536,9 @@ header .navbar ul li a.active {
     text-align: center;
 }
 
+/* ✅ KEY ALIGNMENT CONTAINER */
 .contact-content-wrapper {
-    display: flex;
+    display: flex; /* Enables side-by-side alignment */
     justify-content: center;
     align-items: flex-start;
     gap: 4rem;
@@ -561,7 +548,7 @@ header .navbar ul li a.active {
 }
 
 .contact-image-box {
-    flex: 1 1 40%;
+    flex: 1 1 40%; /* Image takes 40% of the space */
     text-align: center;
 }
 
@@ -570,10 +557,12 @@ header .navbar ul li a.active {
     height: auto;
     display: block;
     margin: 0 auto;
+    /* Optional: Small floating effect for the image */
+    animation: float 4s ease-in-out infinite; 
 }
 
 .contact-form-box {
-    flex: 1 1 60%;
+    flex: 1 1 60%; /* Form takes 60% of the space */
     background: rgba(255, 255, 255, 0.1);
     padding: 3rem;
     border-radius: 8px;
@@ -617,105 +606,7 @@ header .navbar ul li a.active {
     resize: vertical;
 }
 
-/* === MOBILE RESPONSIVENESS (Consolidated for 991px and 768px breakpoints) === */
-@media (max-width: 991px) {
-    html {
-        font-size: 55%;
-    }
-    header {
-        padding: 1rem 3%;
-    }
-
-    .contact-content-wrapper {
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
-        padding: 0 3%;
-    }
-
-    .contact-image-box,
-    .contact-form-box {
-        flex-basis: 100%;
-        max-width: 500px;
-    }
-
-    .contact-image-box .contact-illustration {
-        max-width: 80%;
-    }
-    
-    /* Timeline adjustments for mobile */
-    .timeline-item {
-        width: 100%;
-        left: 0 !important;
-        transform: none !important;
-        margin-bottom: 2rem;
-        padding: 1.5rem;
-    }
-    .timeline::before {
-        left: 20px;
-    }
-    .timeline-item:nth-child(odd)::after,
-    .timeline-item:nth-child(even)::after {
-        left: 20px !important;
-        transform: translateX(-50%) !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .home .content-wrapper {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 10rem;
-    }
-
-    .home .image-box {
-        order: -1;
-        margin-bottom: 3rem;
-    }
-    
-    .home .content {
-        text-align: center;
-    }
-
-    /* Header navigation toggle */
-    header .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--dark-bg);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        /* Note: You'll need JavaScript to toggle the 'nav-toggle' class */
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
-        transition: clip-path 0.3s ease;
-    }
-    header .navbar.nav-toggle {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-    header .navbar ul {
-        flex-direction: column;
-        padding: 1rem 2rem;
-        gap: 1.5rem;
-    }
-
-    /* Projects grid for mobile */
-    .project-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-}
-
-@media (max-width: 450px) {
-    html {
-        font-size: 50%;
-    }
-    .section {
-        padding: 6rem 3%;
-    }
-}
-
-
-/* --- 9. FOOTER STYLES --- */
+/* --- 9. FOOTER STYLES & SCROLL TOP --- */
 .footer {
     background: #102C57;
     padding: 3rem 5%;
@@ -800,4 +691,103 @@ header .navbar ul li a.active {
 
 #scroll-top.active {
     opacity: 1;
+}
+
+/* --- 10. MOBILE RESPONSIVENESS --- */
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+    header {
+        padding: 1rem 3%;
+    }
+
+    /* Contact Alignment for Mobile: Stacks the image and form vertically */
+    .contact-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        padding: 0 3%;
+    }
+
+    .contact-image-box,
+    .contact-form-box {
+        flex-basis: 100%;
+        max-width: 500px;
+    }
+
+    /* Timeline adjustments for mobile */
+    .timeline::before {
+        left: 20px;
+    }
+    .timeline-item {
+        width: 90%; /* Increased width for better reading */
+        left: 0 !important;
+        transform: none !important;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+    }
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: 20px !important;
+        transform: translateX(-50%) !important;
+    }
+
+    /* Show mobile menu icon */
+    #menu-btn {
+        display: inline-block;
+    }
+    /* Hide desktop navbar by default */
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--dark-bg);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
+        transition: clip-path 0.3s ease;
+    }
+    /* JavaScript will add this class */
+    header .navbar.nav-toggle { 
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    header .navbar ul {
+        flex-direction: column;
+        padding: 1rem 2rem;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .home .content-wrapper {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 10rem;
+    }
+
+    .home .image-box {
+        order: -1;
+        margin-bottom: 3rem;
+    }
+    
+    .home .image-box .profile-image {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* Projects grid for small mobile devices */
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+    .section {
+        padding: 6rem 3%;
+    }
 }
