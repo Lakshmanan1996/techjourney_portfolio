@@ -296,6 +296,22 @@ header .navbar ul li a.active {
 }
 
 /* --- 6. EXPERIENCE & EDUCATION (Timeline) --- */
+
+body {
+    /* Use a linear gradient for a subtle, richer background */
+    background: linear-gradient(135deg, #192D57 0%, #101F41 100%);
+    
+    /* Fallback color for older browsers */
+    background-color: #192D57; 
+    
+    /* Ensures the body covers the entire viewport */
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white; 
+    padding: 20px;
+}
+
 .timeline {
   max-width: 800px;
   margin: 0 auto;
