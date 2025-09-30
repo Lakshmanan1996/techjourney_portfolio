@@ -41,7 +41,7 @@
             <div class="content">
                 <p class="role-title" data-aos="fade-down" data-aos-delay="400">Hi There,</p>
                 <h1 data-aos="fade-down" data-aos-delay="500">I'm Lakshmanan </h1>
-                <p class="role-subtitle" data-aos="fade-down" data-aos-delay="600"><span class="typing-text">Cloud Engineer</span></p>
+                <p class="role-subtitle" data-aos="fade-down" data-aos-delay="600"><span class="typing-text"></span></p>
                 <a href="#about" class="btn-primary" data-aos="fade-down" data-aos-delay="700">Learn More <i class="fas fa-arrow-right"></i></a>
                 
                 <div class="socials" data-aos="fade-down" data-aos-delay="800">
@@ -53,7 +53,7 @@
             </div>
 
             <div class="image-box" data-aos="fade-down" data-aos-delay="900">
-                <img src="./assets/images/image_733dc7.png" alt="Lakshmanan R." class="profile-image">
+                <img src="./assets/images/profile.jpg" alt="Lakshmanan R." class="profile-image">
             </div>
             
         </div>
@@ -226,14 +226,26 @@
                 >
             </div>
             
-        </div> </section>
-
+        </div>
+        
+    </section>
+    
     <section class="footer" data-aos="fade-up">
         <div class="box-container">
 
             <div class="box">
                 <h3>Lakshmanan Portfolio</h3>
                 <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/><br/> Keep Rising 🚀.</p>
+            </div>
+
+            <div class="box">
+                <h3>Certifications & Credentials</h3>
+                <ul>
+                    <li><a href="#education"><i class="fas fa-certificate"></i> AWS Certified Solutions Architect</a></li>
+                    <li><a href="#education"><i class="fas fa-certificate"></i> Azure Administrator Associate (AZ-104)</a></li>
+                    <li><a href="#education"><i class="fas fa-certificate"></i> Cisco Certified Network Associate (CCNA)</a></li>
+                    <li><a href="#education"><i class="fas fa-certificate"></i> Microsoft MCSA</a></li>
+                </ul>
             </div>
 
             <div class="box">
@@ -260,7 +272,11 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
-        // --- 1. PROJECT DATA (JSON) ---
+        // ===================================================================
+        // DYNAMIC FEATURES: TYPING, PROJECT LOADING, SCROLL, AOS
+        // ===================================================================
+
+        // --- 1. PROJECT DATA (Hardcoded for simplicity) ---
         const projectsData = [
             {
                 "title": "Automated AWS Server Patching Pipeline (DevOps)",
@@ -292,15 +308,53 @@
             }
         ];
 
-        // --- 2. DYNAMIC CONTENT RENDERING & MENU LOGIC ---
+        // --- 2. TYPING EFFECT LOGIC ---
+        const typingTextElement = document.querySelector('.typing-text');
+        const textToType = "Cloud Engineer";
+        const TYPING_SPEED = 50;
+        const BACK_SPEED = 25;
+        const PAUSE_DELAY = 1500;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            if (!typingTextElement) return;
+
+            const currentText = textToType;
+            if (!isDeleting) {
+                if (charIndex < currentText.length) {
+                    typingTextElement.textContent += currentText.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeEffect, TYPING_SPEED);
+                } else {
+                    isDeleting = true;
+                    setTimeout(typeEffect, PAUSE_DELAY);
+                }
+            } else {
+                if (charIndex > 0) {
+                    typingTextElement.textContent = currentText.substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(typeEffect, BACK_SPEED);
+                } else {
+                    isDeleting = false;
+                    setTimeout(typeEffect, TYPING_SPEED);
+                }
+            }
+        }
+        if (typingTextElement) {
+            typeEffect();
+        }
+
+
+        // --- 3. MAIN DOM CONTENT LOADED LOGIC (Project Loading, Menu, AOS) ---
         document.addEventListener('DOMContentLoaded', () => {
+
+            // A. Project Card Rendering
             const projectList = document.getElementById('project-list');
             if (projectList) {
                 projectsData.forEach((project, index) => {
-                    // Create Tech Stack Spans
                     const techSpans = project.tech.map(t => `<span>${t}</span>`).join('');
                     
-                    // Construct the full HTML for one card
                     const cardHTML = `
                         <div class="project-card" data-aos="zoom-in" data-aos-delay="${500 + (index * 100)}">
                             <div class="project-header">
@@ -319,7 +373,7 @@
                 });
             }
 
-            // --- MOBILE MENU TOGGLE LOGIC ---
+            // B. Mobile Menu Toggle Logic
             const menuBtn = document.getElementById('menu-btn');
             const navbar = document.querySelector('header .navbar');
             const navLinks = document.querySelectorAll('header .navbar ul li a');
@@ -343,22 +397,81 @@
             });
 
 
-            // --- 3. AOS INITIALIZATION (Set to repeat on scroll) ---
-            AOS.init({
-                delay: 200,      // General delay for all animations
-                duration: 800,   // How long the animation lasts
-                // 💥 Key change for repeating animations 💥
-                once: false,     // Animation happens every time
-                mirror: true,    // Reset animation when scrolling out of view
+            // C. AOS INITIALIZATION (Set to REPEAT on scroll - The Fix!)
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    delay: 200,      
+                    duration: 800,   
+                    once: false,     // Enables repeating animation
+                    mirror: true,    // Resets animation when element scrolls out
+                });
+            }
+
+
+            // D. Load Particles.js background
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS.load("particles-js", "./assets/js/app.js", () => {
+                    console.log("particles.js config loaded");
+                });
+            }
+        });
+
+
+        // --- 4. SCROLL EVENT FOR ACTIVE LINK HIGHLIGHT ---
+        const sections = document.querySelectorAll(".section");
+        const navLinksArray = document.querySelectorAll(".navbar ul li a"); 
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop - 100; 
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
             });
+
+            if (window.scrollY < document.getElementById('about').offsetTop - 100) {
+                current = "home";
+            }
+
+            navLinksArray.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === "#" + current) {
+                    link.classList.add("active");
+                }
+            });
+        });
+
+
+        // --- 5. jQuery Ready Function for Click Handlers ---
+        $(document).ready(function() {
             
-            // Simple logic for scroll-top button visibility
+            // Smooth scrolling for hash links
+            $('a[href*="#"]').on('click', function (e) {
+                if ($(this).attr('href').startsWith('#') && $(this).attr('href').length > 1) {
+                    e.preventDefault();
+                    
+                    const targetId = $(this).attr('href');
+                    const targetOffset = $(targetId).offset().top - 70;
+                    
+                    $('html, body').animate({
+                        scrollTop: targetOffset,
+                    }, 500, 'linear');
+                }
+            });
+
+            // Scroll-to-Top Button Toggle and Animation
             $(window).on('scroll', function() {
                 if ($(window).scrollTop() > 50) {
                     $('#scroll-top').addClass('active');
                 } else {
                     $('#scroll-top').removeClass('active');
                 }
+            });
+            
+            $('#scroll-top').on('click', function() {
+                $('html, body').animate({ scrollTop: 0 }, 800);
+                return false;
             });
         });
     </script>
