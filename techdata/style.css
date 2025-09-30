@@ -578,17 +578,29 @@ header .navbar ul li a.active {
     font-size: 1.6rem;
 }
 
-/* 3. The White Contact Card */
+/* 3. The Contact Layout Wrapper (New for side-by-side) */
+.contact-layout-wrapper {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center;
+    gap: 4rem; /* Spacing between the form and the image */
+    max-width: 1000px; /* Limit the overall width of the contact area */
+    width: 100%;
+    margin-top: 2rem; /* Additional space below the subtitle */
+}
+
+/* 4. The White Contact Card */
 .contact-card-new {
     background-color: var(--white); /* White Card */
     padding: 40px;
     border-radius: 20px; /* Rounded corners */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Subtle shadow */
     max-width: 450px;
-    width: 90%;
+    width: 100%; /* Important for flex layout */
+    flex-shrink: 0;
 }
 
-/* 4. Input Field Grouping (Input + Icon) */
+/* 5. Input Field Grouping (Input + Icon) */
 .input-group-new {
     display: flex;
     align-items: center;
@@ -605,7 +617,7 @@ header .navbar ul li a.active {
     box-shadow: 0 0 0 3px rgba(93, 63, 211, 0.2);
 }
 
-/* 5. Input Fields and Textarea */
+/* 6. Input Fields and Textarea */
 .input-group-new input,
 .input-group-new textarea {
     flex-grow: 1;
@@ -629,7 +641,7 @@ header .navbar ul li a.active {
     padding: 5px 0 0 0; /* Adjust padding for the message box */
 }
 
-/* 6. Icon Styling */
+/* 7. Icon Styling */
 .input-icon-new {
     font-size: 1.8rem;
     margin-right: 15px;
@@ -642,8 +654,22 @@ header .navbar ul li a.active {
     margin-top: 5px;
 }
 
+/* 8. Image Wrapper and Image Styling */
+.contact-image-wrapper {
+    flex: 1 1 450px; /* Allows the image to take available space */
+    max-width: 450px;
+    text-align: center;
+    padding: 20px;
+}
 
-/* 7. Submit Button */
+.contact-illustration {
+    width: 100%;
+    height: auto;
+    max-width: 400px; /* Prevent image from getting too large */
+}
+
+
+/* 9. Submit Button */
 .submit-button-new {
     width: 100%;
     padding: 15px;
@@ -766,14 +792,6 @@ header .navbar ul li a.active {
         padding: 1rem 3%;
     }
 
-    /* Contact Alignment for Mobile: Centers the form */
-    .contact-card-new {
-        max-width: 90%; /* Allows it to shrink on mobile */
-    }
-    .contact-content-wrapper {
-        /* Removing this block as it was for the old side-by-side layout */
-    }
-
     /* Timeline adjustments for mobile */
     .timeline::before {
         left: 20px;
@@ -838,6 +856,23 @@ header .navbar ul li a.active {
     .project-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    /* Contact Layout: Stack the card and image vertically on medium screens and smaller */
+    .contact-layout-wrapper {
+        flex-direction: column; /* Stack the card and image vertically */
+        gap: 3rem;
+    }
+    
+    .contact-card-new {
+        /* On small screens, the card stays centered and takes most width */
+        width: 90%; 
+    }
+
+    .contact-image-wrapper {
+        /* Image now comes below the form on mobile */
+        max-width: 300px; /* Scale image down for mobile */
+        order: 2; /* Puts the image below the form on mobile */
     }
 }
 
