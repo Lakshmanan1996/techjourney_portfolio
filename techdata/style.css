@@ -92,7 +92,7 @@ header .logo {
 }
 
 header .navbar {
-    transition: max-height 0.3s ease-in-out; 
+    transition: max-height 0.3s ease-in-out;    
 }
 
 header .navbar ul {
@@ -118,7 +118,7 @@ header .navbar ul li a.active {
     color: var(--white);
     font-size: 2.5rem;
     cursor: pointer;
-    display: none; 
+    display: none;    
 }
 
 
@@ -237,8 +237,7 @@ header .navbar ul li a.active {
 
 /* --- 4. ABOUT SECTION --- */
 .about-container {
-    /* CHANGE: Increased max-width and set to Flexbox */
-    max-width: 1100px; 
+    max-width: 1100px; /* Increased max-width and set to Flexbox */
     margin: 0 auto;
     font-size: 1.8rem;
     display: flex;
@@ -270,33 +269,34 @@ header .navbar ul li a.active {
     max-width: 700px; 
 }
 
-.about-container p {
-    /* Changed the selector from .about-container p to .about-content-text p for better control */
-    margin-bottom: 2rem;
+/* STYLES FOR LIST (UL/LI) TO ENSURE SEPARATE LINES */
+.about-content-text ul {
+    list-style: none; /* Remove default list style */
+    padding-left: 0;
+}
+
+.about-content-text li {
     font-size: 1.7rem; 
+    margin-bottom: 3.5rem; /* Increased spacing for clear separation */
+    position: relative;
+    padding-left: 30px; /* Space for the custom icon */
+    line-height: 1.6;
 }
 
-/* --- MOBILE RESPONSIVENESS ADJUSTMENT --- */
-
-/* Add this to your @media (max-width: 991px) block or just after the rest of the styles */
-@media (max-width: 991px) {
-    /* ... other existing styles ... */
-    
-    .about-container {
-        flex-direction: column; /* Stack vertically on smaller screens */
-        text-align: center;
-    }
-    .about-image-box {
-        order: -1; /* Image appears above text on mobile */
-        margin-bottom: 3rem;
-        max-width: 80%;
-        flex: none;
-    }
-    .about-content-text {
-        text-align: center;
-        max-width: 100%;
-    }
+/* Custom bullet/checkmark using the main accent color */
+.about-content-text li::before {
+    /* Using a FontAwesome icon for a clean look */
+    content: "\f058"; /* Unicode for fa-check-circle */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900; 
+    color: var(--main-color); 
+    position: absolute;
+    left: 0;
+    font-size: 2rem;
+    top: 0;
 }
+
+
 /* --- 5. SKILLS SECTION --- */
 .skill-grid {
     display: grid;
@@ -465,16 +465,16 @@ header .navbar ul li a.active {
 
 .section#projects {
     background-color: var(--infra-bg);
-    color: var(--white); 
+    color: var(--white);    
 }
 
 .section#projects .section-title,
 .section#projects .section-title i {
-    color: var(--main-color); 
+    color: var(--main-color);    
 }
 
 .section#projects .subtitle {
-    color: rgba(255, 255, 255, 0.7); 
+    color: rgba(255, 255, 255, 0.7);    
 }
 
 .project-grid {
@@ -574,13 +574,13 @@ header .navbar ul li a.active {
 
 #contact {
     background: var(--page-bg-new);
-    color: var(--text-dark); 
+    color: var(--text-dark);    
     padding: 6rem 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 80vh; 
+    min-height: 80vh;    
 }
 
 .section#contact .section-title {
@@ -716,7 +716,7 @@ header .navbar ul li a.active {
 .footer .box-container {
     display: grid;
     /* Updated minmax for the 3-column layout */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));    
     gap: 3rem;
     margin-bottom: 2rem;
 }
@@ -740,7 +740,7 @@ header .navbar ul li a.active {
 
 /* NEW FOOTER LINK STYLES for Certifications/Quick Links */
 .footer .box-container .box ul {
-    list-style: none; 
+    list-style: none;    
     padding-left: 0;
 }
 
@@ -752,7 +752,7 @@ header .navbar ul li a.active {
     color: var(--white);
     font-size: 1.5rem;
     transition: color 0.3s;
-    display: flex; 
+    display: flex;    
     align-items: center;
 }
 
@@ -769,7 +769,7 @@ header .navbar ul li a.active {
 
 .footer .box-container .box ul li a:hover i {
     color: var(--secondary-color);
-    margin-right: 1.5rem; 
+    margin-right: 1.5rem;    
 }
 /* End of new link styles */
 
@@ -838,11 +838,31 @@ header .navbar ul li a.active {
         padding: 1rem 3%;
     }
 
+    /* About Section Mobile Fix */
+    .about-container {
+        flex-direction: column; /* Stack vertically on smaller screens */
+        text-align: center;
+    }
+    .about-image-box {
+        order: -1; /* Image appears above text on mobile */
+        margin-bottom: 3rem;
+        max-width: 80%;
+        flex: none;
+    }
+    .about-content-text {
+        text-align: left; /* Keep list items left-aligned */
+        max-width: 100%;
+    }
+    .about-content-text li {
+        margin-bottom: 2rem; /* Reduced spacing slightly for mobile */
+    }
+    /* End About Section Mobile Fix */
+
     .timeline::before {
         left: 20px;
     }
     .timeline-item {
-        width: 90%; 
+        width: 90%;    
         left: 0 !important;
         transform: none !important;
         margin-bottom: 2rem;
@@ -856,7 +876,7 @@ header .navbar ul li a.active {
 
     #menu-btn {
         display: inline-block;
-        order: 2; 
+        order: 2;    
     }
 
     header .navbar {
@@ -866,9 +886,9 @@ header .navbar ul li a.active {
         right: 0;
         background: var(--dark-bg);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        max-height: 0; 
+        max-height: 0;    
         overflow: hidden;
-        width: 100%; 
+        width: 100%;    
         display: block;
     }
     
@@ -877,7 +897,7 @@ header .navbar ul li a.active {
     }
     
     header .navbar ul {
-        flex-direction: column; 
+        flex-direction: column;    
         padding: 1rem 2rem;
         gap: 1.5rem;
     }
@@ -911,7 +931,7 @@ header .navbar ul li a.active {
     }
     
     .contact-card-new {
-        width: 90%; 
+        width: 90%;    
     }
 
     .contact-image-wrapper {
