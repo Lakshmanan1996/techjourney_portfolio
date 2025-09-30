@@ -227,6 +227,7 @@
             </div>
             
         </div> </section>
+
     <section class="footer" data-aos="fade-up">
         <div class="box-container">
 
@@ -291,7 +292,7 @@
             }
         ];
 
-        // --- 2. JAVASCRIPT RENDERING LOGIC ---
+        // --- 2. DYNAMIC CONTENT RENDERING & MENU LOGIC ---
         document.addEventListener('DOMContentLoaded', () => {
             const projectList = document.getElementById('project-list');
             if (projectList) {
@@ -318,7 +319,7 @@
                 });
             }
 
-            // --- 3. MOBILE MENU TOGGLE LOGIC ---
+            // --- MOBILE MENU TOGGLE LOGIC ---
             const menuBtn = document.getElementById('menu-btn');
             const navbar = document.querySelector('header .navbar');
             const navLinks = document.querySelectorAll('header .navbar ul li a');
@@ -342,12 +343,13 @@
             });
 
 
-            // --- 4. AOS INITIALIZATION AND SCROLL LOGIC ---
+            // --- 3. AOS INITIALIZATION (Set to repeat on scroll) ---
             AOS.init({
                 delay: 200,      // General delay for all animations
                 duration: 800,   // How long the animation lasts
-                once: true,      // Animation happens only once when scrolling down
-                mirror: false,
+                // 💥 Key change for repeating animations 💥
+                once: false,     // Animation happens every time
+                mirror: true,    // Reset animation when scrolling out of view
             });
             
             // Simple logic for scroll-top button visibility
