@@ -14,10 +14,16 @@
     --secondary-color: #ff4081; /* Pink/Red (Secondary Accent/Hover) */
     --dark-bg: #1d3557; /* Dark Blue (Header/Home/General Dark Background) */
     --custom-dark-blue: #192D57; /* Color used for Experience */
-    --infra-bg: #1C4E80; /* 💡 UPDATED: Thick Royal Blue for Projects */
+    --infra-bg: #1C4E80; /* Thick Royal Blue for Projects */
     --white: #fff;
-    --light-gray: #f5f5f5; 
+    --light-gray: #f5f5f5; /* Light gray page background */
     --text-dark: #333;
+
+    /* --- NEW CONTACT FORM VARIABLES --- */
+    --page-bg-new: #f0f2f7; /* Very light lavender/gray for the new contact section background */
+    --new-purple-btn: #5d3fd3; /* Vibrant Purple for the new contact button/title */
+    --input-bg-new: #f7f9fc; /* Very light gray background for inputs */
+    --input-border-new: #e0e4eb; /* Subtle border for inputs */
 }
 
 * {
@@ -425,7 +431,7 @@ header .navbar ul li a.active {
 
 /* 💡 UPDATED: Thick Blue Background for Project Section */
 .section#projects {
-    background-color: var(--infra-bg); 
+    background-color: var(--infra-bg);
     color: var(--white); /* Ensures general text is white */
 }
 
@@ -460,9 +466,9 @@ header .navbar ul li a.active {
 
 /* Hover Effect: Lifts the card and adds a subtle cyan glow/shadow */
 .project-card:hover {
-    transform: translateY(-8px); 
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 188, 212, 0.4); 
-    border-color: var(--main-color); 
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 188, 212, 0.4);
+    border-color: var(--main-color);
 }
 
 /* Header and Icon */
@@ -499,7 +505,7 @@ header .navbar ul li a.active {
 .tech-stack span {
     font-size: 1.2rem;
     /* Keeps tags dark for contrast against the white card background */
-    background-color: var(--dark-bg); 
+    background-color: var(--dark-bg);
     color: var(--white);
     padding: 0.4rem 1rem;
     border-radius: 4px;
@@ -537,90 +543,131 @@ header .navbar ul li a.active {
     color: var(--white);
 }
 
-/* --- 8. CONTACT SECTION ALIGNMENT & DESIGN --- */
+/* --- 8. CONTACT SECTION ALIGNMENT & DESIGN (NEW CARD DESIGN) --- */
+
+/* 1. Overall Section Background */
 #contact {
-    background: var(--dark-bg);
-    color: var(--white);
+    /* Set the background to the new light lavender color */
+    background: var(--page-bg-new);
+    color: var(--text-dark); /* Ensure text is dark on the light background */
     padding: 6rem 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    min-height: 80vh; /* Give it enough height to look good */
 }
 
-#contact .section-title,
-#contact .subtitle {
+/* 2. New Title and Subtitle Styling */
+.section#contact .section-title {
+    color: var(--new-purple-btn); /* Vibrant Purple Title */
+    padding-top: 0;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+}
+.section#contact .section-title .icon-headset {
+    color: var(--new-purple-btn);
+    font-size: 1.2em;
+    margin-right: 8px;
+}
+.section#contact .subtitle {
+    color: #666; /* Darker gray subtitle */
+    margin-bottom: 4rem;
+    font-size: 1.6rem;
+}
+
+/* 3. The White Contact Card */
+.contact-card-new {
+    background-color: var(--white); /* White Card */
+    padding: 40px;
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    max-width: 450px;
+    width: 90%;
+}
+
+/* 4. Input Field Grouping (Input + Icon) */
+.input-group-new {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: var(--input-bg-new); /* Very light gray background for inputs */
+    border-radius: 10px;
+    padding: 10px 15px;
+    border: 1px solid var(--input-border-new); /* Subtle border */
+    transition: all 0.2s ease-in-out;
+}
+
+.input-group-new:focus-within {
+    border-color: var(--new-purple-btn); /* Purple border on focus */
+    box-shadow: 0 0 0 3px rgba(93, 63, 211, 0.2);
+}
+
+/* 5. Input Fields and Textarea */
+.input-group-new input,
+.input-group-new textarea {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px 0;
+    font-size: 1.6rem; /* Poppins default size */
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+.input-group-new input::placeholder,
+.input-group-new textarea::placeholder {
+    color: #999;
+}
+
+.input-group-new textarea {
+    resize: vertical;
+    min-height: 100px;
+    padding: 5px 0 0 0; /* Adjust padding for the message box */
+}
+
+/* 6. Icon Styling */
+.input-icon-new {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: #999;
+}
+
+/* Specific alignment for the message icon */
+.message-group-new .message-icon-new {
+    align-self: flex-start;
+    margin-top: 5px;
+}
+
+
+/* 7. Submit Button */
+.submit-button-new {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--new-purple-btn); /* Vibrant Purple Button */
     color: var(--white);
-    margin-bottom: 2rem;
-    max-width: 800px;
-    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 5px 15px rgba(93, 63, 211, 0.4);
 }
 
-/* ✅ KEY ALIGNMENT CONTAINER FOR IMAGE AND FORM */
-.contact-content-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 4rem;
-  max-width: 1100px;
-  width: 100%;
-  margin-top: 3rem;
+.submit-button-new:hover {
+    background-color: #4a33a3; /* Slightly darker purple on hover */
 }
 
-.contact-image-box {
-  flex: 1 1 40%;
-  text-align: center;
+.submit-button-new:active {
+    transform: scale(0.99);
 }
 
-.contact-image-box .contact-illustration {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.contact-form-box {
-  flex: 1 1 60%;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 3rem;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-#contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.input-box {
-  position: relative;
-  width: 100%;
-}
-
-.input-box i {
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  transform: translateY(-50%);
-  font-size: 1.6rem;
-  color: #999;
-}
-
-#contact-form input,
-#contact-form textarea {
-  padding: 1.2rem;
-  padding-left: 45px;
-  border-radius: 5px;
-  border: none;
-  background: var(--white);
-  color: #333;
-  font-size: 1.6rem;
-  width: 100%;
-}
-
-#contact-form textarea {
-  padding-left: 1.2rem;
-  resize: vertical;
+.submit-button-new .icon-send {
+    margin-left: 8px;
 }
 
 /* --- 9. FOOTER STYLES & SCROLL TOP --- */
@@ -719,18 +766,12 @@ header .navbar ul li a.active {
         padding: 1rem 3%;
     }
 
-    /* Contact Alignment for Mobile: Stacks the image and form vertically */
-    .contact-content-wrapper {
-        flex-direction: column; /* Stack vertically on smaller screens */
-        align-items: center; /* Center items horizontally */
-        gap: 3rem;
-        padding: 0 3%;
+    /* Contact Alignment for Mobile: Centers the form */
+    .contact-card-new {
+        max-width: 90%; /* Allows it to shrink on mobile */
     }
-
-    .contact-image-box,
-    .contact-form-box {
-        flex-basis: 100%; /* Take full width */
-        max-width: 500px; /* Max width to prevent stretching too wide */
+    .contact-content-wrapper {
+        /* Removing this block as it was for the old side-by-side layout */
     }
 
     /* Timeline adjustments for mobile */
@@ -806,5 +847,9 @@ header .navbar ul li a.active {
     }
     .section {
         padding: 6rem 3%;
+    }
+    /* Smaller padding on the contact card for very small screens */
+    .contact-card-new {
+        padding: 30px 20px;
     }
 }
