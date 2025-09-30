@@ -788,7 +788,7 @@ header .navbar ul li a.active {
     opacity: 1;
 }
 
-/* --- 10. MOBILE RESPONSIVENESS --- */
+/* --- 10. MOBILE RESPONSIVENESS (Menu Slide Down) --- */
 @media (max-width: 991px) {
     html {
         font-size: 55%;
