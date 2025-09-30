@@ -236,6 +236,11 @@ header .navbar ul li a.active {
 }
 
 /* --- 4. ABOUT SECTION --- */
+
+#about {
+    /* Explicitly setting background to white (#fff) to prevent conflicts */
+    background-color: #FFFAFA;
+    
 .about-container {
     max-width: 1100px; /* Increased max-width and set to Flexbox */
     margin: 0 auto;
