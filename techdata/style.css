@@ -55,7 +55,7 @@ body {
     text-align: center;
     font-size: 3rem;
     color: var(--dark-bg);
-    margin-bottom: 1rem; /* Reduced margin for subtitle space */
+    margin-bottom: 1rem;
     padding-top: 5rem;
 }
 .section-title i {
@@ -92,7 +92,6 @@ header .logo {
 }
 
 header .navbar {
-    /* Added transition for slide-down effect when toggled */
     transition: max-height 0.3s ease-in-out; 
 }
 
@@ -115,12 +114,11 @@ header .navbar ul li a.active {
     color: var(--main-color);
     border-bottom: 2px solid var(--main-color);
 }
-/* Mobile menu icon style */
 #menu-btn {
     color: var(--white);
     font-size: 2.5rem;
     cursor: pointer;
-    display: none; /* Hidden on large screens */
+    display: none; 
 }
 
 
@@ -167,6 +165,7 @@ header .navbar ul li a.active {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     color: var(--secondary-color);
+    min-height: 35px; /* Ensures space is reserved for typing text */
 }
 
 .home .image-box {
@@ -175,8 +174,8 @@ header .navbar ul li a.active {
 }
 
 .home .image-box .profile-image {
-    width: 550px;
-    height: 550px;
+    width: 350px; /* Adjusted size for better fit */
+    height: 350px;
     object-fit: cover;
     border-radius: 50%;
     transition: transform 0.3s;
@@ -295,9 +294,6 @@ header .navbar ul li a.active {
 
 /* --- 6. EXPERIENCE & EDUCATION (Timeline) --- */
 
-/* ------------------------------------------------
-    6.1. WORK EXPERIENCE SECTION (DARK BLUE BACKGROUND)
------------------------------------------------- */
 .section.experience {
     background-color: var(--custom-dark-blue);
     color: var(--white) !important;
@@ -307,13 +303,7 @@ header .navbar ul li a.active {
     color: var(--main-color) !important;
     padding-top: 0;
 }
-.section.experience .subtitle {
-    color: rgba(255, 255, 255, 0.7) !important;
-}
 
-/* ------------------------------------------------
-    6.2. EDUCATION SECTION (LIGHT GRAY BACKGROUND)
------------------------------------------------- */
 .section#education {
     background-color: var(--light-gray);
     color: var(--text-dark) !important;
@@ -323,11 +313,7 @@ header .navbar ul li a.active {
     color: var(--dark-bg) !important;
     padding-top: 0;
 }
-.section#education .subtitle {
-    color: #666 !important;
-}
 
-/* General Timeline Styles */
 .timeline {
     max-width: 800px;
     margin: 0 auto;
@@ -355,7 +341,6 @@ header .navbar ul li a.active {
     width: 45%;
 }
 
-/* Critical Fix: Ensure text inside all white boxes is dark/readable */
 .timeline .timeline-item h3,
 .timeline .timeline-item h4,
 .timeline .timeline-item li,
@@ -381,9 +366,6 @@ header .navbar ul li a.active {
 }
 
 
-/* Timeline Dot (Item Indicator) Styles */
-
-/* Dot for Experience (Matches Dark Blue Section Background) */
 .section.experience .timeline-item::after {
     border: 3px solid var(--custom-dark-blue);
     content: '';
@@ -396,7 +378,6 @@ header .navbar ul li a.active {
     z-index: 10;
 }
 
-/* Dot for Education (Matches Light Gray Section Background) */
 .section#education .timeline-item::after {
     border: 3px solid var(--light-gray);
     content: '';
@@ -409,8 +390,6 @@ header .navbar ul li a.active {
     z-index: 10;
 }
 
-
-/* Dot positioning */
 .timeline-item:nth-child(odd) {
     left: 0;
     transform: translateX(-5%);
@@ -434,19 +413,18 @@ header .navbar ul li a.active {
 
 /* --- 7. INFRASTRUCTURE PROJECTS SECTION (Grid) --- */
 
-/* 💡 UPDATED: Thick Blue Background for Project Section */
 .section#projects {
     background-color: var(--infra-bg);
-    color: var(--white); /* Ensures general text is white */
+    color: var(--white); 
 }
 
 .section#projects .section-title,
 .section#projects .section-title i {
-    color: var(--main-color); /* Title text is bright cyan accent */
+    color: var(--main-color); 
 }
 
 .section#projects .subtitle {
-    color: rgba(255, 255, 255, 0.7); /* Subtitle text is light gray for contrast */
+    color: rgba(255, 255, 255, 0.7); 
 }
 
 .project-grid {
@@ -465,18 +443,15 @@ header .navbar ul li a.active {
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    /* Updated transition to include border-color */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s;
 }
 
-/* Hover Effect: Lifts the card and adds a subtle cyan glow/shadow */
 .project-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 188, 212, 0.4);
     border-color: var(--main-color);
 }
 
-/* Header and Icon */
 .project-header {
     display: flex;
     align-items: center;
@@ -503,13 +478,11 @@ header .navbar ul li a.active {
     flex-grow: 1;
 }
 
-/* Technology Tags */
 .tech-stack {
     margin-bottom: 2rem;
 }
 .tech-stack span {
     font-size: 1.2rem;
-    /* Keeps tags dark for contrast against the white card background */
     background-color: var(--dark-bg);
     color: var(--white);
     padding: 0.4rem 1rem;
@@ -520,7 +493,6 @@ header .navbar ul li a.active {
     font-weight: 500;
 }
 
-/* The 'View Repository' Button Style */
 .view-repo-btn {
     display: inline-flex;
     align-items: center;
@@ -548,24 +520,21 @@ header .navbar ul li a.active {
     color: var(--white);
 }
 
-/* --- 8. CONTACT SECTION ALIGNMENT & DESIGN (NEW CARD DESIGN) --- */
+/* --- 8. CONTACT SECTION ALIGNMENT & DESIGN --- */
 
-/* 1. Overall Section Background */
 #contact {
-    /* Set the background to the new light lavender color */
     background: var(--page-bg-new);
-    color: var(--text-dark); /* Ensure text is dark on the light background */
+    color: var(--text-dark); 
     padding: 6rem 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 80vh; /* Give it enough height to look good */
+    min-height: 80vh; 
 }
 
-/* 2. New Title and Subtitle Styling */
 .section#contact .section-title {
-    color: var(--new-purple-btn); /* Vibrant Purple Title */
+    color: var(--new-purple-btn);
     padding-top: 0;
     margin-bottom: 0.5rem;
     display: flex;
@@ -578,51 +547,47 @@ header .navbar ul li a.active {
     margin-right: 8px;
 }
 .section#contact .subtitle {
-    color: #666; /* Darker gray subtitle */
+    color: #666;
     margin-bottom: 4rem;
     font-size: 1.6rem;
 }
 
-/* 3. The Contact Layout Wrapper (New for side-by-side) */
 .contact-layout-wrapper {
     display: flex;
-    justify-content: center; /* Center items horizontally */
+    justify-content: center;
     align-items: center;
-    gap: 4rem; /* Spacing between the form and the image */
-    max-width: 1000px; /* Limit the overall width of the contact area */
+    gap: 4rem;
+    max-width: 1000px;
     width: 100%;
-    margin-top: 2rem; /* Additional space below the subtitle */
+    margin-top: 2rem;
 }
 
-/* 4. The White Contact Card */
 .contact-card-new {
-    background-color: var(--white); /* White Card */
+    background-color: var(--white);
     padding: 40px;
-    border-radius: 20px; /* Rounded corners */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     max-width: 450px;
-    width: 100%; /* Important for flex layout */
+    width: 100%;
     flex-shrink: 0;
 }
 
-/* 5. Input Field Grouping (Input + Icon) */
 .input-group-new {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    background-color: var(--input-bg-new); /* Very light gray background for inputs */
+    background-color: var(--input-bg-new);
     border-radius: 10px;
     padding: 10px 15px;
-    border: 1px solid var(--input-border-new); /* Subtle border */
+    border: 1px solid var(--input-border-new);
     transition: all 0.2s ease-in-out;
 }
 
 .input-group-new:focus-within {
-    border-color: var(--new-purple-btn); /* Purple border on focus */
+    border-color: var(--new-purple-btn);
     box-shadow: 0 0 0 3px rgba(93, 63, 211, 0.2);
 }
 
-/* 6. Input Fields and Textarea */
 .input-group-new input,
 .input-group-new textarea {
     flex-grow: 1;
@@ -630,38 +595,30 @@ header .navbar ul li a.active {
     outline: none;
     background: transparent;
     padding: 5px 0;
-    font-size: 1.6rem; /* Poppins default size */
+    font-size: 1.6rem;
     color: var(--text-dark);
     line-height: 1.5;
-}
-
-.input-group-new input::placeholder,
-.input-group-new textarea::placeholder {
-    color: #999;
 }
 
 .input-group-new textarea {
     resize: vertical;
     min-height: 100px;
-    padding: 5px 0 0 0; /* Adjust padding for the message box */
+    padding: 5px 0 0 0;
 }
 
-/* 7. Icon Styling */
 .input-icon-new {
     font-size: 1.8rem;
     margin-right: 15px;
     color: #999;
 }
 
-/* Specific alignment for the message icon */
 .message-group-new .message-icon-new {
     align-self: flex-start;
     margin-top: 5px;
 }
 
-/* 8. Image Wrapper and Image Styling */
 .contact-image-wrapper {
-    flex: 1 1 450px; /* Allows the image to take available space */
+    flex: 1 1 450px;
     max-width: 450px;
     text-align: center;
     padding: 20px;
@@ -670,15 +627,13 @@ header .navbar ul li a.active {
 .contact-illustration {
     width: 100%;
     height: auto;
-    max-width: 400px; /* Prevent image from getting too large */
+    max-width: 400px;
 }
 
-
-/* 9. Submit Button */
 .submit-button-new {
     width: 100%;
     padding: 15px;
-    background-color: var(--new-purple-btn); /* Vibrant Purple Button */
+    background-color: var(--new-purple-btn);
     color: var(--white);
     font-size: 1.8rem;
     font-weight: 600;
@@ -690,7 +645,7 @@ header .navbar ul li a.active {
 }
 
 .submit-button-new:hover {
-    background-color: #4a33a3; /* Slightly darker purple on hover */
+    background-color: #4a33a3;
 }
 
 .submit-button-new:active {
@@ -710,7 +665,8 @@ header .navbar ul li a.active {
 
 .footer .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Updated minmax for the 3-column layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
     gap: 3rem;
     margin-bottom: 2rem;
 }
@@ -731,6 +687,41 @@ header .navbar ul li a.active {
     color: var(--secondary-color);
     margin-right: 1rem;
 }
+
+/* NEW FOOTER LINK STYLES for Certifications/Quick Links */
+.footer .box-container .box ul {
+    list-style: none; 
+    padding-left: 0;
+}
+
+.footer .box-container .box ul li {
+    margin: 1rem 0;
+}
+
+.footer .box-container .box ul li a {
+    color: var(--white);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+    display: flex; 
+    align-items: center;
+}
+
+.footer .box-container .box ul li a:hover {
+    color: var(--secondary-color);
+}
+
+.footer .box-container .box ul li a i {
+    color: var(--main-color);
+    margin-right: 1rem;
+    font-size: 1.6rem; /* Slightly larger icon for certificate */
+    transition: margin-right 0.3s;
+}
+
+.footer .box-container .box ul li a:hover i {
+    color: var(--secondary-color);
+    margin-right: 1.5rem; 
+}
+/* End of new link styles */
 
 .footer .box-container .box .share {
     margin-top: 1.5rem;
@@ -788,7 +779,7 @@ header .navbar ul li a.active {
     opacity: 1;
 }
 
-/* --- 10. MOBILE RESPONSIVENESS (Menu Slide Down) --- */
+/* --- 10. MOBILE RESPONSIVENESS --- */
 @media (max-width: 991px) {
     html {
         font-size: 55%;
@@ -797,12 +788,11 @@ header .navbar ul li a.active {
         padding: 1rem 3%;
     }
 
-    /* Timeline adjustments for mobile */
     .timeline::before {
         left: 20px;
     }
     .timeline-item {
-        width: 90%; /* Increased width for better reading */
+        width: 90%; 
         left: 0 !important;
         transform: none !important;
         margin-bottom: 2rem;
@@ -814,13 +804,11 @@ header .navbar ul li a.active {
         transform: translateX(-50%) !important;
     }
 
-    /* Show mobile menu icon */
     #menu-btn {
         display: inline-block;
         order: 2; 
     }
 
-    /* --- MOBILE NAV TRANSITION STYLES --- */
     header .navbar {
         position: absolute;
         top: 100%;
@@ -828,21 +816,18 @@ header .navbar ul li a.active {
         right: 0;
         background: var(--dark-bg);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        
-        /* Default state (Hidden with transition) */
         max-height: 0; 
         overflow: hidden;
         width: 100%; 
         display: block;
     }
     
-    /* JavaScript will add this class to show the menu with a smooth slide-down */
     header .navbar.nav-toggle {
-        max-height: 50vh; /* Slide down to a visible height */
+        max-height: 50vh;
     }
     
     header .navbar ul {
-        flex-direction: column; /* Stack links vertically on mobile */
+        flex-direction: column; 
         padding: 1rem 2rem;
         gap: 1.5rem;
     }
@@ -865,27 +850,23 @@ header .navbar ul li a.active {
         height: 300px;
     }
 
-    /* Projects grid for small mobile devices */
     .project-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
     
-    /* Contact Layout: Stack the card and image vertically on medium screens and smaller */
     .contact-layout-wrapper {
-        flex-direction: column; /* Stack the card and image vertically */
+        flex-direction: column;
         gap: 3rem;
     }
     
     .contact-card-new {
-        /* On small screens, the card stays centered and takes most width */
         width: 90%; 
     }
 
     .contact-image-wrapper {
-        /* Image now comes below the form on mobile */
-        max-width: 300px; /* Scale image down for mobile */
-        order: 2; /* Puts the image below the form on mobile */
+        max-width: 300px;
+        order: 2;
     }
 }
 
@@ -896,7 +877,6 @@ header .navbar ul li a.active {
     .section {
         padding: 6rem 3%;
     }
-    /* Smaller padding on the contact card for very small screens */
     .contact-card-new {
         padding: 30px 20px;
     }
