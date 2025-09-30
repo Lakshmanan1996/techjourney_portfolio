@@ -16,7 +16,7 @@
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" /> 
 </head>
 <body oncontextmenu="return false">
 
@@ -150,7 +150,7 @@
         <p class="subtitle">Visualizing infrastructure architecture and automation projects.</p>
         
         <div id="project-list" class="project-grid">
-            </div>
+             </div>
     </section>
     
     <section id="education" class="section" data-aos="fade-up">
@@ -177,42 +177,46 @@
         </div>
     </section>
 
-    <section id="contact" class="section contact" data-aos="fade-up">
-        <h2 class="section-title"><i class="fas fa-headset"></i> Get In <Span>Touch</Span></h2>
-        <p class="subtitle">Have a project or opportunity? Let's connect! Send me a message directly.</p>
+    <section class="section" id="contact">
+    
+        <h2 class="section-title contact-title-new" data-aos="fade-down">
+            <span class="icon-headset">🎧</span> Get In Touch
+        </h2>
+        <p class="subtitle contact-subtitle-new" data-aos="fade-down" data-aos-delay="100">
+            Have a project, opportunity, or question? Send me a message directly.
+        </p>
 
-        <div class="contact-content-wrapper" data-aos="fade-up" data-aos-delay="100">
-            
-            <div class="contact-form-box">
-                <form action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY"> 
-                    
-                    <div class="inputBox">
-                        <input type="text" name="name" placeholder="Full Name" required>
-                    </div>
-                    <div class="inputBox">
-                        <input type="email" name="email" placeholder="Email Address" required>
-                    </div>
-                    <div class="inputBox">
-                        <input type="text" name="subject" placeholder="Subject" required>
-                    </div>
-                    <div class="inputBox">
-                        <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
-                    </div>
-                    <input type="submit" value="Send Message" class="btn-primary">
-                </form>
-            </div>
+        <div class="contact-card-new" data-aos="fade-up" data-aos-delay="200">
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form-new" id="contact-form">
+                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY"> 
+                
+                <div class="input-group-new">
+                    <span class="input-icon-new">👤</span>
+                    <input type="text" name="name" id="name" placeholder="Name" required>
+                </div>
+                
+                <div class="input-group-new">
+                    <span class="input-icon-new">✉️</span>
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                </div>
+                
+                <div class="input-group-new">
+                    <span class="input-icon-new">📞</span>
+                    <input type="tel" name="phone" id="phone" placeholder="Phone">
+                </div>
 
-            <div class="contact-image-box" data-aos="fade-left" data-aos-delay="600">
-                <img 
-                    src="./assets/images/contact_illustration.png" 
-                    alt="Contact illustration" 
-                    class="contact-illustration floating-image"
-                >
-            </div>
+                <div class="input-group-new message-group-new">
+                    <span class="input-icon-new message-icon-new">💬</span>
+                    <textarea name="message" id="message" placeholder="Message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-button-new">
+                    Submit <span class="icon-send">🚀</span>
+                </button>
+            </form>
         </div>
+        
     </section>
-
     <section class="footer" data-aos="fade-up">
         <div class="box-container">
 
