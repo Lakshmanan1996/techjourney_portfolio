@@ -238,7 +238,7 @@ header .navbar ul li a.active {
 /* --- 4. ABOUT SECTION --- */
 
 #about {
-    /* Explicitly setting background to white (#fff) to prevent conflicts */
+    /* Explicitly setting background to snow white (#FFFAFA) to prevent conflicts */
     background-color: #FFFAFA;
     
 .about-container {
