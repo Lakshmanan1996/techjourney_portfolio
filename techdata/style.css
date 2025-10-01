@@ -134,7 +134,7 @@ header .navbar ul li a.active {
     /*color: var(--white);*/
     position: relative;
     z-index: 1;
-    overflow: hidden; /* Crucial to prevent video overflow from affecting scrollbars */
+    /*overflow: hidden; /* Crucial to prevent video overflow from affecting scrollbars */
 } 
 
 /* NEW: Background Video Styles */
