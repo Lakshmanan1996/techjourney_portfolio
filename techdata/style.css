@@ -130,11 +130,35 @@ header .navbar ul li a.active {
     justify-content: center;
     align-items: center;
     padding: 0 5%;
-    background: var(--dark-bg);
+    background: var(--dark-bg); /* Kept as fallback/overlay color */
     color: var(--white);
     position: relative;
     z-index: 1;
+    overflow: hidden; /* Crucial to prevent video overflow from affecting scrollbars */
 }
+
+/* NEW: Background Video Styles */
+.home-video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Centers the video */
+    transform: translateX(-50%) translateY(-50%); 
+    
+    /* Ensures the video always covers the entire area */
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    
+    /* Place it behind particles-js and content */
+    z-index: -2; 
+    
+    /* Applies a dark, semi-transparent overlay to ensure text is readable */
+    opacity: 0.2; 
+    filter: brightness(0.7);
+}
+/* END: Background Video Styles */
 
 .home .content-wrapper {
     display: flex;
@@ -143,6 +167,8 @@ header .navbar ul li a.active {
     width: 100%;
     max-width: 1100px;
     padding-top: 8rem;
+    position: relative; /* Ensure content stacks above the video */
+    z-index: 2; /* Ensures content is on top of the video (z-index: -2) */
 }
 
 .home .content {
@@ -272,7 +298,7 @@ header .navbar ul li a.active {
 /* NEW: Text content styling */
 .about-content-text {
     flex: 1; /* Text takes up remaining space */
-    max-width: 700px; 
+    max-width: 700px;    
 }
 
 /* STYLES FOR LIST (UL/LI) TO ENSURE SEPARATE LINES */
@@ -282,7 +308,7 @@ header .navbar ul li a.active {
 }
 
 .about-content-text li {
-    font-size: 1.7rem; 
+    font-size: 1.7rem;    
     margin-bottom: 3.5rem; /* Increased spacing for clear separation */
     position: relative;
     padding-left: 30px; /* Space for the custom icon */
@@ -294,8 +320,8 @@ header .navbar ul li a.active {
     /* Using a FontAwesome icon for a clean look */
     content: "\f058"; /* Unicode for fa-check-circle */
     font-family: "Font Awesome 6 Free";
-    font-weight: 900; 
-    color: var(--main-color); 
+    font-weight: 900;    
+    color: var(--main-color);    
     position: absolute;
     left: 0;
     font-size: 2rem;
