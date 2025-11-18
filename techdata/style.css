@@ -200,8 +200,8 @@ header .navbar ul li a.active {
 }
 
 .home .image-box .profile-image {
-    width: 350px; /* Adjusted size for better fit */
-    height: 350px;
+    width: 550px; /* Adjusted size for better fit */
+    height: 550px;
     object-fit: cover;
     border-radius: 50%;
     transition: transform 0.3s;
