@@ -1,20 +1,14 @@
-# =========================================================
-#  Static files like HTML, Angular, CSS front end
-# =========================================================
-# Build stage
-FROM node:20 AS build
-
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build --prod
-
-# Runtime stage - Nginx
+# Use NGINX
 FROM nginx:alpine
 
-COPY --from=build /app/dist/web-application /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Remove default files
+RUN rm -rf /usr/share/nginx/html/*
 
+# Copy static files
+COPY . /usr/share/nginx/html
+
+# Expose port
 EXPOSE 80
+
+# Start nginx
 CMD ["nginx", "-g", "daemon off;"]
