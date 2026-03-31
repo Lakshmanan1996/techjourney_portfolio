@@ -1,63 +1,126 @@
 pipeline {
-    agent any
+    agent none
+
+    options {
+        timestamps()
+        disableConcurrentBuilds()
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+    }
 
     environment {
-        DOCKERHUB_CREDS = credentials('dockerhub-creds')
+        DOCKERHUB_USER = "lakshvar96"
+        IMAGE = "portfolio"
+        GIT_REPO = "https://github.com/Lakshmanan1996/techjourney_portfolio.git"
     }
 
     stages {
 
-        stage('Clean Workspace') {
-            steps {
-                cleanWs()
-            }
-        }
-
+        /* ===================== CHECKOUT ===================== */
         stage('Checkout Code') {
+            agent { label 'workernode1' }
             steps {
-                git 'https://github.com/Lakshmanan1996/techjourney_portfolio.git'
+                git branch: 'master', url: "${GIT_REPO}"
             }
         }
 
-        stage('Build Docker Image') {
+        /* ===================== STASH ===================== */
+        stage('Stash Source') {
+            agent { label 'workernode1' }
             steps {
+                stash includes: '**/*', name: 'source-code'
+            }
+        }
+
+        /* ===================== BUILD ===================== */
+        stage('Build') {
+            steps {
+                echo "No build needed for HTML project"
+            }
+        }
+
+        /* ===================== SONARQUBE ===================== */
+       stage('SonarQube Analysis') {
+            agent { label 'workernode2' }
+
+            steps {
+                unstash 'source-code'
+
                 script {
-                    sh 'docker build -t portfolio-site .'
+                    def scannerHome = tool 'SonarQubeScanner'
+
+                    withSonarQubeEnv('sonarqube') {
+                        sh """
+                        ${scannerHome}/bin/sonar-scanner \
+                        -Dsonar.projectKey=portfolio \
+                        -Dsonar.sources=. \
+                    """
+                }
+            }
+        }
+    }
+
+        /* ===================== QUALITY GATE ===================== */
+        stage('Quality Gate') {
+            agent { label 'workernode2' }
+            steps {
+                timeout(time: 2, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }
 
-        stage('Docker Login') {
+        /* ===================== DOCKER BUILD ===================== */
+        stage('Docker Build') {
+            agent { label 'workernode3' }
+
             steps {
-                sh '''
-                echo $DOCKERHUB_CREDS_PSW | docker login \
-                -u $DOCKERHUB_CREDS_USR --password-stdin
-                '''
+                unstash 'source-code'
+
+                sh """
+                docker build -t ${DOCKERHUB_USER}/${IMAGE}:${BUILD_NUMBER} .
+                docker tag ${DOCKERHUB_USER}/${IMAGE}:${BUILD_NUMBER} ${DOCKERHUB_USER}/${IMAGE}:latest
+                """
             }
         }
 
-        stage('Push Image to DockerHub') {
+        /* ===================== TRIVY ===================== */
+        stage('Trivy Scan') {
+            agent { label 'workernode3' }
+
             steps {
-                sh '''
-                docker tag portfolio-site lakshmanan1996/portfolio-site:latest
-                docker push lakshmanan1996/portfolio-site:latest
-                '''
+                sh """
+                trivy image --exit-code 0 --severity HIGH,CRITICAL ${DOCKERHUB_USER}/${IMAGE}:${BUILD_NUMBER}
+                """
             }
         }
 
-        stage('Deploy to EC2') {
+        /* ===================== PUSH ===================== */
+        stage('Push Image') {
+            agent { label 'workernode3' }
+
             steps {
-                sshagent(['ec2-ssh']) {
-                    sh '''
-                    ssh -o StrictHostKeyChecking=no ec2-user@YOUR_EC2_IP "
-                        sudo docker pull lakshmanan1996/portfolio-site:latest &&
-                        sudo docker stop portfolio || true &&
-                        sudo docker rm portfolio || true &&
-                        sudo docker run -d --name portfolio -p 80:80 lakshmanan1996/portfolio-site:latest
-                    "
-                    '''
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+
+                    sh """
+                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                    docker push ${DOCKERHUB_USER}/${IMAGE}:${BUILD_NUMBER}
+                    docker push ${DOCKERHUB_USER}/${IMAGE}:latest
+                    """
                 }
             }
+        }
+    }
+
+    post {
+        success {
+            echo "✅ CI/CD Pipeline SUCCESS"
+        }
+        failure {
+            echo "❌ CI/CD Pipeline FAILED"
         }
     }
 }
